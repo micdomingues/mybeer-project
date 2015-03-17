@@ -1,0 +1,40 @@
+//http://bootsnipp.com/snippets/featured/collapsible-tree-menu-with-accordion
+
+http://bootsnipp.com/snippets/featured/dropdown-userlist-plus-administration-v23
+
+//http://bootsnipp.com/snippets/featured/navigation-sidebar-with-toggle
+
+(apenas a parte da direita (chat)
+http://bootsnipp.com/snippets/featured/admin-navigation
+
+(usar!!)
+http://bootsnipp.com/snippets/featured/responsive-navigation-menu
+
+(tirar o verificador de sequencia)
+http://bootsnipp.com/snippets/featured/password-strength-meter
+
+(nao)
+http://bootsnipp.com/snippets/featured/accordion-list-group-menu
+
+(!!! maybe (ja tem outro))
+http://bootsnipp.com/snippets/featured/simple-comment-block
+
+(ver onde q da pra usar.. interessante)
+http://bootsnipp.com/snippets/featured/inbox-by-gmail
+
+(usar)
+http://bootsnipp.com/snippets/featured/ui-comments
+
+
+(USAR_SUSUASUASUUA)
+http://bootsnipp.com/snippets/featured/collapsible-chat-widget
+
+(TOPPPP) e USAR
+http://bootsnipp.com/snippets/featured/event-list
+
+(LISTA DE FAVORITOS) Usar
+http://bootsnipp.com/snippets/featured/contact-list
+(talvez para o celular)
+http://bootsnipp.com/snippets/featured/full-clickable-panel-heading
+
+http://bootsnipp.com/snippets/featured/collapsible-panel
