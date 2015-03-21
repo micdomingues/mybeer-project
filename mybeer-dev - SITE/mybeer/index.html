@@ -12,8 +12,15 @@
     <title>MyBeer - Tudo sobre o seu bar em um só lugar!!!</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+<!--    <link href="css/bootstrap.css" rel="stylesheet">-->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    
     <!-- Custom CSS -->
     <link href="css/sb-admin.css" rel="stylesheet">
 
@@ -25,6 +32,11 @@
 
     <!-- DatePicker Css -->
     <link href="css/datepicker3.css" rel="stylesheet" type="text/css">
+    
+    <!-- MenuSide Css -->
+    <link href="css/navigatorMenu.css" rel="stylesheet" type="text/css">
+    
+    
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -37,12 +49,78 @@
 
 <body ng-app="app">
 
-    <div id="wrapper">
+    <div id="">
 
         <!-- Navigation -->
-        <div ng-include="'navegation.html'"></div>
+<!--        <div ng-include="'navegation.html'"></div>-->
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
-        <div id="page-wrapper">
+        <div class="nav-side-menu">
+            <div class="brand">Brand Logo</div>
+            <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+
+            <div class="menu-list">
+
+                <ul id="menu-content" class="menu-content collapse out">
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-dashboard fa-lg"></i> Dashboard
+                        </a>
+                    </li>
+
+                    <li  data-toggle="collapse" data-target="#products" class="collapsed active">
+                        <a href="#"><i class="fa fa-gift fa-lg"></i> UI Elements <span class="arrow"></span></a>
+                    </li>
+                    <ul class="sub-menu collapse" id="products">
+                        <li class="active"><a href="#">CSS3 Animation</a></li>
+                        <li><a href="#">General</a></li>
+                        <li><a href="#">Buttons</a></li>
+                        <li><a href="#">Tabs & Accordions</a></li>
+                        <li><a href="#">Typography</a></li>
+                        <li><a href="#">FontAwesome</a></li>
+                        <li><a href="#">Slider</a></li>
+                        <li><a href="#">Panels</a></li>
+                        <li><a href="#">Widgets</a></li>
+                        <li><a href="#">Bootstrap Model</a></li>
+                    </ul>
+
+
+                    <li data-toggle="collapse" data-target="#service" class="collapsed">
+                        <a href="#"><i class="fa fa-globe fa-lg"></i> Services <span class="arrow"></span></a>
+                    </li>  
+                    <ul class="sub-menu collapse" id="service">
+                        <li>New Service 1</li>
+                        <li>New Service 2</li>
+                        <li>New Service 3</li>
+                    </ul>
+
+
+                    <li data-toggle="collapse" data-target="#new" class="collapsed">
+                        <a href="#"><i class="fa fa-car fa-lg"></i> New <span class="arrow"></span></a>
+                    </li>
+                    <ul class="sub-menu collapse" id="new">
+                        <li>New New 1</li>
+                        <li>New New 2</li>
+                        <li>New New 3</li>
+                    </ul>
+
+
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-user fa-lg"></i> Profile
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-users fa-lg"></i> Users
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="page-wrapper" style="padding-left: 300px;">
 
             <div class="container-fluid">
 
