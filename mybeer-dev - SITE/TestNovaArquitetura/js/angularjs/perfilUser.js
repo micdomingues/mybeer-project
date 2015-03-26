@@ -1,4 +1,4 @@
-angular.module('perfilApp', ['ui.bootstrap']).controller('perfilController', function ($scope) {
+PageApp.controller('perfilController', function ($scope) {
 
     $scope.userName = "meuNome";
     $scope.userAge = "userAge";
