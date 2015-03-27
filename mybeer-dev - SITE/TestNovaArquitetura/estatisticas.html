@@ -1,0 +1,50 @@
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <!-- Page Heading -->
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                            MyBeer
+                        </h1>
+                <ol class="breadcrumb">
+                    <li class="active">
+                        <i class="fa fa-fw fa-bar-chart-o"></i> Estatísticas
+                    </li>
+                </ol>
+            </div>
+            <div class="col-lg-12 col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            Selecione o Painel Desejado
+                        </div>
+                    </div>
+                    <div ng-controller="AccordionDemoCtrl">
+                        <label class="checkbox">
+                            <input type="checkbox" ng-model="oneAtATime"> Abrir um a cada vez
+                        </label>
+                        <accordion close-others="oneAtATime">
+                            <accordion-group heading="Resumo" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
+                                Aqui ficara um resumo das estatisticas do Bar(se der pra fazer).
+                            </accordion-group>
+                            <accordion-group heading="{{group.title}}" ng-repeat="group in groups">
+                                {{group.content}}
+                            </accordion-group>
+
+                        </accordion>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+    <!-- /.container-fluid -->
+
+</div>
+<!-- /#page-wrapper -->
