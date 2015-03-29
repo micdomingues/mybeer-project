@@ -1,0 +1,42 @@
+.fixSpace {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.fixSpaceLeft {
+    padding-left: 0;
+}
+
+.backColor {
+    background-color: rgb(250, 250, 250);
+}
+
+.nav-perfil {
+    list-style: none;
+    text-decoration: none;
+    padding-top: 20px;
+    display: inline-flex;
+    position: relative;
+}
+
+.nav-perfil-li{
+    display: inline-flex;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-left: 5px;
+}
+
+.nav-perfil-li a:hover{
+    text-decoration: none; 
+}
+
+.menu-top {
+    padding-top: 20px;
+    padding-bottom: 10px;
+    margin-left: 5px;
+    float: right;
+}
+
+li > a{
+    display: block;
+}
