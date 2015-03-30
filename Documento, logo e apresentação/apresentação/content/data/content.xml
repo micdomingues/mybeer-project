@@ -1,0 +1,2268 @@
+<zuiprezi>
+  <version>10</version>
+  <zui-table>
+    <settings>
+      
+      <autoplay>
+        
+        <delay>4000</delay>
+        
+      </autoplay>
+      
+      <bounds x="-75812.18387127183" y="-42779.247283367564" width="151624.36774254366" height="85558.49456673514"/>
+      <aspectratio>off</aspectratio>
+      <languages>
+        <language>es</language>
+      </languages>
+      <mode type="normal"/>
+    </settings>
+    <object id="182_45341393" type="button" x="2.6539022919072497e-12" y="5.0098758208422074e-12" r="-0.29966533001493195" s="141.51744219145408" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>1069.2771084337348</w>
+        <h>600</h>
+      </size>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="0_24309637" type="button" x="-971.5405851055582" y="55.143207298800355" r="-0.29966533001493206" s="125.00964965618616" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>1069.2771084337348</w>
+        <h>600</h>
+      </size>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="262_45341393" type="shape" x="-34340.72289275507" y="-10329.323479058748" r="5.896319560976067" s="21.711672949008147" class="poly3 poly5">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="257_45341393" type="shape" x="-36436.07559165423" y="-6397.612136200667" r="5.896319560975881" s="67.20550455488656" class="poly3 poly5">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="263_45341393" type="shape" x="-30549.839501103816" y="-15620.822572967025" r="5.89631956097574" s="108.04660171427078" class="poly3 poly5">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="185_45341393" type="shape" x="-38459.142878811195" y="14253.995857614034" r="61.765543994340064" s="65.668929008846" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="186_45341393" type="shape" x="-37187.61654453896" y="17852.365985550798" r="61.76554399434005" s="14.867001413245106" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="187_45341393" type="shape" x="-39534.56974324655" y="6507.292784756436" r="61.7655439943403" s="47.745372089760906" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="190_45341393" type="shape" x="-39263.26836284504" y="10044.569897858391" r="61.765543994340206" s="24.30085218920567" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="194_45341393" type="shape" x="-38768.71526145455" y="168.81866571814933" r="61.76554399433997" s="93.8686490277897" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="136_45341393" type="shape" x="-35171.60896667002" y="8821.292432394977" r="-0.33881271341752817" s="66.5122819408404" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="139_45341393" type="shape" x="-43185.449897626386" y="15004.531763341143" r="-0.33881271341753794" s="34.64442229136028" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="140_45341393" type="shape" x="-34594.850364893886" y="3771.7554391075246" r="-0.33881271341753794" s="34.64442229136028" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="141_45341393" type="shape" x="-42787.35881294899" y="9735.1540474036" r="61.7655439943403" s="47.745372089760906" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="144_45341393" type="shape" x="-42986.42521304126" y="6580.543966142736" r="61.76554399434005" s="14.867001413245106" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="146_45341393" type="shape" x="-33528.14313170883" y="942.1925895144911" r="61.76554399434005" s="14.867001413245106" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="147_45341393" type="shape" x="-43645.53022592005" y="3500.1457720914486" r="5.896319560976067" s="21.711672949008147" class="poly3 poly5">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="151_45341393" type="shape" x="-35561.64895846853" y="-13151.558361191755" r="61.76554399434005" s="14.867001413245106" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="152_45341393" type="shape" x="-29615.854294187346" y="-8409.798379614429" r="5.896319560975881" s="67.20550455488656" class="poly3 poly5">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="154_45341393" type="shape" x="-24971.458306284618" y="-12068.832373263296" r="-0.33881271341753794" s="34.64442229136028" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="155_45341393" type="shape" x="-37530.91290422615" y="-10029.569806517691" r="61.76554399434005" s="14.867001413245106" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="156_45341393" type="shape" x="-39201.28524129534" y="-11985.735083032012" r="-0.33881271341753794" s="34.64442229136028" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="157_45341393" type="shape" x="-31370.90911075933" y="-22874.775628397187" r="-0.33881271341752817" s="66.5122819408404" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="158_45341393" type="shape" x="-36848.73921589658" y="-16237.755010736097" r="61.7655439943403" s="47.745372089760906" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="159_45341393" type="shape" x="-40553.11796581121" y="-5523.335578276666" r="61.765543994340206" s="24.30085218920567" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="160_45341393" type="shape" x="-24842.76596674468" y="-15330.067290784831" r="61.765543994340206" s="24.30085218920567" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="180_45341393" type="persistentgroup" x="-34415.85959073849" y="-3396.384355401653" r="-0.29966533001493306" s="117.685240071609">
+      <m o="262_45341393"/>
+      <m o="257_45341393"/>
+      <m o="263_45341393"/>
+      <m o="185_45341393"/>
+      <m o="186_45341393"/>
+      <m o="187_45341393"/>
+      <m o="190_45341393"/>
+      <m o="194_45341393"/>
+      <m o="136_45341393"/>
+      <m o="139_45341393"/>
+      <m o="140_45341393"/>
+      <m o="141_45341393"/>
+      <m o="144_45341393"/>
+      <m o="146_45341393"/>
+      <m o="147_45341393"/>
+      <m o="151_45341393"/>
+      <m o="152_45341393"/>
+      <m o="154_45341393"/>
+      <m o="155_45341393"/>
+      <m o="156_45341393"/>
+      <m o="157_45341393"/>
+      <m o="158_45341393"/>
+      <m o="159_45341393"/>
+      <m o="160_45341393"/>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="110" type="text" x="-13992.95" y="31697.55" r="-0.29966533001493023" s="14.337230763939411" class="strong">
+      <height>65.3671875</height>
+      <width>220.4993900181616</width>
+      <p align="center">
+        <text><![CDATA[Interface do sistema]]></text>
+      </p>
+      <layout>
+        <layout-element role="title"/>
+      </layout>
+    </object>
+    <object id="111" type="textwithplaceholder" x="-14224.437827597492" y="32703.546970720818" r="-0.2996653300149314" s="8.272509786450389" class="body">
+      <placeholder text="Clique para adicionar texto" x="-195.45" y="-16.3" align="left" width="390.9237784827681"/>
+      <layout>
+        <layout-element role="body"/>
+      </layout>
+    </object>
+    <object id="126" type="button" x="-34744.99066922151" y="23411.50274589" r="-0.29966533001492923" s="11.582123150156216" class="circle">
+      <type>circle</type>
+      <size>
+        <w>800</w>
+        <h>800</h>
+      </size>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="127" type="text" x="-34801.1" y="20685.45" r="-0.29966533001493045" s="25.533632964894096" class="strong">
+      <height>65.3671875</height>
+      <width>220.4993900181616</width>
+      <p align="center">
+        <text><![CDATA[Caso de uso do sistema]]></text>
+      </p>
+      <layout>
+        <layout-element role="title"/>
+      </layout>
+    </object>
+    <object id="128" type="textwithplaceholder" x="-35082.53215897749" y="22439.69028391227" r="-0.29966533001493256" s="14.73277734477082" class="body">
+      <placeholder text="Clique para adicionar texto" x="-195.45" y="-16.3" align="left" width="390.9237784827681"/>
+      <layout>
+        <layout-element role="body"/>
+      </layout>
+    </object>
+    <object id="129" type="button" x="-20927.640605535864" y="-23924.41008417696" r="-0.29966533001493195" s="16.895321118846294" class="circle">
+      <type>circle</type>
+      <size>
+        <w>800</w>
+        <h>800</h>
+      </size>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="130" type="text" x="-20804.3" y="-24419.85" r="-0.29966533001493334" s="73.00405016009341" class="strong">
+      <height>32.68359375</height>
+      <width>220.4993900181616</width>
+      <p align="center">
+        <text><![CDATA[Dúvidas?]]></text>
+      </p>
+      <layout>
+        <layout-element role="title"/>
+      </layout>
+    </object>
+    <object id="12_45341393" type="button" x="-17533.1" y="12387.8" r="-0.29966533001493073" s="3.6950834752823365" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>1114.777618364419</w>
+        <h>600</h>
+      </size>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="164" type="button" x="-17587.125586091006" y="12373.00329011707" r="-0.29966533001493095" s="2.531093939616845" class="circle">
+      <type>circle</type>
+      <size>
+        <w>800</w>
+        <h>800</h>
+      </size>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="165" type="text" x="-17595.76073330244" y="11740.47939023018" r="-0.2996653300149309" s="5.57998070094531" class="strong">
+      <height>65.3671875</height>
+      <width>220.4993900181616</width>
+      <p align="center">
+        <text><![CDATA[Como surgiu a ideia]]></text>
+      </p>
+      <layout>
+        <layout-element role="title"/>
+      </layout>
+    </object>
+    <object id="10_74148443" type="image" x="-17597.556606898175" y="12500.246163327918" r="-0.2996653300149306" s="1.2225031309608532">
+      <source w="848" h="942">3223841647<url>3223841647.png</url></source>
+      <sourceUrl>logo_beer2.png</sourceUrl>
+    <resource><id>3223841647</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/9/8/a/695558fb630d5edb50b9ad2aba89abd082845.png</url></resource></object>
+    <object id="166" type="textwithplaceholder" x="-17663.116981169424" y="12086.493052826901" r="-0.29966533001493023" s="3.2196207005941657" class="body">
+      <placeholder text="Clique para adicionar texto" x="-195.45" y="-16.3" align="left" width="390.9237784827681"/>
+      <layout>
+        <layout-element role="body"/>
+      </layout>
+    </object>
+    <object id="170" type="button" x="-5916.921309507349" y="5344.777833829307" r="-0.29966533001493156" s="2.4983369484953344" class="circle">
+      <type>circle</type>
+      <size>
+        <w>800</w>
+        <h>800</h>
+      </size>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="171" type="text" x="-5925" y="4670.45" r="-0.29966533001492945" s="5.507765531283679" class="strong">
+      <height>65.3671875</height>
+      <width>220.4993900181616</width>
+      <p align="center">
+        <text><![CDATA[Principais Funções]]></text>
+      </p>
+      <layout>
+        <layout-element role="title"/>
+      </layout>
+    </object>
+    <object id="172" type="text" x="-6071.55" y="4925.95" r="-0.29966533001493134" s="3.1779529121911865" class="body">
+      <height>32.68359375</height>
+      <width>390.9237784827681</width>
+      <p>
+        <text weight="bold"><![CDATA[>]]></text>
+        <text><![CDATA[Para o Cliente Comerciante]]></text>
+      </p>
+      <layout>
+        <layout-element role="body"/>
+      </layout>
+    </object>
+    <object id="187" type="button" x="-12406.73705620556" y="14670.903934036603" r="-0.29966533001492973" s="0.4842846249816461" class="circle">
+      <type>circle</type>
+      <size>
+        <w>800</w>
+        <h>800</h>
+      </size>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="188" type="text" x="-12407.422584873017" y="14551.87803380427" r="-0.2996653300149328" s="1.0676406824992144" class="strong">
+      <height>32.68359375</height>
+      <width>220.4993900181616</width>
+      <p align="center">
+        <text><![CDATA[Integrantes]]></text>
+      </p>
+      <layout>
+        <layout-element role="title"/>
+      </layout>
+    </object>
+    <object id="189" type="textwithplaceholder" x="-12432.845110310096" y="14622.23309191994" r="-0.29966533001493106" s="0.6160232850964132" class="body">
+      <placeholder text="Clique para adicionar texto" x="-195.45" y="-16.3" align="left" width="390.9237784827681"/>
+      <layout>
+        <layout-element role="body"/>
+      </layout>
+    </object>
+    <object id="14_45341393" type="shape" x="-13147.833342549146" y="12919.192285002582" r="62.54033669669519" s="5.3981291920082874" class="poly1">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="15_45341393" type="shape" x="-12927.753286511352" y="12448.591889951786" r="59.63360293469189" s="3.9336618575247417" class="poly1">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="16_45341393" type="shape" x="-12135.51895845179" y="11803.25864401582" r="62.54033669669469" s="3.864953189593264" class="poly1">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="17_45341393" type="shape" x="-11707.072097245127" y="11704.314669122736" r="73.31938833971522" s="5.432663383970274" class="poly1">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="21_45341393" type="shape" x="701.5629820645344" y="19967.885277922287" r="-7.604342093122724" s="24.001069288538034" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="26_45341393" type="shape" x="-1205.2013700930297" y="24604.21525039282" r="1.685207365226289" s="13.184210001768054" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="27_45341393" type="shape" x="726.5891868441996" y="14570.315973430726" r="7.783157224185555e-17" s="5.555180692551752" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="30_45341393" type="shape" x="-12720.062764924023" y="5037.258145851781" r="5.510613091765145e-17" s="16.338110008883724" class="circle poly3">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="31_45341393" type="shape" x="-8736.570702974323" y="4528.628802444176" r="5.510613091765147e-17" s="15.295169245692133" class="circle poly3">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="33_45341393" type="shape" x="-10590.507550660312" y="4526.939537566011" r="5.5106130917651406e-17" s="9.41155592612494" class="circle poly3">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="37_45341393" type="shape" x="-13889.923851350088" y="5687.993703213962" r="3.605103272898477" s="5.941519585517052" class="circle poly3">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="40_45341393" type="shape" x="-9766.000684174714" y="4498.527602566027" r="-5.741420646293045" s="5.0950352504458625" class="circle poly3">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="44_45341393" type="shape" x="-16353.64811170025" y="16297.560338281564" r="1.7560317923260547" s="4.9812019429851695" class="poly2">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="46_45341393" type="shape" x="-15678.45476859578" y="16969.549682175326" r="10.21328288677902" s="14.399788352334973" class="poly2">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="47_45341393" type="shape" x="-16865.386998282105" y="15639.227380286382" r="10.415255931831746" s="10.113039081036794" class="poly2">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="48_45341393" type="shape" x="-10711.36033961048" y="17291.351473144845" r="51.526089025180966" s="2.716438734522056" class="poly2">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="52_45341393" type="shape" x="-13082.39071550863" y="14006.700042095035" r="73.31938833971537" s="4.24607902309679" class="poly1">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="53_45341393" type="shape" x="-10711.086085397756" y="11846.421644525815" r="57.43746571999869" s="8.200795352164283" class="poly1">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="54_45341393" type="shape" x="-11287.001683376247" y="11698.560666690288" r="58.23373586761934" s="3.563958564037351" class="poly1">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="55_45341393" type="shape" x="-13214.617842409743" y="13500.994903270035" r="38.40727129156439" s="5.355568568630376" class="poly1">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="56_45341393" type="shape" x="-9791.49423993677" y="16383.790047462271" r="58.2337358676192" s="3.5469537156584647" class="poly1">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="57_45341393" type="shape" x="-12551.378409234094" y="12077.530068100566" r="58.23373586761937" s="7.465041108758728" class="poly1">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="58_45341393" type="shape" x="-12827.108702603484" y="14336.720408991518" r="69.3567924677715" s="3.239040238116772" class="poly1">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="59_45341393" type="shape" x="-9453.924571902471" y="13048.977676841449" r="51.52608902518092" s="8.219607355671199" class="poly1">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="60_45341393" type="shape" x="-9425.824252355796" y="15851.193666177453" r="51.52608902518077" s="7.496869269604825" class="poly1">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="0_45341393" type="shape" x="-10188.115641709372" y="12167.563067357569" r="58.23373586761934" s="5.072006000560234" class="poly1">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="61_45341393" type="shape" x="-10237.04701075966" y="16888.211122485052" r="58.23373586761934" s="10.53359255658028" class="poly1">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="63_45341393" type="shape" x="-14771.37151541912" y="17549.187208306674" r="1.75603179232616" s="8.153187768096158" class="poly2">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="64_45341393" type="shape" x="-17509.190499458055" y="14400.850711418954" r="1.7560317923260809" s="18.142218624874495" class="poly2">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="65_45341393" type="shape" x="-11518.590106950587" y="17727.44111867132" r="2.715830448159782" s="5.970899626999801" class="poly2">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="70_45341393" type="shape" x="-13089.672858316657" y="18023.32425178422" r="10.213282886779028" s="4.275966608804671" class="poly2">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="72_45341393" type="shape" x="-9841.64708122745" y="12510.211398349782" r="58.23373586761934" s="3.563958564037351" class="poly1">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="73_45341393" type="shape" x="-7566.843750728574" y="4769.210456667765" r="3.6051032728984778" s="9.990516667512855" class="circle poly3">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="99_45341393" type="shape" x="-14822.072050636178" y="6265.466204074077" r="-5.74142064629304" s="12.44130730363655" class="poly2">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="98_45341393" type="shape" x="-16369.736711061723" y="7779.462901482077" r="-5.74142064629304" s="30.34083418360369" class="poly2">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="78_45341393" type="shape" x="-9185.882513082091" y="13728.437363951058" r="9.423477290598093" s="3.5639585640373768" class="poly1">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="79_45341393" type="shape" x="-9183.736974960362" y="15162.172982279151" r="9.42347729059809" s="6.187054352256405" class="poly1">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="81_45341393" type="shape" x="-12304.95452302315" y="17946.38146448998" r="2.7158304481597884" s="12.996728861453356" class="poly1">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="84_45341393" type="shape" x="-9109.80690776311" y="14392.109301674736" r="9.423477290598097" s="10.60314648689731" class="poly1">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="86_45341393" type="shape" x="-11102.42254373486" y="17527.375636396027" r="9.423477290598093" s="3.5639585640373768" class="poly1">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="90_45341393" type="shape" x="-17643.207698223658" y="10349.309724400764" r="-5.741420646293039" s="17.90275772238212" class="poly2">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="95_45341393" type="shape" x="-17278.185647013062" y="9215.119707132608" r="5.510613091765146e-17" s="4.330460379994389" class="circle poly3">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="104_45341393" type="shape" x="-13919.733283255102" y="17892.32458073716" r="1.7560317923261297" s="10.499668762349987" class="poly2">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="108_45341393" type="shape" x="-2742.577636235538" y="7815.429356749412" r="-0.29966533001493156" s="29.50000215081707" class="circle poly3">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="114_45341393" type="shape" x="-4241.26329489139" y="6472.272275216688" r="5.510613091765147e-17" s="15.558379940917542" class="circle poly3">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="125_45341393" type="shape" x="221.24292818222696" y="12657.359118113614" r="7.783157224185535e-17" s="36.532328082506424" class="circle poly3">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="120_45341393" type="shape" x="-11545.683292044108" y="4705.267478561408" r="-5.741420646293011" s="8.623665605533676" class="poly2">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="124_45341393" type="shape" x="-1471.136023940849" y="9277.867558932798" r="7.783157224185535e-17" s="8.638587192140887" class="circle poly3">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="126_45341393" type="shape" x="1017.118502509915" y="16734.737501995758" r="7.783157224185546e-17" s="42.29059241521075" class="circle poly3">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="134_45341393" type="shape" x="-755.5762678977641" y="10545.83566257749" r="7.783157224185557e-17" s="15.558379940917517" class="circle poly3">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="142_45341393" type="shape" x="-406.6825573917952" y="23153.246313075226" r="1.6852073652263375" s="15.536514144269066" class="circle poly3">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="143_45341393" type="shape" x="-3506.1473260009907" y="27692.653274673172" r="-7.60434209312273" s="19.54786971123941" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="145_45341393" type="shape" x="202.9197309908265" y="21706.695921094593" r="-7.6043420931227255" s="11.320313740476545" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="148_45341393" type="shape" x="-8598.00556629557" y="31794.813481267756" r="-7.604342093122805" s="43.57498332542632" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="149_45341393" type="shape" x="-5600.367566282326" y="29588.061762011617" r="-7.604342093122711" s="34.595732910094355" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="150_45341393" type="shape" x="-2300.5909012498237" y="26110.411498971094" r="-7.60434209312273" s="19.54786971123941" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="153_45341393" type="shape" x="-19485.772996628024" y="33153.494288406524" r="-0.33881271341753794" s="34.64442229136028" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="164_45341393" type="shape" x="-24023.09155610505" y="31835.104589097795" r="-0.33881271341753083" s="63.98150266757954" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="171_45341393" type="shape" x="-29039.771976391763" y="28757.40152844861" r="-0.3388127134175287" s="66.51228194084044" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="2_45341393" type="shape" x="-11032.479002311327" y="-27192.71937804008" r="5.896319560975888" s="67.20550455488662" class="poly3 poly5">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="3_45341393" type="shape" x="-3008.032916428941" y="-28608.251764251952" r="5.89631956097574" s="108.04660171427098" class="poly3 poly5">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="4_45341393" type="shape" x="24559.82502760314" y="-18145.738932498338" r="5.896319560976115" s="222.0740441083366" class="poly3 poly5">
+      <style borderThickness="NaN"/>
+      <style borderThickness="NaN"/>
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="5_45341393" type="shape" x="4287.749406787836" y="-27790.702267823926" r="61.765543994340305" s="47.745372089760934" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="6_45341393" type="shape" x="11899.907703285122" y="-25792.67822770628" r="5.8963195609758845" s="128.60660935554054" class="poly3 poly5">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="49_45341393" type="shape" x="-12844.051215835832" y="13717.524936927426" r="69.3567924677715" s="3.239040238116772" class="poly1">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="50_45341393" type="shape" x="-13554.966888587778" y="13262.533900505316" r="69.3567924677715" s="3.239040238116772" class="poly1">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="51_45341393" type="shape" x="-13398.36687476834" y="12345.752199996605" r="73.31938833971537" s="4.24607902309679" class="poly1">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="62_45341393" type="shape" x="-11210.01308548924" y="11167.49770070786" r="62.54033669669519" s="5.3981291920082874" class="poly1">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="66_45341393" type="shape" x="-8711.254207549937" y="13660.374692139823" r="62.54033669669519" s="5.3981291920082874" class="poly1">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="67_45341393" type="shape" x="-9307.285373626688" y="17861.50170112798" r="58.233735867619316" s="7.465041108758736" class="poly1">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="68_45341393" type="shape" x="-11377.918001744769" y="12165.416062612108" r="73.31938833971522" s="5.432663383970271" class="poly1">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="69_45341393" type="shape" x="-10607.307438269434" y="12427.389447477855" r="58.23373586761934" s="3.563958564037351" class="poly1">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="71_45341393" type="shape" x="-9633.81593284954" y="12164.663972150644" r="58.23373586761934" s="5.072006000560234" class="poly1">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="74_45341393" type="shape" x="-8536.530035959562" y="13044.17952512046" r="51.52608902518092" s="8.219607355671199" class="poly1">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="75_45341393" type="shape" x="-8379.74107227476" y="15389.774471818127" r="9.423477290598093" s="10.60314648689731" class="poly1">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="76_45341393" type="shape" x="-9194.027771730098" y="12427.22258544928" r="58.23373586761934" s="3.563958564037351" class="poly1">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="77_45341393" type="shape" x="-9057.284339311307" y="16386.98367010092" r="9.4234772905981" s="6.187054352256405" class="poly1">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="80_45341393" type="shape" x="-9555.86808069913" y="14875.42226872979" r="9.423477290598093" s="3.5639585640373768" class="poly1">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="82_45341393" type="shape" x="-10189.151194655682" y="15765.964915244782" r="73.31938833971522" s="5.432663383970271" class="poly1">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="83_45341393" type="shape" x="-10451.625165607164" y="18475.88769034817" r="1.75603179232616" s="8.153187768096158" class="poly2">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="85_45341393" type="shape" x="-10156.738245604609" y="17830.17335526266" r="73.31938833971522" s="5.432663383970271" class="poly1">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="87_45341393" type="shape" x="-12938.495124010373" y="18810.946643730626" r="9.4234772905981" s="6.187054352256405" class="poly1">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="88_45341393" type="shape" x="-15441.008397592652" y="15850.897687790422" r="1.75603179232616" s="8.153187768096158" class="poly2">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="89_45341393" type="shape" x="-15820.61951260514" y="17997.5359699253" r="1.75603179232616" s="8.153187768096158" class="poly2">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="91_45341393" type="shape" x="-18325.21856154464" y="15508.204796600585" r="10.415255931831746" s="10.113039081036794" class="poly2">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="92_45341393" type="shape" x="-19235.28406540314" y="10926.090060864211" r="1.7560317923260809" s="18.142218624874495" class="poly2">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="93_45341393" type="shape" x="-18683.304474870693" y="13678.729515283292" r="1.7560317923260547" s="4.9812019429851695" class="poly2">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="94_45341393" type="shape" x="-14527.18849809117" y="7566.239684453735" r="10.415255931831746" s="10.113039081036794" class="poly2">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="96_45341393" type="shape" x="-16071.538288077689" y="5475.166457834975" r="10.21328288677902" s="14.399788352334973" class="poly2">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="97_45341393" type="shape" x="-18157.397076303405" y="8362.171560765617" r="10.415255931831746" s="10.113039081036794" class="poly2">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="100_45341393" type="shape" x="-17179.460442321248" y="6187.959328408415" r="1.7560317923260547" s="4.9812019429851695" class="poly2">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="101_45341393" type="shape" x="-10247.344327121882" y="5382.683178496222" r="-5.741420646293045" s="5.0950352504458625" class="circle poly3">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="102_45341393" type="shape" x="-3925.1923573854256" y="5125.924232023491" r="3.6051032728984778" s="9.990516667512855" class="circle poly3">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="103_45341393" type="shape" x="-9866.523462402214" y="3346.9664298578546" r="-5.74142064629304" s="12.44130730363655" class="poly2">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="105_45341393" type="shape" x="-12130.006880048066" y="4025.969739644467" r="-5.741420646293045" s="5.0950352504458625" class="circle poly3">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="106_45341393" type="shape" x="-7984.319780054609" y="3587.4563285443337" r="7.783157224185535e-17" s="8.638587192140887" class="circle poly3">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="107_45341393" type="shape" x="-3721.120096435856" y="9546.975394676008" r="5.510613091765147e-17" s="15.558379940917542" class="circle poly3">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="109_45341393" type="shape" x="220.74503565089347" y="9691.06075635217" r="7.783157224185535e-17" s="8.638587192140887" class="circle poly3">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="110_45341393" type="shape" x="-2201.3824556644627" y="10239.66139080592" r="7.783157224185557e-17" s="15.558379940917517" class="circle poly3">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="111_45341393" type="shape" x="2782.327467349416" y="12657.325322856856" r="7.783157224185535e-17" s="8.638587192140887" class="circle poly3">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="112_45341393" type="shape" x="-1513.2017343061134" y="14838.629191428572" r="5.510613091765147e-17" s="15.558379940917542" class="circle poly3">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="113_45341393" type="shape" x="-1954.7186619206368" y="11617.35772975123" r="7.783157224185535e-17" s="8.638587192140887" class="circle poly3">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="115_45341393" type="shape" x="-1563.6357824434888" y="10994.16976852359" r="7.783157224185555e-17" s="5.555180692551752" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="116_45341393" type="shape" x="-404.9041404982492" y="18491.656152048698" r="7.783157224185535e-17" s="8.638587192140887" class="circle poly3">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="117_45341393" type="shape" x="1145.994984109897" y="23289.81549928504" r="-7.6043420931227255" s="11.320313740476545" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="118_45341393" type="shape" x="2161.1001349575545" y="21454.374900446117" r="5.510613091765147e-17" s="15.558379940917542" class="circle poly3">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="119_45341393" type="shape" x="-2184.5293907781893" y="22243.465433586345" r="-7.60434209312273" s="19.54786971123941" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="129_45341393" type="shape" x="-4281.10906433998" y="32550.908378346692" r="-7.604342093122708" s="34.595732910094355" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="121_45341393" type="shape" x="-3337.6294392589566" y="29504.88376218225" r="-7.60434209312273" s="19.54786971123941" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="122_45341393" type="shape" x="-3691.919241434899" y="25654.500737262795" r="1.685207365226289" s="13.184210001768054" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="123_45341393" type="shape" x="-1126.206974529103" y="26103.15101659897" r="7.783157224185555e-17" s="5.555180692551752" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="127_45341393" type="shape" x="-8035.129267756277" y="29299.893760075516" r="7.783157224185555e-17" s="5.555180692551752" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="128_45341393" type="shape" x="-10807.583588068874" y="29108.336151269217" r="-7.60434209312273" s="19.54786971123942" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="130_45341393" type="shape" x="-6541.797543007179" y="33389.55693397427" r="1.685207365226289" s="13.184210001768054" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="131_45341393" type="shape" x="-9806.07769255022" y="34647.1126123442" r="1.3999133263354216e-16" s="5.555180692551752" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="132_45341393" type="shape" x="-17964.421140254188" y="35957.68870029442" r="-0.33881271341753794" s="34.64442229136028" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="133_45341393" type="shape" x="-25626.09975989897" y="25737.89003604412" r="-7.60434209312273" s="19.547869711239393" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="135_45341393" type="shape" x="-28406.85546613327" y="33190.24024083915" r="-7.6043420931227" s="34.59573291009433" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="137_45341393" type="shape" x="-33527.6008301159" y="29312.992429318787" r="-7.60434209312273" s="19.547869711239393" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="181_45341393" type="persistentgroup" x="-25502.144830399666" y="31091.655522954643" r="-0.2996653300149327" s="32.705579441497754">
+      <m o="153_45341393"/>
+      <m o="164_45341393"/>
+      <m o="171_45341393"/>
+      <m o="132_45341393"/>
+      <m o="133_45341393"/>
+      <m o="135_45341393"/>
+      <m o="137_45341393"/>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="138_45341393" type="shape" x="-40742.631514767454" y="18102.492185900173" r="61.76554399434019" s="24.300852189205703" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="161_45341393" type="shape" x="-7774.157055061988" y="-33696.11190566731" r="5.896319560975888" s="67.20550455488662" class="poly3 poly5">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="162_45341393" type="shape" x="-7308.361702289526" y="-24971.64731050901" r="5.896319560976059" s="21.711672949008204" class="poly3 poly5">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="163_45341393" type="shape" x="-10526.295923395332" y="-21927.16616810891" r="-0.33881271341753777" s="34.644422291360335" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="165_45341393" type="shape" x="-12376.545527270464" y="-31614.549814677448" r="-0.33881271341753777" s="34.644422291360335" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="166_45341393" type="shape" x="1511.965128286215" y="-24305.659238951397" r="-0.33881271341753777" s="34.644422291360335" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="167_45341393" type="shape" x="2212.0347691806555" y="-30483.433838461693" r="5.896319560976059" s="21.711672949008204" class="poly3 poly5">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="168_45341393" type="shape" x="5032.837362273419" y="-21093.85719739579" r="5.896319560975888" s="67.20550455488662" class="poly3 poly5">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="169_45341393" type="shape" x="-14570.864634071188" y="-29511.83796156545" r="5.896319560976059" s="21.711672949008204" class="poly3 poly5">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="170_45341393" type="shape" x="5257.308506216513" y="-31184.254358484715" r="5.896319560976059" s="21.711672949008204" class="poly3 poly5">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="172_45341393" type="shape" x="20283.025602032012" y="-27519.922495428527" r="-0.33881271341753777" s="34.644422291360335" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="173_45341393" type="shape" x="24466.67381352671" y="-30087.386813634384" r="5.896319560975888" s="67.20550455488662" class="poly3 poly5">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="174_45341393" type="shape" x="9340.38062998648" y="-19790.70646971723" r="5.896319560976059" s="21.711672949008204" class="poly3 poly5">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="175_45341393" type="shape" x="13356.123925225662" y="-19141.57146304589" r="-0.33881271341753777" s="34.644422291360335" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="176_45341393" type="shape" x="13644.252788548256" y="-13138.020416715068" r="5.896319560975888" s="67.20550455488662" class="poly3 poly5">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="177_45341393" type="shape" x="9490.09758512712" y="-16773.382122468018" r="-0.33881271341753777" s="34.644422291360335" class="poly3 poly4">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="178_45341393" type="shape" x="17685.651265203735" y="-29900.45962612108" r="5.896319560976059" s="21.711672949008204" class="poly3 poly5">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="179_45341393" type="shape" x="29571.275276244553" y="-26995.016269032694" r="5.896319560976059" s="21.711672949008204" class="poly3 poly5">
+      <geom type="circle">
+        <r>37.87150095931072</r>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="188_45341393" type="button" x="-25043.52152772668" y="27313.30466806802" r="-0.29966533001493206" s="31.765073713895553" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>1069.2771084337348</w>
+        <h>600</h>
+      </size>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="193_45341393" type="shape" x="-5033.276544569177" y="4476.327559202848" r="-45.29966532064409" s="5.123260974413766" class="line4">
+      <geom type="line">
+        <sp>-51.64721666222322 -4.407493230524011</sp>
+        <ep>51.647216662223215 -4.407493230524011</ep>
+        <b>8.814986461048022</b>
+        <t>8</t>
+      </geom>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="195_45341393" type="button" x="-5343.206204718872" y="4888.535220010237" r="-0.29966533001493156" s="5.094507466702142" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>1069.2771084337348</w>
+        <h>600</h>
+      </size>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="109" type="button" x="-14006.70129885941" y="33369.25610835768" r="-0.29966533001493056" s="6.503405628508191" class="circle">
+      <type>circle</type>
+      <size>
+        <w>800</w>
+        <h>800</h>
+      </size>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="1_24309637" type="text" x="33490.44250045046" y="4836.095314793414" r="-0.2996653300149325" s="274.2073536068702" class="head">
+      <height>28.8</height>
+      <width>219.9101088915275</width>
+      <p align="right">
+        <text><![CDATA[Grupo myBeer]]></text>
+      </p>
+    </object>
+    <object id="9_45341393" type="button" x="-4658.3350534792935" y="3893.0007599884034" r="-0.29966533001493156" s="1.097235462970744" class="circle">
+      <type>circle</type>
+      <size>
+        <w>800</w>
+        <h>800</h>
+      </size>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>infinity</parentTemplate>
+      </meta>
+    </object>
+    <object id="10_45341393" type="text" x="-4662.2" y="3586.55" r="-0.29966533001492907" s="2.41893539071743" class="strong">
+      <height>65.3671875</height>
+      <width>220.4993900181616</width>
+      <p align="center">
+        <text><![CDATA[Principais Funções]]></text>
+      </p>
+      <layout>
+        <layout-element role="title"/>
+      </layout>
+    </object>
+    <object id="11_45341393" type="text" x="-4721.85" y="3690.15" r="-0.29966533001493106" s="1.3957135113449792" class="body">
+      <height>32.68359375</height>
+      <width>390.9237784827681</width>
+      <p>
+        <text weight="bold"><![CDATA[>]]></text>
+        <text><![CDATA[Para o Cliente do Bar]]></text>
+      </p>
+      <layout>
+        <layout-element role="body"/>
+      </layout>
+    </object>
+    <object id="2_24309637" type="textwithplaceholder" x="-21133.237168020165" y="-25428.9938442998" r="-0.29966533001493284" s="22.0473436225962" class="body">
+      <placeholder text="Clique para adicionar texto" x="-195.45" y="-16.3" align="left" width="390.9237784827681"/>
+      <layout>
+        <layout-element role="body"/>
+      </layout>
+    </object>
+    <object id="1_74148443" type="button" x="-12316.3" y="14663.65" r="-0.29966533001492973" s="0.10373930614858137" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>800</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="2_74148443" type="image" x="-12316.299999999997" y="14669.449999999997" r="-0.29966533001492973" s="0.2071329586323612">
+      <source w="219" h="220">3223693249<url>3223693249.png</url></source>
+      <sourceUrl>jovem.png</sourceUrl>
+    <resource><id>3223693249</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/d/0/9/f6e443425e9efd4167337119c0e2559f569fb.png</url></resource></object>
+    <object id="3_74148443" type="text" x="-12316.55" y="14639.6" r="-0.2996653300149304" s="0.15124999999999938" class="body">
+      <height>32.68359375</height>
+      <width>-187.8515625</width>
+      <p>
+        <text><![CDATA[Felipe Rodrigues]]></text>
+      </p>
+    </object>
+    <object id="4_74148443" type="button" x="-12488.8" y="14664.55" r="-0.29966533001492973" s="0.10373930614858137" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>800</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="5_74148443" type="image" x="-12488.9" y="14669.85" r="-0.29966533001492973" s="0.04746796968658277">
+      <source w="960" h="960">3223700602<url>3223700602.jpg</url></source>
+      <sourceUrl>michel.jpg</sourceUrl>
+    <resource><id>3223700602</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/8/b/6/f14a1ff0c83ac379656cbc710ca2b0c588a9d.jpg</url></resource></object>
+    <object id="6_74148443" type="text" x="-12488.55" y="14639.65" r="-0.2996653300149308" s="0.15124999999999897" class="body">
+      <height>32.68359375</height>
+      <width>-223.875</width>
+      <p>
+        <text><![CDATA[Michael Domingues]]></text>
+      </p>
+    </object>
+    <object id="7_74148443" type="button" x="-12403.7" y="14758.5" r="-0.29966533001492973" s="0.10373930614858137" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>800</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="8_74148443" type="image" x="-12405.2" y="14765.15" r="-0.29966533001492973" s="0.056603914895451975">
+      <source w="507" h="809">3223711771<url>3223711771.png</url></source>
+      <sourceUrl>ricardo.png</sourceUrl>
+    <resource><id>3223711771</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/1/6/5/0602e75c2c22a20ea31acbfb99b36443941b9.png</url></resource></object>
+    <object id="9_74148443" type="text" x="-12405.35" y="14736.05" r="-0.2996653300149305" s="0.17075336384126666" class="body">
+      <height>32.68359375</height>
+      <width>-175.6171875</width>
+      <p>
+        <text><![CDATA[Ricardo Manoel]]></text>
+      </p>
+    </object>
+    <object id="11_74148443" type="image" x="-6531.9" y="5248.75" r="-0.29966533001493156" s="0.4811964612184615">
+      <source w="1000" h="1000">3223950799<url>3223950799.jpg</url></source>
+      <sourceUrl>img_como_criar_um_grafico_circular_3136_orig.jpg</sourceUrl>
+    <resource><id>3223950799</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/2/e/9/39142bb7b5398b1ebbc88ddb7eb3fbcceb738.jpg</url></resource></object>
+    <object id="12_74148443" type="image" x="-5316.45" y="5292.7" r="-0.2996653300149315" s="0.7987529140095743">
+      <source w="540" h="780">3223966900<url>3223966900.jpg</url></source>
+      <sourceUrl>capa.jpg</sourceUrl>
+    <resource><id>3223966900</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/0/0/3/f6eb87529fce96ea30c58f7b427031ef06c64.jpg</url></resource></object>
+    <object id="13_74148443" type="image" x="-5911.9" y="5942.3" r="-0.2996653300149315" s="1.8192362571062612">
+      <source w="580" h="129">3223967602<url>3223967602.jpg</url></source>
+      <sourceUrl>bannerEventos.jpg</sourceUrl>
+    <resource><id>3223967602</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/7/7/3/4e2dec15b3b751e31e0092724ee9d9c6fee1f.jpg</url></resource></object>
+    <object id="14_74148443" type="image" x="-5917.9" y="5477.1" r="-0.2996653300149315" s="1.349417640860364">
+      <source w="456" h="372">3223971985<url>3223971985.jpg</url></source>
+      <sourceUrl>comentarios.jpg</sourceUrl>
+    <resource><id>3223971985</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/d/8/7/386f3c105300b6049da67a18e57e767a9e0f9.jpg</url></resource></object>
+    <object id="15_74148443" type="image" x="-4885.2" y="3857.55" r="-0.29966533001493156" s="0.9620316892220907">
+      <source w="256" h="256">3223985983<url>3223985983.jpg</url></source>
+      <sourceUrl>system_map_99771.jpg</sourceUrl>
+    <resource><id>3223985983</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/0/2/2/13064443f1b78ba386e48f1209316d07ffbce.jpg</url></resource></object>
+    <object id="16_74148443" type="image" x="-4467.4" y="3815.4" r="-0.29966533001493156" s="0.6650045973981656">
+      <source w="470" h="300">3223987000<url>3223987000.jpg</url></source>
+      <sourceUrl>promocoes.jpg</sourceUrl>
+    <resource><id>3223987000</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/5/0/9/7a28e9c64c4344e0f721e1f3426e03b54a1e3.jpg</url></resource></object>
+    <object id="17_74148443" type="image" x="-4756.85" y="4112.55" r="-0.29966533001493156" s="0.613597965178947">
+      <source w="416" h="339">3223987858<url>3223987858.png</url></source>
+      <sourceUrl>rs.png</sourceUrl>
+    <resource><id>3223987858</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/e/c/f/89b8a3470dc71fdc52c7cd244cbcb9ad00176.png</url></resource></object>
+    <object id="19_74148443" type="button" x="-14937.499999999998" y="33929.09999999999" r="-0.299665330014931" s="1.3931038746683033" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>800</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="20_74148443" type="button" x="-13143.75" y="33901.15" r="-0.2996653300149306" s="1.3931038746683055" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>800</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="21_74148443" type="image" x="-14937.4" y="33929" r="-0.299665330014931" s="0.8535982782875142">
+      <source w="1366" h="728">3223994089<url>3223994089.png</url></source>
+      <sourceUrl>print1.png</sourceUrl>
+    <resource><id>3223994089</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/4/0/1/402ceb5077bfcf45fab2ef00e7c312f3087f7.png</url></resource></object>
+    <object id="22_74148443" type="image" x="-13137.65" y="33935.3" r="-0.29966533001493073" s="0.8399174026307776">
+      <source w="1366" h="727">3223995142<url>3223995142.png</url></source>
+      <sourceUrl>print2.png</sourceUrl>
+    <resource><id>3223995142</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/a/8/1/73cc32700787e7bcecc27c8c17ee0f81f3527.png</url></resource></object>
+    <object id="23_74148443" type="button" x="-34743.2" y="23851" r="-0.29966533001492923" s="2.4810232605880556" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>800</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="25_74148443" type="image" x="-4509.25" y="4059.45" r="-0.29966533001493156" s="0.3249685080320745">
+      <source w="673" h="767">3224064043<url>3224064043.png</url></source>
+      <sourceUrl>ava.png</sourceUrl>
+    <resource><id>3224064043</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/e/8/f/26a757b2d7273e54152a25f579436a99db3d6.png</url></resource></object>
+    <object id="26_74148443" type="image" x="-34743.15" y="23850.95" r="-0.29966533001492934" s="1.7837207464168865">
+      <source w="1366" h="728">3224078743<url>3224078743.png</url></source>
+      <sourceUrl>print3.png</sourceUrl>
+    <resource><id>3224078743</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/1/b/e/de90201fa262a6f820b467e901b2cb74cd58d.png</url></resource></object>
+  </zui-table>
+  <path>
+    <s>
+      <eagle o="182_45341393"/>
+    </s>
+    <s>
+      <eagle o="187"/>
+    </s>
+    <s>
+      <eagle o="1_74148443"/>
+    </s>
+    <s>
+      <eagle o="4_74148443"/>
+    </s>
+    <s>
+      <eagle o="7_74148443"/>
+    </s>
+    <s>
+      <eagle o="164"/>
+    </s>
+    <s>
+      <buildin o="10_74148443"/>
+    </s>
+    <s>
+      <eagle o="170"/>
+    </s>
+    <s>
+      <buildin o="11_74148443"/>
+    </s>
+    <s>
+      <buildin o="12_74148443"/>
+    </s>
+    <s>
+      <buildin o="13_74148443"/>
+    </s>
+    <s>
+      <buildin o="14_74148443"/>
+    </s>
+    <s>
+      <eagle o="9_45341393"/>
+    </s>
+    <s>
+      <buildin o="15_74148443"/>
+    </s>
+    <s>
+      <buildin o="16_74148443"/>
+    </s>
+    <s>
+      <buildin o="17_74148443"/>
+    </s>
+    <s>
+      <buildin o="25_74148443"/>
+    </s>
+    <s>
+      <eagle o="109"/>
+    </s>
+    <s>
+      <eagle o="19_74148443"/>
+    </s>
+    <s>
+      <buildin o="21_74148443"/>
+    </s>
+    <s>
+      <eagle o="20_74148443"/>
+    </s>
+    <s>
+      <buildin o="22_74148443"/>
+    </s>
+    <s>
+      <eagle o="126"/>
+    </s>
+    <s>
+      <eagle o="23_74148443"/>
+    </s>
+    <s>
+      <buildin o="26_74148443"/>
+    </s>
+    <s>
+      <eagle o="129"/>
+    </s>
+    <s>
+      <buildin o="130"/>
+    </s>
+    <s>
+      <eagle o="0_24309637"/>
+    </s>
+  </path>
+  <style type="text/css"><![CDATA[
+@font-face
+{
+	src: url('NotoSans-Regular.keg');
+	fontFamily: body;
+	font-class: body;
+	font-style: normal;
+	font-weight: normal;
+	font-family: NotoSans;
+}
+
+@font-face
+{
+	src: url('LeagueGothic-Regular.keg');
+	fontFamily: head;
+	font-class: head;
+	font-style: normal;
+	font-weight: normal;
+	font-family: LeagueGothic;
+}
+
+@font-face
+{
+	src: url('NotoSans-Bold.keg');
+	fontFamily: strong;
+	font-class: strong;
+	font-style: normal;
+	font-weight: bold;
+	font-family: NotoSans;
+}
+
+@font-face
+{
+	src: url('NotoSans-Italic.keg');
+	font-style: italic;
+	font-weight: normal;
+	font-family: NotoSans;
+}
+
+@font-face
+{
+	src: url('NotoSans-BoldItalic.keg');
+	font-style: italic;
+	font-weight: bold;
+	font-family: NotoSans;
+}
+
+@font-face
+{
+	src: url('LeagueGothic-Italic.keg');
+	font-style: italic;
+	font-weight: normal;
+	font-family: LeagueGothic;
+}
+
+.line1
+{
+	color: #e6e6e6;
+	gradEndColor: #e6e6e6;
+	gradStartColor: #e6e6e6;
+}
+
+.line2
+{
+	color: #ccc;
+	gradEndColor: #ccc;
+	gradStartColor: #ccc;
+}
+
+.line3
+{
+	color: #50e3c2;
+	gradEndAlpha: 1;
+	gradEndColor: #50e3c2;
+	gradStartAlpha: 1;
+	gradStartColor: #50e3c2;
+}
+
+.line4
+{
+	color: #999;
+	gradEndColor: #999;
+	gradStartColor: #999;
+}
+
+.line5
+{
+	color: #737373;
+	gradEndColor: #737373;
+	gradStartColor: #737373;
+}
+
+.poly1
+{
+	borderColor: #e6e6e6;
+	color: #f2f2f2;
+	gradEndColor: #e6e6e6;
+	gradStartColor: #e6e6e6;
+}
+
+.poly2
+{
+	borderColor: #ccc;
+	color: #f2f2f2;
+	gradEndColor: #ccc;
+	gradStartColor: #ccc;
+}
+
+.poly3
+{
+	borderColor: #50e3c2;
+	color: #f2f2f2;
+	gradEndColor: #50e3c2;
+	gradStartColor: #50e3c2;
+}
+
+.poly4
+{
+	borderColor: #999;
+	gradEndColor: #999;
+	gradStartColor: #999;
+}
+
+.poly5
+{
+	borderColor: #737373;
+	gradEndColor: #737373;
+	gradStartColor: #737373;
+}
+
+Background
+{
+	gradEnd: #f2f2f2;
+	gradStart: #f2f2f2;
+}
+
+Grid
+{
+	color: #b2b2b2;
+}
+
+ZArrow
+{
+	borderColor: #fff;
+	borderThickness: 0;
+	gradEndColor: #000;
+	gradStartColor: #000;
+	lockTintAlpha: 0;
+	thickness: 7;
+}
+
+ZCircle
+{
+	borderAlpha: 1;
+	gradEndAlpha: 1;
+	gradStartAlpha: 1;
+	lockTintAlpha: 0;
+	radius: 0;
+	thickness: 100;
+}
+
+ZCurveLine
+{
+	color: #000;
+}
+
+ZFrame.bracket
+{
+	borderColor: #737373;
+	borderThickness: 0;
+	gradEndAlpha: 0.9;
+	gradEndColor: #737373;
+	gradStartAlpha: 0.9;
+	gradStartColor: #737373;
+	padding: 1.03;
+	thickness: 8;
+}
+
+ZFrame.circle
+{
+	borderColor: #a6a6a6;
+	borderThickness: 0;
+	gradEndColor: #a6a6a6;
+	gradStartColor: #a6a6a6;
+	padding: 1.03;
+	thickness: 8;
+}
+
+ZFrame.roundrect
+{
+	borderColor: #737373;
+	borderThickness: 20;
+	gradEndAlpha: 0.7;
+	gradEndColor: #e6e6e6;
+	gradStartAlpha: 0.7;
+	gradStartColor: #e6e6e6;
+	padding: 1.03;
+	radius: 3;
+}
+
+ZLabel
+{
+	lockTintAlpha: 0.15;
+	padding: 1.2;
+}
+
+ZLabel.body
+{
+	color: #333;
+	fontFamily: body;
+}
+
+ZLabel.body-background
+{
+	background-alpha: 0.9;
+	background-color: #e6e6e6;
+	background-padding: 5;
+}
+
+ZLabel.head
+{
+	color: #333;
+	fontFamily: head;
+}
+
+ZLabel.head-background
+{
+	background-alpha: 0.9;
+	background-color: #a6a6a6;
+	background-padding: 5;
+}
+
+ZLabel.strong
+{
+	color: #333;
+	fontFamily: strong;
+}
+
+ZLabel.strong-background
+{
+	background-alpha: 0.9;
+	background-color: #e6e6e6;
+	background-padding: 5;
+}
+
+ZLine
+{
+	alpha: 1;
+	color: #000;
+	gradEndAlpha: 1;
+	gradStartAlpha: 1;
+	lockTintAlpha: 0;
+}
+
+ZMarker
+{
+	alpha: 0.5;
+	color: #318bff;
+}
+
+ZPoly
+{
+	borderAlpha: 1;
+	gradEndAlpha: 1;
+	gradStartAlpha: 1;
+	lockTintAlpha: 0;
+	radius: 0;
+	thickness: 100;
+}
+
+]]></style>
+  <hash>-179d5b9a</hash>
+<sync><oid>ocwd3gnpde6j</oid><title>mybeer</title><hash>-179d5b9a</hash></sync><config>BMjJtHGQf0x2ytncbUCrkGDdKh0iJ6Y8H/20ExeP67A+3NFv04rDtZvPxuft78TG2VDtCoaBNZS67e86z65/AJrAfs80nf9ZJmIczPYtomkEuIA2yJ3KNMgQVVjObqVqxt/DR7GNMMLH5iUfed3lXq0zqvey3vJ23xgtBn0qstPTK/tM9nJenu2pFbl0yA3h+41/6k6KxrEp7e9LdQHqgZQqm42x+pJQRDXiuYrJqtIZTvVd4niI1tsFly/bCLd7K3HXOv4iKRv9iHW7zugn1tPy4spfBEPJdqztuFo4mr9AF00dGUN8Zhq9DXCZDxoBRoX3djcJwBayF1psEaRD/Q==</config></zuiprezi>
