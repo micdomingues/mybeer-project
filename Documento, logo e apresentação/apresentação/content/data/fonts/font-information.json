@@ -3323,6 +3323,124 @@
                     "weight": "normal"
                 }
             ]
+        }, 
+        {
+            "OptimaLTStd": [
+                {
+                    "file": "OptimaLTStd.keg", 
+                    "style": "normal", 
+                    "weight": "normal"
+                }
+            ]
+        }, 
+        {
+            "Gotham-Book": [
+                {
+                    "file": "Gotham-Book_1.keg", 
+                    "style": "normal", 
+                    "weight": "normal"
+                }
+            ]
+        }, 
+        {
+            "Gotham-Book-Narrow": [
+                {
+                    "file": "Gotham-Narrow-Book.keg", 
+                    "style": "normal", 
+                    "weight": "normal"
+                }
+            ]
+        }, 
+        {
+            "ClarendonBT": [
+                {
+                    "file": "ClarendonBT-Bold.keg", 
+                    "style": "normal", 
+                    "weight": "bold"
+                }, 
+                {
+                    "file": "ClarendonBT-Regular.keg", 
+                    "style": "normal", 
+                    "weight": "normal"
+                }
+            ]
+        }, 
+        {
+            "ClarendonBT-Light": [
+                {
+                    "file": "ClarendonBT-Light.keg", 
+                    "style": "normal", 
+                    "weight": "normal"
+                }
+            ]
+        }, 
+        {
+            "ImagoPro": [
+                {
+                    "file": "ImagoPro-Bold.keg", 
+                    "style": "normal", 
+                    "weight": "bold"
+                }, 
+                {
+                    "file": "ImagoPro-Regular.keg", 
+                    "style": "normal", 
+                    "weight": "normal"
+                }
+            ]
+        }, 
+        {
+            "Minion": [
+                {
+                    "file": "Minion-Italic.keg", 
+                    "style": "italic", 
+                    "weight": "normal"
+                }
+            ]
+        }, 
+        {
+            "MyriadProBlack": [
+                {
+                    "file": "MyriadPro-Black.keg", 
+                    "style": "normal", 
+                    "weight": "normal"
+                }
+            ]
+        }, 
+        {
+            "MyriadProBoldIt": [
+                {
+                    "file": "MyriadPro-BoldIt.keg", 
+                    "style": "italic", 
+                    "weight": "bold"
+                }
+            ]
+        }, 
+        {
+            "MyriadProCondIt": [
+                {
+                    "file": "MyriadPro-CondIt.keg", 
+                    "style": "italic", 
+                    "weight": "normal"
+                }
+            ]
+        }, 
+        {
+            "MyriadProCondBold": [
+                {
+                    "file": "MyriadPro-BoldCond.keg", 
+                    "style": "normal", 
+                    "weight": "bold"
+                }
+            ]
+        }, 
+        {
+            "MyriadProBoldCondIt": [
+                {
+                    "file": "MyriadPro-BoldCondIt.keg", 
+                    "style": "italic", 
+                    "weight": "bold"
+                }
+            ]
         }
     ]
 }
