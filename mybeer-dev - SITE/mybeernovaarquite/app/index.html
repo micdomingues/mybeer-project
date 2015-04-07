@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="myApp" class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>MyBeer - Tudo sobre o seu bar em um só lugar!!!</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    
+    <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
+    <!-- Morris Charts CSS -->
+    <link href="css/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- MyBeer Css -->
+    <link href="css/mybeer.css" rel="stylesheet" type="text/css">
+
+    <!-- DatePicker Css -->
+    <link href="css/datepicker3.css" rel="stylesheet" type="text/css">
+
+    <!-- MenuSide Css -->
+    <link rel="stylesheet" href="css/navigator.css">
+
+</head>
+
+<body ng-app="PageApp">
+    <div class="backColor" ng-controller="PageController">
+        <div class="col-lg-12" style="padding-right:35px;">
+            <div class="btn-group menu-top" dropdown>
+                <button type="button" class="btn btn-default dropdown-toggle" dropdown-toggle>
+                    <span class="glyphicon glyphicon-user"></span>Admin <b class="caret"></b>
+                </button>
+                <ul class="dropdown-menu" role="menu" style="right: 0; left: auto;">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span>Profile</a>
+                    </li>
+                    <li><a href="#"><span class="glyphicon glyphicon-cog"></span>Settings</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-off"></span>Logout</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="btn-group menu-top" dropdown>
+                <button type="button" class="btn btn-default dropdown-toggle" dropdown-toggle>
+                    <span class="glyphicon glyphicon-envelope"></span>Inbox <span class="label label-info">32</span>
+                </button>
+                <ul class="dropdown-menu" role="menu" style="right: 0; left: auto;">
+                    <li><a href="#"><span class="label label-warning">4:00 AM</span>Favourites Snippet</a>
+                    </li>
+                    <li><a href="#"><span class="label label-warning">4:30 AM</span>Email marketing</a>
+                    </li>
+                    <li><a href="#"><span class="label label-warning">5:00 AM</span>Subscriber focused email
+                        design</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li><a href="#" class="text-center">View All</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="btn-group menu-top" dropdown>
+                <button type="button" class="btn btn-default dropdown-toggle" dropdown-toggle>
+                    <span class="glyphicon glyphicon-comment"></span>Chats <span class="label label-primary">42</span>
+                </button>
+                <ul class="dropdown-menu" role="menu" style="right: 0; left: auto;">
+                    <li><a href="#"><span class="label label-warning">7:00 AM</span>Hi :)</a>
+                    </li>
+                    <li><a href="#"><span class="label label-warning">8:00 AM</span>How are you?</a>
+                    </li>
+                    <li><a href="#"><span class="label label-warning">9:00 AM</span>What are you doing?</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li><a href="#" class="text-center">View All</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-12" style="padding:0">
+
+
+            <div ng-include="'side-bar/side-bar.html'"></div>
+
+            <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+            <div ng-view></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="app.js"></script>
+    <script src="dashboard/dashboard.js"></script>
+    <script src="perfil/perfil.js"></script>
+    <script src="cardapios/cardapios.js"></script>
+    <script src="estatisticas/estatisticas.js"></script>
+    <script src="components/version/version.js"></script>
+    <script src="components/version/version-directive.js"></script>
+    <script src="components/version/interpolate-filter.js"></script>
+    <!-- BootsTrap Angular UI -->
+    <script src="js/bootstrap-angular-ui.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Morris Charts JavaScript -->
+    <script src="js/plugins/morris/raphael.min.js"></script>
+    <script src="js/plugins/morris/morris.min.js"></script>
+    <script src="js/plugins/morris/morris-data.js"></script>
+    
+</body>
+
+</html>
