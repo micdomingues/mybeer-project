@@ -40,3 +40,5 @@
 li > a {
     display: block;
 }
+
+#chart > svg { width: 100% !important; }

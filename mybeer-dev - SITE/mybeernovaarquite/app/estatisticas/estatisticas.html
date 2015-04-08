@@ -14,19 +14,116 @@
 
         <!-- end of eventos -->
 
-        <div class="col-lg-4 col-md-4">
+        <div class="col-lg-4 col-md-4 text-center">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <div class="panel-title">
                         <!--                                <i class="fa fa-fw fa-calendar"></i>-->
-                        <span><big>Resumo</big></span>
+                        <span><big>Gráfico de Qualidade</big></span>
                     </div>
                 </div>
-               teste
-            </div>
+                    <div style="width:100%">
 
+                        <div id="gResumo"></div>
+                        <script>
+
+                            
+                            element = $('#gResumo')
+                            bar = Morris.Donut({
+                                element: 'gResumo',
+                                data: [
+                                    {value: 60, label: 'Muito bom'},
+                                    {value: 15, label: 'Ótimo'},
+                                    {value: 10, label: 'Bom'},
+                                    {value: 10, label: 'Razoável'},
+                                    {value: 5, label: 'Ruim'}
+                                ],
+                                behaveLikeLine: true,
+                                resize: true,
+                                redraw: true
+                            });
+                            $(window).on('resize', function() { bar.redraw() });
+                        </script>
+                    </div>
+
+            </div>
         </div>
-        <!-- end of cardapio -->
+        
+        <div class="col-lg-4 col-md-4 text-center">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <!--                                <i class="fa fa-fw fa-calendar"></i>-->
+                        <span><big>Gráfico de Qualidade/Preço</big></span>
+                    </div>
+                </div>
+                <div style="width:100%">
+
+                    <div id="gPreco"></div>
+                    <script>
+
+
+                        element = $('#gPreco')
+                        bar2 =Morris.Bar({
+                                    element: 'gPreco',
+                            data: [
+                                {x: 'Caro', y: 3},
+                                {x: 'Razoável', y: 2},
+                                {x: 'Barato', y: 1}
+                            ],
+                            xkey: 'x',
+                            ykeys: ['y'],
+                            labels: ['Y'],
+                            behaveLikeLine: true,
+                            resize: true,
+                            redraw: true
+                        });
+                        $(window).on('resize', function() { bar2.redraw() });
+                    </script>
+                </div>
+
+            </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-4 text-center">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <!--                                <i class="fa fa-fw fa-calendar"></i>-->
+                        <span><big>Gráfico de Avaliações</big></span>
+                    </div>
+                </div>
+                <div style="width:100%">
+
+                    <div id="gAvaliacao"></div>
+                    <script>
+                        element = $('#gAvaliacao')
+                        bar3 = Morris.Line({
+                            element: 'gAvaliacao',
+                            data: [ {"period": "2012-10-01", "avaliacao": 5},
+                                   {"period": "2012-09-30", "avaliacao": 1},
+                                   {"period": "2012-09-29", "avaliacao": 20},
+                                   {"period": "2012-09-20", "avaliacao": 9},
+                                   {"period": "2012-09-19", "avaliacao": 15},
+                                   {"period": "2012-09-18", "avaliacao": 80},
+                                   {"period": "2012-09-17", "avaliacao": 10},
+                                   {"period": "2012-09-16", "avaliacao": 70},
+                                   {"period": "2012-09-15", "avaliacao": 99},
+                                   {"period": "2012-09-10", "avaliacao": 150}
+                                  ],
+                            xkey: 'period',
+                            ykeys: ['avaliacao'],
+                            labels: ['Avaliações'],
+                            behaveLikeLine: true,
+                            resize: true,
+                            redraw: true
+                        });
+                        $(window).on('resize', function() { bar3.redraw() });
+                    </script>
+                </div>
+
+            </div>
+        </div>
 
 </div>
 <!-- /#page-wrapper -->

@@ -5,10 +5,12 @@ angular.module('myApp.estatisticas', ['ngRoute'])
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/estatisticas', {
             templateUrl: 'estatisticas/estatisticas.html',
-            controller: 'View1Ctrl'
+            controller: 'EstatisticasController'
         });
     }])
 
-    .controller('View1Ctrl', [function() {
+    .controller('EstatisticasController', ['$scope',function($scope) {
 
+      
+       
     }]);
