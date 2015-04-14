@@ -4597,7 +4597,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   padding: 8px 15px;
   margin-bottom: 20px;
   list-style: none;
-  background-color: darkgreen;
+  background-color: #FFC926;
   border-radius: 4px;
 }
 .breadcrumb > li {
@@ -4609,7 +4609,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   content: "/\00a0";
 }
 .breadcrumb > .active {
-  color: #FFF;
+  color: #000;
 }
 .pagination {
   display: inline-block;
@@ -5542,7 +5542,7 @@ a.list-group-item-danger.active:focus {
 .panel-default > .panel-heading {
   color: #333;
 /*  background-color: #f5f5f5;*/
-  border-color: #097C0F;
+  border-color: #FFC926;
 }
 .panel-default > .panel-heading + .panel-collapse > .panel-body {
   border-top-color: #ddd;

@@ -36,6 +36,18 @@
     margin-left: 5px;
     float: right;
 }
+.btn-yellow:hover, .btn-yellow:focus, .btn-yellow.focus, .btn-yellow:active, .btn-yellow.active, .open > .dropdown-toggle.btn-success {
+    color: #FFF;
+    background-color: #FFD454;
+    border-color: #FFC926;
+}
+
+.btn-yellow {
+    color: #FFF;
+    background-color: #FFC926;
+    border-color: #FFD454;
+}
+
 
 li > a {
     display: block;
