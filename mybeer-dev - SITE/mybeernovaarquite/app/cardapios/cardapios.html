@@ -19,42 +19,66 @@
                         Menu Cardápio
                     </div>
                 </div>
-                    <div style="padding:10px">
+                <div style="padding:10px">
 
-                <p>Criar cardápio:</p>
+                    <div ng-controller="OpcoesDatasCardapioController">
+                        <form name="tiposData">
+                            <input type="radio" ng-model="tipoDataCardapio.name" value="intervaloDataMes"> Intervalo de data mes
+                            <br/>
+                            <input type="radio" ng-model="tipoDataCardapio.name" value="intervaloDataSemanal"> Intervalo data semanal
+                            <br/>
+                            <input type="radio" ng-model="tipoDataCardapio.name" value="dataSemanalEspecifica"> Data semana especifica
+                            <br/>
 
-                <p>Selecionar cardápio 1 para apresentar apenas na SEGUNDA</p>
 
-                Selecionar para apresentar cardápio 1 de segunda a sexta. cardapio 2 apenas para sabado, domingo e feriados.
+                        </form>
 
 
-                <p> mostrar o nome do cardápio e a opção de colocar : mostrar calendario com 'de _ até - assim ele escolhe se o cardapio sera todos os dias ou de alguns dias especificos. também dar opção de colocar um dia unico ou de dias especificos. </p>
+                        <form name="diasDaSemana" ng-controller="diasDaSemana">
+                            <fieldset ng-disabled="tipoDataCardapio.name != 'dataSemanalEspecifica'">
+                            Segunda:
+                            <input type="checkbox" ng-model="checkboxSemanal.segunda">
+                            <span>  | </span> Terça:
+                            <input type="checkbox" ng-model="checkboxSemanal.terca">
+                            <span>  | </span> Quarta:
+                            <input type="checkbox" ng-model="checkboxSemanal.quarta">
+                            <span>  | </span> Quinta:
+                            <input type="checkbox" ng-model="checkboxSemanal.quinta">
+                            <span>  | </span> Sexta:
+                            <input type="checkbox" ng-model="checkboxSemanal.sexta">
+                            <span>  | </span> Sábado:
+                            <input type="checkbox" ng-model="checkboxSemanal.sabado">
+                            <span>  | </span> Domingo:
+                            <input type="checkbox" ng-model="checkboxSemanal.domingo">
+                            </fieldset>
+                        </form>
+                    </div>
 
+                </div>
             </div>
-        </div>
 
-        <div class="col-lg-6 col-md-4">
-            <div class="panel panel-default" style="padding:5px">
-                <div class="panel-heading">
-                    <div class="panel-title">
-                        Cardápio + NOME + dia da semana - todos os cardapios serao mostrados assim, tendo q apertar o botão de 'dropdown' para mostrar o cardápio... ou n?
+            <div class="col-lg-6 col-md-4">
+                <div class="panel panel-default" style="padding:5px">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            Cardápio + NOME + dia da semana - todos os cardapios serao mostrados assim, tendo q apertar o botão de 'dropdown' para mostrar o cardápio... ou n?
+                        </div>
+                    </div>
+                    <div style="padding:10px">
+                        <ul>
+                            <li>arroz</li>
+                            <li>arroz</li>
+                            <li>arroz</li>
+                            <li>arroz</li>
+                        </ul>
+
                     </div>
                 </div>
-                    <div style="padding:10px">
-                <ul>
-                    <li>arroz</li>
-                    <li>arroz</li>
-                    <li>arroz</li>
-                    <li>arroz</li>
-                </ul>
+
+
 
             </div>
+            <!-- /.container-fluid -->
+
         </div>
-
-
-
-    </div>
-    <!-- /.container-fluid -->
-
-</div>
-<!-- /#page-wrapper -->
+        <!-- /#page-wrapper -->
