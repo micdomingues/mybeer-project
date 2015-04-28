@@ -7,6 +7,7 @@ var PageApp = angular.module('myApp', [
   'myApp.perfil',
   'myApp.estatisticas',
   'myApp.cardapios',
+  'myApp.eventos',
   'myApp.version',
   'ui.bootstrap'
 ]).
