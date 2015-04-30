@@ -1,0 +1,14 @@
+Como subir o ambiente.
+
+Primeiro, instalar o git : http://git-scm.com/downloads
+Segundo, instalar o node js : https://nodejs.org/download/
+
+dps, pelo cmd no modo administrador (botão direito no cmd, abrir como administrador),
+vá até o local da pasta onde está o projeco : mybeer-dev\mybeer-dev - SITE\mybeernovaarquite
+
+rode npm install
+e assim que terminar, npm start.
+
+O servidor irá subir na porta 8000.
+end:
+http://localhost:8000/app/index.html.
