@@ -17,11 +17,16 @@ angular.module('myApp.cardapios', ['ngRoute'])
                 console.log(d);
             });
         };
-
+        
         $scope.getData();
 
-    }]).controller('diasDaSemana', ['$scope', function ($scope) {
-        $scope.checkboxSemanal = {
+        $scope.cardapio = {};
+        
+        
+        $scope.cardapio.dtInicio;
+        $scope.cardapio.dtFim;
+        
+        $scope.cardapio.checkboxSemanal = {
             segunda: false,
             terca: false,
             quarta: false,
@@ -30,15 +35,14 @@ angular.module('myApp.cardapios', ['ngRoute'])
             sabado: false,
             domingo: false
         }
-}])
-    .controller('OpcoesDatasCardapioController', ['$scope', function ($scope) {
-        $scope.tipoDataCardapio = {
+        
+        
+        $scope.cardapio.tipoDataCardapio = {
             name: 'intervaloDataSemanal',
             value: 0
         };
-       
+        
     }])
-
 .factory('myService', function ($http) {
     var promise;
     var myService = {
@@ -56,4 +60,37 @@ angular.module('myApp.cardapios', ['ngRoute'])
         }
     };
     return myService;
+})
+.controller('DatepickerDemoCtrl', function ($scope) {
+    
+$scope.today = function() {
+    $scope.dt = new Date();
+};
+$scope.today();
+
+$scope.clear = function () {
+    $scope.dt = null;
+};
+
+
+$scope.toggleMin = function() {
+    $scope.minDate = $scope.minDate ? null : new Date();
+};
+$scope.toggleMin();
+
+$scope.open = function($event) {
+    $event.preventDefault();
+    $event.stopPropagation();
+
+    $scope.opened = true;
+};
+
+$scope.dateOptions = {
+    formatYear: 'yy',
+    startingDay: 1
+};
+
+$scope.formats = ['dd/MMMM/yyyy', 'yyyy/MM/dd', 'dd/MM/yyyy', 'shortDate'];
+$scope.format = $scope.formats[2];
+    
 });
