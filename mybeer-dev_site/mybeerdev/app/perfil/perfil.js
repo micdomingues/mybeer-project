@@ -11,24 +11,24 @@ angular.module('myApp.perfil', ['ngRoute'])
 
     .controller('perfil', ["$scope",function($scope) {
 
-        $scope.userName = "meuNome";
-        $scope.userAge = "userAge";
-        $scope.userEmail = "userEmail";
-        $scope.userNickName = "userNickName";
-        $scope.userCity = "userCity";
-        $scope.userDrinks = "userDrinks";
-        $scope.userFood = "userFood";
-        $scope.userStatus = "userStatus";
+        $scope.userName = "Fernanda";
+        $scope.userAge = "Idade";
+        $scope.userEmail = "Email";
+        $scope.userNickName = "Apelido";
+        $scope.userCity = "Cidade";
+        $scope.userDrinks = "Drinks";
+        $scope.userFood = "Comida";
+        $scope.userStatus = "Status Relacionamento";
 
         $scope.user = {
-            age: "MyAge",
-            email: "MyEmail",
-            nickName: "MyNickName",
-            city: "MyCity",
-            drinks: "MyDrinks",
-            food: "MyFood",
-            status: "MyStatus",
-            image: "https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100"
+            age: "23 anos",
+            email: "fernanda@gmail.com",
+            nickName: "Fer",
+            city: "São Paulo",
+            drinks: "Margarita",
+            food: "Empanadinho ao molho especial",
+            status: "Solteiro",
+            image: "http://devilsworkshop.org/files/2013/01/enlarged-facebook-profile-picture.jpg"
         }
         
     }]);
