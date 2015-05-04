@@ -2,74 +2,99 @@
 
 angular.module('myApp.eventos', ['ngRoute'])
 
-    .config(['$routeProvider', function($routeProvider) {
-        $routeProvider.when('/eventos', {
-            templateUrl: 'eventos/eventos.html',
-            controller: 'eventoController'
-        });
+.config(['$routeProvider', function ($routeProvider) {
+    $routeProvider.when('/eventos', {
+        templateUrl: 'eventos/eventos.html',
+        controller: 'eventoController'
+    });
     }])
 
-    .controller('eventoController', ['$scope', function($scope) {
-        
-        
-        $scope.evento = {};
-        $scope.alerts = [];
-        
-        $scope.conversorDate = function(data){
+    .controller('eventoController', ['$scope','$http','eventoService', function ($scope,$http,eventoService) {
+
+
+    $scope.eventos = [];
+    $scope.evento = {};
+    $scope.alerts = [];
+
+    $scope.conversorDate = function (data) {
+
+        if (data != null) {
+
 
             var d = angular.copy(data);
             var dMon = d.getMonth();
             var dDay = d.getDate();
             var dYear = d.getFullYear();
-            var date = dDay +"/" + dMon + "/" + dYear;
+            var date = dDay + "/" + dMon + "/" + dYear;
 
             return date;
         }
-        
-        $scope.limparForm = function(){
-            $scope.evento = {};
-        }
-        
-        
+        return data;
+    }
 
-        $scope.sendCardapio = function (evento) {
+    $scope.limparForm = function () {
+        $scope.evento = {};
+    }
+    
+    $scope.sendEvento = function (evento) {
 
-            var res = $http.post('http://frkey.noip.me:3636/br.unicamp/rest/cardapio/insereCardapio', newData);
-            res.success(function (data, status, headers, config) {
+        var res = $http.post('http://frkey.noip.me:3636/br.unicamp/rest/cardapio/insereCardapio', evento);
+        res.success(function (data, status, headers, config) {
 
-                $scope.limparForm();
+            $scope.limparForm();
 
-                $scope.alerts.push({
-                    type: 'success',
-                    msg: 'Evento adicionado com sucesso'
-                });
-
-                var message = data;
+            $scope.alerts.push({
+                type: 'success',
+                msg: 'Evento adicionado com sucesso'
             });
-            res.error(function (data, status, headers, config) {
 
-                $scope.alerts.push({
-                    type: 'danger',
-                    msg: 'Erro:' + JSON.stringify({
-                        data: data
-                    })
-                });
+            var message = data;
+        });
+        res.error(function (data, status, headers, config) {
 
+            console.log("ERRO");
+            
+            $scope.alerts.push({
+                type: 'danger',
+                msg: 'Erro:' + JSON.stringify({
+                    data: data
+                })
             });
-        }
-        
 
-    }]).service("cardapioService", function ($http, $q) {
+        });
+    }
+
+    
+    
+    $scope.criarEventos = function(){
+        
+        $scope.evento.data = $scope.conversorDate($scope.evento.data);
+        var evento = angular.copy($scope.evento);
+        console.log($scope.evento);
+        $scope.sendEvento(evento);
+    }
+    
+    
+    var promise = eventoService.getEventos();
+        promise.then(function (data) {
+            $scope.eventos = data.data;            
+            $scope.eventos.dia = $scope.eventos.data.getDate();
+            $scope.eventos.mes = $scope.eventos.data.getMonth();
+            $scope.eventos.ano = $scope.eventos.data.getFullYear();
+            console.log($scope.eventos);
+        })
+
+    
+
+    }]).service("eventoService", function ($http, $q) {
     var deferred = $q.defer();
-    $http.get('http://frkey.noip.me:3636/br.unicamp/rest/cardapio/listarTodos').then(function (data) {
+    $http.get('http://http://localhost:8080/br.unicamp/rest/eventos/listarTodos').then(function (data) {
         deferred.resolve(data);
     });
 
-    this.getCardapios = function () {
+    this.getEventos = function () {
         return deferred.promise;
     }
-
-
 
 
 });

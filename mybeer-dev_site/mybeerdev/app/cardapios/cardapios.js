@@ -44,33 +44,19 @@ angular.module('myApp.cardapios', ['ngRoute'])
 
 
         $scope.criarCardapio = function () {
-            
-//TESTE
-//            var cardapio = {
-//                datainicio: '2015-05-10',
-//                datafim: '2015-05-20',
-//                descricao: 'ricardo noiado',
-//                idfuncionario: 1,
-//                nome: 'teste'
-//
-//
-//            };
-          
-            
-           
-            
+
             $scope.cardapio.datainicio = $scope.conversorDate($scope.cardapio.datainicio);
             $scope.cardapio.datafim = $scope.conversorDate($scope.cardapio.datafim);
-            
-            
+
+
             $scope.idfuncionaio = 1;
             console.log($scope.cardapio);
-            
+
             var cardapio = angular.copy($scope.cardapio);
-            
-            
-//            $scope.sendCardapio(cardapio);
-          
+
+
+            $scope.sendCardapio(cardapio);
+
         }
 
         $scope.addAlert = function () {
@@ -88,11 +74,11 @@ angular.module('myApp.cardapios', ['ngRoute'])
 
         $scope.sendCardapio = function (cardapio) {
 
-            var res = $http.post('http://frkey.noip.me:3636/br.unicamp/rest/cardapio/insereCardapio', newData);
+            var res = $http.post('http://localhost:8080/br.unicamp/rest/cardapio/insereCardapio', cardapio);
             res.success(function (data, status, headers, config) {
 
                 $scope.limparForm();
-                
+
                 $scope.alerts.push({
                     type: 'success',
                     msg: 'Cardápio adicionado com sucesso'
@@ -111,20 +97,21 @@ angular.module('myApp.cardapios', ['ngRoute'])
 
             });
         }
-        
-        $scope.limparForm = function(){
+
+        $scope.limparForm = function () {
             $scope.cardapio = {};
         }
 
-        $scope.conversorDate = function(data){
-            
-            var d = angular.copy(data);
-            var dMon = d.getMonth();
-            var dDay = d.getDate();
-            var dYear = d.getFullYear();
-            var date = dDay +"/" + dMon + "/" + dYear;
-            
+        $scope.conversorDate = function (data) {
+            if (data != null) {
+                var d = angular.copy(data);
+                var dMon = d.getMonth();
+                var dDay = d.getDate();
+                var dYear = d.getFullYear();
+                var date = dDay + "/" + dMon + "/" + dYear;
             return date;
+            }
+            return data;
         }
 
     }])
