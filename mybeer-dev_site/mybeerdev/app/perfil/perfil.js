@@ -16,8 +16,8 @@ angular.module('myApp.perfil', ['ngRoute'])
         $scope.userEmail = "Email";
         $scope.userNickName = "Apelido";
         $scope.userCity = "Cidade";
-        $scope.userDrinks = "Drinks";
-        $scope.userFood = "Comida";
+        $scope.userDrinks = "Drinks Favorito";
+        $scope.userFood = "Comida Favorita";
         $scope.userStatus = "Status Relacionamento";
 
         $scope.user = {

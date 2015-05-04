@@ -41,16 +41,16 @@
                             <input type="text" class="form-control form-group" placeholder="www.facebook.com/evento" ng-model="evento.facebook">
                         </div>
                         <div ng-controller="DatepickerDemoCtrl" class="col-xs-12 col-md-6 form-group">
-                        <label>Inicio do cardápio</label>
-                        <div>
-                            <p class="input-group">
-                                <input type="text" id="date" class="form-control" datepicker-popup="{{format}}" is-open="opened" ng-model="evento.data" placeholder="99/99/9999" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" min-date="minDate" ng-required="true" close-text="Fechar" />
-                                <span class="input-group-btn">
+                            <label>Inicio do cardápio</label>
+                            <div>
+                                <p class="input-group">
+                                    <input type="text" id="date" class="form-control" datepicker-popup="{{format}}" is-open="opened" ng-model="evento.data" placeholder="99/99/9999" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" min-date="minDate" ng-required="true" close-text="Fechar" />
+                                    <span class="input-group-btn">
                                     <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
                                 </span>
-                            </p>
+                                </p>
+                            </div>
                         </div>
-                    </div>
                     </div>
                     <div class="form-group pull-right">
 
@@ -80,34 +80,33 @@
                                     <span class="time">8:00 PM</span>
                                 </time>
                                 <img alt="My 24th Birthday!" src="https://farm5.staticflickr.com/4150/5045502202_1d867c8a41_q.jpg" />
-                                <div class="info">
-                                    <h2 class="title">Mouse0270's 24th Birthday!</h2>
-                                    <p class="desc">Bar Hopping in Erie, Pa.</p>
+                                <h2 class="title">Aniversário do Bar!</h2>
+                                <p class="desc">Bar Happy Hour da Amizade, SP</p>
 
-                                </div>
-                                <div class="social">
-                                    <ul>
-                                        <li class="facebook" style="width:33%;"><a href="#facebook"><span class="fa fa-facebook"></span></a>
-                                        </li>
-                                    </ul>
-                                </div>
+                    </div>
+                    <div class="social">
+                        <ul>
+                            <li class="facebook" style="width:33%;"><a href="#facebook"><span class="fa fa-facebook"></span></a>
                             </li>
                         </ul>
                     </div>
-
-
-
-                </div>
-                <div class="form-group pull-right">
-
-                    <button type="button" class="btn btn-warning" ng-click="criarEventos()"> <span>Criar Evento</span> </button>
+                    </li>
+                    </ul>
                 </div>
 
-                <div class="clearfix"></div>
+
 
             </div>
+            <div class="form-group pull-right">
 
-            <!--
+                <button type="button" class="btn btn-warning" ng-click="criarEventos()"> <span>Criar Evento</span> </button>
+            </div>
+
+            <div class="clearfix"></div>
+
+        </div>
+
+        <!--
             <form action="rest/files/upload" method="post" enctype="multipart/form-data">
 
                 <p>
@@ -118,13 +117,13 @@
             </form>
 -->
 
-            <!-- /.container-fluid -->
+        <!-- /.container-fluid -->
 
-
-        </div>
-        <!-- /#page-wrapper -->
 
     </div>
+    <!-- /#page-wrapper -->
+
+</div>
 </div>
 <script>
     jQuery(function ($) {
