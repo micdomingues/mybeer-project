@@ -8,25 +8,25 @@ angular.module('myApp.cardapios', ['ngRoute'])
             controller: 'CardapioController'
         });
 }])
-    .controller('CardapioController', ['$scope', '$http', 'myService', function ($scope, $http, myService) {
+    .controller('CardapioController', ['$scope', '$http', 'cardapioService', function ($scope, $http, cardapioService) {
 
-        $scope.getData = function () {
-            // Call the async method and then do stuff with what is returned inside our own then function
-            myService.async().then(function (d) {
-                $scope.data = d;
-                console.log(d);
-            });
-        };
-        
-        $scope.getData();
+        if ($scope.cardapios == null) {
+            $scope.cardapios = [];
+        }
+
+        var promise = cardapioService.getCardapios();
+        promise.then(function (data) {
+            $scope.cardapios = data.data;
+            console.log($scope.cardapios);
+        })
+
 
         $scope.cardapio = {};
-        
-        
-        $scope.cardapio.dtInicio;
-        $scope.cardapio.dtFim;
-        
-        $scope.cardapio.checkboxSemanal = {
+        $scope.alerts = [];
+        $scope.cardapio.datainicio;
+        $scope.cardapio.datafim;
+
+        $scope.checkboxSemanal = {
             segunda: false,
             terca: false,
             quarta: false,
@@ -35,62 +35,142 @@ angular.module('myApp.cardapios', ['ngRoute'])
             sabado: false,
             domingo: false
         }
-        
-        
-        $scope.cardapio.tipoDataCardapio = {
+
+
+        $scope.tipoDataCardapio = {
             name: 'intervaloDataSemanal',
             value: 0
         };
-        
-    }])
-.factory('myService', function ($http) {
-    var promise;
-    var myService = {
-        async: function () {
-            if (!promise) {
-                // $http returns a promise, which has a then function, which also returns a promise
-                promise = $http.get('http://echo.jsontest.com/key/value/one/two').then(function (response) {
-                    // The then function here is an opportunity to modify the response
-                    // The return value gets picked up by the then in the controller.
-                    return response.data;
-                });
-            }
-            // Return the promise to the controller
-            return promise;
+
+
+        $scope.criarCardapio = function () {
+            
+//TESTE
+//            var cardapio = {
+//                datainicio: '2015-05-10',
+//                datafim: '2015-05-20',
+//                descricao: 'ricardo noiado',
+//                idfuncionario: 1,
+//                nome: 'teste'
+//
+//
+//            };
+          
+            
+           
+            
+            $scope.cardapio.datainicio = $scope.conversorDate($scope.cardapio.datainicio);
+            $scope.cardapio.datafim = $scope.conversorDate($scope.cardapio.datafim);
+            
+            
+            $scope.idfuncionaio = 1;
+            console.log($scope.cardapio);
+            
+            var cardapio = angular.copy($scope.cardapio);
+            
+            
+//            $scope.sendCardapio(cardapio);
+          
         }
-    };
-    return myService;
-})
-.controller('DatepickerDemoCtrl', function ($scope) {
-    
-$scope.today = function() {
-    $scope.dt = new Date();
-};
-$scope.today();
 
-$scope.clear = function () {
-    $scope.dt = null;
-};
+        $scope.addAlert = function () {
+
+            $scope.alerts.push({
+                type: 'danger',
+                msg: 'Another alert!'
+            });
+        };
+
+        $scope.closeAlert = function (index) {
+            $scope.alerts.splice(index, 1);
+        };
 
 
-$scope.toggleMin = function() {
-    $scope.minDate = $scope.minDate ? null : new Date();
-};
-$scope.toggleMin();
+        $scope.sendCardapio = function (cardapio) {
 
-$scope.open = function($event) {
-    $event.preventDefault();
-    $event.stopPropagation();
+            var res = $http.post('http://frkey.noip.me:3636/br.unicamp/rest/cardapio/insereCardapio', newData);
+            res.success(function (data, status, headers, config) {
 
-    $scope.opened = true;
-};
+                $scope.limparForm();
+                
+                $scope.alerts.push({
+                    type: 'success',
+                    msg: 'Cardápio adicionado com sucesso'
+                });
 
-$scope.dateOptions = {
-    formatYear: 'yy',
-    startingDay: 1
-};
+                var message = data;
+            });
+            res.error(function (data, status, headers, config) {
 
-$scope.formats = ['dd/MMMM/yyyy', 'yyyy/MM/dd', 'dd/MM/yyyy', 'shortDate'];
-$scope.format = $scope.formats[2];
-    
-});
+                $scope.alerts.push({
+                    type: 'danger',
+                    msg: 'Erro:' + JSON.stringify({
+                        data: data
+                    })
+                });
+
+            });
+        }
+        
+        $scope.limparForm = function(){
+            $scope.cardapio = {};
+        }
+
+        $scope.conversorDate = function(data){
+            
+            var d = angular.copy(data);
+            var dMon = d.getMonth();
+            var dDay = d.getDate();
+            var dYear = d.getFullYear();
+            var date = dDay +"/" + dMon + "/" + dYear;
+            
+            return date;
+        }
+
+    }])
+    .controller('DatepickerDemoCtrl', function ($scope) {
+
+        $scope.today = function () {
+            $scope.dt = new Date();
+        };
+        $scope.today();
+
+        $scope.clear = function () {
+            $scope.dt = null;
+        };
+
+
+        $scope.toggleMin = function () {
+            $scope.minDate = $scope.minDate ? null : new Date();
+        };
+        $scope.toggleMin();
+
+        $scope.open = function ($event) {
+            $event.preventDefault();
+            $event.stopPropagation();
+
+            $scope.opened = true;
+        };
+
+        $scope.dateOptions = {
+            formatYear: 'yy',
+            startingDay: 1
+        };
+
+        $scope.formats = ['dd/MMMM/yyyy', 'yyyy/MM/dd', 'dd/MM/yyyy', 'shortDate'];
+        $scope.format = $scope.formats[2];
+
+    }).service("cardapioService", function ($http, $q) {
+        var deferred = $q.defer();
+        $http.get('http://frkey.noip.me:3636/br.unicamp/rest/cardapio/listarTodos').then(function (data) {
+            deferred.resolve(data);
+        });
+
+        this.getCardapios = function () {
+            return deferred.promise;
+        }
+
+
+
+
+    });

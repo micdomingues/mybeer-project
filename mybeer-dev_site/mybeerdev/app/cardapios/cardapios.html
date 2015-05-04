@@ -4,6 +4,9 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
 
 <div id="page-wrapper">
+    <div class="col-xs-12">
+        <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+    </div>
     <div class="container-fluid">
         <div class="col-lg-12">
             <h1 class="page-header">
@@ -16,35 +19,51 @@
             </ol>
         </div>
 
-
+        
         <div class="col-lg-12 col-md-12">
             <div class="panel panel-default" style="padding:5px">
                 <div class="panel-heading">
                     <div class="panel-title">
-                        <center>
-                            Menu Cardápio</center>
+                        Menu Cardápio
                     </div>
                 </div>
-                <div style="padding:10px">
-                    <label> Escolha o tipo do Cardápio: </label>
-                    <div>
+                <div class="form-group">
+
+
+                    <div class="col-xs-12">
+                        <div class="col-md-6">
+                            <label>Nome do Cardápio: *</label>
+                            <input type="text" class="form-control" placeholder="Nome do Cardárpio" ng-model="cardapio.nome">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Dados do cardápio: *</label>
+                            <textarea class="form-control" rows="6" ng-model="cardapio.descricao"></textarea>
+                        </div>
+
+
+                    </div>
+                    <hr/>
+
+                    <div class="col-xs-12">
+                        <label> Escolha o tipo do Cardápio: </label>
+
                         <div class="funkyradio">
                             <div class="funkyradio-warning">
-                                <input type="radio" ng-model="cardapio.tipoDataCardapio.name" value="intervaloDataMes" id="radio1" />
+                                <input type="radio" ng-model="tipoDataCardapio.name" value="intervaloDataMes" id="radio1" />
                                 <label for="radio1">Intervalo de dias</label>
                             </div>
                             <div class="funkyradio-warning">
-                                <input type="radio" ng-model="cardapio.tipoDataCardapio.name" value="dataSemanalEspecifica" id="radio3" />
+                                <input type="radio" ng-model="tipoDataCardapio.name" value="dataSemanalEspecifica" id="radio3" />
                                 <label for="radio3">Dias da semana</label>
                             </div>
                         </div>
-
+                        <div class="clearfix"></div>
                         <!-- Dias da semana -->
-                        <div class="[ form-group ]" ng-show="cardapio.tipoDataCardapio.name=='dataSemanalEspecifica'">
+                        <div class="[ form-group ]" ng-show="tipoDataCardapio.name=='dataSemanalEspecifica'">
 
                             <hr/>
 
-                            <input type="checkbox" name="fancy-checkbox-segunda" id="fancy-checkbox-segunda" autocomplete="off" ng-model="cardapio.checkboxSemanal.segunda" />
+                            <input type="checkbox" name="fancy-checkbox-segunda" id="fancy-checkbox-segunda" autocomplete="off" ng-model="checkboxSemanal.segunda" />
                             <div class="[ btn-group ]">
                                 <label for="fancy-checkbox-segunda" class="[ btn btn-warning ]">
                                     <span class="[ glyphicon glyphicon-ok ]"></span>
@@ -55,7 +74,7 @@
                                 </label>
                             </div>
 
-                            <input type="checkbox" name="fancy-checkbox-terca" id="fancy-checkbox-terca" autocomplete="off" ng-model="cardapio.checkboxSemanal.terca" />
+                            <input type="checkbox" name="fancy-checkbox-terca" id="fancy-checkbox-terca" autocomplete="off" ng-model="checkboxSemanal.terca" />
                             <div class="[ btn-group ]">
                                 <label for="fancy-checkbox-terca" class="[ btn btn-warning ]">
                                     <span class="[ glyphicon glyphicon-ok ]"></span>
@@ -66,7 +85,7 @@
                                 </label>
                             </div>
 
-                            <input type="checkbox" name="fancy-checkbox-quarta" id="fancy-checkbox-quarta" autocomplete="off" ng-model="cardapio.checkboxSemanal.quarta" />
+                            <input type="checkbox" name="fancy-checkbox-quarta" id="fancy-checkbox-quarta" autocomplete="off" ng-model="checkboxSemanal.quarta" />
                             <div class="[ btn-group ]">
                                 <label for="fancy-checkbox-quarta" class="[ btn btn-warning ]">
                                     <span class="[ glyphicon glyphicon-ok ]"></span>
@@ -77,7 +96,7 @@
                                 </label>
                             </div>
 
-                            <input type="checkbox" name="fancy-checkbox-quinta" id="fancy-checkbox-quinta" autocomplete="off" ng-model="cardapio.checkboxSemanal.quinta" />
+                            <input type="checkbox" name="fancy-checkbox-quinta" id="fancy-checkbox-quinta" autocomplete="off" ng-model="checkboxSemanal.quinta" />
                             <div class="[ btn-group ]">
                                 <label for="fancy-checkbox-quinta" class="[ btn btn-warning ]">
                                     <span class="[ glyphicon glyphicon-ok ]"></span>
@@ -88,7 +107,7 @@
                                 </label>
                             </div>
 
-                            <input type="checkbox" name="fancy-checkbox-sexta" id="fancy-checkbox-sexta" autocomplete="off" ng-model="cardapio.checkboxSemanal.sexta" />
+                            <input type="checkbox" name="fancy-checkbox-sexta" id="fancy-checkbox-sexta" autocomplete="off" ng-model="checkboxSemanal.sexta" />
                             <div class="[ btn-group ]">
                                 <label for="fancy-checkbox-sexta" class="[ btn btn-warning ]">
                                     <span class="[ glyphicon glyphicon-ok ]"></span>
@@ -99,7 +118,7 @@
                                 </label>
                             </div>
 
-                            <input type="checkbox" name="fancy-checkbox-sabado" id="fancy-checkbox-sabado" autocomplete="off" ng-model="cardapio.checkboxSemanal.sabado" />
+                            <input type="checkbox" name="fancy-checkbox-sabado" id="fancy-checkbox-sabado" autocomplete="off" ng-model="checkboxSemanal.sabado" />
                             <div class="[ btn-group ]">
                                 <label for="fancy-checkbox-sabado" class="[ btn btn-warning ]">
                                     <span class="[ glyphicon glyphicon-ok ]"></span>
@@ -109,7 +128,7 @@
                                     Sábado
                                 </label>
                             </div>
-                            <input type="checkbox" name="fancy-checkbox-domingo" id="fancy-checkbox-domingo" autocomplete="off" ng-model="cardapio.checkboxSemanal.domingo" />
+                            <input type="checkbox" name="fancy-checkbox-domingo" id="fancy-checkbox-domingo" autocomplete="off" ng-model="checkboxSemanal.domingo" />
                             <div class="[ btn-group ]">
                                 <label for="fancy-checkbox-domingo" class="[ btn btn-warning ]">
                                     <span class="[ glyphicon glyphicon-ok ]"></span>
@@ -122,15 +141,14 @@
 
                         </div>
                         <!-- fim data semanal especifica -->
-
                         <!-- Intervalo de data mes -->
-                        <div class="col-xs-12">
+                        <div class="col-xs-12" ng-show="tipoDataCardapio.name == 'intervaloDataMes'">
                             <hr/>
-                            <div ng-controller="DatepickerDemoCtrl" ng-show="cardapio.tipoDataCardapio.name == 'intervaloDataMes'" class="col-xs-6">
+                            <div ng-controller="DatepickerDemoCtrl" class="col-xs-12 col-md-6">
                                 <h4>Inicio do cardápio</h4>
-                                <div class="col-md-6">
+                                <div>
                                     <p class="input-group">
-                                        <input type="text" id="date" class="form-control" datepicker-popup="{{format}}" ng-model="cardapio.dtInicio" is-open="opened" placeholder="99/99/9999" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" min-date="minDate" ng-required="true" close-text="Fechar" />
+                                        <input type="text" id="date" class="form-control" datepicker-popup="{{format}}" ng-model="cardapio.datainicio" is-open="opened" placeholder="99/99/9999" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" min-date="minDate" ng-required="true" close-text="Fechar" />
                                         <span class="input-group-btn">
                                             <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
                                         </span>
@@ -138,11 +156,11 @@
                                 </div>
                             </div>
 
-                            <div ng-controller="DatepickerDemoCtrl" ng-show="cardapio.tipoDataCardapio.name == 'intervaloDataMes'" class="col-xs-6">
+                            <div ng-controller="DatepickerDemoCtrl" class="col-xs-12 col-md-6">
                                 <h4>Fim do cardápio</h4>
-                                <div class="col-md-6">
+                                <div>
                                     <p class="input-group">
-                                        <input type="text" id="date" class="form-control" datepicker-popup="{{format}}" placeholder="99/99/9999" ng-model="cardapio.dtFim" is-open="opened" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" min-date="minDate" ng-required="true" close-text="Fechar" />
+                                        <input type="text" id="date" class="form-control" datepicker-popup="{{format}}" placeholder="99/99/9999" ng-model="cardapio.datafim" is-open="opened" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" min-date="minDate" ng-required="true" close-text="Fechar" />
                                         <span class="input-group-btn">
                                             <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
                                         </span>
@@ -151,59 +169,51 @@
                             </div>
                             <!--  Fim intervalo data mes -->
                         </div>
+                        <div class="form-group pull-right">
 
-                        <br/>
-                        <div class="col-xs-12 form-group">
-                            <div class="col-md-6">
-                            <label>Nome do Cardápio: *</label>
-                            <input type="text" class="form-control" placeholder="Nome do Cardárpio">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label>Dados do cardápio: *</label>
-                                <textarea class="form-control" rows="6"></textarea>
-                            </div>
-                            
-                            <div class="form-group pull-right">
-
-                                <button type="button" class="btn btn-warning"> <span>Criar Cardápio</span> </button>
-                            </div>
+                            <button type="button" class="btn btn-warning" ng-click="criarCardapio()"> <span>Criar Cardápio</span> </button>
                         </div>
 
-
-
-                      
+                        <br/>
                         <div class="clearfix"></div>
+
+
                     </div>
 
                 </div>
+                <div class="clearfix"></div>
             </div>
         </div>
+        <!--        ALERTAS -->
+        
 
-        <div class="col-lg-6 col-md-12">
-            <div class="panel panel-default" style="padding:5px">
-                <div class="panel-heading">
-                    <div class="panel-title">
-                        Cardápio + NOME + dia da semana - todos os cardapios serao mostrados assim, tendo q apertar o botão de 'dropdown' para mostrar o cardápio... ou n?
+
+        <div ng-repeat="cardapio in cardapios.cardapio">
+
+            <div class="col-lg-6 col-md-12">
+                <div class="panel panel-default" style="padding:5px">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            {{cardapio.nome}} - {{cardapio.datainicio}} | {{cardapio.datafim}}
+                        </div>
+                    </div>
+                    <div style="padding:10px">
+                        {{cardapio.descricao}}
+
                     </div>
                 </div>
-                <div style="padding:10px">
-                    <ul>
-                        <li>arroz</li>
-                        <li>arroz</li>
-                        <li>arroz</li>
-                        <li>arroz</li>
-                    </ul>
-
-                </div>
             </div>
-        </div>
 
+        </div>
 
 
     </div>
     <!-- /.container-fluid -->
 
+    
+
 </div>
+
 <!-- /#page-wrapper -->
 <script>
     jQuery(function ($) {
