@@ -165,6 +165,4 @@ public class LoginDAO extends ConnectionFactory
 		}
 		return logins;
 	}
-	
-
 }

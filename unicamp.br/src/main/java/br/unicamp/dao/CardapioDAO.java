@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import br.unicamp.factory.ConnectionFactory;
 import br.unicamp.model.Cardapio;
+import br.unicamp.model.Semana;
 
 public class CardapioDAO extends ConnectionFactory
 {
@@ -25,6 +26,7 @@ public class CardapioDAO extends ConnectionFactory
 		if(cardapio != null)
 		{
 			int res;
+			boolean semana = false;
 			Connection conexao = null;
 			PreparedStatement pstmt = null;
 			ResultSet rs = null;
@@ -32,17 +34,39 @@ public class CardapioDAO extends ConnectionFactory
 			
 			conexao = criarConexao();			
 			try
-			{				
-				comando = "INSERT INTO CARDAPIO (IDFUNCIONARIO, SEMANAINICIO, SEMANAFIM, DATAINICIO, DATAFIM, NOME, DESCRICAO) VALUES (?,?,?,?,?,?,?)";	
+			{
+				//if(cardapio.getSemana() == null)
+				//{
+					comando = "INSERT INTO CARDAPIO (IDFUNCIONARIO, NOME, DESCRICAO, DATAINICIO, DATAFIM) VALUES (?,?,?,?,?)";
+				//}
+				//else
+				//{
+					//comando = "INSERT INTO CARDAPIO (IDFUNCIONARIO, NOME, DESCRICAO, SEG, TER, QUA, QUI, SEX, SAB, DOM) VALUES (?,?,?,?,?,?,?,?,?,?)";
+					//semana = true;
+				//}
+						
 				pstmt = conexao.prepareStatement(comando, Statement.RETURN_GENERATED_KEYS);
 				
 				pstmt.setInt(1, cardapio.getIdfuncionario());
-				pstmt.setString(2, cardapio.getSemanainicio());
-				pstmt.setString(3, cardapio.getSemanafim());				
-				pstmt.setString(4, cardapio.getDatainicio());
-				pstmt.setString(5, cardapio.getDatafim());
-				pstmt.setString(6, cardapio.getNome());
-				pstmt.setString(7, cardapio.getDescricao());
+				pstmt.setString(2, cardapio.getNome());
+				pstmt.setString(3, cardapio.getDescricao());
+				
+				if(!semana)
+				{
+					pstmt.setString(4, cardapio.getDatainicio());
+					pstmt.setString(5, cardapio.getDatafim());
+				}
+				else
+				{
+					Semana sem = cardapio.getSemana();
+					pstmt.setInt(4, ((sem.isSegunda())?1:null));
+					pstmt.setInt(5, ((sem.isTerca())?1:null));
+					pstmt.setInt(6, ((sem.isQuarta())?1:null));
+					pstmt.setInt(7, ((sem.isQuinta())?1:null));
+					pstmt.setInt(8, ((sem.isSexta())?1:null));
+					pstmt.setInt(9, ((sem.isSabado())?1:null));
+					pstmt.setInt(10, ((sem.isDomingo())?1:null));
+				}				
 				
 				res = pstmt.executeUpdate();
 				
@@ -97,12 +121,21 @@ public class CardapioDAO extends ConnectionFactory
 				cardapio.setDatainicio(rs.getString("DATAINICIO"));
 				cardapio.setDatafim(rs.getString("DATAFIM"));
 				
-				cardapio.setSemanainicio(rs.getString("SEMANAINICIO"));
-				cardapio.setSemanafim(rs.getString("SEMANAFIM"));
+				Semana sem = new Semana();
+				
+				sem.setSegunda(((rs.getInt("SEG") == 1)?true:false));
+				sem.setTerca(((rs.getInt("TER") == 1)?true:false));
+				sem.setQuarta(((rs.getInt("QUA") == 1)?true:false));
+				sem.setQuinta(((rs.getInt("QUI") == 1)?true:false));
+				sem.setSexta(((rs.getInt("SEX") == 1)?true:false));
+				sem.setSabado(((rs.getInt("SAB") == 1)?true:false));
+				sem.setDomingo(((rs.getInt("DOM") == 1)?true:false));
+				
+				if(!sem.isEmpty())
+					cardapio.setSemana(sem);
 				
 				cardapios.add(cardapio);
-			}
-			
+			}			
 		}
 		catch (Exception e) 
 		{

@@ -49,7 +49,7 @@ angular.module('myApp.cardapios', ['ngRoute'])
             $scope.cardapio.datafim = $scope.conversorDate($scope.cardapio.datafim);
 
 
-            $scope.idfuncionaio = 1;
+            $scope.cardapio.idfuncionario = 1;
             console.log($scope.cardapio);
 
             var cardapio = angular.copy($scope.cardapio);
@@ -85,6 +85,8 @@ angular.module('myApp.cardapios', ['ngRoute'])
                 });
 
                 var message = data;
+
+                // $scope.cardapios = cardapioService.getCardapios();
             });
             res.error(function (data, status, headers, config) {
 
@@ -149,7 +151,7 @@ angular.module('myApp.cardapios', ['ngRoute'])
 
     }).service("cardapioService", function ($http, $q) {
         var deferred = $q.defer();
-        $http.get('http://frkey.noip.me:3636/br.unicamp/rest/cardapio/listarTodos').then(function (data) {
+        $http.get('http://localhost:8080/br.unicamp/rest/cardapio/listarTodos').then(function (data) {
             deferred.resolve(data);
         });
 
