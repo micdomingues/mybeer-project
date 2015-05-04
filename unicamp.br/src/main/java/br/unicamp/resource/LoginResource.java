@@ -5,6 +5,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Request;
@@ -15,8 +16,8 @@ import br.unicamp.controller.PessoaController;
 
 
 
+import br.unicamp.criptografy.ResponseClient;
 import br.unicamp.model.Login;
-
 import br.unicamp.model.Pessoa;
 
 import com.google.gson.Gson;
@@ -54,26 +55,44 @@ public class LoginResource
 	@POST
 	@Path("/executeLogin")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	public String executeLogin(@FormParam("usuario") String usuario, @FormParam("senha") String senha)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Login executeLogin(@FormParam("usuario") String usuario, @FormParam("senha") String senha)
 	{
-		Login
-	    //pegar no bd se existe o usuario q esta sendo requisitado
-	    Login loginRes = new LoginController().autenticar(login);
+		String response = null;
+		Login login = null;
+		
+		System.out.println(usuario + " " + senha);
+		
+		if(usuario != null && !usuario.isEmpty() && senha != null && !senha.isEmpty())
+		{
+			Gson gson = new GsonBuilder().create();
+			login = new Login();
+			
+			login.setUsuario(usuario);
+			login.setSenha(senha);
+			
+			login = new LoginController().autenticar(login);
+			
+			/*
+			ResponseClient rc = new ResponseClient();
+		    if(login != null)
+		    {	    	
+			    rc.setRESPONSE(String.valueOf(gson.toJson(login)));
+		    }
+		    else
+		    {
+		    	 rc.setRESPONSE("");
+		    }
+		    
+			
+		    response = rc.parseClassToJSON();
+		    */
+		}
 	    
-	    ResponseClient rc = new ResponseClient();
-	    if(loginRes != null)
-	    {	    	
-		    rc.setRESPONSE(String.valueOf(rc4.encrypt(gson.toJson(loginRes))));
-	    }
-	    else
-	    {
-	    	 rc.setRESPONSE("");
-	    }
-	    
-	    String response = rc.parseClassToJSON();
-	    return response;
+	    return login;
 	}
 	
+	/*
 	@POST
 	@Path("/insereLogin")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -122,5 +141,6 @@ public class LoginResource
 	    String response = rc.parseClassToJSON();
 	    return response;
 	}
+	*/
 	
 }

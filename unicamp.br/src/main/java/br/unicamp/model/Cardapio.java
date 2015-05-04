@@ -7,7 +7,7 @@ public class Cardapio
 {
 	private int codcardapio, idfuncionario;
 	private String semanainicio, semanafim;
-	private String datainicio, datafim, descricao;
+	private String datainicio, datafim, nome, descricao;
 
 	public int getCodcardapio() {
 		return codcardapio;
@@ -57,6 +57,14 @@ public class Cardapio
 		this.datafim = datafim;
 	}
 
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
 	public String getDescricao() {
 		return descricao;
 	}
@@ -66,12 +74,12 @@ public class Cardapio
 	}
 	
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		return "Cardapio [codcardapio=" + codcardapio + ", idfuncionario="
 				+ idfuncionario + ", semanainicio=" + semanainicio
 				+ ", semanafim=" + semanafim + ", datainicio=" + datainicio
-				+ ", datafim=" + datafim + ", descricao=" + descricao + "]";
+				+ ", datafim=" + datafim + ", nome=" + nome + ", descricao="
+				+ descricao + "]";
 	}
 
 	@Override
@@ -85,6 +93,7 @@ public class Cardapio
 		result = prime * result
 				+ ((descricao == null) ? 0 : descricao.hashCode());
 		result = prime * result + idfuncionario;
+		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		result = prime * result
 				+ ((semanafim == null) ? 0 : semanafim.hashCode());
 		result = prime * result
@@ -119,6 +128,11 @@ public class Cardapio
 		} else if (!descricao.equals(other.descricao))
 			return false;
 		if (idfuncionario != other.idfuncionario)
+			return false;
+		if (nome == null) {
+			if (other.nome != null)
+				return false;
+		} else if (!nome.equals(other.nome))
 			return false;
 		if (semanafim == null) {
 			if (other.semanafim != null)
