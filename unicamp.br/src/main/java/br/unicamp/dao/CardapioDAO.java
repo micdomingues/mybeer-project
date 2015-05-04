@@ -35,15 +35,15 @@ public class CardapioDAO extends ConnectionFactory
 			conexao = criarConexao();			
 			try
 			{
-				if(cardapio.getSemana() != null)
-				{
+				//if(cardapio.getSemana() == null)
+				//{
 					comando = "INSERT INTO CARDAPIO (IDFUNCIONARIO, NOME, DESCRICAO, DATAINICIO, DATAFIM) VALUES (?,?,?,?,?)";
-					semana = true;
-				}
-				else
-				{
-					comando = "INSERT INTO CARDAPIO (IDFUNCIONARIO, NOME, DESCRICAO, SEG, TER, QUA, QUI, SEX, SAB, DOM) VALUES (?,?,?,?,?,?,?,?,?,?)";
-				}
+				//}
+				//else
+				//{
+					//comando = "INSERT INTO CARDAPIO (IDFUNCIONARIO, NOME, DESCRICAO, SEG, TER, QUA, QUI, SEX, SAB, DOM) VALUES (?,?,?,?,?,?,?,?,?,?)";
+					//semana = true;
+				//}
 						
 				pstmt = conexao.prepareStatement(comando, Statement.RETURN_GENERATED_KEYS);
 				
@@ -51,7 +51,7 @@ public class CardapioDAO extends ConnectionFactory
 				pstmt.setString(2, cardapio.getNome());
 				pstmt.setString(3, cardapio.getDescricao());
 				
-				if(semana)
+				if(!semana)
 				{
 					pstmt.setString(4, cardapio.getDatainicio());
 					pstmt.setString(5, cardapio.getDatafim());
