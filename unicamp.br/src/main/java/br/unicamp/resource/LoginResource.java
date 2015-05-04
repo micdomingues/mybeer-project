@@ -72,21 +72,6 @@ public class LoginResource
 			login.setSenha(senha);
 			
 			login = new LoginController().autenticar(login);
-			
-			/*
-			ResponseClient rc = new ResponseClient();
-		    if(login != null)
-		    {	    	
-			    rc.setRESPONSE(String.valueOf(gson.toJson(login)));
-		    }
-		    else
-		    {
-		    	 rc.setRESPONSE("");
-		    }
-		    
-			
-		    response = rc.parseClassToJSON();
-		    */
 		}
 	    
 	    return login;

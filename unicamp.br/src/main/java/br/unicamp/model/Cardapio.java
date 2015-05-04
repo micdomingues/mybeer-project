@@ -6,8 +6,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Cardapio
 {
 	private int codcardapio, idfuncionario;
-	private String semanainicio, semanafim;
+	private Semana semana;
 	private String datainicio, datafim, nome, descricao;
+	
+	public Cardapio()
+	{
+		semana = null;
+	}
 
 	public int getCodcardapio() {
 		return codcardapio;
@@ -25,20 +30,12 @@ public class Cardapio
 		this.idfuncionario = idfuncionario;
 	}
 
-	public String getSemanainicio() {
-		return semanainicio;
+	public Semana getSemana() {
+		return semana;
 	}
 
-	public void setSemanainicio(String semanainicio) {
-		this.semanainicio = semanainicio;
-	}
-
-	public String getSemanafim() {
-		return semanafim;
-	}
-
-	public void setSemanafim(String semanafim) {
-		this.semanafim = semanafim;
+	public void setSemana(Semana semana) {
+		this.semana = semana;
 	}
 
 	public String getDatainicio() {
@@ -76,10 +73,9 @@ public class Cardapio
 	@Override
 	public String toString() {
 		return "Cardapio [codcardapio=" + codcardapio + ", idfuncionario="
-				+ idfuncionario + ", semanainicio=" + semanainicio
-				+ ", semanafim=" + semanafim + ", datainicio=" + datainicio
-				+ ", datafim=" + datafim + ", nome=" + nome + ", descricao="
-				+ descricao + "]";
+				+ idfuncionario + ", semana=" + semana + ", datainicio="
+				+ datainicio + ", datafim=" + datafim + ", nome=" + nome
+				+ ", descricao=" + descricao + "]";
 	}
 
 	@Override
@@ -94,10 +90,7 @@ public class Cardapio
 				+ ((descricao == null) ? 0 : descricao.hashCode());
 		result = prime * result + idfuncionario;
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-		result = prime * result
-				+ ((semanafim == null) ? 0 : semanafim.hashCode());
-		result = prime * result
-				+ ((semanainicio == null) ? 0 : semanainicio.hashCode());
+		result = prime * result + ((semana == null) ? 0 : semana.hashCode());
 		return result;
 	}
 
@@ -134,15 +127,10 @@ public class Cardapio
 				return false;
 		} else if (!nome.equals(other.nome))
 			return false;
-		if (semanafim == null) {
-			if (other.semanafim != null)
+		if (semana == null) {
+			if (other.semana != null)
 				return false;
-		} else if (!semanafim.equals(other.semanafim))
-			return false;
-		if (semanainicio == null) {
-			if (other.semanainicio != null)
-				return false;
-		} else if (!semanainicio.equals(other.semanainicio))
+		} else if (!semana.equals(other.semana))
 			return false;
 		return true;
 	}	
