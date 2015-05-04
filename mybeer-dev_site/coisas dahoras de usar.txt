@@ -1,3 +1,5 @@
+http://formvalidation.io/examples/bootstrap-datepicker/
+
 //http://bootsnipp.com/snippets/featured/collapsible-tree-menu-with-accordion
 
 http://bootsnipp.com/snippets/featured/dropdown-userlist-plus-administration-v23

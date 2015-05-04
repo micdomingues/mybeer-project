@@ -28,6 +28,7 @@
     <!-- MyBeer Css -->
     <link href="css/mybeer.css" rel="stylesheet" type="text/css">
     <link href="eventos/eventos.css" rel="stylesheet" type="text/css">
+    <link href="login/login.css" rel="stylesheet" type="text/css">
 
     <!-- DatePicker Css -->
     <link href="css/datepicker3.css" rel="stylesheet" type="text/css">
@@ -35,8 +36,11 @@
     <!-- MenuSide Css -->
     <link rel="stylesheet" href="css/navigator.css">
     
+    
+    <link rel="stylesheet" href="css/datepicker3.css">    
+    
     <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-    <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="http://cdn.oesmith.co.uk/morris-0.4.1.min.js"></script>
     
 
@@ -47,30 +51,29 @@
         <div class="col-lg-12" style="padding-right:35px;">
             <div class="btn-group menu-top" dropdown>
                 <button type="button" class="btn btn-default dropdown-toggle" dropdown-toggle>
-                    <span class="glyphicon glyphicon-user"></span>Admin <b class="caret"></b>
+                    <span class="glyphicon glyphicon-user"></span> Administrador <b class="caret"></b>
                 </button>
                 <ul class="dropdown-menu" role="menu" style="right: 0; left: auto;">
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span>Profile</a>
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Perfil</a>
                     </li>
-                    <li><a href="#"><span class="glyphicon glyphicon-cog"></span>Settings</a>
+                    <li><a href="#"><span class="glyphicon glyphicon-cog"></span> Configurações</a>
                     </li>
                     <li class="divider"></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-off"></span>Logout</a>
+                    <li><a href="#"><span class="glyphicon glyphicon-off"></span> Logout</a>
                     </li>
                 </ul>
             </div>
 
             <div class="btn-group menu-top" dropdown>
                 <button type="button" class="btn btn-default dropdown-toggle" dropdown-toggle>
-                    <span class="glyphicon glyphicon-envelope"></span>Inbox <span class="label label-info">32</span>
+                    <span class="fa fa-fw fa-globe"></span> Notificações <span class="label label-info">32</span>
                 </button>
                 <ul class="dropdown-menu" role="menu" style="right: 0; left: auto;">
-                    <li><a href="#"><span class="label label-warning">4:00 AM</span>Favourites Snippet</a>
+                    <li><a href="#"><span class="label label-warning">4:00 AM</span> Novo Favorito</a>
                     </li>
-                    <li><a href="#"><span class="label label-warning">4:30 AM</span>Email marketing</a>
+                    <li><a href="#"><span class="label label-warning">4:30 AM</span> Alessandra avaliou o Bar</a>
                     </li>
-                    <li><a href="#"><span class="label label-warning">5:00 AM</span>Subscriber focused email
-                        design</a>
+                    <li><a href="#"><span class="label label-warning">5:00 AM</span> Felipe lhe enviou um email</a>
                     </li>
                     <li class="divider"></li>
                     <li><a href="#" class="text-center">View All</a>
@@ -80,14 +83,14 @@
 
             <div class="btn-group menu-top" dropdown>
                 <button type="button" class="btn btn-default dropdown-toggle" dropdown-toggle>
-                    <span class="glyphicon glyphicon-comment"></span>Chats <span class="label label-primary">42</span>
+                    <span class="glyphicon glyphicon-comment"></span> Mensagens <span class="label label-primary">42</span>
                 </button>
                 <ul class="dropdown-menu" role="menu" style="right: 0; left: auto;">
-                    <li><a href="#"><span class="label label-warning">7:00 AM</span>Hi :)</a>
+                    <li><a href="#"><span class="label label-warning">7:00 AM</span> Oi :)</a>
                     </li>
-                    <li><a href="#"><span class="label label-warning">8:00 AM</span>How are you?</a>
+                    <li><a href="#"><span class="label label-warning">8:00 AM</span> Bar maneiro cara</a>
                     </li>
-                    <li><a href="#"><span class="label label-warning">9:00 AM</span>What are you doing?</a>
+                    <li><a href="#"><span class="label label-warning">9:00 AM</span> Quando vai toca Raul?</a>
                     </li>
                     <li class="divider"></li>
                     <li><a href="#" class="text-center">View All</a>
@@ -114,12 +117,13 @@
   -->
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/jquery/dist/jquery.js"></script>
+    
     <script src="app.js"></script>
     <script src="dashboard/dashboard.js"></script>
     <script src="perfil/perfil.js"></script>
     <script src="cardapios/cardapios.js"></script>
     <script src="estatisticas/estatisticas.js"></script>
+    <script src="login/login.js"></script>
     <script src="eventos/eventos.js"></script>
     <script src="components/version/version.js"></script>
     <script src="components/version/version-directive.js"></script>
@@ -127,6 +131,10 @@
     <!-- BootsTrap Angular UI -->
     <script src="js/bootstrap-angular-ui.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="bower_components/jQuery-Mask-Plugin/src/jquery.mask.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.2.15/angular-locale_pt-br.js"></script>
+
+   
 
     
     

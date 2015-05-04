@@ -1,4 +1,12 @@
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" />
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
+
 <div id="page-wrapper">
+    <div class="col-xs-12">
+        <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+    </div>
     <div class="container-fluid">
         <div class="col-lg-12">
             <h1 class="page-header">
@@ -11,50 +19,204 @@
             </ol>
         </div>
 
-
-        <div class="col-lg-12 col-md-4">
+        
+        <div class="col-lg-12 col-md-12">
             <div class="panel panel-default" style="padding:5px">
                 <div class="panel-heading">
                     <div class="panel-title">
                         Menu Cardápio
                     </div>
                 </div>
-                    <div style="padding:10px">
-
-                <p>Criar cardápio:</p>
-
-                <p>Selecionar cardápio 1 para apresentar apenas na SEGUNDA</p>
-
-                Selecionar para apresentar cardápio 1 de segunda a sexta. cardapio 2 apenas para sabado, domingo e feriados.
+                <div class="form-group">
 
 
-                <p> mostrar o nome do cardápio e a opção de colocar : mostrar calendario com 'de _ até - assim ele escolhe se o cardapio sera todos os dias ou de alguns dias especificos. também dar opção de colocar um dia unico ou de dias especificos. </p>
+                    <div class="col-xs-12">
+                        <div class="col-md-6">
+                            <label>Nome do Cardápio: *</label>
+                            <input type="text" class="form-control" placeholder="Nome do Cardárpio" ng-model="cardapio.nome">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Dados do cardápio: *</label>
+                            <textarea class="form-control" rows="6" ng-model="cardapio.descricao"></textarea>
+                        </div>
 
+
+                    </div>
+                    <hr/>
+
+                    <div class="col-xs-12">
+                        <label> Escolha o tipo do Cardápio: </label>
+
+                        <div class="funkyradio">
+                            <div class="funkyradio-warning">
+                                <input type="radio" ng-model="tipoDataCardapio.name" value="intervaloDataMes" id="radio1" />
+                                <label for="radio1">Intervalo de dias</label>
+                            </div>
+                            <div class="funkyradio-warning">
+                                <input type="radio" ng-model="tipoDataCardapio.name" value="dataSemanalEspecifica" id="radio3" />
+                                <label for="radio3">Dias da semana</label>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <!-- Dias da semana -->
+                        <div class="[ form-group ]" ng-show="tipoDataCardapio.name=='dataSemanalEspecifica'">
+
+                            <hr/>
+
+                            <input type="checkbox" name="fancy-checkbox-segunda" id="fancy-checkbox-segunda" autocomplete="off" ng-model="checkboxSemanal.segunda" />
+                            <div class="[ btn-group ]">
+                                <label for="fancy-checkbox-segunda" class="[ btn btn-warning ]">
+                                    <span class="[ glyphicon glyphicon-ok ]"></span>
+                                    <span> </span>
+                                </label>
+                                <label for="fancy-checkbox-segunda" class="[ btn btn-default active ]">
+                                    Segunda
+                                </label>
+                            </div>
+
+                            <input type="checkbox" name="fancy-checkbox-terca" id="fancy-checkbox-terca" autocomplete="off" ng-model="checkboxSemanal.terca" />
+                            <div class="[ btn-group ]">
+                                <label for="fancy-checkbox-terca" class="[ btn btn-warning ]">
+                                    <span class="[ glyphicon glyphicon-ok ]"></span>
+                                    <span> </span>
+                                </label>
+                                <label for="fancy-checkbox-terca" class="[ btn btn-default active ]">
+                                    Terça
+                                </label>
+                            </div>
+
+                            <input type="checkbox" name="fancy-checkbox-quarta" id="fancy-checkbox-quarta" autocomplete="off" ng-model="checkboxSemanal.quarta" />
+                            <div class="[ btn-group ]">
+                                <label for="fancy-checkbox-quarta" class="[ btn btn-warning ]">
+                                    <span class="[ glyphicon glyphicon-ok ]"></span>
+                                    <span> </span>
+                                </label>
+                                <label for="fancy-checkbox-quarta" class="[ btn btn-default active ]">
+                                    Quarta
+                                </label>
+                            </div>
+
+                            <input type="checkbox" name="fancy-checkbox-quinta" id="fancy-checkbox-quinta" autocomplete="off" ng-model="checkboxSemanal.quinta" />
+                            <div class="[ btn-group ]">
+                                <label for="fancy-checkbox-quinta" class="[ btn btn-warning ]">
+                                    <span class="[ glyphicon glyphicon-ok ]"></span>
+                                    <span> </span>
+                                </label>
+                                <label for="fancy-checkbox-quinta" class="[ btn btn-default active ]">
+                                    Quinta
+                                </label>
+                            </div>
+
+                            <input type="checkbox" name="fancy-checkbox-sexta" id="fancy-checkbox-sexta" autocomplete="off" ng-model="checkboxSemanal.sexta" />
+                            <div class="[ btn-group ]">
+                                <label for="fancy-checkbox-sexta" class="[ btn btn-warning ]">
+                                    <span class="[ glyphicon glyphicon-ok ]"></span>
+                                    <span> </span>
+                                </label>
+                                <label for="fancy-checkbox-sexta" class="[ btn btn-default active ]">
+                                    Sexta
+                                </label>
+                            </div>
+
+                            <input type="checkbox" name="fancy-checkbox-sabado" id="fancy-checkbox-sabado" autocomplete="off" ng-model="checkboxSemanal.sabado" />
+                            <div class="[ btn-group ]">
+                                <label for="fancy-checkbox-sabado" class="[ btn btn-warning ]">
+                                    <span class="[ glyphicon glyphicon-ok ]"></span>
+                                    <span> </span>
+                                </label>
+                                <label for="fancy-checkbox-sabado" class="[ btn btn-default active ]">
+                                    Sábado
+                                </label>
+                            </div>
+                            <input type="checkbox" name="fancy-checkbox-domingo" id="fancy-checkbox-domingo" autocomplete="off" ng-model="checkboxSemanal.domingo" />
+                            <div class="[ btn-group ]">
+                                <label for="fancy-checkbox-domingo" class="[ btn btn-warning ]">
+                                    <span class="[ glyphicon glyphicon-ok ]"></span>
+                                    <span> </span>
+                                </label>
+                                <label for="fancy-checkbox-domingo" class="[ btn btn-default active ]">
+                                    Domingo
+                                </label>
+                            </div>
+
+                        </div>
+                        <!-- fim data semanal especifica -->
+                        <!-- Intervalo de data mes -->
+                        <div class="col-xs-12" ng-show="tipoDataCardapio.name == 'intervaloDataMes'">
+                            <hr/>
+                            <div ng-controller="DatepickerDemoCtrl" class="col-xs-12 col-md-6">
+                                <h4>Inicio do cardápio</h4>
+                                <div>
+                                    <p class="input-group">
+                                        <input type="text" id="date" class="form-control" datepicker-popup="{{format}}" ng-model="cardapio.datainicio" is-open="opened" placeholder="99/99/9999" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" min-date="minDate" ng-required="true" close-text="Fechar" />
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div ng-controller="DatepickerDemoCtrl" class="col-xs-12 col-md-6">
+                                <h4>Fim do cardápio</h4>
+                                <div>
+                                    <p class="input-group">
+                                        <input type="text" id="date" class="form-control" datepicker-popup="{{format}}" placeholder="99/99/9999" ng-model="cardapio.datafim" is-open="opened" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" min-date="minDate" ng-required="true" close-text="Fechar" />
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+                            <!--  Fim intervalo data mes -->
+                        </div>
+                        <div class="form-group pull-right">
+
+                            <button type="button" class="btn btn-warning" ng-click="criarCardapio()"> <span>Criar Cardápio</span> </button>
+                        </div>
+
+                        <br/>
+                        <div class="clearfix"></div>
+
+
+                    </div>
+
+                </div>
+                <div class="clearfix"></div>
             </div>
         </div>
+        <!--        ALERTAS -->
+        
 
-        <div class="col-lg-6 col-md-4">
-            <div class="panel panel-default" style="padding:5px">
-                <div class="panel-heading">
-                    <div class="panel-title">
-                        Cardápio + NOME + dia da semana - todos os cardapios serao mostrados assim, tendo q apertar o botão de 'dropdown' para mostrar o cardápio... ou n?
+
+        <div ng-repeat="cardapio in cardapios.cardapio">
+
+            <div class="col-lg-6 col-md-12">
+                <div class="panel panel-default" style="padding:5px">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            {{cardapio.nome}} - {{cardapio.datainicio}} | {{cardapio.datafim}}
+                        </div>
+                    </div>
+                    <div style="padding:10px">
+                        {{cardapio.descricao}}
+
                     </div>
                 </div>
-                    <div style="padding:10px">
-                <ul>
-                    <li>arroz</li>
-                    <li>arroz</li>
-                    <li>arroz</li>
-                    <li>arroz</li>
-                </ul>
-
             </div>
-        </div>
 
+        </div>
 
 
     </div>
     <!-- /.container-fluid -->
 
+    
+
 </div>
+
 <!-- /#page-wrapper -->
+<script>
+    jQuery(function ($) {
+        $("#date").mask("99/99/9999");
+    });
+</script>

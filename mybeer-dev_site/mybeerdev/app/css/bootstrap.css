@@ -1090,7 +1090,7 @@ body {
   font-size: 14px;
   line-height: 1.42857143;
   color: #333;
-  background-color: #fff;
+  background-color: rgb(240, 240, 240);
 }
 input,
 button,
@@ -4782,7 +4782,7 @@ a.label:focus {
   background-color: #286090;
 }
 .label-success {
-  background-color: #5cb85c;
+  background-color: #FFD500;
 }
 .label-success[href]:hover,
 .label-success[href]:focus {
@@ -5340,7 +5340,7 @@ a.list-group-item-danger.active:focus {
 .panel-footer {
   padding: 10px 15px;
 /*  background-color: #f5f5f5;*/
-  border-top: 1px solid #097C0F;
+  border-top: 1px solid #FFC926;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
 }

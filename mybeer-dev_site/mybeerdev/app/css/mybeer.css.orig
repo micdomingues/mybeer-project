@@ -55,6 +55,7 @@ li > a {
 
 #chart > svg { width: 100% !important; }
 
+<<<<<<< HEAD:mybeer-dev - SITE/mybeernovaarquite/app/css/mybeer.css
 @import('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.0/css/bootstrap.min.css') .funkyradio div {
     clear: both;
     /*margin: 0 50px;*/
@@ -166,3 +167,5 @@ li > a {
 .form-group input[type="checkbox"]:checked + .btn-group > label span:last-child {
     display: none;   
 }
+=======
+>>>>>>> 208672ed420b7d38eacc967bc1a2b088fff7c390:mybeer-dev_site/mybeerdev/app/css/mybeer.css
