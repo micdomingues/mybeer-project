@@ -64,8 +64,6 @@ angular.module('myApp.eventos', ['ngRoute'])
         });
     }
 
-    
-    
     $scope.criarEventos = function(){
         
         $scope.evento.data = $scope.conversorDate($scope.evento.data);
