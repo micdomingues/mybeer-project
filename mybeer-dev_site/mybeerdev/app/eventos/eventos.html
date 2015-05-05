@@ -11,7 +11,7 @@
                         </h1>
             <ol class="breadcrumb">
                 <li class="active">
-                    <i class="fa fa-book"></i> Eventos
+                    <i class="fa fa-fw fa-calendar"></i> Eventos
                 </li>
             </ol>
         </div>
@@ -29,7 +29,7 @@
                 </div>
                 <div class="col-xs-12" style="padding:10px">
                     <div class="col-md-6">
-                        <label>Nome do Cardápio: *</label>
+                        <label>Nome do Evento: *</label>
                         <input type="text" class="form-control form-group" placeholder="Nome do Evento" ng-model="evento.nome">
                     </div>
                     <div class="form-group col-md-6">
@@ -41,7 +41,7 @@
                         <input type="text" class="form-control form-group" placeholder="www.facebook.com/evento" ng-model="evento.facebook">
                     </div>
                     <div ng-controller="DatepickerDemoCtrl" class="col-xs-12 col-md-6 form-group">
-                        <label>Inicio do cardápio</label>
+                        <label>Inicio do evento</label>
                         <div>
                             <p class="input-group">
                                 <input type="text" id="date" class="form-control" datepicker-popup="{{format}}" is-open="opened" ng-model="evento.data" placeholder="99/99/9999" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" min-date="minDate" ng-required="true" close-text="Fechar" />
@@ -62,7 +62,7 @@
             <div class="panel panel-default" style="padding:5px">
                 <div class="panel-heading">
                     <div class="panel-title">
-                        Menu Eventos
+                        Meus Eventos
                     </div>
                 </div>
                 <div class="col-xs-12 col-md-12" style="padding:10px">
