@@ -41,7 +41,7 @@ public class EventoDAO extends ConnectionFactory
 				evento.setCodevento(rs.getInt("CODEVENTO"));
 				evento.setCodbar(rs.getInt("CODBAR"));
 				evento.setNome(rs.getString("NOME"));
-				evento.setDescricao("DESCRICAO");
+				evento.setDescricao(rs.getString("DESCRICAO"));
 				evento.setData(rs.getString("DATA"));
 				evento.setLinkevento(rs.getString("LINKEVENTO"));
 				evento.setLinkimagem(rs.getString("LINKIMAGEM"));
