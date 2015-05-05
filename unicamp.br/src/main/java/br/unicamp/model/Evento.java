@@ -1,5 +1,8 @@
 package br.unicamp.model;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Evento
 {
 	private int codevento, codbar;

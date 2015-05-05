@@ -45,7 +45,7 @@ public class CardapioResource
 
     		System.out.println(json);
     		System.out.println(cardapio.toString());
-    		
+    		//JODA TIME CORRIGIR DATA
 		    //Adiciona o Cardápio no BD a partir do Controller
 		    cardapio = new CardapioController().adicionar(cardapio);
 	    }
