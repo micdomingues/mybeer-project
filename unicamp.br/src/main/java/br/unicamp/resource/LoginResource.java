@@ -11,12 +11,15 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Request;
 import javax.ws.rs.core.UriInfo;
 
+import org.codehaus.jettison.json.JSONObject;
+
 import br.unicamp.controller.LoginController;
 import br.unicamp.controller.PessoaController;
 
 
 
 import br.unicamp.criptografy.ResponseClient;
+import br.unicamp.model.Cardapio;
 import br.unicamp.model.Login;
 import br.unicamp.model.Pessoa;
 
@@ -54,26 +57,27 @@ public class LoginResource
 		
 	@POST
 	@Path("/executeLogin")
-	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Login executeLogin(@FormParam("usuario") String usuario, @FormParam("senha") String senha)
+	public Login executeLogin(JSONObject json)
 	{
-		String response = null;
+		Gson gson = new GsonBuilder().create();
+	    
 		Login login = null;
 		
-		System.out.println(usuario + " " + senha);
-		
-		if(usuario != null && !usuario.isEmpty() && senha != null && !senha.isEmpty())
-		{
-			Gson gson = new GsonBuilder().create();
-			login = new Login();
-			
-			login.setUsuario(usuario);
-			login.setSenha(senha);
-			
-			login = new LoginController().autenticar(login);
-		}
+		//TESTAR INTEGRIDADE DO JSON	    
 	    
+    	if(json != null)
+    	{
+    		login =  gson.fromJson(json.toString(), Login.class);
+		
+			System.out.println(login.getUsuario() + " " + login.getSenha());
+			
+			if(login != null)
+			{				
+				login = new LoginController().autenticar(login);
+			}
+    	}
 	    return login;
 	}
 	
