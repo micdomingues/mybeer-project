@@ -9,7 +9,7 @@ angular.module('myApp.promocoes', ['ngRoute'])
     });
     }])
 
-    .controller('promocoesController', ['$scope','$http','promocoesService', function ($scope,$http,promocoesService) {
+    .controller('PromocoesController', ['$scope','$http','promocoesService', function ($scope,$http,promocoesService) {
 
 
     $scope.promocoes = [];
@@ -84,7 +84,7 @@ angular.module('myApp.promocoes', ['ngRoute'])
 
     
 
-    }]).service("eventoService", function ($http, $q) {
+    }]).service("promocoesService", function ($http, $q) {
     var deferred = $q.defer();
     $http.get('http://http://localhost:8080/br.unicamp/rest/eventos/listarTodos').then(function (data) {
         deferred.resolve(data);

@@ -2,7 +2,7 @@
 
 // Declare app level module which depends on views, and components
 var PageApp = angular.module('myApp', [
-  'ngRoute',   
+  'ngRoute',
   'myApp.dashboard',
   'myApp.perfil',
   'myApp.estatisticas',
@@ -13,11 +13,13 @@ var PageApp = angular.module('myApp', [
   'myApp.version',
   'ui.bootstrap'
 ]).
-config(['$routeProvider', function($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/dashboard'});
+config(['$routeProvider', function ($routeProvider) {
+    $routeProvider.otherwise({
+        redirectTo: '/dashboard'
+    });
 }]);
 
-PageApp.controller('PageController', function ($scope) {
+PageApp.controller('PageController', function ($scope, loginService) {
     $scope.page = 0;
 
     $scope.setPage = function (newValue) {
@@ -40,6 +42,9 @@ PageApp.controller('PageController', function ($scope) {
         $scope.overStar = value;
     };
 
+    $scope.islooged = function () {
+        return loginService.islooged();
+    }
 
 }).controller('RatingCtrl', function ($scope) {
     $scope.rate = 3;
@@ -82,76 +87,44 @@ PageApp.controller('PageController', function ($scope) {
     };
 });
 
-PageApp.factory('sessionService', ['$http', function ($http){
-    return{
-        set:function(key,value){
-            return sessionStorage.setItem(key,value);
+PageApp.factory('sessionService', ['$http', function ($http) {
+    return {
+        set: function (key, value) {
+            return sessionStorage.setItem(key, value);
         },
-        get:function(key){
+        get: function (key) {
             return sessionStorage.getItem(key);
         },
-        destroy:function(key){
+        destroy: function (key) {
             return sessionStorage.removeItem(key);
         }
     }
-    
+
 }]);
 
-PageApp.factory('loginService', function($http, $location, sessionService){
-    return{
-        login:function(data,msg){
-            console.log(data);
-            
-            
-            var res = $http.post('http://localhost:8080/br.unicamp/rest/login/executeLogin', data);
-            res.success(function (data, status, headers, config) {
-                var uid = data;
-                if(uid){
-                    sessionService.set('user',uid.id);
-                    $location.path('dashboard');
-                }
-                else{
-                    msg ='Erro inexperado';
-                }
-                
-            });
-            res.error(function (data, status, headers, config) {
+PageApp.factory('loginService', function ($http, $location, sessionService) {
+    return {
+        login: function (data) {
+            sessionService.set('user', data.id);
+            $location.path('dashboard');
 
-               
-
-            });
-            
-            
-//            var $promise=$http.post('http://localhost:8080/br.unicamp/rest/login/executeLogin',data);
-//            $promise.then(function(msg){
-//                var uid = msg.data;
-//                if(uid){
-//                    sessionService.set('user',uid);
-//                    $location.path('dashboard');
-//                }
-//                else{
-//                    scope ='incorrect information';
-//                    $location.path('/login');
-//                }
-//            });
         },
-        logout:function(){
+        logout: function () {
             sessionService.destroy('user');
             $location.path('/login');
         },
-        islooged:function(){
-            if(sessionService.get('user')){
+        islooged: function () {
+            if (sessionService.get('user')) {
                 return true;
             }
         }
     }
 });
 
-PageApp.run(function($rootScope, $location,loginService){
-    console.log("teste");
-    var routespermission = ['/dashboard','/perfil','/cardapios','/estatisticas','/eventos'];
-    $rootScope.$on('$routeChangeStart',function(){
-        if(routespermission.indexOf($location.path()) != -1 && !loginService.islooged()){
+PageApp.run(function ($rootScope, $location, loginService) {
+    var routespermission = ['/dashboard', '/perfil', '/cardapios', '/estatisticas', '/eventos'];
+    $rootScope.$on('$routeChangeStart', function () {
+        if (routespermission.indexOf($location.path()) != -1 && !loginService.islooged()) {
             $location.path('/login');
         }
     });
