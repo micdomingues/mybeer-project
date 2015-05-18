@@ -3,7 +3,10 @@ package br.unicamp.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+
+import org.joda.time.DateTime;
 
 import br.unicamp.factory.ConnectionFactory;
 import br.unicamp.model.Evento;
@@ -20,6 +23,57 @@ public class EventoDAO extends ConnectionFactory
 		return instance;
 	}
 	
+	public Evento adicionar(Evento evento)
+	{
+		if(evento != null)
+		{
+			int res;
+			Connection conexao = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			String comando = null;
+			
+			conexao = criarConexao();			
+			try
+			{				
+				comando = "INSERT INTO EVENTO (CODBAR, NOME, DESCRICAO, DATA, LINKEVENTO, LINKIMAGEM) VALUES (?, ?, ?, ?, ?, ?)";	
+				pstmt = conexao.prepareStatement(comando);
+				
+				pstmt.setInt(1, evento.getCodbar());
+				pstmt.setString(2, evento.getNome());
+				pstmt.setString(3, evento.getDescricao());
+				
+				SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");				
+				DateTime dateTime = new DateTime(sdf.parse(evento.getData()));
+				
+				pstmt.setString(4, dateTime.toString("YYYY-MM-dd HH:mm:ss"));
+				
+				pstmt.setString(5, evento.getLinkevento());
+				pstmt.setString(6, evento.getLinkevento());
+				
+				res = pstmt.executeUpdate();
+				
+				if(res <= 0)
+	            {
+	                evento = null;
+	            }
+			}
+			catch (Exception e) 
+			{
+				System.out.println("Erro ao adicionar Evento: " + e);
+				e.printStackTrace();
+			}
+    		finally
+		 	{
+ 				fecharConexao(conexao, pstmt, rs);
+	 		}
+		}
+		else
+			evento = null;
+		
+		return evento;
+	}
+	
 	public ArrayList<Evento> listarTodos()
 	{
 		Connection conexao = null;
@@ -31,7 +85,7 @@ public class EventoDAO extends ConnectionFactory
 		eventos = new ArrayList<Evento>();		
 		try
 		{
-			pstmt = conexao.prepareStatement("SELECT * FROM EVENTO ORDER BY CODEVENTO");
+			pstmt = conexao.prepareStatement("SELECT CODEVENTO, CODBAR, NOME, DESCRICAO, DATE_FORMAT( DATA,'%d/%m/%Y %H:%i') AS DATA, LINKEVENTO, LINKIMAGEM FROM EVENTO ORDER BY CODEVENTO");
 			rs = pstmt.executeQuery();
 			
 			while(rs.next())
