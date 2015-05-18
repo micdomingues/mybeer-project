@@ -9,23 +9,40 @@ angular.module('myApp.login', ['ngRoute'])
         });
     }])
 
-    .controller('LoginController', ['$scope','loginService',function($scope,loginService) {
+    .controller('LoginController', ['$scope','loginService','$http',function($scope,loginService,$http) {
 
+        $scope.isUser = function (user) {
+
+            var res = $http.post('http://localhost:8080/br.unicamp/rest/login/executeLogin', user);
+            res.success(function (data, status, headers, config) {
+                var message = data;
+                if(data){
+                    loginService.login(data);
+                }else{
+                    $scope.msg = "Usuário ou senha inválidos";
+                }
+            });
+            res.error(function (data, status, headers, config) {
+                $scope.msg = "erro";
+
+            });
+        }
+        
         
         $scope.user = {};
-        $scope.msg='';
+        var msg='';
         $scope.logar = function (){
             if($scope.user.usuario != null && $scope.user.senha !=null){
-                
-                if(!loginService.login($scope.user,$scope.msg)){
-                    $scope.msg ="Usuário ou Senha inválido";
-                }else{
-                }
+                $scope.isUser($scope.user);           
+
+              
             }else{
                 $scope.msg = "Dados não inseridos";
             }
         }
         
       
+        
+        
        
     }]);
