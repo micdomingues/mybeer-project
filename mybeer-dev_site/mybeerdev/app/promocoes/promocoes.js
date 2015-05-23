@@ -38,7 +38,7 @@ angular.module('myApp.promocoes', ['ngRoute'])
     
     $scope.sendEvento = function (evento) {
 
-        var res = $http.post('http://frkey.noip.me:3636/br.unicamp/rest/cardapio/insereCardapio', promocoes);
+        var res = $http.post('http://tomcat-unicampft.rhcloud.com/br.unicamp/rest/cardapio/insereCardapio', promocoes);
         res.success(function (data, status, headers, config) {
 
             $scope.limparForm();
@@ -86,7 +86,7 @@ angular.module('myApp.promocoes', ['ngRoute'])
 
     }]).service("promocoesService", function ($http, $q) {
     var deferred = $q.defer();
-    $http.get('http://http://localhost:8080/br.unicamp/rest/eventos/listarTodos').then(function (data) {
+    $http.get('hhttp://tomcat-unicampft.rhcloud.com/br.unicamp/rest/eventos/listarTodos').then(function (data) {
         deferred.resolve(data);
     });
 

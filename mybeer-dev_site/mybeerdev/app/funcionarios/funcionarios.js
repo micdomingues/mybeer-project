@@ -1,19 +1,19 @@
 'use strict';
 
-angular.module('myApp.eventos', ['ngRoute'])
+angular.module('myApp.funcionarios', ['ngRoute'])
 
 .config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.when('/eventos', {
-        templateUrl: 'eventos/eventos.html',
-        controller: 'eventoController'
+    $routeProvider.when('/funcionarios', {
+        templateUrl: 'funcionarios/funcionarios.html',
+        controller: 'funcionarioController'
     });
     }])
 
-    .controller('eventoController', ['$scope','$http','eventoService', function ($scope,$http,eventoService) {
+    .controller('funcionarioController', ['$scope','$http','funcionarioService', function ($scope,$http,funcionarioService) {
 
 
-    $scope.eventos = [];
-    $scope.evento = {};
+        $scope.funcionarios = [];
+        $scope.funcionario = {};
     $scope.alerts = [];
         
         //hora
@@ -37,19 +37,19 @@ angular.module('myApp.eventos', ['ngRoute'])
     }
 
     $scope.limparForm = function () {
-        $scope.evento = {};
+        $scope.funcionario = {};
     }
     
-    $scope.sendEvento = function (evento) {
+    $scope.sendfuncionario = function (funcionario) {
 
-        var res = $http.post('http://tomcat-unicampft.rhcloud.com/br.unicamp/rest/evento/insereEvento', evento);
+        var res = $http.post('http://frkey.noip.me:3636/br.unicamp/rest/funcionario/inserefuncionario', funcionario);
         res.success(function (data, status, headers, config) {
 
             $scope.limparForm();
             
             $scope.alerts.push({
                 type: 'success',
-                msg: 'Evento adicionado com sucesso'
+                msg: 'funcionario adicionado com sucesso'
             });
 
             var message = data;
@@ -67,25 +67,25 @@ angular.module('myApp.eventos', ['ngRoute'])
 
         });
         
-        $scope.getEventos();
+        $scope.getfuncionarios();
     }
 
-    $scope.criarEventos = function(){
+    $scope.criarfuncionarios = function(){
         
-        $scope.evento.data = $scope.conversorDate($scope.evento.data);
-        var evento = angular.copy($scope.evento);
+        $scope.funcionario.data = $scope.conversorDate($scope.funcionario.data);
+        var funcionario = angular.copy($scope.funcionario);
         //PEGAR CODIGO DO BAR
-        evento.codbar = 1;
-        $scope.sendEvento(evento);
+        funcionario.codbar = 1;
+        $scope.sendfuncionario(funcionario);
     }
     
     var mesesString = ["JAN","FEV","MAR","ABR","MAI","JUN","JUL","AGO","SET","OUT","NOV","DEZ"];
     
-        $scope.getEventos = function(){
-            var promise = eventoService.getEventos();
+        $scope.getfuncionarios = function(){
+            var promise = funcionarioService.getfuncionarios();
             promise.then(function (data) {
-                $scope.eventos = data.data.evento;  
-                angular.forEach($scope.eventos, function(value, key) {
+                $scope.funcionarios = data.data.funcionario;  
+                angular.forEach($scope.funcionarios, function(value, key) {
                     value.dia = value.data.substring(0,2);
                     value.mes = value.data.substring(3,5);
                     value.mesString = mesesString[Number(value.mes)-1];
@@ -95,15 +95,15 @@ angular.module('myApp.eventos', ['ngRoute'])
         }
  
 
-        $scope.getEventos();
+        $scope.getfuncionarios();
 
-    }]).service("eventoService", function ($http, $q) {
+    }]).service("funcionarioService", function ($http, $q) {
     var deferred = $q.defer();
-    $http.get('http://tomcat-unicampft.rhcloud.com/br.unicamp/rest/evento/listarTodos').then(function (data) {
+    $http.get('http://tomcat-unicampft.rhcloud.com/br.unicamp/rest/funcionario/listarTodos').then(function (data) {
         deferred.resolve(data);
     });
 
-    this.getEventos = function () {
+    this.getfuncionarios = function () {
         return deferred.promise;
     }
 

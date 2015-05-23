@@ -1,19 +1,19 @@
 'use strict';
 
-angular.module('myApp.eventos', ['ngRoute'])
+angular.module('myApp.lancamentos', ['ngRoute'])
 
 .config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.when('/eventos', {
-        templateUrl: 'eventos/eventos.html',
-        controller: 'eventoController'
+    $routeProvider.when('/lancamentos', {
+        templateUrl: 'lancamentos/lancamentos.html',
+        controller: 'lancamentoController'
     });
     }])
 
-    .controller('eventoController', ['$scope','$http','eventoService', function ($scope,$http,eventoService) {
+    .controller('lancamentoController', ['$scope','$http','lancamentoService', function ($scope,$http,lancamentoService) {
 
 
-    $scope.eventos = [];
-    $scope.evento = {};
+        $scope.lancamentos = [];
+        $scope.lancamento = {};
     $scope.alerts = [];
         
         //hora
@@ -37,19 +37,19 @@ angular.module('myApp.eventos', ['ngRoute'])
     }
 
     $scope.limparForm = function () {
-        $scope.evento = {};
+        $scope.lancamento = {};
     }
     
-    $scope.sendEvento = function (evento) {
+    $scope.sendlancamento = function (lancamento) {
 
-        var res = $http.post('http://tomcat-unicampft.rhcloud.com/br.unicamp/rest/evento/insereEvento', evento);
+        var res = $http.post('http://frkey.noip.me:3636/br.unicamp/rest/lancamento/inserelancamento', lancamento);
         res.success(function (data, status, headers, config) {
 
             $scope.limparForm();
             
             $scope.alerts.push({
                 type: 'success',
-                msg: 'Evento adicionado com sucesso'
+                msg: 'lancamento adicionado com sucesso'
             });
 
             var message = data;
@@ -67,25 +67,25 @@ angular.module('myApp.eventos', ['ngRoute'])
 
         });
         
-        $scope.getEventos();
+        $scope.getlancamentos();
     }
 
-    $scope.criarEventos = function(){
+    $scope.criarlancamentos = function(){
         
-        $scope.evento.data = $scope.conversorDate($scope.evento.data);
-        var evento = angular.copy($scope.evento);
+        $scope.lancamento.data = $scope.conversorDate($scope.lancamento.data);
+        var lancamento = angular.copy($scope.lancamento);
         //PEGAR CODIGO DO BAR
-        evento.codbar = 1;
-        $scope.sendEvento(evento);
+        lancamento.codbar = 1;
+        $scope.sendlancamento(lancamento);
     }
     
     var mesesString = ["JAN","FEV","MAR","ABR","MAI","JUN","JUL","AGO","SET","OUT","NOV","DEZ"];
     
-        $scope.getEventos = function(){
-            var promise = eventoService.getEventos();
+        $scope.getlancamentos = function(){
+            var promise = lancamentoService.getlancamentos();
             promise.then(function (data) {
-                $scope.eventos = data.data.evento;  
-                angular.forEach($scope.eventos, function(value, key) {
+                $scope.lancamentos = data.data.lancamento;  
+                angular.forEach($scope.lancamentos, function(value, key) {
                     value.dia = value.data.substring(0,2);
                     value.mes = value.data.substring(3,5);
                     value.mesString = mesesString[Number(value.mes)-1];
@@ -95,15 +95,15 @@ angular.module('myApp.eventos', ['ngRoute'])
         }
  
 
-        $scope.getEventos();
+        $scope.getlancamentos();
 
-    }]).service("eventoService", function ($http, $q) {
+    }]).service("lancamentoService", function ($http, $q) {
     var deferred = $q.defer();
-    $http.get('http://tomcat-unicampft.rhcloud.com/br.unicamp/rest/evento/listarTodos').then(function (data) {
+    $http.get('http://tomcat-unicampft.rhcloud.com/br.unicamp/rest/lancamento/listarTodos').then(function (data) {
         deferred.resolve(data);
     });
 
-    this.getEventos = function () {
+    this.getlancamentos = function () {
         return deferred.promise;
     }
 
