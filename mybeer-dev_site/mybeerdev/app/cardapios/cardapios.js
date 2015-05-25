@@ -8,8 +8,8 @@ angular.module('myApp.cardapios', ['ngRoute'])
             controller: 'CardapioController'
         });
 }])
-    .controller('CardapioController', ['$scope', '$http', 'cardapioService', function ($scope, $http, cardapioService) {
-
+    .controller('CardapioController', ['$scope', '$http', 'cardapioService','toaster', function ($scope, $http, cardapioService, toaster) {
+        
         if ($scope.cardapios == null) {
             $scope.cardapios = [];
         }
@@ -59,19 +59,6 @@ angular.module('myApp.cardapios', ['ngRoute'])
 
         }
 
-        $scope.addAlert = function () {
-
-            $scope.alerts.push({
-                type: 'danger',
-                msg: 'Another alert!'
-            });
-        };
-
-        $scope.closeAlert = function (index) {
-            $scope.alerts.splice(index, 1);
-        };
-
-
         $scope.sendCardapio = function (cardapio) {
 
             var res = $http.post('http://tomcat-unicampft.rhcloud.com/br.unicamp/rest/cardapio/insereCardapio', cardapio);
@@ -79,10 +66,7 @@ angular.module('myApp.cardapios', ['ngRoute'])
 
                 $scope.limparForm();
 
-                $scope.alerts.push({
-                    type: 'success',
-                    msg: 'Cardápio adicionado com sucesso'
-                });
+                toaster.pop('success', "Sucesso", "Cardápio adicionado com sucesso");
 
                 var message = data;
 
@@ -90,12 +74,7 @@ angular.module('myApp.cardapios', ['ngRoute'])
             });
             res.error(function (data, status, headers, config) {
 
-                $scope.alerts.push({
-                    type: 'danger',
-                    msg: 'Erro:' + JSON.stringify({
-                        data: data
-                    })
-                });
+                toaster.pop('danger', "Erro Interno", JSON.stringify({data:data}));
 
             });
         }

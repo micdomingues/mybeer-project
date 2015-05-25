@@ -16,7 +16,8 @@
         "jQuery-Mask-Plugin": "1.11.4",
         "angular-ui-bootstrap": "0.12.1",
         "html5-boilerplate" : "4.3.0",
-        "morris.js" : "0.5.1"
+        "morris.js" : "0.5.1",
+        "AngularJS-Toaster" : "0.4.13"
     },
     "ignore": [
     "**/.*",

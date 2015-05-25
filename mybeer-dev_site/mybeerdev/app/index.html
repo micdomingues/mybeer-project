@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
     <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
-    <link rel="shortcut icon" href="logoicone.ico" >
+    <link rel="stylesheet" href="bower_components/AngularJS-Toaster/toaster.css">
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -113,6 +113,7 @@
             <div ng-view></div>
             </div>
         </div>
+    <toaster-container toaster-options="{'position-class': 'toast-bottom-right'}"></toaster-container>
     </div>
 
     <!-- In production use:
@@ -134,6 +135,8 @@
     <script src="components/version/version.js"></script>
     <script src="components/version/version-directive.js"></script>
     <script src="components/version/interpolate-filter.js"></script>
+    <script src="https://code.angularjs.org/1.2.0/angular-animate.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/0.4.9/toaster.min.js"></script>
     <!-- BootsTrap Angular UI -->
     <script src="js/bootstrap-angular-ui.js"></script>
     <script src="js/bootstrap.min.js"></script>
