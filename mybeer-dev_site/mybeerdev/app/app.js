@@ -13,6 +13,7 @@ var PageApp = angular.module('myApp', [
   'myApp.lancamentos',
   'myApp.funcionarios',
   'myApp.version',
+  'toaster',
   'ui.bootstrap'
 ]).
 config(['$routeProvider', function ($routeProvider) {
