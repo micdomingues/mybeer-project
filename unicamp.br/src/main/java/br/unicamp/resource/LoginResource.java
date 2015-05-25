@@ -83,34 +83,30 @@ public class LoginResource
 	
 	/*
 	@POST
-	@Path("/insereLogin")
-	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	public String insereLogin(@FormParam(REQUEST) String request, @FormParam("FLAG") String flag)
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Login insereLogin(JSONObject json)
 	{
-		//Conteiner Usuario (Classe Abstrata) para guardar Aluno ou Professor
-		Usuario usuario = null;
+		Pessoa pessoa = null;
 		Login login = null;
 		Gson gson = new GsonBuilder().create();
-	    RC4 rc4 = new RC4();
-	    
-	    request = rc4.decrypt(request);
 	    
 	    if(flag != null && !flag.equals("") && !flag.isEmpty())
 	    {
 	    	//Instancia Aluno ou Professor de acordo com o flag
 		    if(flag.equals("1"))
-		    	usuario = new Aluno();
+		    	pessoa = new Aluno();
 		    else
-		    	usuario = new Professor();
+		    	pessoa = new Professor();
 		    	 
 		    //Adiciona o Usuario no BD a partir do Controller
-		    usuario = new UsuarioController().adicionar(usuario);
-	    	if(usuario != null)
+		    pessoa = new UsuarioController().adicionar(pessoa);
+	    	if(pessoa != null)
 	    	{
 	    		login =  gson.fromJson(request, Login.class);
 			    
 			    //Adiciona o ID para ser possível o cadastro no BD
-			    login.setId(usuario.getId());
+			    login.setId(pessoa.getId());
 			    //Adiciona no BD via Controller
 			    login = new LoginController().adicionar(login);
 	    	}
@@ -118,7 +114,7 @@ public class LoginResource
 	    
 	    
 	    ResponseClient rc = new ResponseClient();
-	    if(login != null && usuario != null)
+	    if(login != null && pessoa != null)
 	    {	    	
 		    rc.setRESPONSE(String.valueOf(rc4.encrypt(gson.toJson(login))));
 	    }
