@@ -166,3 +166,7 @@ li > a {
 .form-group input[type="checkbox"]:checked + .btn-group > label span:last-child {
     display: none;   
 }
+
+.ctncenter{
+    padding-top: 10%;
+}

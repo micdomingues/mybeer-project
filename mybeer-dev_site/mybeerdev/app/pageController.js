@@ -1,6 +1,4 @@
 var PageApp = angular.module('PageApp', ['ui.bootstrap']).controller('PageController', function ($scope) {
-    $scope.linkHost = 'http://frkey.noip.me:3636/br.unicamp/rest/';
-    
     
     $scope.page = 0;
 

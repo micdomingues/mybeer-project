@@ -2,21 +2,26 @@
 
 // Declare app level module which depends on views, and components
 var PageApp = angular.module('myApp', [
-  'ngRoute',   
+  'ngRoute',
   'myApp.dashboard',
   'myApp.perfil',
   'myApp.estatisticas',
   'myApp.cardapios',
   'myApp.eventos',
   'myApp.login',
+  'myApp.promocoes',
+  'myApp.lancamentos',
+  'myApp.funcionarios',
   'myApp.version',
   'ui.bootstrap'
 ]).
-config(['$routeProvider', function($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/dashboard'});
+config(['$routeProvider', function ($routeProvider) {
+    $routeProvider.otherwise({
+        redirectTo: '/dashboard'
+    });
 }]);
 
-PageApp.controller('PageController', function ($scope) {
+PageApp.controller('PageController', function ($scope, loginService) {
     $scope.page = 0;
 
     $scope.setPage = function (newValue) {
@@ -39,6 +44,9 @@ PageApp.controller('PageController', function ($scope) {
         $scope.overStar = value;
     };
 
+    $scope.islooged = function () {
+        return loginService.islooged();
+    }
 
 }).controller('RatingCtrl', function ($scope) {
     $scope.rate = 3;
@@ -79,4 +87,47 @@ PageApp.controller('PageController', function ($scope) {
         isFirstOpen: true,
         isFirstDisabled: false
     };
+});
+
+PageApp.factory('sessionService', ['$http', function ($http) {
+    return {
+        set: function (key, value) {
+            return sessionStorage.setItem(key, value);
+        },
+        get: function (key) {
+            return sessionStorage.getItem(key);
+        },
+        destroy: function (key) {
+            return sessionStorage.removeItem(key);
+        }
+    }
+
+}]);
+
+PageApp.factory('loginService', function ($http, $location, sessionService) {
+    return {
+        login: function (data) {
+            sessionService.set('user', data.id);
+            $location.path('dashboard');
+
+        },
+        logout: function () {
+            sessionService.destroy('user');
+            $location.path('/login');
+        },
+        islooged: function () {
+            if (sessionService.get('user')) {
+                return true;
+            }
+        }
+    }
+});
+
+PageApp.run(function ($rootScope, $location, loginService) {
+    var routespermission = ['/dashboard', '/perfil', '/cardapios', '/estatisticas', '/eventos'];
+    $rootScope.$on('$routeChangeStart', function () {
+        if (routespermission.indexOf($location.path()) != -1 && !loginService.islooged()) {
+            $location.path('/login');
+        }
+    });
 });

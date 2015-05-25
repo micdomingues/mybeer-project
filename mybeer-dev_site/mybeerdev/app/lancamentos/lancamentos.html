@@ -1,0 +1,94 @@
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                            MyBeer
+                        </h1>
+            <ol class="breadcrumb">
+                <li class="active">
+                    <i class="fa fa-fw fa-calendar"></i> <strong>lançamentos<strong/>
+                </li>
+            </ol>
+        </div>
+
+
+        <div class="col-lg-12 col-md-12">
+            <div class="panel panel-default" style="padding:5px">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        Menu lançamentos
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+                </div>
+                <div class="col-xs-12" style="padding:10px">
+                    <div class="col-md-6">
+                        <label>CPF ou ID do Cliente: *</label>
+                        <input id="cpf" name="cpf" type="text" class="form-control form-group" placeholder="CPF ou ID do Cliente" ng-model="lancamento.cpf">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Valor do lançamento: *</label>
+                        <input id="money" name="money" type="text" class="form-control form-group" placeholder="Valor do lancamento" ng-model="lancamento.valor">
+                    </div>
+    
+                <div class="form-group pull-right">
+
+                    <button type="button" class="btn btn-warning" ng-click="criarlancamentos()"> <span>Salvar lancamento</span> </button>
+                </div>
+                <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+    
+               
+
+           
+
+            <div class="panel panel-default" style="padding:5px">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        Meus lancamentos
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-12" style="padding:10px">
+
+                    <div ng-repeat="lancamento in lancamentos">
+                    <div class="col-lg-12 col-md-12">
+                       
+                    </div>
+                    </div>
+<!--
+                    <div class="form-group pull-right">
+
+<button type="button" class="btn btn-warning" ng-click="criarlancamentos()"> <span>Criar lancamento</span> </button>
+                    </div>
+-->
+
+                    <div class="clearfix"></div>
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+    </div>
+            <!--
+            <form action="rest/files/upload" method="post" enctype="multipart/form-data">
+
+                <p>
+                    Select a file : <input type="file" name="file" size="50" />
+                </p>
+
+                <input type="submit" value="Upload It" />
+            </form>
+-->
+
+            <!-- /.container-fluid -->
+
+    </div>
+</div>
+<script>
+    jQuery(function ($) {
+        $('#money').mask("#.##0,00", {reverse: true});
+        $('#cpf').mask('000.000.000-00', {reverse: true});
+    });
+</script>
