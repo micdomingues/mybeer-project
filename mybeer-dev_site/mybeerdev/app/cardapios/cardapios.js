@@ -74,7 +74,7 @@ angular.module('myApp.cardapios', ['ngRoute'])
             });
             res.error(function (data, status, headers, config) {
 
-                toaster.pop('danger', "Erro Interno", JSON.stringify({data:data}));
+                toaster.pop('error', "Erro Interno", JSON.stringify({data:data}));
 
             });
         }
