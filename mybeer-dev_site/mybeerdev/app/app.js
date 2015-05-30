@@ -22,7 +22,7 @@ config(['$routeProvider', function ($routeProvider) {
     });
 }]);
 
-PageApp.controller('PageController', function ($scope, loginService) {
+PageApp.controller('PageController', function ($scope, $q, $http, loginService) {
     $scope.page = 0;
 
     $scope.setPage = function (newValue) {
@@ -47,6 +47,11 @@ PageApp.controller('PageController', function ($scope, loginService) {
 
     $scope.islooged = function () {
         return loginService.islooged();
+    }
+    
+    $scope.logout = function(){
+        loginService.logout();
+        
     }
 
 }).controller('RatingCtrl', function ($scope) {
@@ -120,6 +125,9 @@ PageApp.factory('loginService', function ($http, $location, sessionService) {
             if (sessionService.get('user')) {
                 return true;
             }
+        },
+        getId: function(){
+            return sessionService.get('user');
         }
     }
 });

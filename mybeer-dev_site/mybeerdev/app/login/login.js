@@ -13,9 +13,10 @@ angular.module('myApp.login', ['ngRoute'])
 
         $scope.isUser = function (user) {
 
-            var res = $http.post('http://localhost:8080/br.unicamp/rest/login/executeLogin', user);
+            var res = $http.post('http://frkey.noip.me:3636/br.unicamp/rest/logins/executeLogin', user);
             res.success(function (data, status, headers, config) {
                 var message = data;
+                console.log(data);
                 if(data){
                     loginService.login(data);
                 }else{

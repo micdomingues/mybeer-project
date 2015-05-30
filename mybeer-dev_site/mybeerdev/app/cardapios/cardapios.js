@@ -18,7 +18,7 @@ angular.module('myApp.cardapios', ['ngRoute'])
         promise.then(function (data) {
             $scope.cardapios = data.data;
             console.log($scope.cardapios);
-        })
+        });
 
 
         $scope.cardapio = {};
