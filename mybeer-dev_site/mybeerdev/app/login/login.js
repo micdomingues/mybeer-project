@@ -31,8 +31,10 @@ angular.module('myApp.login', ['ngRoute'])
         
         $scope.user = {};
         var msg='';
-        $scope.logar = function (){
-            if($scope.user.usuario != null && $scope.user.senha !=null){
+        $scope.logar = function (usuario,senha){
+            console.log(usuario);
+            console.log(senha);
+            if(usuario != null && senha !=null){
                 $scope.isUser($scope.user);           
 
               
