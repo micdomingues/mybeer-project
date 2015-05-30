@@ -32,6 +32,7 @@
                         <label>Título da Promoção: *</label>
                         <input type="text" class="form-control form-group" placeholder="Título da Promoção" ng-model="evento.nome">
                     </div>
+
                     <div class="form-group col-md-6">
                         <label>Descrição da promoção: *</label>
                         <textarea class="form-control" rows="6" ng-model="evento.descricao"></textarea>
@@ -47,6 +48,21 @@
                                 </span>
                             </p>
                         </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label>Tipo da Promoção: </label>
+
+                            <form name="myForm">
+                              <label>
+                                <input type="radio" ng-model="promocao.tipo" value="todos">
+                                Para Todos
+                              </label><br/>
+                              <label>
+                                <input type="radio" ng-model="promocao.tipo" value="favoritados">
+                                Para Favoritados
+                              </label><br/>
+                             </form>
+                             <br/>
                     </div>
                 </div>
                 <div class="form-group pull-right">

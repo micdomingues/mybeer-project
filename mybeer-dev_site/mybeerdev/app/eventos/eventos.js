@@ -42,7 +42,7 @@ angular.module('myApp.eventos', ['ngRoute'])
     
     $scope.sendEvento = function (evento) {
 
-        var res = $http.post('http://tomcat-unicampft.rhcloud.com/br.unicamp/rest/evento/insereEvento', evento);
+        var res = $http.post('http://frkey.noip.me:3636/br.unicamp/rest/evento/insereEvento', evento);
         res.success(function (data, status, headers, config) {
 
             $scope.limparForm();
@@ -91,7 +91,7 @@ angular.module('myApp.eventos', ['ngRoute'])
 
     }]).service("eventoService", function ($http, $q) {
     var deferred = $q.defer();
-    $http.get('http://tomcat-unicampft.rhcloud.com/br.unicamp/rest/evento/listarTodos').then(function (data) {
+    $http.get('http://frkey.noip.me:3636/br.unicamp/rest/evento').then(function (data) {
         deferred.resolve(data);
     });
 

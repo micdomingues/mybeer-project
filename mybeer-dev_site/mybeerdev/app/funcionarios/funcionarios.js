@@ -99,7 +99,7 @@ angular.module('myApp.funcionarios', ['ngRoute'])
 
     }]).service("funcionarioService", function ($http, $q) {
     var deferred = $q.defer();
-    $http.get('http://tomcat-unicampft.rhcloud.com/br.unicamp/rest/funcionario/listarTodos').then(function (data) {
+    $http.get('http://frkey.noip.me:3636/br.unicamp/rest/funcionario').then(function (data) {
         deferred.resolve(data);
     });
 

@@ -11,9 +11,9 @@ angular.module('myApp.promocoes', ['ngRoute'])
 
     .controller('PromocoesController', ['$scope','$http','promocoesService','toaster', function ($scope,$http,promocoesService, toaster) {
 
-
+        
     $scope.promocoes = [];
-    $scope.promocoes = {};
+    $scope.promocao = {};
     $scope.alerts = [];
 
     $scope.conversorDate = function (data) {
@@ -38,7 +38,7 @@ angular.module('myApp.promocoes', ['ngRoute'])
     
     $scope.sendPromocao = function (promocao) {
         console.log("Ola");
-        var res = $http.post('http://tomcat-unicampft.rhcloud.com/br.unicamp/rest/cardapio/insereCardapio', promocao);
+        var res = $http.post('http://frkey.noip.me:3636/br.unicamp/rest/cardapio/insereCardapio', promocao);
         res.success(function (data, status, headers, config) {
 
             $scope.limparForm();
@@ -76,7 +76,7 @@ angular.module('myApp.promocoes', ['ngRoute'])
 
     }]).service("promocoesService", function ($http, $q) {
     var deferred = $q.defer();
-    $http.get('hhttp://tomcat-unicampft.rhcloud.com/br.unicamp/rest/promocoes/listarTodos').then(function (data) {
+    $http.get('hhttp://frkey.noip.me:3636/br.unicamp/rest/promocoes').then(function (data) {
         deferred.resolve(data);
     });
 
