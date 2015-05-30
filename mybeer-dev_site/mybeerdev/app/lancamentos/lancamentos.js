@@ -9,7 +9,7 @@ angular.module('myApp.lancamentos', ['ngRoute'])
     });
     }])
 
-    .controller('lancamentoController', ['$scope','$http','lancamentoService', function ($scope,$http,lancamentoService) {
+    .controller('lancamentoController', ['$scope','$http','lancamentoService','toaster', function ($scope,$http,lancamentoService, toaster) {
 
 
         $scope.lancamentos = [];
@@ -47,23 +47,14 @@ angular.module('myApp.lancamentos', ['ngRoute'])
 
             $scope.limparForm();
             
-            $scope.alerts.push({
-                type: 'success',
-                msg: 'lancamento adicionado com sucesso'
-            });
+            toaster.pop('success', "Sucesso", "Lançamento adicionado com sucesso");
 
             var message = data;
         });
         res.error(function (data, status, headers, config) {
 
-            console.log("ERRO");
             
-            $scope.alerts.push({
-                type: 'danger',
-                msg: 'Erro:' + JSON.stringify({
-                    data: data
-                })
-            });
+            toaster.pop('error', "Erro Interno", JSON.stringify({data:data}));
 
         });
         

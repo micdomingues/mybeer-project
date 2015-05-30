@@ -9,7 +9,7 @@ angular.module('myApp.promocoes', ['ngRoute'])
     });
     }])
 
-    .controller('PromocoesController', ['$scope','$http','promocoesService', function ($scope,$http,promocoesService) {
+    .controller('PromocoesController', ['$scope','$http','promocoesService','toaster', function ($scope,$http,promocoesService, toaster) {
 
 
     $scope.promocoes = [];
@@ -33,64 +33,54 @@ angular.module('myApp.promocoes', ['ngRoute'])
     }
 
     $scope.limparForm = function () {
-        $scope.evento = {};
+        $scope.promocao = {};
     }
     
-    $scope.sendEvento = function (evento) {
-
-        var res = $http.post('http://tomcat-unicampft.rhcloud.com/br.unicamp/rest/cardapio/insereCardapio', promocoes);
+    $scope.sendPromocao = function (promocao) {
+        console.log("Ola");
+        var res = $http.post('http://tomcat-unicampft.rhcloud.com/br.unicamp/rest/cardapio/insereCardapio', promocao);
         res.success(function (data, status, headers, config) {
 
             $scope.limparForm();
 
-            $scope.alerts.push({
-                type: 'success',
-                msg: 'Evento adicionado com sucesso'
-            });
+             toaster.pop('success', "Sucesso", "Cardápio adicionado com sucesso");
 
             var message = data;
         });
         res.error(function (data, status, headers, config) {
-
-            console.log("ERRO");
-            
-            $scope.alerts.push({
-                type: 'danger',
-                msg: 'Erro:' + JSON.stringify({
-                    data: data
-                })
-            });
+                       
+        toaster.pop('error', "Erro Interno", JSON.stringify({data:data}));
 
         });
     }
 
-    $scope.criarEventos = function(){
+    $scope.criarPromocoes = function(){
         
         $scope.promocoes.data = $scope.conversorDate($scope.promocoes.data);
         var promocoes = angular.copy($scope.promocoes);
         console.log($scope.promocoes);
-        $scope.sendPromoçao(promocoes);
+        $scope.sendPromocao(promocoes);
     }
     
     
-    var promise = promocoesService.getEventos();
+    var promise = promocoesService.getPromocoes();
         promise.then(function (data) {
-            $scope.eventos = data.data;            
-            $scope.eventos.dia = $scope.eventos.data.getDate();
-            $scope.eventos.mes = $scope.eventos.data.getMonth();
-            $scope.eventos.ano = $scope.eventos.data.getFullYear();
-            console.log($scope.eventos);
+            $scope.promocoes = data.data;            
+            $scope.promocoes.dia = $scope.promocoes.data.getDate();
+            $scope.promocoes.mes = $scope.promocoes.data.getMonth();
+            $scope.promocoes.ano = $scope.promocoes.data.getFullYear();
+            console.log($scope.promocoes);
         })
 
     
 
     }]).service("promocoesService", function ($http, $q) {
     var deferred = $q.defer();
-    $http.get('hhttp://tomcat-unicampft.rhcloud.com/br.unicamp/rest/eventos/listarTodos').then(function (data) {
+    $http.get('hhttp://tomcat-unicampft.rhcloud.com/br.unicamp/rest/promocoes/listarTodos').then(function (data) {
         deferred.resolve(data);
     });
 
-    this.getEventos = function () {
+    this.getPromocoes = function () {
         return deferred.promise;
     }
 

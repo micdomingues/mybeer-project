@@ -9,7 +9,7 @@ angular.module('myApp.eventos', ['ngRoute'])
     });
     }])
 
-    .controller('eventoController', ['$scope','$http','eventoService', function ($scope,$http,eventoService) {
+    .controller('eventoController', ['$scope','$http','eventoService','toaster', function ($scope,$http,eventoService, toaster) {
 
 
     $scope.eventos = [];
@@ -47,23 +47,15 @@ angular.module('myApp.eventos', ['ngRoute'])
 
             $scope.limparForm();
             
-            $scope.alerts.push({
-                type: 'success',
-                msg: 'Evento adicionado com sucesso'
-            });
-
+           toaster.pop('success', "Sucesso", "Evento adicionado com sucesso");
+        
             var message = data;
         });
         res.error(function (data, status, headers, config) {
 
-            console.log("ERRO");
-            
-            $scope.alerts.push({
-                type: 'danger',
-                msg: 'Erro:' + JSON.stringify({
-                    data: data
-                })
-            });
+           
+            toaster.pop('error', "Erro Interno", JSON.stringify({data:data}));
+
 
         });
         
