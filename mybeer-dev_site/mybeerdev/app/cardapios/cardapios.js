@@ -61,7 +61,7 @@ angular.module('myApp.cardapios', ['ngRoute'])
 
         $scope.sendCardapio = function (cardapio) {
 
-            var res = $http.post('http://tomcat-unicampft.rhcloud.com/br.unicamp/rest/cardapio/insereCardapio', cardapio);
+            var res = $http.post('http://frkey.noip.me:3636/br.unicamp/rest/cardapio/insereCardapio', cardapio);
             res.success(function (data, status, headers, config) {
 
                 $scope.limparForm();
@@ -130,7 +130,7 @@ angular.module('myApp.cardapios', ['ngRoute'])
 
     }).service("cardapioService", function ($http, $q) {
         var deferred = $q.defer();
-    $http.get('http://tomcat-unicampft.rhcloud.com/br.unicamp/rest/cardapio/listarTodos').then(function (data) {
+    $http.get('http://tomcat-unicampft.rhcloud.com/br.unicamp/rest/cardapio').then(function (data) {
             deferred.resolve(data);
         });
 

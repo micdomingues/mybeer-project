@@ -28,7 +28,7 @@ angular.module('myApp.perfil', ['ngRoute'])
             drinks: "Margarita",
             food: "Empanadinho ao molho especial",
             status: "Solteiro",
-            image: "http://devilsworkshop.org/files/2013/01/enlarged-facebook-profile-picture.jpg"
+            image: "http://not1.xpg.uol.com.br/wp-content/uploads/2011/01/corte-de-cabelo-rosto-redondo.bmp"
         }
         
     }]);

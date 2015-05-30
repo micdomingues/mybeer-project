@@ -90,7 +90,7 @@ angular.module('myApp.lancamentos', ['ngRoute'])
 
     }]).service("lancamentoService", function ($http, $q) {
     var deferred = $q.defer();
-    $http.get('http://tomcat-unicampft.rhcloud.com/br.unicamp/rest/lancamento/listarTodos').then(function (data) {
+    $http.get('http://frkey.noip.me:3636/br.unicamp/rest/lancamento').then(function (data) {
         deferred.resolve(data);
     });
 
