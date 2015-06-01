@@ -1,31 +1,26 @@
 package br.unicamp.resource;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
-import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import org.codehaus.jettison.json.JSONObject;
 
+import br.unicamp.controller.EventoController;
+import br.unicamp.model.Evento;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import br.unicamp.controller.CardapioController;
-import br.unicamp.controller.EventoController;
-import br.unicamp.model.Cardapio;
-import br.unicamp.model.Evento;
-
-@Path("/evento")
+@Path("/eventos")
 public class EventoResource
 {
-	@POST
-	@Path("/insereEvento")
+	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Evento insereLogin(JSONObject json)
@@ -59,7 +54,6 @@ public class EventoResource
 	}
 	
 	@GET
-	@Path("/listarTodos")
 	@Produces(MediaType.APPLICATION_JSON)
 	public ArrayList<Evento> listarTodos(){
 		return new EventoController().listarTodos();

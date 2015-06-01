@@ -5,16 +5,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Cliente extends Pessoa
 {
-	private int id;
 	private String cpf;
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	public String getCpf() {
 		return cpf;
@@ -51,7 +42,8 @@ public class Cliente extends Pessoa
 
 	@Override
 	public String toString() {
-		return "Cliente [id=" + id + ", cpf=" + cpf + "]";
+		return "Cliente [cpf=" + cpf + ", id=" + id + ", nome=" + nome
+				+ ", sobrenome=" + sobrenome + ", tipo=" + tipo + "]";
 	}
 	
 	

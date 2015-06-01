@@ -3,6 +3,7 @@ package br.unicamp.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 import br.unicamp.factory.ConnectionFactory;
@@ -44,7 +45,8 @@ public class LoginDAO extends ConnectionFactory
 		
 		try
 		{
-			pstmt = conexao.prepareStatement("SELECT * FROM LOGIN WHERE USUARIO = ? AND SENHA = SHA2(?, 256)");
+			pstmt = conexao.prepareStatement("SELECT LOGIN.ID, LOGIN.USUARIO, LOGIN.EMAIL, PESSOA.TIPO FROM LOGIN "
+					+ "INNER JOIN PESSOA ON (LOGIN.ID = PESSOA.ID) WHERE USUARIO = ? AND SENHA = SHA2(?, 256)");
 			
 			pstmt.setString(1, login.getUsuario());
 			pstmt.setString(2, login.getSenha());
@@ -55,9 +57,9 @@ public class LoginDAO extends ConnectionFactory
 			{
 				login = new Login();
 				
-				login.setId(rs.getInt("ID"));
-				login.setUsuario(rs.getString("USUARIO"));
-				login.setSenha(rs.getString("SENHA"));
+				login.setId(rs.getInt("LOGIN.ID"));
+				login.setUsuario(rs.getString("LOGIN.USUARIO"));
+				login.setTipo(rs.getString("PESSOA.TIPO"));
 			}
 			else
 				login = null;
@@ -88,20 +90,25 @@ public class LoginDAO extends ConnectionFactory
 			conexao = criarConexao();			
 			try
 			{				
-				comando = "INSERT INTO LOGIN (ID, USUARIO, SENHA, EMAIL) VALUES (?, ?, SHA2(?, 256), ?)";	
-				pstmt = conexao.prepareStatement(comando);
+				comando = "INSERT INTO LOGIN (USUARIO, SENHA, EMAIL) VALUES (?, SHA2(?, 256), ?)";	
+				pstmt = conexao.prepareStatement(comando, Statement.RETURN_GENERATED_KEYS);
 				
-				pstmt.setInt(1, login.getId());
-				pstmt.setString(2, login.getUsuario());
-				pstmt.setString(3, login.getSenha());
-				pstmt.setString(4, login.getEmail());
+				pstmt.setString(1, login.getUsuario());
+				pstmt.setString(2, login.getSenha());
+				pstmt.setString(3, login.getEmail());
 				
-				res = pstmt.executeUpdate();
+				res = pstmt.executeUpdate();	            
+	            rs = pstmt.getGeneratedKeys();
 				
 				if(res <= 0)
 	            {
 	                login = null;
 	            }
+				else
+				{
+					login.setId(((rs.next())?rs.getInt(1):0));
+					login.setSenha(null);
+				}
 			}
 			catch (Exception e) 
 			{
@@ -119,15 +126,6 @@ public class LoginDAO extends ConnectionFactory
 		return login;
 	}
 	
-	
-	/***
-	 *
-	 * Método responsável por listar todos os logins do banco
-	 * 
-	 * @return ArrayList<Login> logins
-	 * @author Felipe Carvalho <felipe@tbbrain.com.br>
-	 * 
-	 */
 	public ArrayList<Login> listarTodos()
 	{
 		Connection conexao = null;
@@ -139,16 +137,16 @@ public class LoginDAO extends ConnectionFactory
 		logins = new ArrayList<Login>();		
 		try
 		{
-			pstmt = conexao.prepareStatement("SELECT * FROM LOGIN ORDER BY USUARIO");
+			pstmt = conexao.prepareStatement("SELECT LOGIN.ID, LOGIN.USUARIO, LOGIN.EMAIL, PESSOA.TIPO FROM LOGIN INNER JOIN PESSOA ON (LOGIN.ID = PESSOA.ID)");
 			rs = pstmt.executeQuery();
 			
 			while(rs.next())
 			{
 				Login login = new Login();
 				
-				login.setId(rs.getInt("ID"));
-				login.setUsuario(rs.getString("USUARIO"));
-				login.setSenha(rs.getString("SENHA"));
+				login.setId(rs.getInt("LOGIN.ID"));
+				login.setUsuario(rs.getString("LOGIN.USUARIO"));
+				login.setTipo(rs.getString("PESSOA.TIPO"));
 				
 				logins.add(login);
 			}

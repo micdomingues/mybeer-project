@@ -2,9 +2,9 @@ package br.unicamp.model;
 
 public abstract class Pessoa
 {
-	private int id;
-	private String nome, sobrenome;
-	private char tipo;
+	protected int id;
+	protected String nome, sobrenome;
+	protected String tipo;
 	
 	public int getId() {
 		return id;
@@ -24,10 +24,10 @@ public abstract class Pessoa
 	public void setSobrenome(String sobrenome) {
 		this.sobrenome = sobrenome;
 	}
-	public char getTipo() {
+	public String getTipo() {
 		return tipo;
 	}
-	public void setTipo(char tipo) {
+	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
 	
@@ -39,7 +39,7 @@ public abstract class Pessoa
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		result = prime * result
 				+ ((sobrenome == null) ? 0 : sobrenome.hashCode());
-		result = prime * result + tipo;
+		result = prime * result + ((tipo == null) ? 0 : tipo.hashCode());
 		return result;
 	}
 	
@@ -64,7 +64,10 @@ public abstract class Pessoa
 				return false;
 		} else if (!sobrenome.equals(other.sobrenome))
 			return false;
-		if (tipo != other.tipo)
+		if (tipo == null) {
+			if (other.tipo != null)
+				return false;
+		} else if (!tipo.equals(other.tipo))
 			return false;
 		return true;
 	}

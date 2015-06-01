@@ -10,7 +10,6 @@ import org.joda.time.DateTime;
 
 import br.unicamp.factory.ConnectionFactory;
 import br.unicamp.model.Evento;
-import br.unicamp.model.Login;
 
 public class EventoDAO extends ConnectionFactory
 {
@@ -115,5 +114,4 @@ public class EventoDAO extends ConnectionFactory
 		}
 		return eventos;
 	}
-
 }

@@ -7,7 +7,7 @@ public class Promocao
 {
 	private int codpromocao, codbar, idfuncionario;
 	private String dataabertura, datainicio, datafim;
-	private char tipo;
+	private String tipo;
 	private String descricao;
 	
 	public int getCodpromocao() {
@@ -46,10 +46,10 @@ public class Promocao
 	public void setDatafim(String datafim) {
 		this.datafim = datafim;
 	}
-	public char getTipo() {
+	public String getTipo() {
 		return tipo;
 	}
-	public void setTipo(char tipo) {
+	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
 	public String getDescricao() {
@@ -60,8 +60,7 @@ public class Promocao
 	}
 	
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		return "Promocao [codpromocao=" + codpromocao + ", codbar=" + codbar
 				+ ", idfuncionario=" + idfuncionario + ", dataabertura="
 				+ dataabertura + ", datainicio=" + datainicio + ", datafim="
@@ -69,8 +68,7 @@ public class Promocao
 	}
 	
 	@Override
-	public int hashCode()
-	{
+	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + codbar;
@@ -83,13 +81,12 @@ public class Promocao
 		result = prime * result
 				+ ((descricao == null) ? 0 : descricao.hashCode());
 		result = prime * result + idfuncionario;
-		result = prime * result + tipo;
+		result = prime * result + ((tipo == null) ? 0 : tipo.hashCode());
 		return result;
 	}
 	
 	@Override
-	public boolean equals(Object obj)
-	{
+	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -123,7 +120,10 @@ public class Promocao
 			return false;
 		if (idfuncionario != other.idfuncionario)
 			return false;
-		if (tipo != other.tipo)
+		if (tipo == null) {
+			if (other.tipo != null)
+				return false;
+		} else if (!tipo.equals(other.tipo))
 			return false;
 		return true;
 	}

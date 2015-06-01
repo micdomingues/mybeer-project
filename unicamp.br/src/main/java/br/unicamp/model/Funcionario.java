@@ -5,36 +5,38 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Funcionario extends Pessoa
 {
-	private int id;
-	private char tipo;
+	private int codbar;
+	private String classe;
+	
+	public int getCodbar() {
+		return codbar;
+	}
+
+	public void setCodbar(int codbar) {
+		this.codbar = codbar;
+	}
+	
+	public String getClasse() {
+		return classe;
+	}
+
+	public void setClasse(String classe) {
+		this.classe = classe;
+	}
 	
 	@Override
 	public String toString() {
-		return "Funcionario [id=" + id + ", tipo=" + tipo + "]";
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public char getTipo() {
-		return tipo;
-	}
-
-	public void setTipo(char tipo) {
-		this.tipo = tipo;
+		return "Funcionario [codbar=" + codbar + ", classe=" + classe + ", id="
+				+ id + ", nome=" + nome + ", sobrenome=" + sobrenome
+				+ ", tipo=" + tipo + "]";
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + id;
-		result = prime * result + tipo;
+		result = prime * result + ((classe == null) ? 0 : classe.hashCode());
+		result = prime * result + codbar;
 		return result;
 	}
 
@@ -47,13 +49,13 @@ public class Funcionario extends Pessoa
 		if (getClass() != obj.getClass())
 			return false;
 		Funcionario other = (Funcionario) obj;
-		if (id != other.id)
+		if (classe == null) {
+			if (other.classe != null)
+				return false;
+		} else if (!classe.equals(other.classe))
 			return false;
-		if (tipo != other.tipo)
+		if (codbar != other.codbar)
 			return false;
 		return true;
 	}
-	
-	
-
 }

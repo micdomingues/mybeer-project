@@ -6,6 +6,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public final class Login
 {
 	private int id;
+	private String tipo;
 	private String usuario, senha, email;
 	
 	public Login()
@@ -50,11 +51,19 @@ public final class Login
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
 
 	@Override
 	public String toString() {
-		return "Login [id=" + id + ", usuario=" + usuario + ", senha=" + senha
-				+ ", email=" + email + "]";
+		return "Login [id=" + id + ", tipo=" + tipo + ", usuario=" + usuario
+				+ ", senha=" + senha + ", email=" + email + "]";
 	}
 
 	@Override
@@ -64,6 +73,7 @@ public final class Login
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + id;
 		result = prime * result + ((senha == null) ? 0 : senha.hashCode());
+		result = prime * result + ((tipo == null) ? 0 : tipo.hashCode());
 		result = prime * result + ((usuario == null) ? 0 : usuario.hashCode());
 		return result;
 	}
@@ -89,13 +99,16 @@ public final class Login
 				return false;
 		} else if (!senha.equals(other.senha))
 			return false;
+		if (tipo == null) {
+			if (other.tipo != null)
+				return false;
+		} else if (!tipo.equals(other.tipo))
+			return false;
 		if (usuario == null) {
 			if (other.usuario != null)
 				return false;
 		} else if (!usuario.equals(other.usuario))
 			return false;
 		return true;
-	}
-	
-	
+	}	
 }
