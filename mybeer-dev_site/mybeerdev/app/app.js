@@ -109,7 +109,11 @@ PageApp.controller('PageController', function ($scope, $q, $http, loginService) 
     };
 
 
-});
+}).filter('nl2br', ['$sce', function ($sce) {
+    return function (text) {
+        return text ? $sce.trustAsHtml(text.replace(/\n/g, '<br/>')) : '';
+    };
+}]);
 
 PageApp.factory('sessionService', ['$http', function ($http) {
     return {

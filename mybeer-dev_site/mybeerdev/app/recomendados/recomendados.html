@@ -1,0 +1,335 @@
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="col-lg-12">
+            <ol class="breadcrumb">
+                <li class="active">
+                    <i class="fa fa-dashboard"></i> <strong>Bares Recomendados</strong>
+                </li>
+            </ol>
+        </div>
+
+
+        <div ng-show="isCliente === false" ng-cloak>
+            <div class="col-lg-12 col-md-12" ng-controller="RatingCtrl">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <big>Nome da empresa</big>
+                        </div>
+                        <div class="panel-title" align="center">
+                            <button class="btn btn-danger" ng-show="isReadOnly" ng-click="rate = 0" style="padding:3px 8px;border-radius:50px" ng-disabled="isReadonly"><span class="glyphicon glyphicon-remove"></span>
+                            </button>
+                            <rating ng-model="rate" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating>
+                            <div class="clearfix"></div>
+                            <rating ng-model="x" max="3" state-on="'glyphicon-usd'" state-off="'glyphicon-usd'"></rating>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- end of eventos -->
+
+            <div class="col-lg-4 col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <i class="fa fa-book fa-lg"></i>
+                            <span><big>Cardápio do dia</big></span>
+                        </div>
+                    </div>
+                    <div style="padding:10px">
+                        <ul>
+                            <li>Porção de Batatas à Dorê</li>
+                            <li>Dia de Massas</li>
+                            <li>Feijoada</li>
+                            <li>Porção de Picanha</li>
+                            <li>Porção de Frios</li>
+                            <li>Porção de Pescada</li>
+
+                        </ul>
+                        <div class="clearfix">
+                            <div class="pull-right">
+                                <button class="btn btn-yellow" title="Editar"><span class="glyphicon glyphicon-edit"></span>
+                                </button>
+                                <button class="btn btn-yellow" title="Vizualizar"><span class="glyphicon glyphicon-zoom-in"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- end of cardapio -->
+
+
+            <div class="col-lg-4 col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <i class="fa fa-bullhorn"></i>
+                            <span><big>Promoção</big></span>
+                        </div>
+                    </div>
+                    <div style="padding:10px">
+                        <ul>
+                            <li>Compra 1 leva 2</li>
+                            <li>10% de desconto p/ Mulheres</li>
+                        </ul>
+                        <div class="clearfix">
+                            <div class="pull-right">
+                                <button class="btn btn-yellow" title="Editar"><span class="glyphicon glyphicon-edit"></span>
+                                </button>
+                                <button class="btn btn-yellow" title="Vizualizar"><span class="glyphicon glyphicon-zoom-in"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- end of promocao -->
+
+            <div class="col-lg-4 col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <i class="fa fa-fw fa-calendar"></i>
+                            <span><big>Eventos</big></span>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item"><span class="badge" >23/05/2015</span>Quinta do Sertanejo </a>
+                            <a href="#" class="list-group-item"><span class="badge" >24/05/2015</span>Sexta do Rock </a>
+                            <a href="#" class="list-group-item"><span class="badge" >25/05/2015</span>Sabado - Show Nando Reis</a>
+                            <a href="#" class="list-group-item"><span class="badge" >28/05/2015</span>Quarta - Mega Festa</a>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- end of Comentários -->
+
+            <div class="col-lg-4 col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <i class="fa fa-fw fa-envelope"></i>
+                            <span><big>Mensagens</big></span>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item">(foto) mensagem 1 <span class="label label-success pull-right" >Novo</span></a>
+                            <a href="#" class="list-group-item">(foto) mensagem 2 <span class="label label-success pull-right" >Novo</span></a>
+                            <a href="#" class="list-group-item">(foto) mensagem 3 <span class="label label-success pull-right" >Novo</span></a>
+                            <a href="#" class="list-group-item">(foto) mensagem 4 <span class="glyphicon glyphicon-ok pull-right" ></span></a>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- end of mensagens -->
+
+
+            <div class="col-lg-4 col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title"><i class="fa fa-clock-o fa-fw"></i> <span><big>Últimos Lançamentos</big></span>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item">
+                                <span class="badge">agora</span>
+                                <i class="fa fa-fw fa-calendar"></i> Calendário atualizado
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <span class="badge">4 minutos atrás</span>
+                                <i class="fa fa-fw fa-comment"></i> Comentário em postagem
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <span class="badge">1 hora atrás</span>
+                                <i class="fa fa-fw fa-user"></i> Um novo usuário favoritou o Bar
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <span class="badge">2 horas atrás</span>
+                                <i class="fa fa-fw fa-check"></i> Postagem concluída
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <span class="badge">ontem</span>
+                                <i class="fa fa-fw fa-globe"></i> Fernando comentou a foto do Bar
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <span class="badge">dois dias atrás</span>
+                                <i class="fa fa-fw fa-check"></i> Cardápio atualizado
+                            </a>
+                        </div>
+                        <div class="text-right">
+                            <a href="#">Veja todos os Lançamentos <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <i class="fa fa-fw fa-comment"></i>
+                            <span><big>Comentários</big></span>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item">(foto) mensagem 1 <span class="label label-success pull-right" >Novo</span></a>
+                            <a href="#" class="list-group-item">(foto) mensagem 2 <span class="label label-success pull-right" >Novo</span></a>
+                            <a href="#" class="list-group-item">(foto) mensagem 3 <span class="label label-success pull-right" >Novo</span></a>
+                            <a href="#" class="list-group-item">(foto) mensagem 4 <span class="glyphicon glyphicon-ok pull-right" ></span></a>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <!-- end of Comentários -->
+        <div ng-show="isCliente" ng-cloak>
+            <div class="col-lg-12 col-md-12" ng-controller="RatingCtrl">
+                <div class="panel panel-danger">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <big>Pontuação:</big>
+                        </div>
+                        <div class="panel-title" align="center">
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-4 col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <i class="fa fa-book fa-lg"></i>
+                            <span><big>Promoções</big></span>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item">Bar favoritado 1</a>
+                            <a href="#" class="list-group-item">Bar favoritado 2</a>
+                            <a href="#" class="list-group-item">Bar favoritado 3</a>
+                            <a href="#" class="list-group-item">Bar favoritado 4</a>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-lg-4 col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <i class="fa fa-fw fa-calendar"></i>
+                            <span><big>Eventos</big></span>
+                        </div>
+                    </div>
+                    <!--                Abrir um modal com a informação do evento e o bar-->
+                    <div class="panel-body">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item"><span class="badge" >23/05/2015</span>Quinta do Sertanejo </a>
+                            <a href="#" class="list-group-item"><span class="badge" >24/05/2015</span>Sexta do Rock </a>
+                            <a href="#" class="list-group-item"><span class="badge" >25/05/2015</span>Sabado - Show Nando Reis</a>
+                            <a href="#" class="list-group-item"><span class="badge" >28/05/2015</span>Quarta - Mega Festa</a>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- end of Comentários -->
+
+            <div class="col-lg-4 col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <i class="fa fa-fw fa-envelope"></i>
+                            <span><big>Mensagens</big></span>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item">(foto) mensagem 1 <span class="label label-success pull-right" >Novo</span></a>
+                            <a href="#" class="list-group-item">(foto) mensagem 2 <span class="label label-success pull-right" >Novo</span></a>
+                            <a href="#" class="list-group-item">(foto) mensagem 3 <span class="label label-success pull-right" >Novo</span></a>
+                            <a href="#" class="list-group-item">(foto) mensagem 4 <span class="glyphicon glyphicon-ok pull-right" ></span></a>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- end of mensagens -->
+
+
+            <div class="col-lg-4 col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <i class="fa fa-fw fa-envelope"></i>
+                            <span><big>Bares Favoritos</big></span>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item">Bar favoritado 1</a>
+                            <a href="#" class="list-group-item">Bar favoritado 2</a>
+                            <a href="#" class="list-group-item">Bar favoritado 3</a>
+                            <a href="#" class="list-group-item">Bar favoritado 4</a>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-4 col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <i class="fa fa-fw fa-comment"></i>
+                            <span><big>Comentários</big></span>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item">(foto) mensagem 1 <span class="label label-success pull-right" >Novo</span></a>
+                            <a href="#" class="list-group-item">(foto) mensagem 2 <span class="label label-success pull-right" >Novo</span></a>
+                            <a href="#" class="list-group-item">(foto) mensagem 3 <span class="label label-success pull-right" >Novo</span></a>
+                            <a href="#" class="list-group-item">(foto) mensagem 4 <span class="glyphicon glyphicon-ok pull-right" ></span></a>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+    </div>
+        
+    </div>
+    <!-- /.container-fluid -->
+</div>

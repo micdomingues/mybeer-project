@@ -5,7 +5,7 @@
                 <div class="panel-heading">
                     <span class="glyphicon glyphicon-lock"></span> Login</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form">
+                    <form class="form-horizontal" role="form" ng-submit="logar(user.usuario,user.senha)">
                         <div class="form-group">
                             <span class="text text-danger">{{msg}}</span>
                             <label for="inputEmail3" class="col-sm-3 control-label">
@@ -24,7 +24,7 @@
                        
                         <div class="form-group last">
                             <div class="col-sm-offset-3 col-sm-9">
-                                <button type="submit" class="btn btn-success btn-sm" ng-click="logar(user.usuario,user.senha)">
+                                <button type="submit" class="btn btn-success btn-sm" >
                                     Conectar-se</button>
                                 <button type="reset" class="btn btn-default btn-sm">
                                     Limpar</button>
@@ -48,52 +48,53 @@
             </div>
             
             <div class="panel-body">
-                <form class="form-horizontal" role="form">
+                <form class="form-horizontal" role="form" ng-submit="cadastrar(login,pessoa)">
                     <div class="form-group">
+                        <span class="text text-danger">{{msg}}</span>
                         <label for="usuario" class="col-sm-3 control-label">
                             Usuário</label>
                         <div class="col-sm-9">
-                            <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Usuário myBeer" ng-model="usuario" required>
+                            <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Usuário myBeer" ng-model="login.usuario" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="nome" class="col-sm-3 control-label">
                             Nome</label>
                         <div class="col-sm-9">
-                            <input type="text" name="nome" id="nome" class="form-control" placeholder="Nome" ng-model="nome" required>
+                            <input type="text" name="nome" id="nome" class="form-control" placeholder="Nome" ng-model="pessoa.nome" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="sobrenome" class="col-sm-3 control-label">
                             Sobrenome</label>
                         <div class="col-sm-9">
-                            <input type="text" name="sobronome" id="sobronome" class="form-control" placeholder="Sobrenome do Usuário" ng-model="sobrenome">
+                            <input type="text" name="sobronome" id="sobronome" class="form-control" placeholder="Sobrenome do Usuário" ng-model="pessoa.sobrenome">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="cpf" class="col-sm-3 control-label">
                             CPF</label>
                         <div class="col-sm-9">
-                            <input type="text" name="cpf" id="cpf" class="form-control" placeholder="CPF do Usuário" ng-model="cpf" required>
+                            <input type="text" name="cpf" id="cpf" class="form-control" placeholder="CPF do Usuário" ng-model="pessoa.cpf" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="email" class="col-sm-3 control-label">
                             Email</label>
                         <div class="col-sm-9">
-                            <input type="email" name="email" id="email" class="form-control" placeholder="Email do Usuário" ng-model="email" required>
+                            <input type="email" name="email" id="email" class="form-control" placeholder="Email do Usuário" ng-model="login.email" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="senha" class="col-sm-3 control-label">
                             Senha</label>
                         <div class="col-sm-9">
-                            <input type="password" name="senha" id="senha" class="form-control" placeholder="Senha do Usuário" ng-model="senha" required>
+                            <input type="password" name="senha" id="senha" class="form-control" placeholder="Senha do Usuário" ng-model="login.senha" required>
                         </div>
                     </div>
                                             <div class="form-group last">
                             <div class="col-sm-offset-3 col-sm-9">
-                                <button class="btn btn-success btn-sm" ng-click="cadastrar(user.usuario,user.nome,user.sobrenome,user.cpf,user.email,user.senha)">
+                                <button type="submit" class="btn btn-success btn-sm">
                                     Cadastrar-se</button>
                                 <button type="reset" class="btn btn-default btn-sm">
                                     Limpar</button>

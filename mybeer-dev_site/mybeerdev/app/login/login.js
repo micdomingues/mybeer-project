@@ -46,6 +46,42 @@ angular.module('myApp.login', ['ngRoute'])
         
       
         
+        $scope.cadastrar = function (login,pessoa) {
+            if(login.usuario || login)
+
+            var res = $http.post('http://default-environment-fnmmqcmuin.elasticbeanstalk.com/rest/logins', login);
+            res.success(function (data, status, headers, config) {
+                var message = data;
+                if(data){
+                    console.log(data);
+                    
+                    pessoa.tipo = "C";
+                    pessoa.id = data.id;
+                    //cadastrar pessoa
+                    var res = $http.post('http://default-environment-fnmmqcmuin.elasticbeanstalk.com/rest/pessoas', pessoa);
+                    res.success(function (data, status, headers, config) {
+                        var message = data;
+                        if(data){
+                            console.log(data);
+                        }else{
+                            $scope.msg = "Usuário ja existente";
+                        }
+                    });
+                    res.error(function (data, status, headers, config) {
+                        $scope.msg = "Erro interno. Contate o administrador" + data;
+
+                    });
+                    
+                }else{
+                    $scope.msg = "Usuário ja existente";
+                }
+            });
+            res.error(function (data, status, headers, config) {
+                $scope.msg = "Erro interno. Contate o administrador" + data;
+
+            });
+        }
+
         
        
     }]);

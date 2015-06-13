@@ -17,16 +17,19 @@ angular.module('myApp.cardapios', ['ngRoute'])
         var promise = cardapioService.getCardapios();
         promise.then(function (data) {
             $scope.cardapios = data.data;
+            
+         
             console.log($scope.cardapios);
         });
 
-
+        $scope.teste = "SAHUSAHU \n SAHUSAUHAS \n ASUHSAUHUAS";
+        
         $scope.cardapio = {};
         $scope.alerts = [];
         $scope.cardapio.datainicio;
         $scope.cardapio.datafim;
 
-        $scope.checkboxSemanal = {
+        $scope.cardapio.semana = {
             segunda: false,
             terca: false,
             quarta: false,
@@ -61,7 +64,7 @@ angular.module('myApp.cardapios', ['ngRoute'])
 
         $scope.sendCardapio = function (cardapio) {
 
-            var res = $http.post('http://default-environment-fnmmqcmuin.elasticbeanstalk.com/rest/cardapio/insereCardapio', cardapio);
+            var res = $http.put('http://frkey.noip.me:3636/br.unicamp/rest/cardapios', cardapio);
             res.success(function (data, status, headers, config) {
 
                 $scope.limparForm();
@@ -130,7 +133,7 @@ angular.module('myApp.cardapios', ['ngRoute'])
 
     }).service("cardapioService", function ($http, $q) {
         var deferred = $q.defer();
-    $http.get('http://default-environment-fnmmqcmuin.elasticbeanstalk.com/rest/cardapio').then(function (data) {
+    $http.get('http://frkey.noip.me:3636/br.unicamp/rest/cardapios').then(function (data) {
             deferred.resolve(data);
         });
 
@@ -141,4 +144,34 @@ angular.module('myApp.cardapios', ['ngRoute'])
 
 
 
-    });
+}).filter('semana', function() {
+    return function(input) {
+        var string = "";
+       if(input != null){
+           if(input.segunda == "true"){
+               string = " Segunda";
+           }
+           if(input.terca == "true"){
+               string = string + " Terça";
+           }
+           if(input.quarta == "true"){
+               string = string + " Quarta";
+           }
+           if(input.quinta == "true"){
+               string = string + " Quinta";
+           }
+           if(input.sexta == "true"){
+               string = string + " Sexta";
+           }
+           if(input.sabado == "true"){
+               string = string + " Sábado";
+           }
+           if(input.domingo == "true"){
+               string = string + " Domingo";
+           }
+
+       }
+        
+        return string;
+    };
+})
