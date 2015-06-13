@@ -27,81 +27,50 @@
                 <div class="col-xs-12" style="padding:10px">
                     <div class="col-md-6">
                         <label>Avalie a qualidade do bar: </label>
+                            <div class="funkyradio">
+                            <div class="funkyradio-warning">
+                                <input type="radio" ng-model="tipoAvalicaoQualidade.name" value="ruim" id="radio1" />
+                                <label for="radio1">Ruim</label>
+                            </div>
+                            <div class="funkyradio-warning">
+                                <input type="radio" ng-model="tipoAvalicaoQualidade.name" value="regular" id="radio2" />
+                                <label for="radio2">Regular</label>
+                            </div>
+                            <div class="funkyradio-warning">
+                                <input type="radio" ng-model="tipoAvalicaoQualidade.name" value="bom" id="radio3" />
+                                <label for="radio3">Bom</label>
+                            </div>
+                            <div class="funkyradio-warning">
+                                <input type="radio" ng-model="tipoAvalicaoQualidade.name" value="muitobom" id="radio4" />
+                                <label for="radio4">Muito Bom</label>
+                            </div>
+                            <div class="funkyradio-warning">
+                                <input type="radio" ng-model="tipoAvalicaoQualidade.name" value="otimo" id="radio5" />
+                                <label for="radio5">Ótimo</label>
+                            </div>
+                        </div>
 
                         <div class="clearfix"></div>
-                        <!-- Dias da semana -->
-                        <div class="[ form-group ]">
-
-                            <hr/>
-
-                            <input type="checkbox" name="fancy-checkbox-ruim" id="fancy-checkbox-ruim" autocomplete="off" ng-model="cardapio.semana.ruim" />
-                            <div class="[ btn-group ]">
-                                <label for="fancy-checkbox-ruim" class="[ btn btn-warning ]">
-                                    <span class="[ glyphicon glyphicon-ok ]"></span>
-                                    <span> </span>
-                                </label>
-                                <label for="fancy-checkbox-ruim" class="[ btn btn-default active ]">
-                                    Ruim
-                                </label>
-                            </div>
-                             <input type="checkbox" name="fancy-checkbox-bom" id="fancy-checkbox-bom" autocomplete="off" ng-model="cardapio.semana.bom" />
-                            <div class="[ btn-group ]">
-                                <label for="fancy-checkbox-bom" class="[ btn btn-warning ]">
-                                    <span class="[ glyphicon glyphicon-ok ]"></span>
-                                    <span> </span>
-                                </label>
-                                <label for="fancy-checkbox-bom" class="[ btn btn-default active ]">
-                                    Bom
-                                </label>
-                            </div> 
-                            <input type="checkbox" name="fancy-checkbox-otimo" id="fancy-checkbox-otimo" autocomplete="off" ng-model="cardapio.semana.otimo" />
-                            <div class="[ btn-group ]">
-                                <label for="fancy-checkbox-otimo" class="[ btn btn-warning ]">
-                                    <span class="[ glyphicon glyphicon-ok ]"></span>
-                                    <span> </span>
-                                </label>
-                                <label for="fancy-checkbox-otimo" class="[ btn btn-default active ]">
-                                    Ótimo
-                                </label>
-                            </div> 
-
-                        </div>
+                        
                             <div class="[ form-group ]">
 
                             <hr/>
                         <label>Avalie o preço do bar: </label>
-
-                        <div class="clearfix"></div>
-                            <input type="checkbox" name="fancy-checkbox-alto" id="fancy-checkbox-alto" autocomplete="off" ng-model="cardapio.semana.alto" />
-                            <div class="[ btn-group ]">
-                                <label for="fancy-checkbox-alto" class="[ btn btn-warning ]">
-                                    <span class="[ glyphicon glyphicon-ok ]"></span>
-                                    <span> </span>
-                                </label>
-                                <label for="fancy-checkbox-alto" class="[ btn btn-default active ]">
-                                    Alto
-                                </label>
+                            <div class="funkyradio">
+                            <div class="funkyradio-warning">
+                                <input type="radio" ng-model="tipoAvalicaoPreco.name" value="alto" id="radio6" />
+                                <label for="radio6">Alto</label>
                             </div>
-                             <input type="checkbox" name="fancy-checkbox-medio" id="fancy-checkbox-medio" autocomplete="off" ng-model="cardapio.semana.medio" />
-                            <div class="[ btn-group ]">
-                                <label for="fancy-checkbox-medio" class="[ btn btn-warning ]">
-                                    <span class="[ glyphicon glyphicon-ok ]"></span>
-                                    <span> </span>
-                                </label>
-                                <label for="fancy-checkbox-medio" class="[ btn btn-default active ]">
-                                    Médio
-                                </label>
-                            </div> 
-                            <input type="checkbox" name="fancy-checkbox-baixo" id="fancy-checkbox-baixo" autocomplete="off" ng-model="cardapio.semana.baixo" />
-                            <div class="[ btn-group ]">
-                                <label for="fancy-checkbox-baixo" class="[ btn btn-warning ]">
-                                    <span class="[ glyphicon glyphicon-ok ]"></span>
-                                    <span> </span>
-                                </label>
-                                <label for="fancy-checkbox-baixo" class="[ btn btn-default active ]">
-                                    Baixo
-                                </label>
-                            </div> 
+                            <div class="funkyradio-warning">
+                                <input type="radio" ng-model="tipoAvalicaoPreco.name" value="medio" id="radio7" />
+                                <label for="radio7">Médio</label>
+                            </div>
+                                <div class="funkyradio-warning">
+                                <input type="radio" ng-model="tipoAvalicaoPreco.name" value="baixo" id="radio8" />
+                                <label for="radio8">Baixo</label>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
 
                         </div>
                     </div>
