@@ -44,6 +44,11 @@
                         <i class="fa fa-users"></i> Funcionários
                     </a>
                 </li>
+                <li ng-show="isCliente === false" ng-class="{'active' : isSet(7)}" ng-click="setPage(7)">
+                    <a href="#/avaliacoes">
+                        <i class="fa fa-users"></i> Avaliações
+                    </a>
+                </li>
               <!--  <li data-toggle="collapse" data-target="#products" class="collapsed active">
                     <a href="#">
                         <i class="fa fa-gift fa-lg"></i> UI Elements
