@@ -50,7 +50,24 @@
 
 <body ng-app="PageApp">
     <div class="backColor" ng-controller="PageController">
-        <div ng-show="islooged()" class="col-lg-12" style="padding-right:35px;">
+        <div ng-controller="LoginController" ng-show="islooged()" class="col-lg-12" style="padding-right:35px;">
+            
+          
+            
+            <div class="col-lg-5 col-lg-offset-2">
+                <div class="input-group custom-search-form">
+                    <input type="text" class="form-control">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>
+                </div><!-- /input-group -->
+                <h1 class="page-header">
+                    MyBeer
+                </h1>
+            </div>
+                    
             <div class="btn-group menu-top" dropdown>
                 <button type="button" class="btn btn-default dropdown-toggle" dropdown-toggle>
                     <span class="glyphicon glyphicon-user"></span> Administrador <b class="caret"></b>

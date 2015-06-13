@@ -14,7 +14,7 @@
                         <i class="fa fa-book fa-lg"></i> Cardápio
                     </a>
                 </li>
-                <li  ng-class="{'active' : isSet(2)}" ng-click="setPage(2)">
+                <li ng-show="isCliente === false" ng-class="{'active' : isSet(2)}" ng-click="setPage(2)">
                     <a href="#/estatisticas">
                         <i class="fa fa-bar-chart fa-lg"></i> Estatística
                     </a>
@@ -39,7 +39,7 @@
                         <i class="fa fa-barcode"></i> Lançamentos
                     </a>
                 </li>
-                <li  ng-class="{'active' : isSet(7)}" ng-click="setPage(7)">
+                <li ng-show="isCliente === false" ng-class="{'active' : isSet(7)}" ng-click="setPage(7)">
                     <a href="#/funcionarios">
                         <i class="fa fa-users"></i> Funcionários
                     </a>

@@ -38,7 +38,7 @@ angular.module('myApp.promocoes', ['ngRoute'])
     
     $scope.sendPromocao = function (promocao) {
         console.log("Ola");
-        var res = $http.post('http://frkey.noip.me:3636/br.unicamp/rest/cardapio/insereCardapio', promocao);
+        var res = $http.post('http://default-environment-fnmmqcmuin.elasticbeanstalk.com/rest/cardapios', promocao);
         res.success(function (data, status, headers, config) {
 
             $scope.limparForm();
@@ -76,7 +76,7 @@ angular.module('myApp.promocoes', ['ngRoute'])
 
     }]).service("promocoesService", function ($http, $q) {
     var deferred = $q.defer();
-    $http.get('hhttp://frkey.noip.me:3636/br.unicamp/rest/promocoes').then(function (data) {
+    $http.get('http://default-environment-fnmmqcmuin.elasticbeanstalk.com/rest/promocoes').then(function (data) {
         deferred.resolve(data);
     });
 

@@ -42,7 +42,7 @@ angular.module('myApp.eventos', ['ngRoute'])
     
     $scope.sendEvento = function (evento) {
 
-        var res = $http.put('http://frkey.noip.me:3636/br.unicamp/rest/eventos', evento);
+        var res = $http.put('http://default-environment-fnmmqcmuin.elasticbeanstalk.com/rest/eventos', evento);
         res.success(function (data, status, headers, config) {
 
             $scope.limparForm();
@@ -91,7 +91,7 @@ angular.module('myApp.eventos', ['ngRoute'])
 
     }]).service("eventoService", function ($http, $q) {
     var deferred = $q.defer();
-    $http.get('http://frkey.noip.me:3636/br.unicamp/rest/eventos').then(function (data) {
+    $http.get('http://default-environment-fnmmqcmuin.elasticbeanstalk.com/rest/eventos').then(function (data) {
         deferred.resolve(data);
     });
 

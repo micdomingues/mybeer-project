@@ -42,7 +42,7 @@ angular.module('myApp.funcionarios', ['ngRoute'])
     
     $scope.sendfuncionario = function (funcionario) {
 
-        var res = $http.post('http://frkey.noip.me:3636/br.unicamp/rest/funcionario/inserefuncionario', funcionario);
+        var res = $http.post('http://default-environment-fnmmqcmuin.elasticbeanstalk.com/rest/funcionario/inserefuncionario', funcionario);
         res.success(function (data, status, headers, config) {
 
             $scope.limparForm();
@@ -99,7 +99,7 @@ angular.module('myApp.funcionarios', ['ngRoute'])
 
     }]).service("funcionarioService", function ($http, $q) {
     var deferred = $q.defer();
-    $http.get('http://frkey.noip.me:3636/br.unicamp/rest/funcionario').then(function (data) {
+    $http.get('http://default-environment-fnmmqcmuin.elasticbeanstalk.com/rest/funcionario').then(function (data) {
         deferred.resolve(data);
     });
 

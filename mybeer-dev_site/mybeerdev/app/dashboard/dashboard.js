@@ -26,7 +26,7 @@ angular.module('myApp.dashboard', ['ngRoute'])
 //        var id = loginService.getId();
 //        if (id != null) {
 //            var deferred = $q.defer();
-//            $http.get('http://frkey.noip.me:3636/br.unicamp/rest/pessoas/' + id).then(function (data) {
+//            $http.get('http://default-environment-fnmmqcmuin.elasticbeanstalk.com/rest/pessoas/' + id).then(function (data) {
 //                deferred.resolve(data);
 //            });
 //            
@@ -44,4 +44,5 @@ angular.module('myApp.dashboard', ['ngRoute'])
 //                $scope.isCliente = false;
 //            }
 //        });
+        
     }]);

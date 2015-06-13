@@ -170,3 +170,12 @@ li > a {
 .ctncenter{
     padding-top: 10%;
 }
+
+.close_login:hover{
+    font-size: 120%;
+    cursor: pointer;
+}
+
+.custom-search-form{
+    margin-top:20px;
+}

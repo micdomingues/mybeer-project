@@ -1,12 +1,8 @@
 package br.unicamp.controller;
 
-import java.util.ArrayList;
-
-import br.unicamp.dao.LoginDAO;
 import br.unicamp.dao.PessoaDAO;
 import br.unicamp.model.Cliente;
 import br.unicamp.model.Funcionario;
-import br.unicamp.model.Login;
 import br.unicamp.model.Pessoa;
 
 public class PessoaController

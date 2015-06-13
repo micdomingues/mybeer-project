@@ -24,6 +24,10 @@ config(['$routeProvider', function ($routeProvider) {
 
 PageApp.controller('PageController', function ($scope, $q, $http, loginService) {
     $scope.page = 0;
+//    $scope.isCliente = null;
+    $scope.usuario = {};
+//    var promise = {};
+    $scope.idUser = loginService.getId();
 
     $scope.setPage = function (newValue) {
         $scope.page = newValue;
@@ -46,13 +50,54 @@ PageApp.controller('PageController', function ($scope, $q, $http, loginService) 
     };
 
     $scope.islooged = function () {
+        $scope.idUser = loginService.getId();
         return loginService.islooged();
     }
     
     $scope.logout = function(){
+        $scope.isCliente = null;
         loginService.logout();
         
     }
+        
+    
+    $scope.getUsuario = function () {
+        var id = loginService.getId();
+        var deferred = $q.defer();
+        if (id != null) {
+            $http.get('http://default-environment-fnmmqcmuin.elasticbeanstalk.com/rest/pessoas/' + id).then(function (data) {
+                deferred.resolve(data);
+            });
+
+            return deferred.promise;
+        }
+        return deferred.promise;
+    }
+
+    
+    $scope.verificaUsuario = function(){
+        console.log("uehh oass");
+        console.log($scope.isCliente);
+        if($scope.isCliente === null || $scope.isCliente === undefined){
+            var promise = $scope.getUsuario();
+            promise.then(function (data) {
+                $scope.usuario = data.data;
+                console.log($scope.usuario);
+                if($scope.usuario.tipo === 'C'){
+                    $scope.isCliente = true;
+                }else{
+                    $scope.isCliente = false;
+                }
+            });
+        }
+        return true;
+    }
+
+    $scope.verificaUsuario();
+    
+    $scope.$watch('idUser', function(newValue, oldValue){
+        $scope.verificaUsuario();
+    }, true);
 
 }).controller('RatingCtrl', function ($scope) {
     $scope.rate = 3;
@@ -64,35 +109,6 @@ PageApp.controller('PageController', function ($scope, $q, $http, loginService) 
     };
 
 
-}).controller('AccordionDemoCtrl', function ($scope) {
-    $scope.oneAtATime = true;
-
-    $scope.groups = [
-        {
-            title: 'Favoritados',
-            content: 'Graficos de Favoritados'
-    },
-        {
-            title: 'Avaliações da Qualidade',
-            content: 'Graficos da Qualidade'
-    },
-        {
-            title: 'Avaliações de Preço',
-            content: 'Graficos do Preço'
-    }
-  ];
-
-    $scope.items = ['Item 1', 'Item 2', 'Item 3'];
-
-    $scope.addItem = function () {
-        var newItemNo = $scope.items.length + 1;
-        $scope.items.push('Item ' + newItemNo);
-    };
-
-    $scope.status = {
-        isFirstOpen: true,
-        isFirstDisabled: false
-    };
 });
 
 PageApp.factory('sessionService', ['$http', function ($http) {
@@ -114,7 +130,7 @@ PageApp.factory('loginService', function ($http, $location, sessionService) {
     return {
         login: function (data) {
             sessionService.set('user', data.id);
-            $location.path('dashboard');
+            $location.path('/dashboard');
 
         },
         logout: function () {
