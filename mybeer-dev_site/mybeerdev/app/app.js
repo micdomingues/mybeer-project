@@ -13,6 +13,7 @@ var PageApp = angular.module('myApp', [
   'myApp.lancamentos',
   'myApp.funcionarios',
   'myApp.avaliacoes',
+  'myApp.favoritos',
   'myApp.version',
   'toaster',
   'ui.bootstrap'
@@ -77,13 +78,10 @@ PageApp.controller('PageController', function ($scope, $q, $http, loginService) 
 
     
     $scope.verificaUsuario = function(){
-        console.log("uehh oass");
-        console.log($scope.isCliente);
         if($scope.isCliente === null || $scope.isCliente === undefined){
             var promise = $scope.getUsuario();
             promise.then(function (data) {
                 $scope.usuario = data.data;
-                console.log($scope.usuario);
                 if($scope.usuario.tipo === 'C'){
                     $scope.isCliente = true;
                 }else{
