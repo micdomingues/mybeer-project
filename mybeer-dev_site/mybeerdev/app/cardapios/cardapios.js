@@ -8,7 +8,7 @@ angular.module('myApp.cardapios', ['ngRoute'])
             controller: 'CardapioController'
         });
 }])
-    .controller('CardapioController', ['$scope', '$http', 'cardapioService','toaster', function ($scope, $http, cardapioService, toaster) {
+    .controller('CardapioController', ['$scope', '$http', 'cardapioService','toaster','loginService', function ($scope, $http, cardapioService, toaster, loginService) {
         
         if ($scope.cardapios == null) {
             $scope.cardapios = [];
@@ -17,12 +17,8 @@ angular.module('myApp.cardapios', ['ngRoute'])
         var promise = cardapioService.getCardapios();
         promise.then(function (data) {
             $scope.cardapios = data.data;
-            
-         
-            console.log($scope.cardapios);
         });
 
-        $scope.teste = "SAHUSAHU \n SAHUSAUHAS \n ASUHSAUHUAS";
         
         $scope.cardapio = {};
         $scope.alerts = [];
@@ -41,25 +37,49 @@ angular.module('myApp.cardapios', ['ngRoute'])
 
 
         $scope.tipoDataCardapio = {
-            name: 'intervaloDataSemanal',
+            name: null,
             value: 0
         };
 
+        $scope.analisaSemanas = function(){
+            var temUmTrue = false;
+            angular.forEach($scope.cardapio.semana, function(value, index){
+                if(value == true){
+                    temUmTrue = true;
+                }
+            }) 
+            return temUmTrue;
+        }
 
         $scope.criarCardapio = function () {
 
-            $scope.cardapio.datainicio = $scope.conversorDate($scope.cardapio.datainicio);
-            $scope.cardapio.datafim = $scope.conversorDate($scope.cardapio.datafim);
+            
+            if($scope.tipoDataCardapio.name == null){
+                $scope.errorOpcoes = true;
+            }else{                
+                if($scope.tipoDataCardapio.name == "intervaloDataMes" && $scope.cardapio.datainicio == null){
+                    $scope.errorDataInicio = true;
+                }else if($scope.tipoDataCardapio.name == "intervaloDataMes" && $scope.cardapio.datafim == null){
+                    $scope.errorDataFim = true;
+                }else if($scope.tipoDataCardapio.name == "dataSemanalEspecifica" && !$scope.analisaSemanas()) {
+                    $scope.errorSemana = true;
+                }else{
+                    $scope.cardapio.datainicio = $scope.conversorDate($scope.cardapio.datainicio);
+                    $scope.cardapio.datafim = $scope.conversorDate($scope.cardapio.datafim);
 
 
-            $scope.cardapio.idfuncionario = 1;
-            console.log($scope.cardapio);
+                    $scope.cardapio.idfuncionario = loginService.getId();
+                    console.log($scope.cardapio);
 
-            var cardapio = angular.copy($scope.cardapio);
+                    var cardapio = angular.copy($scope.cardapio);
 
 
-            $scope.sendCardapio(cardapio);
-
+                    $scope.sendCardapio(cardapio);
+                }
+                
+            }
+            
+        
         }
 
         $scope.sendCardapio = function (cardapio) {
