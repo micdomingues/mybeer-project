@@ -12,6 +12,7 @@ var PageApp = angular.module('myApp', [
   'myApp.promocoes',
   'myApp.lancamentos',
   'myApp.funcionarios',
+  'myApp.avaliacoes',
   'myApp.version',
   'toaster',
   'ui.bootstrap'
@@ -153,7 +154,7 @@ PageApp.factory('loginService', function ($http, $location, sessionService) {
 });
 
 PageApp.run(function ($rootScope, $location, loginService) {
-    var routespermission = ['/dashboard', '/perfil', '/cardapios', '/estatisticas', '/eventos'];
+    var routespermission = ['/dashboard', '/perfil', '/cardapios', '/estatisticas', '/eventos', '/avaliacoes'];
     $rootScope.$on('$routeChangeStart', function () {
         if (routespermission.indexOf($location.path()) != -1 && !loginService.islooged()) {
             $location.path('/login');

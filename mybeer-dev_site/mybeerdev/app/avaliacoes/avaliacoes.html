@@ -1,0 +1,145 @@
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" />
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
+
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="col-lg-12">
+            <ol class="breadcrumb">
+                <li class="active">
+                    <i class="fa fa-bullhorn"></i> <strong>Avaliações<strong/>
+                </li>
+            </ol>
+        </div>
+
+
+        <div class="col-lg-12 col-md-12">
+            <div ng-show="!isCliente" class="panel panel-default" style="padding:5px">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        Avalie o bar aqui!
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+                </div>
+                <div class="col-xs-12" style="padding:10px">
+                    <div class="col-md-6">
+                        <label>Avalie a qualidade do bar: </label>
+
+                        <div class="clearfix"></div>
+                        <!-- Dias da semana -->
+                        <div class="[ form-group ]">
+
+                            <hr/>
+
+                            <input type="checkbox" name="fancy-checkbox-ruim" id="fancy-checkbox-ruim" autocomplete="off" ng-model="cardapio.semana.ruim" />
+                            <div class="[ btn-group ]">
+                                <label for="fancy-checkbox-ruim" class="[ btn btn-warning ]">
+                                    <span class="[ glyphicon glyphicon-ok ]"></span>
+                                    <span> </span>
+                                </label>
+                                <label for="fancy-checkbox-ruim" class="[ btn btn-default active ]">
+                                    Ruim
+                                </label>
+                            </div>
+                             <input type="checkbox" name="fancy-checkbox-bom" id="fancy-checkbox-bom" autocomplete="off" ng-model="cardapio.semana.bom" />
+                            <div class="[ btn-group ]">
+                                <label for="fancy-checkbox-bom" class="[ btn btn-warning ]">
+                                    <span class="[ glyphicon glyphicon-ok ]"></span>
+                                    <span> </span>
+                                </label>
+                                <label for="fancy-checkbox-bom" class="[ btn btn-default active ]">
+                                    Bom
+                                </label>
+                            </div> 
+                            <input type="checkbox" name="fancy-checkbox-otimo" id="fancy-checkbox-otimo" autocomplete="off" ng-model="cardapio.semana.otimo" />
+                            <div class="[ btn-group ]">
+                                <label for="fancy-checkbox-otimo" class="[ btn btn-warning ]">
+                                    <span class="[ glyphicon glyphicon-ok ]"></span>
+                                    <span> </span>
+                                </label>
+                                <label for="fancy-checkbox-otimo" class="[ btn btn-default active ]">
+                                    Ótimo
+                                </label>
+                            </div> 
+
+                        </div>
+                            <div class="[ form-group ]">
+
+                            <hr/>
+                        <label>Avalie o preço do bar: </label>
+
+                        <div class="clearfix"></div>
+                            <input type="checkbox" name="fancy-checkbox-alto" id="fancy-checkbox-alto" autocomplete="off" ng-model="cardapio.semana.alto" />
+                            <div class="[ btn-group ]">
+                                <label for="fancy-checkbox-alto" class="[ btn btn-warning ]">
+                                    <span class="[ glyphicon glyphicon-ok ]"></span>
+                                    <span> </span>
+                                </label>
+                                <label for="fancy-checkbox-alto" class="[ btn btn-default active ]">
+                                    Alto
+                                </label>
+                            </div>
+                             <input type="checkbox" name="fancy-checkbox-medio" id="fancy-checkbox-medio" autocomplete="off" ng-model="cardapio.semana.medio" />
+                            <div class="[ btn-group ]">
+                                <label for="fancy-checkbox-medio" class="[ btn btn-warning ]">
+                                    <span class="[ glyphicon glyphicon-ok ]"></span>
+                                    <span> </span>
+                                </label>
+                                <label for="fancy-checkbox-medio" class="[ btn btn-default active ]">
+                                    Médio
+                                </label>
+                            </div> 
+                            <input type="checkbox" name="fancy-checkbox-baixo" id="fancy-checkbox-baixo" autocomplete="off" ng-model="cardapio.semana.baixo" />
+                            <div class="[ btn-group ]">
+                                <label for="fancy-checkbox-baixo" class="[ btn btn-warning ]">
+                                    <span class="[ glyphicon glyphicon-ok ]"></span>
+                                    <span> </span>
+                                </label>
+                                <label for="fancy-checkbox-baixo" class="[ btn btn-default active ]">
+                                    Baixo
+                                </label>
+                            </div> 
+
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Envie seu comentário: </label>
+                        <textarea class="form-control" rows="6" ng-model="evento.descricao"></textarea>
+                    </div>
+
+
+                </div>
+                <div class="form-group pull-right">
+
+                    <button type="button" class="btn btn-warning" ng-click="criarPromocoes()"> <span>Enviar avaliação</span> </button>
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+            
+            <!--
+            <form action="rest/files/upload" method="post" enctype="multipart/form-data">
+
+                <p>
+                    Select a file : <input type="file" name="file" size="50" />
+                </p>
+
+                <input type="submit" value="Upload It" />
+            </form>
+-->
+
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+</div>
+<script>
+    jQuery(function ($) {
+        $("#date").mask("99/99/9999");
+    });
+</script>
