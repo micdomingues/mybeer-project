@@ -11,7 +11,7 @@ import br.unicamp.model.Mensagem;
 
 public class MensagemDAO extends ConnectionFactory
 {
-	/*
+	
 	private static MensagemDAO instance;
 	
 	public static MensagemDAO getInstance()
@@ -21,6 +21,7 @@ public class MensagemDAO extends ConnectionFactory
 		return instance;
 	}
 	
+	/*
 	public ArrayList<Login> listarTodas(int idcliente)
 	{
 		Connection conexao = null;

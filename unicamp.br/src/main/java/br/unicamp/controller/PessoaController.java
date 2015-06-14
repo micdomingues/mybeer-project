@@ -6,13 +6,7 @@ import br.unicamp.model.Funcionario;
 import br.unicamp.model.Pessoa;
 
 public class PessoaController
-{
-	/*
-	public ArrayList<Pessoa> listarTodos()
-	{
-		return PessoaDAO.getInstance().listarTodos();
-	}
-	*/
+{	
 	public Pessoa adicionar(Pessoa pessoa)
 	{
 		if(PessoaDAO.getInstance().adicionar(pessoa) != null)

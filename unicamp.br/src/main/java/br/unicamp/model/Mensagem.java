@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Mensagem
 {
 	private int codmensagem, idfuncionario;
-	private String conteudo, data;
+	private String assunto, nomebar, conteudo, data;
 	private boolean lida;
 	
 	public int getCodmensagem()
@@ -29,6 +29,26 @@ public class Mensagem
 		this.idfuncionario = idfuncionario;
 	}
 	
+	public String getAssunto()
+	{
+		return assunto;
+	}
+
+	public void setAssunto(String assunto)
+	{
+		this.assunto = assunto;
+	}
+
+	public String getNomebar()
+	{
+		return nomebar;
+	}
+
+	public void setNomebar(String nomebar)
+	{
+		this.nomebar = nomebar;
+	}
+
 	public String getConteudo()
 	{
 		return conteudo;
@@ -60,30 +80,30 @@ public class Mensagem
 	}
 	
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		return "Mensagem [codmensagem=" + codmensagem + ", idfuncionario="
-				+ idfuncionario + ", conteudo=" + conteudo + ", data=" + data
+				+ idfuncionario + ", assunto=" + assunto + ", nomebar="
+				+ nomebar + ", conteudo=" + conteudo + ", data=" + data
 				+ ", lida=" + lida + "]";
 	}
 	
 	@Override
-	public int hashCode()
-	{
+	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((assunto == null) ? 0 : assunto.hashCode());
 		result = prime * result + codmensagem;
 		result = prime * result
 				+ ((conteudo == null) ? 0 : conteudo.hashCode());
 		result = prime * result + ((data == null) ? 0 : data.hashCode());
 		result = prime * result + idfuncionario;
 		result = prime * result + (lida ? 1231 : 1237);
+		result = prime * result + ((nomebar == null) ? 0 : nomebar.hashCode());
 		return result;
 	}
 	
 	@Override
-	public boolean equals(Object obj)
-	{
+	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -91,6 +111,11 @@ public class Mensagem
 		if (getClass() != obj.getClass())
 			return false;
 		Mensagem other = (Mensagem) obj;
+		if (assunto == null) {
+			if (other.assunto != null)
+				return false;
+		} else if (!assunto.equals(other.assunto))
+			return false;
 		if (codmensagem != other.codmensagem)
 			return false;
 		if (conteudo == null) {
@@ -106,6 +131,11 @@ public class Mensagem
 		if (idfuncionario != other.idfuncionario)
 			return false;
 		if (lida != other.lida)
+			return false;
+		if (nomebar == null) {
+			if (other.nomebar != null)
+				return false;
+		} else if (!nomebar.equals(other.nomebar))
 			return false;
 		return true;
 	}

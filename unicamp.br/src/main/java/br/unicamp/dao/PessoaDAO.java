@@ -7,10 +7,9 @@ import java.util.ArrayList;
 
 import br.unicamp.factory.ConnectionFactory;
 import br.unicamp.model.Cliente;
-import br.unicamp.model.Evento;
 import br.unicamp.model.Funcionario;
-import br.unicamp.model.Login;
 import br.unicamp.model.Pessoa;
+import br.unicamp.model.Mensagem;
 
 public class PessoaDAO extends ConnectionFactory
 {

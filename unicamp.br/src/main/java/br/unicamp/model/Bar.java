@@ -5,43 +5,53 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Bar
 {
-	private int codbar;
-	private String cnpj;
-	private String nome, nomefantasia;
+	protected int codbar;
+	protected String cnpj;
+	protected String nome, nomefantasia;
 	
-	public int getCodbar() {
+	public int getCodbar()
+	{
 		return codbar;
 	}
-	public void setCodbar(int codbar) {
+	public void setCodbar(int codbar)
+	{
 		this.codbar = codbar;
 	}
-	public String getCnpj() {
+	public String getCnpj()
+	{
 		return cnpj;
 	}
-	public void setCnpj(String cnpj) {
+	public void setCnpj(String cnpj)
+	{
 		this.cnpj = cnpj;
 	}
-	public String getNome() {
+	public String getNome()
+	{
 		return nome;
 	}
-	public void setNome(String nome) {
+	public void setNome(String nome)
+	{
 		this.nome = nome;
 	}
-	public String getNomefantasia() {
+	public String getNomefantasia()
+	{
 		return nomefantasia;
 	}
-	public void setNomefantasia(String nomefantasia) {
+	public void setNomefantasia(String nomefantasia)
+	{
 		this.nomefantasia = nomefantasia;
 	}
 	
 	@Override
-	public String toString() {
+	public String toString()
+	{
 		return "Bar [codbar=" + codbar + ", cnpj=" + cnpj + ", nome=" + nome
 				+ ", nomefantasia=" + nomefantasia + "]";
 	}
 	
 	@Override
-	public int hashCode() {
+	public int hashCode()
+	{
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((cnpj == null) ? 0 : cnpj.hashCode());
@@ -53,7 +63,8 @@ public class Bar
 	}
 	
 	@Override
-	public boolean equals(Object obj) {
+	public boolean equals(Object obj)
+	{
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -80,10 +91,4 @@ public class Bar
 			return false;
 		return true;
 	}
-	
-	
-	
-	
-	
-
 }
