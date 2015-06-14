@@ -9,7 +9,7 @@ angular.module('myApp.promocoes', ['ngRoute'])
     });
     }])
 
-    .controller('PromocoesController', ['$scope','$http','promocoesService','toaster', function ($scope,$http,promocoesService, toaster) {
+    .controller('PromocoesController', ['$scope','$http','promocoesService','toaster','nomeBanco', function ($scope,$http,promocoesService, toaster,nomeBanco) {
 
         
     $scope.promocoes = [];
@@ -37,8 +37,7 @@ angular.module('myApp.promocoes', ['ngRoute'])
     }
     
     $scope.sendPromocao = function (promocao) {
-        console.log("Ola");
-        var res = $http.post('http://default-environment-fnmmqcmuin.elasticbeanstalk.com/rest/cardapios', promocao);
+        var res = $http.post(nomeBanco.getLink() + 'cardapios', promocao);
         res.success(function (data, status, headers, config) {
 
             $scope.limparForm();
@@ -74,9 +73,9 @@ angular.module('myApp.promocoes', ['ngRoute'])
 
     
 
-    }]).service("promocoesService", function ($http, $q) {
+    }]).service("promocoesService", function ($http, $q,nomeBanco) {
     var deferred = $q.defer();
-    $http.get('http://default-environment-fnmmqcmuin.elasticbeanstalk.com/rest/promocoes').then(function (data) {
+    $http.get(nomeBanco.getLink() + 'promocoes').then(function (data) {
         deferred.resolve(data);
     });
 

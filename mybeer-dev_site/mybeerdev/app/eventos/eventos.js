@@ -9,7 +9,7 @@ angular.module('myApp.eventos', ['ngRoute'])
     });
     }])
 
-    .controller('eventoController', ['$scope','$http','eventoService','toaster', function ($scope,$http,eventoService, toaster) {
+    .controller('eventoController', ['$scope','$http','eventoService','toaster','nomeBanco', function ($scope,$http,eventoService, toaster,nomeBanco) {
 
 
     $scope.eventos = [];
@@ -42,7 +42,7 @@ angular.module('myApp.eventos', ['ngRoute'])
     
     $scope.sendEvento = function (evento) {
 
-        var res = $http.put('http://default-environment-fnmmqcmuin.elasticbeanstalk.com/rest/eventos', evento);
+        var res = $http.put(nomeBanco.getLink() + 'eventos', evento);
         res.success(function (data, status, headers, config) {
 
             $scope.limparForm();
@@ -89,9 +89,9 @@ angular.module('myApp.eventos', ['ngRoute'])
 
         $scope.getEventos();
 
-    }]).service("eventoService", function ($http, $q) {
+    }]).service("eventoService", function ($http, $q,nomeBanco) {
     var deferred = $q.defer();
-    $http.get('http://default-environment-fnmmqcmuin.elasticbeanstalk.com/rest/eventos').then(function (data) {
+    $http.get(nomeBanco.getLink() + 'eventos').then(function (data) {
         deferred.resolve(data);
     });
 

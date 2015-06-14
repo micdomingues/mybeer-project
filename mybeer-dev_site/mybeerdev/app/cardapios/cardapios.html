@@ -205,7 +205,7 @@
                 <div class="panel panel-default" style="padding:5px">
                     <div class="panel-heading">
                         <div class="panel-title">
-                            {{cardapio.nome}} - {{cardapio.datainicio}} | {{cardapio.datafim}} {{cardapio.semana | semana}}
+                            {{cardapio.nome}} <div class="badge pull-right"> {{cardapio.datainicio}} <div style="display:inline" ng-show="cardapio.datafim!= null">|</div> {{cardapio.datafim}} {{cardapio.semana | semana}}</div>
                         </div>
                     </div>
                     <div style="padding:10px;white-space:pre-line;">

@@ -10,10 +10,7 @@ angular.module('myApp.favoritos', ['ngRoute'])
     }])
 
     .controller('FavoritosCtrl', ['$scope', '$http', '$q', 'loginService', 'favoritosService', function ($scope, $http, $q, loginService, favoritosService) {
-        $scope.overStar = 5;
-        $scope.hoveringOver = function (value) {
-            $scope.overStar = value;
-        }
+        
     $scope.favoritos = [];
   
     function getFavoritos() {
@@ -31,10 +28,10 @@ angular.module('myApp.favoritos', ['ngRoute'])
         getFavoritos();
         
 
-  }]).service("favoritosService", function ($http, $q) {
+  }]).service("favoritosService", function ($http, $q,nomeBanco) {
 
     this.getFavoritos = function (id) {
-        return $http.get('http://frkey.noip.me:3636/br.unicamp/rest/clientes/bares/favoritos/' + id);
+        return $http.get(nomeBanco.getLink() + 'clientes/bares/favoritos/' + id);
     }
     
 

@@ -9,7 +9,7 @@ angular.module('myApp.lancamentos', ['ngRoute'])
     });
     }])
 
-    .controller('lancamentoController', ['$scope','$http','lancamentoService','toaster', function ($scope,$http,lancamentoService, toaster) {
+    .controller('lancamentoController', ['$scope','$http','lancamentoService','toaster','nomeBanco','loginService', function ($scope,$http,lancamentoService, toaster,nomeBanco,loginService) {
 
 
         $scope.lancamentos = [];
@@ -42,7 +42,7 @@ angular.module('myApp.lancamentos', ['ngRoute'])
     
     $scope.sendlancamento = function (lancamento) {
 
-        var res = $http.post('http://default-environment-fnmmqcmuin.elasticbeanstalk.com/rest/lancamentos', lancamento);
+        var res = $http.put(nomeBanco.getLink() + 'lancamentos', lancamento);
         res.success(function (data, status, headers, config) {
 
             $scope.limparForm();
@@ -58,7 +58,7 @@ angular.module('myApp.lancamentos', ['ngRoute'])
 
         });
         
-        $scope.getlancamentos();
+        $scope.getLancamentos();
     }
 
     $scope.criarlancamentos = function(){
@@ -66,37 +66,26 @@ angular.module('myApp.lancamentos', ['ngRoute'])
         $scope.lancamento.data = $scope.conversorDate($scope.lancamento.data);
         var lancamento = angular.copy($scope.lancamento);
         //PEGAR CODIGO DO BAR
-        lancamento.codbar = 1;
+        lancamento.idfuncionario = loginService.getId();
         $scope.sendlancamento(lancamento);
     }
     
-    var mesesString = ["JAN","FEV","MAR","ABR","MAI","JUN","JUL","AGO","SET","OUT","NOV","DEZ"];
     
-        $scope.getlancamentos = function(){
-            var promise = lancamentoService.getlancamentos();
+        $scope.getLancamentos = function(){
+            var promise = lancamentoService.getLancamentos(loginService.getId());
             promise.then(function (data) {
                 $scope.lancamentos = data.data.lancamento;  
-                angular.forEach($scope.lancamentos, function(value, key) {
-                    value.dia = value.data.substring(0,2);
-                    value.mes = value.data.substring(3,5);
-                    value.mesString = mesesString[Number(value.mes)-1];
-                    value.ano = value.data.substring(6,10);
-                });
+              
             })
         }
  
 
-        $scope.getlancamentos();
+        $scope.getLancamentos();
 
-    }]).service("lancamentoService", function ($http, $q) {
-    var deferred = $q.defer();
-    $http.get('http://default-environment-fnmmqcmuin.elasticbeanstalk.com/rest/lancamentos').then(function (data) {
-        deferred.resolve(data);
-    });
+    }]).service("lancamentoService", function ($http, $q, nomeBanco) {
 
-    this.getlancamentos = function () {
-        return deferred.promise;
+    this.getLancamentos = function (id) {
+        return $http.get(nomeBanco.getLink() + 'bares/lancamentos/' + id);
+
     }
-
-
 });

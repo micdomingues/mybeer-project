@@ -26,10 +26,10 @@ angular.module('myApp.recomendados', ['ngRoute'])
         getRecomendados();
     
 
-    }]).service("recomendadosService", function ($http, $q) {
+    }]).service("recomendadosService", function ($http, $q,nomeBanco) {
 
     this.getRecomendados = function (id) {
-        return $http.get('http://frkey.noip.me:3636/br.unicamp/rest/clientes/bares/recomendados/' + id);
+        return $http.get(nomeBanco.getLink() + 'clientes/bares/recomendados/' + id);
 
     }
 });

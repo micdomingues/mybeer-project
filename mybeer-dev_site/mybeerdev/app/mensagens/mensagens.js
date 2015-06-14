@@ -9,11 +9,11 @@ angular.module('myApp.mensagens', ['ngRoute'])
     });
     }])
 
-    .controller('MensagensCtrl', ['$scope', '$http', '$q', 'loginService', 'mensagensService', function ($scope, $http, $q, loginService, favoritosService) {
+    .controller('MensagensCtrl', ['$scope', '$http', '$q', 'loginService', 'mensagensService', function ($scope, $http, $q, loginService, mensagensService) {
 
   
     function getMensagens() {
-        favoritosService.getMensagens(loginService.getId())
+        mensagensService.getMensagens(loginService.getId())
             .success(function (data) {
             $scope.mensagens = data;
             console.log($scope.mensagens = data);
@@ -26,10 +26,10 @@ angular.module('myApp.mensagens', ['ngRoute'])
         getMensagens();
     
 
-    }]).service("mensagensService", function ($http, $q) {
+    }]).service("mensagensService", function ($http, $q, nomeBanco) {
 
     this.getMensagens = function (id) {
-        return $http.get('http://frkey.noip.me:3636/br.unicamp/rest/clientes/bares/mensagens/' + id);
+        return $http.get(nomeBanco.getLink() + 'clientes/mensagens/' + id);
 
     }
 });

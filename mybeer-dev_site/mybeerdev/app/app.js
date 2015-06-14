@@ -15,6 +15,7 @@ var PageApp = angular.module('myApp', [
   'myApp.avaliacoes',
   'myApp.favoritos',
   'myApp.mensagens',
+  'myApp.enviar_mensagem',
   'myApp.recomendados',
   'myApp.version',
   'toaster',
@@ -26,7 +27,7 @@ config(['$routeProvider', function ($routeProvider) {
     });
 }]);
 
-PageApp.controller('PageController', function ($scope, $q, $http, loginService) {
+PageApp.controller('PageController', function ($scope, $q, $http, loginService,nomeBanco) {
     $scope.page = 0;
     //    $scope.isCliente = null;
     $scope.usuario = {};
@@ -69,7 +70,7 @@ PageApp.controller('PageController', function ($scope, $q, $http, loginService) 
         var id = loginService.getId();
         var deferred = $q.defer();
         if (id != null) {
-            $http.get('http://default-environment-fnmmqcmuin.elasticbeanstalk.com/rest/pessoas/' + id).then(function (data) {
+            $http.get(nomeBanco.getLink() + 'pessoas/' + id).then(function (data) {
                 deferred.resolve(data);
             });
 
@@ -160,4 +161,8 @@ PageApp.run(function ($rootScope, $location, loginService) {
             $location.path('/login');
         }
     });
+}).service('nomeBanco',function(){
+    this.getLink = function(){
+        return "http://frkey.noip.me:3636/br.unicamp/rest/";
+    }
 });

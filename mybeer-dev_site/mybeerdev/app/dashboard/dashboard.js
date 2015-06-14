@@ -9,40 +9,40 @@ angular.module('myApp.dashboard', ['ngRoute'])
     });
     }])
 
-    .controller('DashboardCtrl', ['$scope','$http','$q', 'loginService', function ($scope, $http , $q,  loginService) {
+    .controller('DashboardCtrl', ['$scope','$http','$q', 'loginService','eventosService', function ($scope, $http , $q,  loginService, eventosService) {
+        
+        console.log("ueh foi");
+        
     $scope.rate = 3;
+    $scope.x = 2;
     $scope.max = 5;
     $scope.isReadonly = true;
-//    $scope.isCliente = null;
-//    $scope.usuario = {};
-//    var promise = {};
-
     $scope.hoveringOver = function (value) {
         $scope.overStar = value;
     };
     
-
-//    $scope.getUsuario = function () {
-//        var id = loginService.getId();
-//        if (id != null) {
-//            var deferred = $q.defer();
-//            $http.get('http://default-environment-fnmmqcmuin.elasticbeanstalk.com/rest/pessoas/' + id).then(function (data) {
-//                deferred.resolve(data);
-//            });
-//            
-//            return deferred.promise;
-//        }
-//    }
-//    
-//    var promise = $scope.getUsuario();
-//        promise.then(function (data) {
-//            $scope.usuario = data.data;
-//            
-//            if($scope.usuario.tipo === 'C'){
-//                $scope.isCliente = true;
-//            }else{
-//                $scope.isCliente = false;
-//            }
-//        });
         
-    }]);
+        
+        $scope.eventos = null;
+        
+        function getEventos() {
+            eventosService.getEventos()
+                .success(function (data) {
+                $scope.eventos = data;
+                console.log($scope.eventos);
+            })
+                .error(function (error) {
+                console.log(error.message);
+            });
+        }
+
+        getEventos();
+        console.log("ueh foi");
+        
+    }]).service("eventosService", function ($http, $q,nomeBanco) {
+
+    this.getEventos = function () {
+        return $http.get(nomeBanco.getLink() + 'eventos');
+
+    }
+});

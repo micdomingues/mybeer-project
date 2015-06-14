@@ -9,13 +9,13 @@ angular.module('myApp.login', ['ngRoute'])
         });
     }])
 
-    .controller('LoginController', ['$scope','loginService','$http',function($scope,loginService,$http) {
+    .controller('LoginController', ['$scope','loginService','$http','nomeBanco',function($scope,loginService,$http,nomeBanco) {
 
         $scope.registro = false;
         
         $scope.isUser = function (user) {
 
-            var res = $http.post('http://default-environment-fnmmqcmuin.elasticbeanstalk.com/rest/logins/executeLogin', user);
+            var res = $http.post(nomeBanco.getLink() + 'logins/executeLogin', user);
             res.success(function (data, status, headers, config) {
                 var message = data;
                 if(data){
@@ -46,10 +46,10 @@ angular.module('myApp.login', ['ngRoute'])
         
       
         
-        $scope.cadastrar = function (login,pessoa) {
+        $scope.cadastrar = function (login,pessoa,nomeBanco) {
             if(login.usuario || login)
 
-            var res = $http.post('http://default-environment-fnmmqcmuin.elasticbeanstalk.com/rest/logins', login);
+                var res = $http.post(nomeBanco.getLink() + 'logins', login);
             res.success(function (data, status, headers, config) {
                 var message = data;
                 if(data){
@@ -58,7 +58,7 @@ angular.module('myApp.login', ['ngRoute'])
                     pessoa.tipo = "C";
                     pessoa.id = data.id;
                     //cadastrar pessoa
-                    var res = $http.post('http://default-environment-fnmmqcmuin.elasticbeanstalk.com/rest/pessoas', pessoa);
+                    var res = $http.post(nomeBanco.getLink() + 'pessoas', pessoa);
                     res.success(function (data, status, headers, config) {
                         var message = data;
                         if(data){

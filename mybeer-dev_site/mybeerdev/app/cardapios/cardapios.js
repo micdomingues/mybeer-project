@@ -8,7 +8,7 @@ angular.module('myApp.cardapios', ['ngRoute'])
             controller: 'CardapioController'
         });
 }])
-    .controller('CardapioController', ['$scope', '$http', 'cardapioService','toaster','loginService', function ($scope, $http, cardapioService, toaster, loginService) {
+    .controller('CardapioController', ['$scope', '$http', 'cardapioService','toaster','loginService','nomeBanco', function ($scope, $http, cardapioService, toaster, loginServicem, nomeBanco) {
         
         if ($scope.cardapios == null) {
             $scope.cardapios = [];
@@ -84,7 +84,7 @@ angular.module('myApp.cardapios', ['ngRoute'])
 
         $scope.sendCardapio = function (cardapio) {
 
-            var res = $http.put('http://frkey.noip.me:3636/br.unicamp/rest/cardapios', cardapio);
+            var res = $http.put(nomeBanco.getLink() + 'cardapios', cardapio);
             res.success(function (data, status, headers, config) {
 
                 $scope.limparForm();
@@ -151,9 +151,9 @@ angular.module('myApp.cardapios', ['ngRoute'])
         $scope.formats = ['dd/MMMM/yyyy', 'yyyy/MM/dd', 'dd/MM/yyyy', 'shortDate'];
         $scope.format = $scope.formats[2];
 
-    }).service("cardapioService", function ($http, $q) {
+    }).service("cardapioService", function ($http, $q, nomeBanco) {
         var deferred = $q.defer();
-    $http.get('http://frkey.noip.me:3636/br.unicamp/rest/cardapios').then(function (data) {
+    $http.get(nomeBanco.getLink() + 'cardapios').then(function (data) {
             deferred.resolve(data);
         });
 

@@ -10,7 +10,7 @@
 
 
         <div ng-show="isCliente === false" ng-cloak>
-            <div class="col-lg-12 col-md-12" ng-controller="RatingCtrl">
+            <div class="col-lg-12 col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="panel-title">
@@ -100,10 +100,9 @@
                     </div>
                     <div class="panel-body">
                         <div class="list-group">
-                            <a href="#" class="list-group-item"><span class="badge" >23/05/2015</span>Quinta do Sertanejo </a>
-                            <a href="#" class="list-group-item"><span class="badge" >24/05/2015</span>Sexta do Rock </a>
-                            <a href="#" class="list-group-item"><span class="badge" >25/05/2015</span>Sabado - Show Nando Reis</a>
-                            <a href="#" class="list-group-item"><span class="badge" >28/05/2015</span>Quarta - Mega Festa</a>
+                            <div ng-repeat="evento in eventos.evento">
+                                <a href="#" class="list-group-item"><span class="badge" >{{evento.data}}</span>{{evento.nome}} </a>
+                            </div>
 
                         </div>
                     </div>
