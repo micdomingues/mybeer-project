@@ -62,9 +62,6 @@ public class BarDAO extends ConnectionFactory
  				fecharConexao(conexao, pstmt, rs);
 	 		}
 		}
-		else
-			bar = null;
-		
 		return bar;
 	}
 	
@@ -109,6 +106,38 @@ public class BarDAO extends ConnectionFactory
 		}
 		return bar;		
 	}
+	
+	public Bar excluir(Bar bar)
+    {
+		if(bar != null)
+		{
+			int res;
+			Connection conexao = null;
+			PreparedStatement pstmt = null;
+			
+			conexao = criarConexao();
+	        try
+	        {
+	            pstmt = conexao.prepareStatement("DELETE FROM BAR WHERE CODBAR = ?");
+	            pstmt.setInt(1, bar.getCodbar());
+
+	            res = pstmt.executeUpdate();
+	            
+	            if(res <= 0)
+	                bar = null;
+	        }
+	        catch (Exception e) 
+			{
+				System.out.println("Erro ao Excluir Bar: " + e);
+				e.printStackTrace();
+			}
+			finally
+			{
+				fecharConexao(conexao, pstmt, null);
+			}			
+		}
+		return bar;
+    }
 	
 	public ArrayList<Bar> listarTodos()
 	{

@@ -3,9 +3,11 @@ package br.unicamp.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import br.unicamp.factory.ConnectionFactory;
 import br.unicamp.model.Funcionario;
+import br.unicamp.model.Mensagem;
 
 public class FuncionarioDAO extends ConnectionFactory
 {
@@ -95,5 +97,55 @@ public class FuncionarioDAO extends ConnectionFactory
 		}
 		return funcionario;		
 	}
+	/*
+	public ArrayList<Mensagem> todasMensagens(int idcliente)
+	{
+		Connection conexao = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<Mensagem> mensagens = null;
+	
+		conexao = criarConexao();
+		mensagens = new ArrayList<Mensagem>();		
+		try
+		{
+			pstmt = conexao.prepareStatement("SELECT CLIMEN.CODCLIMEN, MEN.IDFUNCIONARIO, BAR.NOMEFANTASIA, MEN.ASSUNTO, "
+					+ "MEN.CONTEUDO, DATE_FORMAT(DATA,'%d/%m/%Y') AS `DATA`, CLIMEN.LIDA FROM "
+					+ "(MENSAGEM MEN INNER JOIN (FUNCIONARIO FUN INNER JOIN BAR ON (FUN.CODBAR = BAR.CODBAR)) ON "
+					+ "(MEN.IDFUNCIONARIO = FUN.ID)) INNER JOIN CLIENTE_MENSAGEM CLIMEN ON (MEN.CODMENSAGEM = CLIMEN.CODMENSAGEM) "
+					+ "WHERE CLIMEN.IDCLIENTE = ?");
+			
+			pstmt.setInt(1, idcliente);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next())
+			{
+				Mensagem mensagem = new Mensagem();
+				
+				mensagem.setCodmensagem(rs.getInt("CODCLIMEN"));
+				mensagem.setIdfuncionario(rs.getInt("IDFUNCIONARIO"));
+				mensagem.setNomebar(rs.getString("NOMEFANTASIA"));
+				mensagem.setAssunto(rs.getString("ASSUNTO"));
+				mensagem.setConteudo(rs.getString("CONTEUDO"));
+				mensagem.setLida(((rs.getInt("LIDA") == 1)?true:false));
+				mensagem.setData(rs.getString("DATA"));
+
+				
+				mensagens.add(mensagem);
+			}
+			
+		}
+		catch (Exception e) 
+		{
+			System.out.println("Erro ao listar todos as mensagens: " + e);
+			e.printStackTrace();
+		}
+		finally
+		{
+			fecharConexao(conexao, pstmt, rs);
+		}
+		return mensagens;
+	}
+	*/
 
 }

@@ -21,5 +21,4 @@ public class BarController
 	{
 		return BarDAO.getInstance().carregar(codbar);
 	}
-
 }

@@ -9,7 +9,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import br.unicamp.controller.BarController;
+import br.unicamp.controller.LancamentoController;
 import br.unicamp.model.Bar;
+import br.unicamp.model.Lancamento;
 
 @Path("/bares")
 public class BarResource
@@ -34,5 +36,12 @@ public class BarResource
 			bar = new BarController().carregar(Integer.parseInt(codbar));			
     	}
 	    return bar;
+	}
+	
+	@GET
+	@Path("/lancamentos/{idfuncionario}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public ArrayList<Lancamento> listarLancamentos(@PathParam("idfuncionario") String idfuncionario){
+		return new LancamentoController().listarTodos(Integer.parseInt(idfuncionario));
 	}
 }
