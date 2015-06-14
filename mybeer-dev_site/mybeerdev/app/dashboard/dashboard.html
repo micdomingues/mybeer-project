@@ -30,6 +30,7 @@
 
             <!-- end of eventos -->
 
+            <div class="col-xs-12">
             <div class="col-lg-4 col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -110,8 +111,10 @@
                 </div>
 
             </div>
+            </div>
             <!-- end of Comentários -->
 
+            <div class="col-xs-12">
             <div class="col-lg-4 col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -197,14 +200,19 @@
                 </div>
 
             </div>
+            </div>
         </div>
-        <!-- end of Comentários -->
+
+
+        <!-- CLIENTE COMEÇA AQ -->
+
+
         <div ng-show="isCliente" ng-cloak>
             <div class="col-lg-12 col-md-12" ng-controller="RatingCtrl">
                 <div class="panel panel-danger">
                     <div class="panel-heading">
                         <div class="panel-title">
-                            <big>Pontuação:</big>
+                            <big>Pontuação:</big> {{usuario.saldopts}}
                         </div>
                         <div class="panel-title" align="center">
 
@@ -214,121 +222,117 @@
 
             </div>
 
-
-            <div class="col-lg-4 col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <div class="panel-title">
-                            <i class="fa fa-book fa-lg"></i>
-                            <span><big>Promoções</big></span>
+            <div class="col-xs-12">
+                <div class="col-lg-4 col-md-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                <i class="fa fa-book fa-lg"></i>
+                                <span><big>Promoções</big></span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="panel-body">
-                        <div class="list-group">
-                            <a href="#" class="list-group-item">Bar favoritado 1</a>
-                            <a href="#" class="list-group-item">Bar favoritado 2</a>
-                            <a href="#" class="list-group-item">Bar favoritado 3</a>
-                            <a href="#" class="list-group-item">Bar favoritado 4</a>
+                        <div class="panel-body">
+                            <div class="list-group">
+                                <a href="#" class="list-group-item">Bar favoritado 1</a>
+                                <a href="#" class="list-group-item">Bar favoritado 2</a>
+                                <a href="#" class="list-group-item">Bar favoritado 3</a>
+                                <a href="#" class="list-group-item">Bar favoritado 4</a>
 
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="col-lg-4 col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <div class="panel-title">
-                            <i class="fa fa-fw fa-calendar"></i>
-                            <span><big>Eventos</big></span>
-                        </div>
-                    </div>
-                    <!--                Abrir um modal com a informação do evento e o bar-->
-                    <div class="panel-body">
-                        <div class="list-group">
-                            <a href="#" class="list-group-item"><span class="badge" >23/05/2015</span>Quinta do Sertanejo </a>
-                            <a href="#" class="list-group-item"><span class="badge" >24/05/2015</span>Sexta do Rock </a>
-                            <a href="#" class="list-group-item"><span class="badge" >25/05/2015</span>Sabado - Show Nando Reis</a>
-                            <a href="#" class="list-group-item"><span class="badge" >28/05/2015</span>Quarta - Mega Festa</a>
-
+                            </div>
                         </div>
                     </div>
 
                 </div>
-
-            </div>
-            <!-- end of Comentários -->
-
-            <div class="col-lg-4 col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <div class="panel-title">
-                            <i class="fa fa-fw fa-envelope"></i>
-                            <span><big>Mensagens</big></span>
+                <div class="col-lg-4 col-md-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                <i class="fa fa-fw fa-calendar"></i>
+                                <span><big>Eventos</big></span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="panel-body">
-                        <div class="list-group">
-                            <a href="#" class="list-group-item">(foto) mensagem 1 <span class="label label-success pull-right" >Novo</span></a>
-                            <a href="#" class="list-group-item">(foto) mensagem 2 <span class="label label-success pull-right" >Novo</span></a>
-                            <a href="#" class="list-group-item">(foto) mensagem 3 <span class="label label-success pull-right" >Novo</span></a>
-                            <a href="#" class="list-group-item">(foto) mensagem 4 <span class="glyphicon glyphicon-ok pull-right" ></span></a>
+                        <div class="panel-body">
+                            <div class="list-group">
+                                <div ng-repeat="evento in eventos.evento | limitTo:3">
+                                    <a href="#" class="list-group-item"><span class="badge" >{{evento.data}}</span>{{evento.nome}} </a>
+                                </div>
 
+                            </div>
                         </div>
+
                     </div>
 
                 </div>
+                <!-- end of Comentários -->
+                <div class="col-lg-4 col-md-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                <i class="fa fa-fw fa-envelope"></i>
+                                <span><big>Mensagens</big></span>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="list-group">
+                                <div ng-repeat="mensagem in mensagens">
+                                    <a href="#" class="list-group-item">{{mensagem.assunto}} <span ng-class="{'label label-success pull-right' : !mensagem.label , 'glyphicon glyphicon-ok pull-right' : mensagem.label}" > {{mensagem.lida | novo}} </span></a>
 
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
             </div>
             <!-- end of mensagens -->
 
-
-            <div class="col-lg-4 col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <div class="panel-title">
-                            <i class="fa fa-fw fa-envelope"></i>
-                            <span><big>Bares Favoritos</big></span>
+            <div class="col-xs-12">
+                <div class="col-lg-4 col-md-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                <i class="fa fa-fw fa-envelope"></i>
+                                <span><big>Bares Favoritos</big></span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="panel-body">
-                        <div class="list-group">
-                            <a href="#" class="list-group-item">Bar favoritado 1</a>
-                            <a href="#" class="list-group-item">Bar favoritado 2</a>
-                            <a href="#" class="list-group-item">Bar favoritado 3</a>
-                            <a href="#" class="list-group-item">Bar favoritado 4</a>
+                        <div class="panel-body">
+                            <div class="list-group">
+                                <div ng-repeat="favorito in favoritos">
+                                <a href="#" class="list-group-item">{{favorito.nomefantasia}}</a>
+                                </div>
 
+                            </div>
                         </div>
-                    </div>
 
-                </div>
-
-            </div>
-
-            <div class="col-lg-4 col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <div class="panel-title">
-                            <i class="fa fa-fw fa-comment"></i>
-                            <span><big>Comentários</big></span>
-                        </div>
-                    </div>
-                    <div class="panel-body">
-                        <div class="list-group">
-                            <a href="#" class="list-group-item">(foto) mensagem 1 <span class="label label-success pull-right" >Novo</span></a>
-                            <a href="#" class="list-group-item">(foto) mensagem 2 <span class="label label-success pull-right" >Novo</span></a>
-                            <a href="#" class="list-group-item">(foto) mensagem 3 <span class="label label-success pull-right" >Novo</span></a>
-                            <a href="#" class="list-group-item">(foto) mensagem 4 <span class="glyphicon glyphicon-ok pull-right" ></span></a>
-
-                        </div>
                     </div>
 
                 </div>
 
+                <div class="col-lg-4 col-md-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                <i class="fa fa-fw fa-comment"></i>
+                                <span><big>Comentários</big></span>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="list-group">
+                                <a href="#" class="list-group-item">(foto) mensagem 1 <span class="label label-success pull-right" >Novo</span></a>
+                                <a href="#" class="list-group-item">(foto) mensagem 2 <span class="label label-success pull-right" >Novo</span></a>
+                                <a href="#" class="list-group-item">(foto) mensagem 3 <span class="label label-success pull-right" >Novo</span></a>
+                                <a href="#" class="list-group-item">(foto) mensagem 4 <span class="glyphicon glyphicon-ok pull-right" ></span></a>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
             </div>
-    </div>
-        
+        </div>
+
     </div>
     <!-- /.container-fluid -->
 </div>

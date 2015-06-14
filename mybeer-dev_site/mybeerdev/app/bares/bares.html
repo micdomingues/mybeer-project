@@ -1,0 +1,72 @@
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="col-lg-12">
+            <ol class="breadcrumb">
+                <li class="active">
+                    <i class="fa fa-dashboard"></i> <strong>Dashboard</strong>
+                </li>
+            </ol>
+        </div>
+
+
+        <div ng-show="isCliente === false" ng-cloak>
+            <div class="col-lg-12 col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <big>Nome da empresa</big>
+                        </div>
+                        <div class="panel-title" align="center">
+                            <button class="btn btn-danger" ng-show="isReadOnly" ng-click="rate = 0" style="padding:3px 8px;border-radius:50px" ng-disabled="isReadonly"><span class="glyphicon glyphicon-remove"></span>
+                            </button>
+                            <rating ng-model="rate" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating>
+                            <div class="clearfix"></div>
+                            <rating ng-model="x" readonly="isReadonly" max="3" state-on="'glyphicon-usd'" state-off="'fa fa-strikethrough'"></rating>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- end of eventos -->
+
+            <div class="col-xs-12">
+
+
+          
+
+            <div class="col-lg-4 col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <i class="fa fa-fw fa-calendar"></i>
+                            <span><big>Eventos</big></span>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="list-group">
+                            <div ng-repeat="evento in eventos.evento">
+                                <a href="#" class="list-group-item"><span class="badge" >{{evento.data}}</span>{{evento.nome}} </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            </div>
+            <!-- end of Comentários -->
+
+            <div class="col-xs-12">
+            
+
+
+
+          
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container-fluid -->
+</div>

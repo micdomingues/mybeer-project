@@ -7,7 +7,7 @@
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" ng-submit="logar(user.usuario,user.senha)">
                         <div class="form-group">
-                            <span class="text text-danger">{{msg}}</span>
+                            <span class="text" ng-class="{'text-success' : sucesso,'text-danger' : !sucesso }">{{msg}}</span>
                             <label for="inputEmail3" class="col-sm-3 control-label">
                                 Usuário</label>
                             <div class="col-sm-9">
@@ -33,7 +33,7 @@
                     </form>
                 </div>
                 <div class="panel-footer">
-                    Ainda não é um Usuário? <a ng-click="registro= true">Registre-se aqui</a></div>
+                    Ainda não é um Usuário? <a ng-click="registro= true;msg=null">Registre-se aqui</a></div>
             </div>
             </div>
         </div>
@@ -44,7 +44,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <span class="glyphicon glyphicon-lock"></span> Registro
-                <div class="pull-right glyphicon glyphicon-remove close_login" ng-click="registro = false"></div>
+                <div class="pull-right glyphicon glyphicon-remove close_login" ng-click="registro = false ;msg = null"></div>
             </div>
             
             <div class="panel-body">

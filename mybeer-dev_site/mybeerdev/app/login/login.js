@@ -46,34 +46,38 @@ angular.module('myApp.login', ['ngRoute'])
         
       
         
-        $scope.cadastrar = function (login,pessoa,nomeBanco) {
-            if(login.usuario || login)
-
-                var res = $http.post(nomeBanco.getLink() + 'logins', login);
+        $scope.cadastrar = function (login,pessoa) {
+            login.cpf = pessoa.cpf;
+                var res = $http.put(nomeBanco.getLink() + 'logins', login);
             res.success(function (data, status, headers, config) {
                 var message = data;
-                if(data){
+                console.log(angular.isNumber(parseInt(data)));
+                console.log(parseInt(data));
+                if(!isNaN(parseInt(data))){
                     console.log(data);
-                    
-                    pessoa.tipo = "C";
-                    pessoa.id = data.id;
-                    //cadastrar pessoa
-                    var res = $http.post(nomeBanco.getLink() + 'pessoas', pessoa);
-                    res.success(function (data, status, headers, config) {
-                        var message = data;
-                        if(data){
-                            console.log(data);
-                        }else{
-                            $scope.msg = "Usuário ja existente";
-                        }
-                    });
-                    res.error(function (data, status, headers, config) {
-                        $scope.msg = "Erro interno. Contate o administrador" + data;
+                        pessoa.tipo = "C";
+                        pessoa.id = parseInt(data);
+                        //cadastrar pessoa
+                        var res = $http.put(nomeBanco.getLink() + 'pessoas', pessoa);
+                        res.success(function (data, status, headers, config) {
+                            var message = data;
+                            if(data){
+                                console.log(data);
+                                $scope.registro = false;
+                                $scope.msg = "Cadastro Realizado com Sucesso";
+                                $scope.sucesso = true;
+                            }else{
+                                $scope.msg = "Dados ja existentes";
+                            }
+                        });
+                        res.error(function (data, status, headers, config) {
+                            $scope.msg = "Erro interno. Contate o administrador" + data;
 
-                    });
+                        });
+                  
                     
                 }else{
-                    $scope.msg = "Usuário ja existente";
+                    $scope.msg = data;
                 }
             });
             res.error(function (data, status, headers, config) {

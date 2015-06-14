@@ -16,6 +16,7 @@ var PageApp = angular.module('myApp', [
   'myApp.favoritos',
   'myApp.mensagens',
   'myApp.enviar_mensagem',
+  'myApp.bares',
   'myApp.recomendados',
   'myApp.version',
   'toaster',
