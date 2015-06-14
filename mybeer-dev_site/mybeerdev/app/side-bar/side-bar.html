@@ -49,9 +49,19 @@
                         <i class="fa fa-users"></i> Avaliações
                     </a>
                 </li>
-                <li ng-show="isCliente === false" ng-class="{'active' : isSet(9)}" ng-click="setPage(9)">
+                <li ng-show="isCliente" ng-class="{'active' : isSet(9)}" ng-click="setPage(9)">
                     <a href="#/favoritos">
-                        <i class="fa fa-users"></i> Favoritos
+                        <i class="fa fa-check"></i> Favoritos
+                    </a>
+                </li>
+                <li ng-show="isCliente" ng-class="{'active' : isSet(10)}" ng-click="setPage(10)">
+                    <a href="#/recomendados">
+                        <i class="fa fa-check"></i> Bares recomendados
+                    </a>
+                </li>
+                <li ng-show="isCliente" ng-class="{'active' : isSet(11)}" ng-click="setPage(11)">
+                    <a href="#/mensagens">
+                        <i class="fa fa-check"></i> Mensagens
                     </a>
                 </li>
               <!--  <li data-toggle="collapse" data-target="#products" class="collapsed active">

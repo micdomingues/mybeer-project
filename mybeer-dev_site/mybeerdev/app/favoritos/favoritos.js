@@ -10,13 +10,18 @@ angular.module('myApp.favoritos', ['ngRoute'])
     }])
 
     .controller('FavoritosCtrl', ['$scope', '$http', '$q', 'loginService', 'favoritosService', function ($scope, $http, $q, loginService, favoritosService) {
-
+        $scope.overStar = 5;
+        $scope.hoveringOver = function (value) {
+            $scope.overStar = value;
+        }
+    $scope.favoritos = [];
   
     function getFavoritos() {
         favoritosService.getFavoritos(loginService.getId())
             .success(function (data) {
             $scope.favoritos = data;
-            console.log($scope.favoritos = data);
+            console.log($scope.favoritos);
+
         })
             .error(function (error) {
             console.log(error.message);
@@ -24,12 +29,13 @@ angular.module('myApp.favoritos', ['ngRoute'])
     }
         
         getFavoritos();
-    
+        
 
   }]).service("favoritosService", function ($http, $q) {
 
     this.getFavoritos = function (id) {
         return $http.get('http://frkey.noip.me:3636/br.unicamp/rest/clientes/bares/favoritos/' + id);
-
     }
+    
+
 });

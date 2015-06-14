@@ -3,42 +3,44 @@
         <div class="col-lg-12">
             <ol class="breadcrumb">
                 <li class="active">
-                    <i class="fa fa-dashboard"></i> <strong>Bares Favoritos</strong>
+                    <i class="fa fa-check"></i> <strong>Bares Favoritos</strong>
                 </li>
             </ol>
         </div>
 
 
-        <div ng-show="isCliente === false" ng-cloak>
+        <div ng-show="isCliente" ng-cloak>
             <!-- end of eventos -->
 
-            <div class="col-lg-4 col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <div class="panel-title">
-                            <i class="fa fa-book fa-lg"></i>
-                            <span><big>Cardápio do dia</big></span>
+            <div ng-repeat="favorito in favoritos">
+                <div class="col-lg-4 col-md-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                <i class="fa fa-beer fa-lg"></i>
+                                <span><big>{{favorito.nomefantasia}}</big></span>
+                            </div>
+                        </div>
+                    
+                            <ul>
+                                <div style="padding:10px">
+                                    <rating ng-model="favorito.mediaqualidade" readonly="isReadonly" max="5"></rating>
+                                    <rating ng-model="favorito.mediapreco" readonly="isReadonly" max="3" state-on="'glyphicon-usd'" state-off="'fa fa-strikethrough'"></rating>
+                                <li></li>
+                                <li></li>
+                            </ul>
                         </div>
                     </div>
-                    <div style="padding:10px">
-                        <ul>
-                            <li>Porção de Batatas à Dorê</li>
-                            <li>Dia de Massas</li>
-                            <li>Feijoada</li>
-                            <li>Porção de Picanha</li>
-                            <li>Porção de Frios</li>
-                            <li>Porção de Pescada</li>
 
-                        </ul>
-                    </div>
                 </div>
-
             </div>
-            <!-- end of cardapio -->
 
 
-    </div>
-        
+
+
+
+        </div>
+
     </div>
     <!-- /.container-fluid -->
 </div>

@@ -1,48 +1,35 @@
 'use strict';
 
-angular.module('myApp.dashboard', ['ngRoute'])
+angular.module('myApp.recomendados', ['ngRoute'])
 
 .config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.when('/dashboard', {
-        templateUrl: 'dashboard/dashboard.html',
-        controller: 'DashboardCtrl'
+    $routeProvider.when('/recomendados', {
+        templateUrl: 'recomendados/recomendados.html',
+        controller: 'RecomendadosCtrl'
     });
     }])
 
-    .controller('DashboardCtrl', ['$scope','$http','$q', 'loginService', function ($scope, $http , $q,  loginService) {
-    $scope.rate = 3;
-    $scope.max = 5;
-    $scope.isReadonly = true;
-//    $scope.isCliente = null;
-//    $scope.usuario = {};
-//    var promise = {};
+    .controller('RecomendadosCtrl', ['$scope', '$http', '$q', 'loginService', 'recomendadosService', function ($scope, $http, $q, loginService, favoritosService) {
 
-    $scope.hoveringOver = function (value) {
-        $scope.overStar = value;
-    };
+  
+    function getRecomendados() {
+        favoritosService.getRecomendados(loginService.getId())
+            .success(function (data) {
+            $scope.recomendados = data;
+            console.log($scope.recomendados = data);
+        })
+            .error(function (error) {
+            console.log(error.message);
+        });
+    }
+        
+        getRecomendados();
     
 
-//    $scope.getUsuario = function () {
-//        var id = loginService.getId();
-//        if (id != null) {
-//            var deferred = $q.defer();
-//            $http.get('http://default-environment-fnmmqcmuin.elasticbeanstalk.com/rest/pessoas/' + id).then(function (data) {
-//                deferred.resolve(data);
-//            });
-//            
-//            return deferred.promise;
-//        }
-//    }
-//    
-//    var promise = $scope.getUsuario();
-//        promise.then(function (data) {
-//            $scope.usuario = data.data;
-//            
-//            if($scope.usuario.tipo === 'C'){
-//                $scope.isCliente = true;
-//            }else{
-//                $scope.isCliente = false;
-//            }
-//        });
-        
-    }]);
+    }]).service("recomendadosService", function ($http, $q) {
+
+    this.getRecomendados = function (id) {
+        return $http.get('http://frkey.noip.me:3636/br.unicamp/rest/clientes/bares/recomendados/' + id);
+
+    }
+});

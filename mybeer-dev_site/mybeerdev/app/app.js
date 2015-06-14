@@ -14,6 +14,8 @@ var PageApp = angular.module('myApp', [
   'myApp.funcionarios',
   'myApp.avaliacoes',
   'myApp.favoritos',
+  'myApp.mensagens',
+  'myApp.recomendados',
   'myApp.version',
   'toaster',
   'ui.bootstrap'
@@ -26,9 +28,9 @@ config(['$routeProvider', function ($routeProvider) {
 
 PageApp.controller('PageController', function ($scope, $q, $http, loginService) {
     $scope.page = 0;
-//    $scope.isCliente = null;
+    //    $scope.isCliente = null;
     $scope.usuario = {};
-//    var promise = {};
+    //    var promise = {};
     $scope.idUser = loginService.getId();
 
     $scope.setPage = function (newValue) {
@@ -55,14 +57,14 @@ PageApp.controller('PageController', function ($scope, $q, $http, loginService) 
         $scope.idUser = loginService.getId();
         return loginService.islooged();
     }
-    
-    $scope.logout = function(){
+
+    $scope.logout = function () {
         $scope.isCliente = null;
         loginService.logout();
-        
+
     }
-        
-    
+
+
     $scope.getUsuario = function () {
         var id = loginService.getId();
         var deferred = $q.defer();
@@ -76,15 +78,15 @@ PageApp.controller('PageController', function ($scope, $q, $http, loginService) 
         return deferred.promise;
     }
 
-    
-    $scope.verificaUsuario = function(){
-        if($scope.isCliente === null || $scope.isCliente === undefined){
+
+    $scope.verificaUsuario = function () {
+        if ($scope.isCliente === null || $scope.isCliente === undefined) {
             var promise = $scope.getUsuario();
             promise.then(function (data) {
                 $scope.usuario = data.data;
-                if($scope.usuario.tipo === 'C'){
+                if ($scope.usuario.tipo === 'C') {
                     $scope.isCliente = true;
-                }else{
+                } else {
                     $scope.isCliente = false;
                 }
             });
@@ -93,8 +95,8 @@ PageApp.controller('PageController', function ($scope, $q, $http, loginService) 
     }
 
     $scope.verificaUsuario();
-    
-    $scope.$watch('idUser', function(newValue, oldValue){
+
+    $scope.$watch('idUser', function (newValue, oldValue) {
         $scope.verificaUsuario();
     }, true);
 
@@ -145,7 +147,7 @@ PageApp.factory('loginService', function ($http, $location, sessionService) {
                 return true;
             }
         },
-        getId: function(){
+        getId: function () {
             return sessionService.get('user');
         }
     }
