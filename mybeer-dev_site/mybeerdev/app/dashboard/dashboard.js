@@ -36,60 +36,161 @@ angular.module('myApp.dashboard', ['ngRoute'])
 
         getUser();
         
+    
+        setTimeout(function(){
+            
+            
+            
+            function getEventos() {
+                dashboardService.getEventos()
+                    .success(function (data) {
+                    $scope.eventos = data;
+                    console.log($scope.eventos);
+                })
+                    .error(function (error) {
+                    console.log(error.message);
+                });
+            }
+
+            getEventos();
+
+            //getBaresFavoritos
+            function getBaresFavoritos() {
+                dashboardService.getBaresFavoritos(loginService.getId())
+                    .success(function (data) {
+                    $scope.favoritos = data;
+                    console.log($scope.favoritos);
+                })
+                    .error(function (error) {
+                    console.log(error.message);
+                });
+            }
+
+            getBaresFavoritos();
+
+
+            //getMensagens
+            function getMensagens() {
+                dashboardService.getMensagens(loginService.getId())
+                    .success(function (data) {
+                    $scope.mensagens = data;
+                    console.log($scope.mensagens);
+                })
+                    .error(function (error) {
+                    console.log(error.message);
+                });
+            }
+
+            getMensagens();
+
+
+            //getMensagens
+            function getMensagens() {
+                dashboardService.getMensagens(loginService.getId())
+                    .success(function (data) {
+                    $scope.mensagens = data;
+                    console.log($scope.mensagens);
+                })
+                    .error(function (error) {
+                    console.log(error.message);
+                });
+            }
+
+            getMensagens();
+
+
+            function getPromocoes() {
+                dashboardService.getPromocoes($scope.usuario.codbar)
+                    .success(function (data) {
+                    $scope.promocoes = data;
+                    console.log($scope.promocoes);
+                })
+                    .error(function (error) {
+                    console.log(error.message);
+                });
+            }
+
+            getPromocoes();
+
+            function getEventos() {
+                dashboardService.getEventos($scope.usuario.codbar)
+                    .success(function (data) {
+                    $scope.eventos = data;
+                    console.log($scope.eventos);
+                })
+                    .error(function (error) {
+                    console.log(error.message);
+                });
+            }
+
+            getEventos();
+            
+            
+            function getBar() {
+                dashboardService.getBar($scope.usuario.codbar)
+                    .success(function (data) {
+                    $scope.bar = data;
+                    console.log($scope.bar);
+                })
+                    .error(function (error) {
+                    console.log(error.message);
+                });
+            }
+
+            getBar();
+            
+            
+            function getPromocoesCliente() {
+                dashboardService.getPromocoesCliente($scope.usuario.id)
+                    .success(function (data) {
+                    $scope.promocoesCliente = data;
+                    console.log($scope.promocoesCliente);
+                })
+                    .error(function (error) {
+                    console.log(error.message);
+                });
+            }
+
+            getPromocoesCliente();
+            
+            function getLancamentos() {
+                dashboardService.getLancamentos($scope.usuario.id)
+                    .success(function (data) {
+                    $scope.lancamentos = data;
+                    console.log($scope.lancamentos);
+                })
+                    .error(function (error) {
+                    console.log(error.message);
+                });
+            }
+
+            getLancamentos();
+            
+        }, 3000);
         //get eventos
         
-        function getEventos() {
-            dashboardService.getEventos()
-                .success(function (data) {
-                $scope.eventos = data;
-                console.log($scope.eventos);
-            })
-                .error(function (error) {
-                console.log(error.message);
-            });
-        }
-
-        getEventos();
         
-        //getBaresFavoritos
-        function getBaresFavoritos() {
-            dashboardService.getBaresFavoritos(loginService.getId())
-                .success(function (data) {
-                $scope.favoritos = data;
-                console.log($scope.favoritos);
-            })
-                .error(function (error) {
-                console.log(error.message);
-            });
-        }
-
-        getBaresFavoritos();
-        
-        
-        //getMensagens
-        function getMensagens() {
-            dashboardService.getMensagens(loginService.getId())
-                .success(function (data) {
-                $scope.mensagens = data;
-                console.log($scope.mensagens);
-            })
-                .error(function (error) {
-                console.log(error.message);
-            });
-        }
-
-        getMensagens();
-        
-        
-       
         
         
         
         
     }]).service("dashboardService", function ($http, $q,nomeBanco) {
 
-    this.getEventos = function () {
-        return $http.get(nomeBanco.getLink() + 'eventos');
+    this.getPromocoes = function (id) {
+        console.log(id);
+        return $http.get(nomeBanco.getLink() + 'bares/promocoes/' + id);
+
+    }
+    
+    this.getPromocoesCliente = function (id) {
+        console.log(id);
+        return $http.get(nomeBanco.getLink() + 'clientes/promocoes/favoritos/' + id);
+
+    }
+
+    this.getEventos = function (id) {
+        console.log(id);
+        return $http.get(nomeBanco.getLink() + 'bares/eventos/' + id);
 
     }
     
@@ -104,6 +205,16 @@ angular.module('myApp.dashboard', ['ngRoute'])
     
     this.getBaresFavoritos = function (id) {
         return $http.get(nomeBanco.getLink() + 'clientes/bares/favoritos/' + id);
+
+    }
+    
+    this.getBar = function (id) {
+        return $http.get(nomeBanco.getLink() + 'bares/' + id);
+
+    }
+    
+    this.getLancamentos = function (id) {
+        return $http.get(nomeBanco.getLink() + 'bares/lancamentos/' + id);
 
     }
     

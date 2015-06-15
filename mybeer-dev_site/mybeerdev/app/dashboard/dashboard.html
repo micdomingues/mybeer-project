@@ -14,14 +14,19 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="panel-title">
-                            <big>Nome da empresa</big>
+                            <big>{{bar.nomefantasia}}</big>
                         </div>
-                        <div class="panel-title" align="center">
+                        <div class="panel-title" align="right">
                             <button class="btn btn-danger" ng-show="isReadOnly" ng-click="rate = 0" style="padding:3px 8px;border-radius:50px" ng-disabled="isReadonly"><span class="glyphicon glyphicon-remove"></span>
                             </button>
                             <rating ng-model="rate" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating>
                             <div class="clearfix"></div>
                             <rating ng-model="x" readonly="isReadonly" max="3" state-on="'glyphicon-usd'" state-off="'fa fa-strikethrough'"></rating>
+                        </div>
+                        <div align="center">
+                        <div> Esse eh um bar mto legal usdahudhsudsusdudhs</div>
+                        <div>Rua durval olhoa cintra numero tal talt al</div>
+                        <div> Uma obersevaudshodisahdasuasdodhsauha</div>
                         </div>
                     </div>
                 </div>
@@ -64,31 +69,26 @@
             <!-- end of cardapio -->
 
 
-            <div class="col-lg-4 col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <div class="panel-title">
-                            <i class="fa fa-bullhorn"></i>
-                            <span><big>Promoção</big></span>
-                        </div>
-                    </div>
-                    <div style="padding:10px">
-                        <ul>
-                            <li>Compra 1 leva 2</li>
-                            <li>10% de desconto p/ Mulheres</li>
-                        </ul>
-                        <div class="clearfix">
-                            <div class="pull-right">
-                                <button class="btn btn-yellow" title="Editar"><span class="glyphicon glyphicon-edit"></span>
-                                </button>
-                                <button class="btn btn-yellow" title="Vizualizar"><span class="glyphicon glyphicon-zoom-in"></span>
-                                </button>
+                <div class="col-lg-4 col-md-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                <i class="fa fa-fw fa-calendar"></i>
+                                <span><big>Promoções</big></span>
                             </div>
                         </div>
-                    </div>
-                </div>
+                        <div class="panel-body">
+                            <div class="list-group">
+                                <div ng-repeat="promocao in promocoes">
+                                    <a class="list-group-item"><span class="badge" >{{promocao.datainicio}} <div> {{promocao.datafim}}</div></span>{{promocao.nome}} </a>
+                                </div>
 
-            </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
             <!-- end of promocao -->
 
             <div class="col-lg-4 col-md-4">
@@ -101,8 +101,8 @@
                     </div>
                     <div class="panel-body">
                         <div class="list-group">
-                            <div ng-repeat="evento in eventos.evento">
-                                <a href="#" class="list-group-item"><span class="badge" >{{evento.data}}</span>{{evento.nome}} </a>
+                            <div ng-repeat="evento in eventos">
+                                <a class="list-group-item"><span class="badge" >{{evento.data}}</span>{{evento.nome}} </a>
                             </div>
 
                         </div>
@@ -125,10 +125,10 @@
                     </div>
                     <div class="panel-body">
                         <div class="list-group">
-                            <a href="#" class="list-group-item">(foto) mensagem 1 <span class="label label-success pull-right" >Novo</span></a>
-                            <a href="#" class="list-group-item">(foto) mensagem 2 <span class="label label-success pull-right" >Novo</span></a>
-                            <a href="#" class="list-group-item">(foto) mensagem 3 <span class="label label-success pull-right" >Novo</span></a>
-                            <a href="#" class="list-group-item">(foto) mensagem 4 <span class="glyphicon glyphicon-ok pull-right" ></span></a>
+                            <a class="list-group-item">(foto) mensagem 1 <span class="label label-success pull-right" >Novo</span></a>
+                            <a class="list-group-item">(foto) mensagem 2 <span class="label label-success pull-right" >Novo</span></a>
+                            <a class="list-group-item">(foto) mensagem 3 <span class="label label-success pull-right" >Novo</span></a>
+                            <a class="list-group-item">(foto) mensagem 4 <span class="glyphicon glyphicon-ok pull-right" ></span></a>
 
                         </div>
                     </div>
@@ -147,33 +147,12 @@
                     </div>
                     <div class="panel-body">
                         <div class="list-group">
-                            <a href="#" class="list-group-item">
-                                <span class="badge">agora</span>
-                                <i class="fa fa-fw fa-calendar"></i> Calendário atualizado
+                            <div ng-repeat="lancamento in lancamentos.lancamento | limitTo:6">
+                            <a class="list-group-item">
+                                <span class="badge">{{lancamento.data}}</span>
+                                <i class="fa fa-fw fa-barcode"></i> {{lancamento.nomefuncionario}} - {{lancamento.nomecliente}} : {{lancamento.valor}}
                             </a>
-                            <a href="#" class="list-group-item">
-                                <span class="badge">4 minutos atrás</span>
-                                <i class="fa fa-fw fa-comment"></i> Comentário em postagem
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <span class="badge">1 hora atrás</span>
-                                <i class="fa fa-fw fa-user"></i> Um novo usuário favoritou o Bar
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <span class="badge">2 horas atrás</span>
-                                <i class="fa fa-fw fa-check"></i> Postagem concluída
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <span class="badge">ontem</span>
-                                <i class="fa fa-fw fa-globe"></i> Fernando comentou a foto do Bar
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <span class="badge">dois dias atrás</span>
-                                <i class="fa fa-fw fa-check"></i> Cardápio atualizado
-                            </a>
-                        </div>
-                        <div class="text-right">
-                            <a href="#">Veja todos os Lançamentos <i class="fa fa-arrow-circle-right"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -189,10 +168,10 @@
                     </div>
                     <div class="panel-body">
                         <div class="list-group">
-                            <a href="#" class="list-group-item">(foto) mensagem 1 <span class="label label-success pull-right" >Novo</span></a>
-                            <a href="#" class="list-group-item">(foto) mensagem 2 <span class="label label-success pull-right" >Novo</span></a>
-                            <a href="#" class="list-group-item">(foto) mensagem 3 <span class="label label-success pull-right" >Novo</span></a>
-                            <a href="#" class="list-group-item">(foto) mensagem 4 <span class="glyphicon glyphicon-ok pull-right" ></span></a>
+                            <a class="list-group-item">(foto) mensagem 1 <span class="label label-success pull-right" >Novo</span></a>
+                            <a class="list-group-item">(foto) mensagem 2 <span class="label label-success pull-right" >Novo</span></a>
+                            <a class="list-group-item">(foto) mensagem 3 <span class="label label-success pull-right" >Novo</span></a>
+                            <a class="list-group-item">(foto) mensagem 4 <span class="glyphicon glyphicon-ok pull-right" ></span></a>
 
                         </div>
                     </div>
@@ -212,7 +191,8 @@
                 <div class="panel panel-danger">
                     <div class="panel-heading">
                         <div class="panel-title">
-                            <big>Pontuação:</big> {{usuario.saldopts}}
+                            <big>Pontuação: {{usuario.saldopts}}</big> 
+                            <big class="pull-right">Código Desconto: {{usuario.saldopts}}</big> 
                         </div>
                         <div class="panel-title" align="center">
 
@@ -227,22 +207,23 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <div class="panel-title">
-                                <i class="fa fa-book fa-lg"></i>
-                                <span><big>Promoções</big></span>
+                                <i class="fa fa-fw fa-calendar"></i>
+                                <span><big>Promocoes</big></span>
                             </div>
                         </div>
                         <div class="panel-body">
                             <div class="list-group">
-                                <a href="#" class="list-group-item">Bar favoritado 1</a>
-                                <a href="#" class="list-group-item">Bar favoritado 2</a>
-                                <a href="#" class="list-group-item">Bar favoritado 3</a>
-                                <a href="#" class="list-group-item">Bar favoritado 4</a>
+                                <div ng-repeat="promocao in promocoesCliente">
+                                    <a class="list-group-item"><span class="badge" >{{promocao.datainicio}} <div> {{promocao.datafim}}</div></span>{{promocao.nome}} </a>
+                                </div>
 
                             </div>
                         </div>
+
                     </div>
 
                 </div>
+
                 <div class="col-lg-4 col-md-4">
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -253,8 +234,8 @@
                         </div>
                         <div class="panel-body">
                             <div class="list-group">
-                                <div ng-repeat="evento in eventos.evento | limitTo:3">
-                                    <a href="#" class="list-group-item"><span class="badge" >{{evento.data}}</span>{{evento.nome}} </a>
+                                <div ng-repeat="evento in eventos.evento">
+                                    <a class="list-group-item"><span class="badge" >{{evento.data}}</span>{{evento.nome}} </a>
                                 </div>
 
                             </div>
@@ -275,7 +256,7 @@
                         <div class="panel-body">
                             <div class="list-group">
                                 <div ng-repeat="mensagem in mensagens">
-                                    <a href="#" class="list-group-item">{{mensagem.assunto}} <span ng-class="{'label label-success pull-right' : !mensagem.label , 'glyphicon glyphicon-ok pull-right' : mensagem.label}" > {{mensagem.lida | novo}} </span></a>
+                                    <a class="list-group-item">{{mensagem.assunto}} <span ng-class="{'label label-success pull-right' : !mensagem.label , 'glyphicon glyphicon-ok pull-right' : mensagem.label}" > {{mensagem.lida | novo}} </span></a>
 
                                 </div>
                             </div>
@@ -299,7 +280,7 @@
                         <div class="panel-body">
                             <div class="list-group">
                                 <div ng-repeat="favorito in favoritos">
-                                <a href="#" class="list-group-item">{{favorito.nomefantasia}}</a>
+                                <a class="list-group-item">{{favorito.nomefantasia}}</a>
                                 </div>
 
                             </div>
@@ -319,10 +300,10 @@
                         </div>
                         <div class="panel-body">
                             <div class="list-group">
-                                <a href="#" class="list-group-item">(foto) mensagem 1 <span class="label label-success pull-right" >Novo</span></a>
-                                <a href="#" class="list-group-item">(foto) mensagem 2 <span class="label label-success pull-right" >Novo</span></a>
-                                <a href="#" class="list-group-item">(foto) mensagem 3 <span class="label label-success pull-right" >Novo</span></a>
-                                <a href="#" class="list-group-item">(foto) mensagem 4 <span class="glyphicon glyphicon-ok pull-right" ></span></a>
+                                <a class="list-group-item">(foto) mensagem 1 <span class="label label-success pull-right" >Novo</span></a>
+                                <a class="list-group-item">(foto) mensagem 2 <span class="label label-success pull-right" >Novo</span></a>
+                                <a class="list-group-item">(foto) mensagem 3 <span class="label label-success pull-right" >Novo</span></a>
+                                <a class="list-group-item">(foto) mensagem 4 <span class="glyphicon glyphicon-ok pull-right" ></span></a>
 
                             </div>
                         </div>

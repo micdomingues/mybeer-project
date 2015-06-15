@@ -23,7 +23,7 @@
                     <div class="col-xs-12" style="padding:10px">
                         <div class="col-md-6">
                             <label>Assunto: *</label>
-                            <input id="cpf" name="cpf" type="text" class="form-control form-group" placeholder="CPF ou ID do Cliente" ng-model="lancamento.cpf" required>
+                            <input id="assunto" name="assunto" type="text" class="form-control form-group" placeholder="Insira o assunto" ng-model="mensagem.assunto" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Cliente: *</label>
@@ -35,7 +35,7 @@
                         </div>
                         <div class="col-md-6">
                             <label>Mensagem: *</label>
-                            <textarea id="mensagem" cols="5" name="mensagem" type="text" class="form-control form-group" placeholder="Digite a mensagem aqui" ng-model="mensagem" min="11" required></textarea>
+                            <textarea id="mensagem" cols="5" name="mensagem" type="text" class="form-control form-group" placeholder="Digite a mensagem aqui" ng-model="mensagem.conteudo" min="11" required></textarea>
                         </div>
                         
                         

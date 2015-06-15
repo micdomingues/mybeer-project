@@ -19,54 +19,68 @@
                         <i class="fa fa-bar-chart fa-lg"></i> Estatística
                     </a>
                 </li>
+<!--
                 <li  ng-class="{'active' : isSet(3)}" ng-click="setPage(3)">
                     <a href="#/perfil">
                         <i class="fa fa-user fa-lg"></i> Perfil
                     </a>
                 </li>
+-->
                   <li  ng-class="{'active' : isSet(4)}" ng-click="setPage(4)">
                     <a href="#/eventos">
-                        <i class="fa fa-fw fa-calendar"></i> Eventos
+                        <i class="fa fa-fw fa-calendar fa-lg"></i> Eventos
                     </a>
                 </li>
                  <li  ng-class="{'active' : isSet(5)}" ng-click="setPage(5)">
                     <a href="#/promocoes">
-                        <i class="fa fa-bullhorn"></i> Promoções
+                        <i class="fa fa-bullhorn fa-lg"></i> Promoções
                     </a>
                 </li>
                 <li  ng-class="{'active' : isSet(6)}" ng-click="setPage(6)">
                     <a href="#/lancamentos">
-                        <i class="fa fa-barcode"></i> Lançamentos
+                        <i class="fa fa-barcode fa-lg"></i> Lançamentos
                     </a>
                 </li>
                 <li ng-show="isCliente === false" ng-class="{'active' : isSet(7)}" ng-click="setPage(7)">
                     <a href="#/funcionarios">
-                        <i class="fa fa-users"></i> Funcionários
+                        <i class="fa fa-users fa-lg"></i> Funcionários
                     </a>
                 </li>
                 <li ng-show="isCliente" ng-class="{'active' : isSet(8)}" ng-click="setPage(8)">
                     <a href="#/avaliacoes">
-                        <i class="fa fa-users"></i> Avaliações
+                        <i class="fa fa-users fa-lg"></i> Avaliações
                     </a>
                 </li>
                 <li ng-show="isCliente" ng-class="{'active' : isSet(9)}" ng-click="setPage(9)">
                     <a href="#/favoritos">
-                        <i class="fa fa-check"></i> Favoritos
+                        <i class="fa fa-check fa-lg"></i> Favoritos
                     </a>
                 </li>
                 <li ng-show="isCliente" ng-class="{'active' : isSet(10)}" ng-click="setPage(10)">
                     <a href="#/recomendados">
-                        <i class="fa fa-beer"></i> Bares recomendados
+                        <i class="fa fa-beer fa-lg"></i> Bares recomendados
                     </a>
                 </li>
                 <li ng-show="isCliente" ng-class="{'active' : isSet(11)}" ng-click="setPage(11)">
                     <a href="#/mensagens">
-                        <i class="fa fa-envelope"></i> Mensagens
+                        <i class="fa fa-envelope fa-lg"></i> Mensagens
                     </a>
                 </li>
                 <li ng-show="isCliente === false" ng-class="{'active' : isSet(12)}" ng-click="setPage(12)">
                     <a href="#/enviar_mensagem">
-                        <i class="fa fa-envelope"></i> Enviar Mensagens
+                        <i class="fa fa-envelope fa-lg"></i> Enviar Mensagens
+                    </a>
+                </li>
+<!--
+                <li ng-show="isCliente === false" ng-class="{'active' : isSet(13)}" ng-click="setPage(13)">
+                    <a href="#/cadastrar_funcionario">
+                        <i class="fa fa-user fa-lg"></i> Cadastrar Funcionário
+                    </a>
+                </li>
+-->
+                <li ng-show="isCliente === false" ng-class="{'active' : isSet(14)}" ng-click="setPage(14)">
+                    <a href="#/editar_bar">
+                        <i class="fa fa-beer fa-lg"></i> Editar Bar
                     </a>
                 </li>
               <!--  <li data-toggle="collapse" data-target="#products" class="collapsed active">

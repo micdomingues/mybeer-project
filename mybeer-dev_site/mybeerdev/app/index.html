@@ -69,38 +69,11 @@
             </div>
                     
             <div class="btn-group menu-top" dropdown>
-                <button type="button" class="btn btn-default dropdown-toggle" dropdown-toggle>
-                    <span class="glyphicon glyphicon-user"></span> Administrador <b class="caret"></b>
+                <button type="button" class="btn btn-default dropdown-toggle" ng-click="logout()">
+                    <span class="glyphicon glyphicon-off"></span> Logout
                 </button>
-                <ul class="dropdown-menu" role="menu" style="right: 0; left: auto;">
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Perfil</a>
-                    </li>
-                    <li><a href="#"><span class="glyphicon glyphicon-cog"></span> Opções</a>
-                    </li>
-                    <li class="divider"></li>
-                    <li ng-click="logout()"><a href="#/login"><span class="glyphicon glyphicon-off"></span> Logout</a>
-                    </li>
-                </ul>
             </div>
 
-            <div class="btn-group menu-top" dropdown>
-                <button type="button" class="btn btn-default dropdown-toggle" dropdown-toggle>
-                    <span class="fa fa-fw fa-globe"></span> Notificações <span class="label label-info">32</span>
-                </button>
-                <ul class="dropdown-menu" role="menu" style="right: 0; left: auto;">
-                    <li><a href="#"><span class="label label-warning">4:00 AM</span> Novo Favorito</a>
-                    </li>
-                    <li><a href="#"><span class="label label-warning">4:30 AM</span> Alessandra avaliou o Bar</a>
-                    </li>
-                    <li><a href="#"><span class="label label-warning">5:00 AM</span> Felipe lhe enviou um email</a>
-                    </li>
-                    <li class="divider"></li>
-                    <li><a class="text-center">View All</a>
-                    </li>
-                </ul>
-            </div>
-
-           
         </div>
         <div class="col-xs-12" style="padding:0">
 
@@ -138,6 +111,8 @@
     <script src="recomendados/recomendados.js"></script>
     <script src="mensagens/mensagens.js"></script>
     <script src="enviar_mensagem/enviar_mensagem.js"></script>
+    <script src="editar_bar/editar_bar.js"></script>
+    <script src="cadastrar_funcionario/cadastrar_funcionario.js"></script>
     <script src="bares/bares.js"></script>
     <script src="components/version/version.js"></script>
     <script src="components/version/version-directive.js"></script>

@@ -3,25 +3,111 @@
         <div class="col-lg-12">
             <ol class="breadcrumb">
                 <li class="active">
-                    <i class="fa fa-dashboard"></i> <strong>Dashboard</strong>
+                    <i class="fa fa-dashboard"></i> <strong>Bar</strong>
                 </li>
             </ol>
         </div>
 
 
-        <div ng-show="isCliente === false" ng-cloak>
+        <div ng-show="isCliente && avaliaBar" class="col-lg-12 col-md-12">
+            <div class="panel panel-default" style="padding:5px">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        Avalie o bar aqui!
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+                </div>
+                <div class="col-xs-12" style="padding:10px">
+                    <div class="col-md-6">
+                        <label>Avalie a qualidade do bar: </label>
+                        <div class="funkyradio">
+                            <div class="funkyradio-warning">
+                                <input type="radio" ng-model="tipoAvalicaoQualidade" value="1" id="radio1" />
+                                <label for="radio1">Ruim</label>
+                            </div>
+                            <div class="funkyradio-warning">
+                                <input type="radio" ng-model="tipoAvalicaoQualidade" value="2" id="radio2" />
+                                <label for="radio2">Regular</label>
+                            </div>
+                            <div class="funkyradio-warning">
+                                <input type="radio" ng-model="tipoAvalicaoQualidade" value="3" id="radio3" />
+                                <label for="radio3">Bom</label>
+                            </div>
+                            <div class="funkyradio-warning">
+                                <input type="radio" ng-model="tipoAvalicaoQualidade" value="4" id="radio4" />
+                                <label for="radio4">Muito Bom</label>
+                            </div>
+                            <div class="funkyradio-warning">
+                                <input type="radio" ng-model="tipoAvalicaoQualidade" value="5" id="radio5" />
+                                <label for="radio5">Ótimo</label>
+                            </div>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <div class="[ form-group ]">
+
+                            <hr/>
+                            <label>Avalie o preço do bar: </label>
+                            <div class="funkyradio">
+                                <div class="funkyradio-warning">
+                                    <input type="radio" ng-model="tipoAvalicaoPreco" value="3" id="radio6" />
+                                    <label for="radio6">Alto</label>
+                                </div>
+                                <div class="funkyradio-warning">
+                                    <input type="radio" ng-model="tipoAvalicaoPreco" value="2" id="radio7" />
+                                    <label for="radio7">Médio</label>
+                                </div>
+                                <div class="funkyradio-warning">
+                                    <input type="radio" ng-model="tipoAvalicaoPreco" value="1" id="radio8" />
+                                    <label for="radio8">Baixo</label>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Envie seu comentário: </label>
+                        <textarea class="form-control" rows="6" ng-model="evento.descricao"></textarea>
+                    </div>
+
+
+                </div>
+                <div class="form-group pull-right">
+
+                    <button type="button" class="btn btn-warning" ng-click="criarPromocoes()"> <span>Enviar avaliação</span> </button>
+                    <button type="button" class="btn btn-warning" ng-click="avaliaBar = false"> <span>Fechar</span> </button>
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+
+        </div>
+
+        <div ng-cloak>
             <div class="col-lg-12 col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="panel-title">
-                            <big>Nome da empresa</big>
+                            <big>{{bar.nomefantasia}}</big>
+                            <button type="button" class="btn btn-warning pull-right" ng-click="avaliaBar = true"> <span>Avaliar Bar</span> </button>
                         </div>
-                        <div class="panel-title" align="center">
-                            <button class="btn btn-danger" ng-show="isReadOnly" ng-click="rate = 0" style="padding:3px 8px;border-radius:50px" ng-disabled="isReadonly"><span class="glyphicon glyphicon-remove"></span>
-                            </button>
-                            <rating ng-model="rate" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating>
-                            <div class="clearfix"></div>
-                            <rating ng-model="x" readonly="isReadonly" max="3" state-on="'glyphicon-usd'" state-off="'fa fa-strikethrough'"></rating>
+                        <p>
+                            <div class="panel-title" align="right">
+                                <button class="btn btn-danger" ng-show="isReadOnly" ng-click="rate = 0" style="padding:3px 8px;border-radius:50px" ng-disabled="isReadonly"><span class="glyphicon glyphicon-remove"></span>
+                                </button>
+                                <rating ng-model="bar.mediaqualidade" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating>
+                                <div class="clearfix"></div>
+                                <rating ng-model="bar.mediapreco" readonly="isReadonly" max="3" state-on="'glyphicon-usd'" state-off="'fa fa-strikethrough'"></rating>
+                            </div>
+                        </p>
+                        <div align="center">
+                            <div> Esse eh um bar mto legal usdahudhsudsusdudhs</div>
+                            <div>Rua durval olhoa cintra numero tal talt al</div>
+                            <div> Uma obersevaudshodisahdasuasdodhsauha</div>
                         </div>
                     </div>
                 </div>
@@ -32,38 +118,78 @@
 
             <div class="col-xs-12">
 
-
-          
-
-            <div class="col-lg-4 col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <div class="panel-title">
-                            <i class="fa fa-fw fa-calendar"></i>
-                            <span><big>Eventos</big></span>
-                        </div>
-                    </div>
-                    <div class="panel-body">
-                        <div class="list-group">
-                            <div ng-repeat="evento in eventos.evento">
-                                <a href="#" class="list-group-item"><span class="badge" >{{evento.data}}</span>{{evento.nome}} </a>
+                <div class="col-lg-4 col-md-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                <i class="fa fa-fw fa-calendar"></i>
+                                <span><big>Eventos</big></span>
                             </div>
-
                         </div>
+                        <div class="panel-body">
+                            <div class="list-group">
+                                <div ng-repeat="evento in eventos">
+                                    <a href="#" class="list-group-item"><span class="badge" >{{evento.data}}</span>{{evento.nome}} </a>
+                                </div>
+
+                            </div>
+                        </div>
+
                     </div>
 
                 </div>
 
-            </div>
+
+                <div class="col-lg-4 col-md-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                <i class="fa fa-fw fa-calendar"></i>
+                                <span><big>Promoções</big></span>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="list-group">
+                                <div ng-repeat="promocao in promocoes">
+                                    <a href="#" class="list-group-item"><span class="badge" >{{promocao.datainicio}} <div> {{promocao.datafim}}</div></span>{{promocao.nome}} </a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
             </div>
             <!-- end of Comentários -->
 
             <div class="col-xs-12">
-            
+                <div class="col-lg-8 col-md-8">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                <i class="fa fa-fw fa-calendar"></i>
+                                <span><big>Avaliações</big></span>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="list-group">
+                                <div ng-repeat="avaliacao in avaliacoes">
+                                    <a href="#" class="list-group-item"><span class="badge" >{{avaliacao.data}}  |  <rating ng-model="avaliacao.qualidade" max="max" readonly="isReadonly"></rating> |  <rating ng-model="avaliacao.preco" readonly="isReadonly" max="3" state-on="'glyphicon-usd'" state-off="'fa fa-strikethrough'"></rating></span><b>{{avaliacao.nomecliente}}</b> - {{avaliacao.comentario}} 
+                                     
+                                        
+                                    </a>
+                                </div>
 
+                            </div>
+                        </div>
 
+                    </div>
 
-          
+                </div>
+
             </div>
         </div>
 
