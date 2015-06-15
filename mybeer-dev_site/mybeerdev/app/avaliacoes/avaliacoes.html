@@ -13,97 +13,33 @@
             </ol>
         </div>
 
-
-        <div class="col-lg-12 col-md-12">
-            <div ng-show="isCliente" class="panel panel-default" style="padding:5px">
-                <div class="panel-heading">
-                    <div class="panel-title">
-                        Avalie o bar aqui!
+        
+        <div class="col-xs-12">
+            <div class="col-lg-12 col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <i class="fa fa-fw fa-calendar"></i>
+                            <span><big>Avaliações</big></span>
+                        </div>
                     </div>
-                </div>
-                <div class="col-xs-12">
-                    <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
-                </div>
-                <div class="col-xs-12" style="padding:10px">
-                    <div class="col-md-6">
-                        <label>Avalie a qualidade do bar: </label>
-                            <div class="funkyradio">
-                            <div class="funkyradio-warning">
-                                <input type="radio" ng-model="tipoAvalicaoQualidade.name" value="ruim" id="radio1" />
-                                <label for="radio1">Ruim</label>
-                            </div>
-                            <div class="funkyradio-warning">
-                                <input type="radio" ng-model="tipoAvalicaoQualidade.name" value="regular" id="radio2" />
-                                <label for="radio2">Regular</label>
-                            </div>
-                            <div class="funkyradio-warning">
-                                <input type="radio" ng-model="tipoAvalicaoQualidade.name" value="bom" id="radio3" />
-                                <label for="radio3">Bom</label>
-                            </div>
-                            <div class="funkyradio-warning">
-                                <input type="radio" ng-model="tipoAvalicaoQualidade.name" value="muitobom" id="radio4" />
-                                <label for="radio4">Muito Bom</label>
-                            </div>
-                            <div class="funkyradio-warning">
-                                <input type="radio" ng-model="tipoAvalicaoQualidade.name" value="otimo" id="radio5" />
-                                <label for="radio5">Ótimo</label>
-                            </div>
-                        </div>
+                    <div class="panel-body">
+                        <div class="list-group">
+                            <div ng-repeat="avaliacao in avaliacoes">
+                                <a href="#/bar/{{avaliacao.codbar}}" class="list-group-item"><span class="badge" >{{avaliacao.data}}  |  <rating ng-model="avaliacao.qualidade" max="max" readonly="isReadonly"></rating> |  <rating ng-model="avaliacao.preco" readonly="isReadonly" max="3" state-on="'glyphicon-usd'" state-off="'fa fa-strikethrough'"></rating></span><b>{{avaliacao.nomebar}}</b> - {{avaliacao.comentario}} 
 
-                        <div class="clearfix"></div>
-                        
-                            <div class="[ form-group ]">
 
-                            <hr/>
-                        <label>Avalie o preço do bar: </label>
-                            <div class="funkyradio">
-                            <div class="funkyradio-warning">
-                                <input type="radio" ng-model="tipoAvalicaoPreco.name" value="alto" id="radio6" />
-                                <label for="radio6">Alto</label>
+                                </a>
                             </div>
-                            <div class="funkyradio-warning">
-                                <input type="radio" ng-model="tipoAvalicaoPreco.name" value="medio" id="radio7" />
-                                <label for="radio7">Médio</label>
-                            </div>
-                                <div class="funkyradio-warning">
-                                <input type="radio" ng-model="tipoAvalicaoPreco.name" value="baixo" id="radio8" />
-                                <label for="radio8">Baixo</label>
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
 
                         </div>
                     </div>
-                    <div class="form-group col-md-6">
-                        <label>Envie seu comentário: </label>
-                        <textarea class="form-control" rows="6" ng-model="evento.descricao"></textarea>
-                    </div>
-
 
                 </div>
-                <div class="form-group pull-right">
 
-                    <button type="button" class="btn btn-warning" ng-click="criarPromocoes()"> <span>Enviar avaliação</span> </button>
-                </div>
-
-                <div class="clearfix"></div>
             </div>
-            
-            <!--
-            <form action="rest/files/upload" method="post" enctype="multipart/form-data">
-
-                <p>
-                    Select a file : <input type="file" name="file" size="50" />
-                </p>
-
-                <input type="submit" value="Upload It" />
-            </form>
--->
-
-            <!-- /.container-fluid -->
 
         </div>
-        <!-- /#page-wrapper -->
 
     </div>
 </div>

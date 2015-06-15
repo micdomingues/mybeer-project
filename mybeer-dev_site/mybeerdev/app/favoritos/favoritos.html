@@ -18,7 +18,7 @@
                         <div class="panel-heading">
                             <div class="panel-title">
                                 <i class="fa fa-beer fa-lg"></i>
-                                <span><big>{{favorito.nomefantasia}}</big></span>
+                                <span><big><a href="#/bar/{{favorito.codbar}}">{{favorito.nomefantasia}}</a></big></span>
                             </div>
                         </div>
                     
@@ -26,8 +26,8 @@
                                 <div style="padding:10px">
                                     <rating ng-model="favorito.mediaqualidade" readonly="isReadonly" max="5"></rating>
                                     <rating ng-model="favorito.mediapreco" readonly="isReadonly" max="3" state-on="'glyphicon-usd'" state-off="'fa fa-strikethrough'"></rating>
-                                <li></li>
-                                <li></li>
+                              
+                                    <p style="white-space:pre-line"> <b>{{favorito.cardapio.descricao}}</b></p>
                             </ul>
                         </div>
                     </div>
