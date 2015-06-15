@@ -38,7 +38,7 @@ public class PromocaoDAO extends ConnectionFactory
 			conexao = criarConexao();			
 			try
 			{				
-				comando = "INSERT INTO PROMOCAO (CODBAR, IDFUNCIONARIO, DATAABERTURA, DATAINICIO, DATAFIM, TIPO, DESCRICAO) VALUES (?, ?, ?, ?, ?, ?, ?)";	
+				comando = "INSERT INTO PROMOCAO (CODBAR, IDFUNCIONARIO, DATAABERTURA, DATAINICIO, DATAFIM, NOME, TIPO, DESCRICAO) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";	
 				pstmt = conexao.prepareStatement(comando, Statement.RETURN_GENERATED_KEYS);
 				
 				pstmt.setInt(1, promocao.getCodbar());
@@ -53,8 +53,9 @@ public class PromocaoDAO extends ConnectionFactory
 				dateTime = new DateTime(sdf.parse(promocao.getDatafim()));
 				pstmt.setString(5, dateTime.toString("YYYY-MM-dd HH:mm:ss"));
 				
-				pstmt.setString(6, promocao.getTipo());
-				pstmt.setString(7, promocao.getDescricao());
+				pstmt.setString(6, promocao.getNome());
+				pstmt.setString(7, promocao.getTipo());
+				pstmt.setString(8, promocao.getDescricao());
 				
 				res = pstmt.executeUpdate();	            
 	            rs = pstmt.getGeneratedKeys();
@@ -98,7 +99,7 @@ public class PromocaoDAO extends ConnectionFactory
 		{
 			pstmt = conexao.prepareStatement("SELECT CODPROMOCAO, CODBAR, IDFUNCIONARIO, DATE_FORMAT(DATAABERTURA,'%d/%m/%Y %H:%i') AS DATAABERTURA,"
 					+ " DATE_FORMAT(DATAINICIO,'%d/%m/%Y %H:%i') AS DATAINICIO, DATE_FORMAT(DATAFIM,'%d/%m/%Y %H:%i') AS DATAFIM, "
-					+ "TIPO, DESCRICAO FROM PROMOCAO");
+					+ "NOME, TIPO, DESCRICAO FROM PROMOCAO WHERE NOW() < DATAFIM");
 			rs = pstmt.executeQuery();
 			
 			while(rs.next())
@@ -111,6 +112,7 @@ public class PromocaoDAO extends ConnectionFactory
 				promocao.setDataabertura(rs.getString("DATAABERTURA"));
 				promocao.setDatainicio(rs.getString("DATAINICIO"));
 				promocao.setDatafim(rs.getString("DATAFIM"));
+				promocao.setNome(rs.getString("NOME"));
 				promocao.setTipo(rs.getString("TIPO"));
 				promocao.setDescricao(rs.getString("DESCRICAO"));
 				

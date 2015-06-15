@@ -84,7 +84,7 @@ public class EventoDAO extends ConnectionFactory
 		eventos = new ArrayList<Evento>();		
 		try
 		{
-			pstmt = conexao.prepareStatement("SELECT CODEVENTO, CODBAR, NOME, DESCRICAO, DATE_FORMAT( DATA,'%d/%m/%Y %H:%i') AS DATA, LINKEVENTO, LINKIMAGEM FROM EVENTO ORDER BY CODEVENTO");
+			pstmt = conexao.prepareStatement("SELECT CODEVENTO, CODBAR, NOME, DESCRICAO, DATE_FORMAT( DATA,'%d/%m/%Y %H:%i') AS DATA, LINKEVENTO, LINKIMAGEM FROM EVENTO WHERE (NOW() < DATA) ORDER BY DATA DESC");
 			rs = pstmt.executeQuery();
 			
 			while(rs.next())

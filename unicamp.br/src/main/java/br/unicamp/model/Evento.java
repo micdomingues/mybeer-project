@@ -6,7 +6,16 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Evento
 {
 	private int codevento, codbar;
-	private String nome, descricao, data;
+	private String nome, nomebar, descricao, data;
+	
+	public String getNomebar(){
+		return nomebar;
+	}
+
+	public void setNomebar(String nomebar) {
+		this.nomebar = nomebar;
+	}
+
 	private String linkevento, linkimagem;
 	
 	public int getCodevento() {
@@ -68,9 +77,9 @@ public class Evento
 	@Override
 	public String toString() {
 		return "Evento [codevento=" + codevento + ", codbar=" + codbar
-				+ ", nome=" + nome + ", descricao=" + descricao + ", data="
-				+ data + ", linkevento=" + linkevento + ", linkimagem="
-				+ linkimagem + "]";
+				+ ", nome=" + nome + ", nomebar=" + nomebar + ", descricao="
+				+ descricao + ", data=" + data + ", linkevento=" + linkevento
+				+ ", linkimagem=" + linkimagem + "]";
 	}
 
 	@Override
@@ -87,6 +96,7 @@ public class Evento
 		result = prime * result
 				+ ((linkimagem == null) ? 0 : linkimagem.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		result = prime * result + ((nomebar == null) ? 0 : nomebar.hashCode());
 		return result;
 	}
 
@@ -127,6 +137,11 @@ public class Evento
 			if (other.nome != null)
 				return false;
 		} else if (!nome.equals(other.nome))
+			return false;
+		if (nomebar == null) {
+			if (other.nomebar != null)
+				return false;
+		} else if (!nomebar.equals(other.nomebar))
 			return false;
 		return true;
 	}

@@ -6,8 +6,11 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import br.unicamp.factory.ConnectionFactory;
+import br.unicamp.model.Avaliacao;
 import br.unicamp.model.Cliente;
+import br.unicamp.model.Evento;
 import br.unicamp.model.Mensagem;
+import br.unicamp.model.Promocao;
 import br.unicamp.model.StatisticBar;
 
 public class ClienteDAO extends ConnectionFactory
@@ -79,7 +82,8 @@ public class ClienteDAO extends ConnectionFactory
 			
 			if(rs.next())
 			{
-				cliente.setCpf(rs.getString("CPF"));				
+				cliente.setCpf(rs.getString("CPF"));
+				cliente.setSaldopts(rs.getFloat("SALDOPTS"));
 			}
 			else
 				cliente = null;
@@ -129,6 +133,7 @@ public class ClienteDAO extends ConnectionFactory
 		}
 		catch (Exception e) 
 		{
+			cliente = null;
 			System.out.println("Erro ao carregar Cliente com CPF: " + e);
 			e.printStackTrace();
 		}
@@ -137,6 +142,54 @@ public class ClienteDAO extends ConnectionFactory
 			fecharConexao(conexao, pstmt, rs);
 		}
 		return cliente;		
+	}
+	
+	public ArrayList<Avaliacao> listarAvaliacoes(int idcliente)
+	{
+		Connection conexao = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		Avaliacao avaliacao = null;
+		ArrayList<Avaliacao> avaliacoes = null;
+		
+		conexao = criarConexao();
+		avaliacoes = new ArrayList<Avaliacao>();		
+		try
+		{
+			pstmt = conexao.prepareStatement("SELECT AV.CODAVALIACAO, AV.IDCLIENTE, AV.CODBAR, BAR.NOMEFANTASIA, AV.PRECO, AV.QUALIDADE, "
+					+ "AV.COMENTARIO, AV.FAVORITO, DATE_FORMAT(AV.`DATA`,'%d/%m/%Y %H:%i') AS DATA FROM AVALIACAO AV INNER JOIN CLIENTE CLI "
+					+ "ON (AV.IDCLIENTE = CLI.ID) INNER JOIN BAR ON (AV.CODBAR = BAR.CODBAR) WHERE AV.IDCLIENTE = ? ORDER BY AV.`DATA`");
+			
+			pstmt.setInt(1, idcliente);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next())
+			{
+				avaliacao = new Avaliacao();
+				
+				avaliacao.setCodavaliacao(rs.getInt("CODAVALIACAO"));
+				avaliacao.setIdcliente(rs.getInt("IDCLIENTE"));
+				avaliacao.setCodbar(rs.getInt("CODBAR"));
+				avaliacao.setNomebar(rs.getString("NOMEFANTASIA"));
+				avaliacao.setPreco(rs.getInt("PRECO"));
+				avaliacao.setQualidade(rs.getInt("QUALIDADE"));
+				avaliacao.setComentario(rs.getString("COMENTARIO"));
+				avaliacao.setFavorito(((rs.getInt("FAVORITO") == 1)?true:false));
+				avaliacao.setData(rs.getString("DATA"));
+				
+				avaliacoes.add(avaliacao);
+			}			
+		}
+		catch (Exception e) 
+		{
+			System.out.println("Erro ao listar todas os avaliacoes: " + e);
+			e.printStackTrace();
+		}
+		finally
+		{
+			fecharConexao(conexao, pstmt, rs);
+		}
+		return avaliacoes;
 	}
 	
 	public ArrayList<Mensagem> todasMensagens(int idcliente)
@@ -188,6 +241,58 @@ public class ClienteDAO extends ConnectionFactory
 		return mensagens;
 	}
 	
+	public ArrayList<Promocao> promocoesFavoritos(int idcliente)
+	{
+		Connection conexao = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		Promocao promocao = null;
+		ArrayList<Promocao> promocoes = null;
+		
+		conexao = criarConexao();
+		promocoes = new ArrayList<Promocao>();		
+		try
+		{
+			pstmt = conexao.prepareStatement("SELECT PRO.CODPROMOCAO, PRO.CODBAR, PRO.IDFUNCIONARIO, BAR.NOMEFANTASIA, "
+					+ "DATE_FORMAT(PRO.DATAABERTURA,'%d/%m/%Y %H:%i') AS DATAABERTURA, DATE_FORMAT(PRO.DATAINICIO,'%d/%m/%Y %H:%i') AS DATAINICIO, "
+					+ "DATE_FORMAT(PRO.DATAFIM,'%d/%m/%Y %H:%i') AS DATAFIM, PRO.NOME, PRO.TIPO, PRO.DESCRICAO FROM "
+					+ "PROMOCAO PRO INNER JOIN AVALIACAO AV ON (PRO.CODBAR = AV.CODBAR) INNER JOIN BAR ON (PRO.CODBAR = BAR.CODBAR) "
+					+ "WHERE AV.IDCLIENTE = ? AND AV.FAVORITO = 1");
+			
+			pstmt.setInt(1, idcliente);			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next())
+			{
+				promocao = new Promocao();
+				
+				promocao.setCodpromocao(rs.getInt("CODPROMOCAO"));
+				promocao.setCodbar(rs.getInt("CODBAR"));
+				promocao.setIdfuncionario(rs.getInt("IDFUNCIONARIO"));
+				promocao.setDataabertura(rs.getString("DATAABERTURA"));
+				promocao.setDatainicio(rs.getString("DATAINICIO"));
+				promocao.setDatafim(rs.getString("DATAFIM"));
+				promocao.setNome(rs.getString("NOME"));
+				promocao.setTipo(rs.getString("TIPO"));
+				promocao.setDescricao(rs.getString("DESCRICAO"));
+				promocao.setNomebar(rs.getString("NOMEFANTASIA"));
+				
+				promocoes.add(promocao);
+			}
+			
+		}
+		catch (Exception e) 
+		{
+			System.out.println("Erro ao listar as promocoes do bar: " + e);
+			e.printStackTrace();
+		}
+		finally
+		{
+			fecharConexao(conexao, pstmt, rs);
+		}
+		return promocoes;
+	}
+	
 	public ArrayList<StatisticBar> baresFavoritos(int idcliente)
 	{
 		StatisticBar statbar = null;
@@ -215,7 +320,7 @@ public class ClienteDAO extends ConnectionFactory
 			{
 				statbar = new StatisticBar();
 				
-				statbar.setCodbar(idcliente);
+				statbar.setCodbar(rs.getInt("CODBAR"));
 				statbar.setCnpj(rs.getString("CNPJ"));
 				statbar.setNome(rs.getString("NOME"));
 				statbar.setNomefantasia(rs.getString("NOMEFANTASIA"));
@@ -238,5 +343,53 @@ public class ClienteDAO extends ConnectionFactory
 			fecharConexao(conexao, pstmt, rs);
 		}
 		return statsbares;		
+	}
+	
+	public ArrayList<Evento> eventosFavoritos(int idcliente)
+	{
+		Connection conexao = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<Evento> eventos = null;
+		
+		conexao = criarConexao();
+		eventos = new ArrayList<Evento>();		
+		try
+		{
+			pstmt = conexao.prepareStatement("SELECT EV.CODEVENTO, EV.CODBAR, BAR.NOMEFANTASIA, EV.NOME, EV.DESCRICAO, "
+					+ "DATE_FORMAT( EV.`DATA`,'%d/%m/%Y %H:%i') AS `DATA`, EV.LINKEVENTO, EV.LINKIMAGEM FROM "
+					+ "EVENTO EV INNER JOIN (AVALIACAO AV INNER JOIN CLIENTE CLI ON (AV.IDCLIENTE = CLI.ID)) ON (EV.CODBAR = AV.CODBAR) "
+					+ "INNER JOIN BAR ON (EV.CODBAR = BAR.CODBAR) WHERE AV.IDCLIENTE = ? AND (NOW() < EV.`DATA`) ORDER BY DATA DESC");
+			
+			pstmt.setInt(1, idcliente);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next())
+			{
+				Evento evento = new Evento();
+				
+				evento.setCodevento(rs.getInt("CODEVENTO"));
+				evento.setCodbar(rs.getInt("CODBAR"));
+				evento.setNomebar(rs.getString("NOMEFANTASIA"));
+				evento.setNome(rs.getString("NOME"));
+				evento.setDescricao(rs.getString("DESCRICAO"));
+				evento.setData(rs.getString("DATA"));
+				evento.setLinkevento(rs.getString("LINKEVENTO"));
+				evento.setLinkimagem(rs.getString("LINKIMAGEM"));
+				
+				eventos.add(evento);
+			}
+			
+		}
+		catch (Exception e) 
+		{
+			System.out.println("Erro ao listar os eventos do bar: " + e);
+			e.printStackTrace();
+		}
+		finally
+		{
+			fecharConexao(conexao, pstmt, rs);
+		}
+		return eventos;
 	}
 }

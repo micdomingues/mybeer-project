@@ -137,6 +137,78 @@ public class CardapioDAO extends ConnectionFactory
 		return cardapio;
     }
 	
+	public boolean colsultaDisponibilidade(Cardapio cardapio)
+	{
+		Connection conexao = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String comando = null;
+		DateTime dateTime = null;
+		SimpleDateFormat sdf = null;
+		boolean retorno = false;
+		
+		conexao = criarConexao();
+		
+		try
+		{
+			if(cardapio.getSemana().isEmpty())
+			{
+				comando = "SELECT CAR.CODCARDAPIO FROM CARDAPIO CAR INNER JOIN FUNCIONARIO FUN ON (CAR.IDFUNCIONARIO = FUN.ID) "
+						+ "WHERE FUN.CODBAR = (SELECT CODBAR FROM FUNCIONARIO WHERE ID = ?) AND !((? > CAR.DATAFIM) AND (? < CAR.DATAINICIO))";
+			}
+			else
+			{
+				comando = "SELECT CAR.CODCARDAPIO FROM CARDAPIO CAR INNER JOIN FUNCIONARIO FUN ON (CAR.IDFUNCIONARIO = FUN.ID) WHERE "
+						+ "FUN.CODBAR = (SELECT CODBAR FROM FUNCIONARIO WHERE ID = ?) AND "
+						+ "((CAR.DOM = ? AND CAR.DOM <> 0) OR (SEG = ? AND CAR.SEG <> 0) OR (TER = ? AND CAR.TER <> 0) OR (QUA = ? AND CAR.QUA <> 0)"
+						+ " OR (QUI = ? AND CAR.QUI <> 0) OR (SEX = ? AND CAR.SEX <> 0) OR (SAB = ? AND CAR.SAB <> 0)) ";
+				
+			}
+			
+			pstmt = conexao.prepareStatement(comando);
+			pstmt.setInt(1, cardapio.getIdfuncionario());
+			
+			if(cardapio.getSemana().isEmpty())
+			{
+				sdf = new SimpleDateFormat("dd/MM/yyyy");				
+				
+				dateTime = new DateTime(sdf.parse(cardapio.getDatainicio()));					
+				pstmt.setString(2, dateTime.toString("YYYY-MM-dd"));
+				
+				dateTime = new DateTime(sdf.parse(cardapio.getDatafim()));					
+				pstmt.setString(3, dateTime.toString("YYYY-MM-dd"));
+			}
+			else
+			{
+				pstmt.setInt(2, ((cardapio.getSemana().isDomingo())?1:0));
+				pstmt.setInt(3, ((cardapio.getSemana().isSegunda())?1:0));
+				pstmt.setInt(4, ((cardapio.getSemana().isTerca())?1:0));
+				pstmt.setInt(5, ((cardapio.getSemana().isQuarta())?1:0));
+				pstmt.setInt(6, ((cardapio.getSemana().isQuinta())?1:0));
+				pstmt.setInt(7, ((cardapio.getSemana().isSexta())?1:0));
+				pstmt.setInt(8, ((cardapio.getSemana().isSabado())?1:0));				
+			}
+			
+			rs = pstmt.executeQuery();
+			
+			if(!rs.next())
+			{
+				retorno = true;
+			}
+			
+		}
+		catch (Exception e) 
+		{
+			System.out.println("Erro ao Carregar Bar: " + e);
+			e.printStackTrace();
+		}
+		finally
+		{
+			fecharConexao(conexao, pstmt, rs);
+		}
+		return retorno;
+	}
+	
 	public ArrayList<Cardapio> listarTodos()
 	{
 		Connection conexao = null;
