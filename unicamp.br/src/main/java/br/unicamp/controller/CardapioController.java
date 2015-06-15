@@ -9,7 +9,10 @@ public class CardapioController
 {
 	public Cardapio adicionar(Cardapio cardapio)
 	{
-		return CardapioDAO.getInstance().adicionar(cardapio);
+		if(CardapioDAO.getInstance().colsultaDisponibilidade(cardapio))
+			return CardapioDAO.getInstance().adicionar(cardapio);
+		else
+			return null;
 	}
 	
 	public ArrayList<Cardapio> listarTodos()

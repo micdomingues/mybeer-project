@@ -8,7 +8,7 @@ import br.unicamp.model.Login;
 
 /***
  * 
- * Classe responsável por ser o controlador entre o resource e a camada DAO
+ * Classe responsavel por ser o controlador entre o resource e a camada DAO
  * 
  * @author Felipe Carvalho <felipe@tbbrain.com.br>
  *
@@ -28,6 +28,11 @@ public class LoginController
 	public Login adicionar(Login login)
 	{
 		return LoginDAO.getInstance().adicionar(login);
+	}
+	
+	public boolean consultaDisponibilidade(Login login)
+	{
+		return LoginDAO.getInstance().consultaDisponibilidade(login);
 	}
 	
 }

@@ -2,7 +2,7 @@ package br.unicamp.resource;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
-import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -37,7 +37,7 @@ public class PessoaResource
 	    return pessoa;
 	}
 	
-	@POST
+	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Pessoa inserePessoa(JSONObject json)
@@ -45,7 +45,7 @@ public class PessoaResource
 		//Conteiner Usuario (Classe Abstrata) para guardar Aluno ou Professor
 		Pessoa pessoa = null;
 		Gson gson = new GsonBuilder().create();
-	    System.out.println(json.toString());
+		
 	    if(json != null)
 	    {
 	    	String tipo = null;
@@ -71,10 +71,10 @@ public class PessoaResource
 		    if(pessoa != null)
 		    {		    	
 			    //Adiciona a Pessoa no BD a partir do Controller
-			    pessoa = new PessoaController().adicionar(pessoa);		    	
+			    pessoa = new PessoaController().adicionar(pessoa);			    
 		    }	    	
 	    }
 	    
-	    return pessoa;
+	    return ((pessoa.getId() != 0)?pessoa:null);
 	}
 }

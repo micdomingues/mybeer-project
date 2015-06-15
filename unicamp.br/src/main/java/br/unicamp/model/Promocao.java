@@ -7,7 +7,22 @@ public class Promocao
 {
 	private int codpromocao, codbar, idfuncionario;
 	private String dataabertura, datainicio, datafim;
-	private String tipo;
+	private String nome, tipo;
+	private String nomebar;
+	
+	public String getNomebar() {
+		return nomebar;
+	}
+	public void setNomebar(String nomebar) {
+		this.nomebar = nomebar;
+	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
 	private String descricao;
 	
 	public int getCodpromocao() {
@@ -64,7 +79,8 @@ public class Promocao
 		return "Promocao [codpromocao=" + codpromocao + ", codbar=" + codbar
 				+ ", idfuncionario=" + idfuncionario + ", dataabertura="
 				+ dataabertura + ", datainicio=" + datainicio + ", datafim="
-				+ datafim + ", tipo=" + tipo + ", descricao=" + descricao + "]";
+				+ datafim + ", nome=" + nome + ", tipo=" + tipo + ", nomebar="
+				+ nomebar + ", descricao=" + descricao + "]";
 	}
 	
 	@Override
@@ -81,6 +97,8 @@ public class Promocao
 		result = prime * result
 				+ ((descricao == null) ? 0 : descricao.hashCode());
 		result = prime * result + idfuncionario;
+		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		result = prime * result + ((nomebar == null) ? 0 : nomebar.hashCode());
 		result = prime * result + ((tipo == null) ? 0 : tipo.hashCode());
 		return result;
 	}
@@ -119,6 +137,16 @@ public class Promocao
 		} else if (!descricao.equals(other.descricao))
 			return false;
 		if (idfuncionario != other.idfuncionario)
+			return false;
+		if (nome == null) {
+			if (other.nome != null)
+				return false;
+		} else if (!nome.equals(other.nome))
+			return false;
+		if (nomebar == null) {
+			if (other.nomebar != null)
+				return false;
+		} else if (!nomebar.equals(other.nomebar))
 			return false;
 		if (tipo == null) {
 			if (other.tipo != null)

@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import br.unicamp.factory.ConnectionFactory;
+import br.unicamp.model.Cliente;
 import br.unicamp.model.Login;
 
 /***
@@ -124,6 +125,38 @@ public class LoginDAO extends ConnectionFactory
 			login = null;
 		
 		return login;
+	}
+	
+	public boolean consultaDisponibilidade(Login login)
+	{
+		Connection conexao = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		boolean resultado = false;
+		conexao = criarConexao();
+		
+		try
+		{
+			pstmt = conexao.prepareStatement("SELECT * FROM LOGIN WHERE USUARIO = ? OR EMAIL = ?");
+			
+			pstmt.setString(1, login.getUsuario());
+			pstmt.setString(2, login.getEmail());
+			
+			rs = pstmt.executeQuery();
+			
+			if(!rs.next())
+				resultado = true;			
+		}
+		catch (Exception e) 
+		{
+			System.out.println("Erro ao consultar disponibilidade de login: " + e);
+			e.printStackTrace();
+		}
+		finally
+		{
+			fecharConexao(conexao, pstmt, rs);
+		}
+		return resultado;		
 	}
 	
 	public ArrayList<Login> listarTodos()

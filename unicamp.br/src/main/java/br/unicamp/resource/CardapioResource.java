@@ -1,6 +1,6 @@
 package br.unicamp.resource;
 
-import java.util.ArrayList;
+import java.io.StringWriter;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -10,6 +10,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import org.codehaus.jettison.json.JSONObject;
+import org.json.JSONArray;
 
 import br.unicamp.controller.CardapioController;
 import br.unicamp.model.Cardapio;
@@ -22,8 +23,13 @@ public class CardapioResource
 {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public ArrayList<Cardapio> listarTodos(){
-		return new CardapioController().listarTodos();
+	public String listarTodos()
+	{
+		StringWriter out = new StringWriter();
+		JSONArray list = new JSONArray(new CardapioController().listarTodos().toArray());
+		list.write(out);
+				
+		return out.toString();
 	}
 	
 	@PUT
@@ -39,11 +45,11 @@ public class CardapioResource
     	if(json != null)
     	{
     		cardapio =  gson.fromJson(json.toString(), Cardapio.class);
-    		
+    		System.out.println(cardapio);
 		    //Adiciona o Cardápio no BD a partir do Controller
 		    cardapio = new CardapioController().adicionar(cardapio);
 	    }
-	    
+	    System.out.println(cardapio);
 	    return cardapio;
 	}
 }
