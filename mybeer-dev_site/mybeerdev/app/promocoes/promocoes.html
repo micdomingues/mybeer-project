@@ -78,7 +78,7 @@
                     <table style="width:100%"  class="table table-hover">
                         <thead>
                             <tr>
-                                <th><h4>Nome Bar</h4></th>
+                                <th><h4>Data de Criação</h4></th>
                                 <th><h4>Descrição</h4></th>
                                 <th><h4>Data Início</h4></th>
                                 <th><h4>Data Fim</h4></th>
@@ -86,7 +86,7 @@
                         </thead>
                         <tbody>
                             <tr ng-repeat="promocao in promocoes" >
-                                <td><a href="#/bar/{{promocao.codbar}}"> {{promocao.nomebar}}</a></td>
+                                <td>{{promocao.dataabertura}}</td>
                                 <td>{{promocao.descricao}}</td>
                                 <td>{{promocao.datainicio}}</td>
                                 <td>{{promocao.datafim}}</td>

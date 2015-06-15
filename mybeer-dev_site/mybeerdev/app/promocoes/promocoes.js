@@ -11,6 +11,39 @@ angular.module('myApp.promocoes', ['ngRoute'])
 
     .controller('PromocoesCtrl', ['$scope','$http','toaster','nomeBanco','promocaoClienteService','loginService', function ($scope,$http, toaster,nomeBanco,promocaoClienteService,loginService) {
 
+        function getPromocoesBar(id) {
+            promocaoClienteService.getPromocoesBar(id)
+                .success(function (data) {
+                $scope.promocoes = data;
+                console.log($scope.promocoes);
+            })
+                .error(function (error) {
+                console.log(error.message);
+            });
+        }
+
+        
+        function getUser() {
+            promocaoClienteService.getDadosUser(loginService.getId())
+                .success(function (data) {
+                $scope.usuario = data;
+                console.log($scope.usuario);
+                if($scope.usuario.codbar != null){
+
+                    getPromocoesBar($scope.usuario.codbar);
+
+                }
+
+            })
+                .error(function (error) {
+                console.log(error.message);
+            });
+        }
+
+        getUser();
+
+        
+        
         function getPromocoesCliente() {
             promocaoClienteService.getPromocoes(loginService.getId())
                 .success(function (data) {
@@ -25,10 +58,23 @@ angular.module('myApp.promocoes', ['ngRoute'])
         getPromocoesCliente();
         
         
+        
+        
     }]).service("promocaoClienteService", function ($http, $q, nomeBanco) {
 
     this.getPromocoes = function (id) {
         return $http.get(nomeBanco.getLink() + 'clientes/promocoes/favoritos/' + id);
+
+    }
+    
+    this.getPromocoesBar = function (id) {
+        return $http.get(nomeBanco.getLink() + 'bares/promocoes/' + id);
+
+    }
+    
+
+    this.getDadosUser = function (id) {
+        return $http.get(nomeBanco.getLink() + 'pessoas/' + id);
 
     }
 });
