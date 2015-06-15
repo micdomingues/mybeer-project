@@ -74,7 +74,7 @@ angular.module('myApp.lancamentos', ['ngRoute'])
         $scope.getLancamentos = function(){
             var promise = lancamentoService.getLancamentos(loginService.getId());
             promise.then(function (data) {
-                $scope.lancamentos = data.data.lancamento;  
+                $scope.lancamentos = data.data;  
               
             })
         }

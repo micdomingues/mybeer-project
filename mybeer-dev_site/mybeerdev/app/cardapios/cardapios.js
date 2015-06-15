@@ -8,18 +8,14 @@ angular.module('myApp.cardapios', ['ngRoute'])
             controller: 'CardapioController'
         });
 }])
-    .controller('CardapioController', ['$scope', '$http', 'cardapioService','toaster','loginService','nomeBanco', function ($scope, $http, cardapioService, toaster, loginServicem, nomeBanco) {
-        
+    .controller('CardapioController', ['$scope', '$http', 'cardapioService', 'toaster', 'loginService', 'nomeBanco', function ($scope, $http, cardapioService, toaster, loginService, nomeBanco) {
+
         if ($scope.cardapios == null) {
             $scope.cardapios = [];
         }
 
-        var promise = cardapioService.getCardapios();
-        promise.then(function (data) {
-            $scope.cardapios = data.data;
-        });
 
-        
+
         $scope.cardapio = {};
         $scope.alerts = [];
         $scope.cardapio.datainicio;
@@ -40,30 +36,65 @@ angular.module('myApp.cardapios', ['ngRoute'])
             name: null,
             value: 0
         };
+        
+        
+        function getUser() {
+            cardapioService.getDadosUser(loginService.getId())
+                .success(function (data) {
+                $scope.usuario = data;
+                console.log($scope.usuario);
+                if($scope.usuario.codbar != null){
 
-        $scope.analisaSemanas = function(){
+                    getCardapios();
+                }
+                
+            })
+                .error(function (error) {
+                console.log(error.message);
+            });
+        }
+
+        getUser();
+        
+        
+        function getCardapios() {
+            //PASSAR O ID DO BAR
+            cardapioService.getCardapios($scope.usuario.codbar)
+                .success(function (data) {
+                $scope.cardapios = data;
+                console.log($scope.cardapio);
+            })
+                .error(function (error) {
+                console.log(error.message);
+            });
+        }
+        
+       
+        
+
+        $scope.analisaSemanas = function () {
             var temUmTrue = false;
-            angular.forEach($scope.cardapio.semana, function(value, index){
-                if(value == true){
+            angular.forEach($scope.cardapio.semana, function (value, index) {
+                if (value == true) {
                     temUmTrue = true;
                 }
-            }) 
+            })
             return temUmTrue;
         }
 
         $scope.criarCardapio = function () {
 
-            
-            if($scope.tipoDataCardapio.name == null){
+
+            if ($scope.tipoDataCardapio.name == null) {
                 $scope.errorOpcoes = true;
-            }else{                
-                if($scope.tipoDataCardapio.name == "intervaloDataMes" && $scope.cardapio.datainicio == null){
+            } else {
+                if ($scope.tipoDataCardapio.name == "intervaloDataMes" && $scope.cardapio.datainicio == null) {
                     $scope.errorDataInicio = true;
-                }else if($scope.tipoDataCardapio.name == "intervaloDataMes" && $scope.cardapio.datafim == null){
+                } else if ($scope.tipoDataCardapio.name == "intervaloDataMes" && $scope.cardapio.datafim == null) {
                     $scope.errorDataFim = true;
-                }else if($scope.tipoDataCardapio.name == "dataSemanalEspecifica" && !$scope.analisaSemanas()) {
+                } else if ($scope.tipoDataCardapio.name == "dataSemanalEspecifica" && !$scope.analisaSemanas()) {
                     $scope.errorSemana = true;
-                }else{
+                } else {
                     $scope.cardapio.datainicio = $scope.conversorDate($scope.cardapio.datainicio);
                     $scope.cardapio.datafim = $scope.conversorDate($scope.cardapio.datafim);
 
@@ -76,10 +107,10 @@ angular.module('myApp.cardapios', ['ngRoute'])
 
                     $scope.sendCardapio(cardapio);
                 }
-                
+
             }
-            
-        
+
+
         }
 
         $scope.sendCardapio = function (cardapio) {
@@ -93,11 +124,12 @@ angular.module('myApp.cardapios', ['ngRoute'])
 
                 var message = data;
 
-                // $scope.cardapios = cardapioService.getCardapios();
             });
             res.error(function (data, status, headers, config) {
 
-                toaster.pop('error', "Erro Interno", JSON.stringify({data:data}));
+                toaster.pop('error', "Erro Interno", JSON.stringify({
+                    data: data
+                }));
 
             });
         }
@@ -113,7 +145,7 @@ angular.module('myApp.cardapios', ['ngRoute'])
                 var dDay = d.getDate();
                 var dYear = d.getFullYear();
                 var date = dDay + "/" + dMon + "/" + dYear;
-            return date;
+                return date;
             }
             return data;
         }
@@ -152,46 +184,44 @@ angular.module('myApp.cardapios', ['ngRoute'])
         $scope.format = $scope.formats[2];
 
     }).service("cardapioService", function ($http, $q, nomeBanco) {
-        var deferred = $q.defer();
-    $http.get(nomeBanco.getLink() + 'cardapios').then(function (data) {
-            deferred.resolve(data);
-        });
 
-        this.getCardapios = function () {
-            return deferred.promise;
+        this.getCardapios = function (id) {
+            return $http.get(nomeBanco.getLink() + 'bares/cardapios/' + id);
         }
 
+        this.getDadosUser = function (id) {
+            return $http.get(nomeBanco.getLink() + 'pessoas/' + id);
 
-
-
-}).filter('semana', function() {
-    return function(input) {
-        var string = "";
-       if(input != null){
-           if(input.segunda == "true"){
-               string = " Segunda";
-           }
-           if(input.terca == "true"){
-               string = string + " Terça";
-           }
-           if(input.quarta == "true"){
-               string = string + " Quarta";
-           }
-           if(input.quinta == "true"){
-               string = string + " Quinta";
-           }
-           if(input.sexta == "true"){
-               string = string + " Sexta";
-           }
-           if(input.sabado == "true"){
-               string = string + " Sábado";
-           }
-           if(input.domingo == "true"){
-               string = string + " Domingo";
-           }
-
-       }
+        }
         
-        return string;
-    };
-})
+    }).filter('semana', function () {
+        return function (input) {
+            var string = "";
+            if (input != null) {
+                if (input.segunda == true) {
+                    string = " Segunda";
+                }
+                if (input.terca == true) {
+                    string = string + " Terça";
+                }
+                if (input.quarta == true) {
+                    string = string + " Quarta";
+                }
+                if (input.quinta == true) {
+                    string = string + " Quinta";
+                }
+                if (input.sexta == true) {
+                    string = string + " Sexta";
+                }
+                if (input.sabado == true) {
+                    string = string + " Sábado";
+                }
+                if (input.domingo == true) {
+                    string = string + " Domingo";
+                }
+
+            }
+
+            return string;
+        };
+    })
