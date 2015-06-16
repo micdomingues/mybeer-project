@@ -69,7 +69,28 @@ angular.module('myApp.cardapios', ['ngRoute'])
             });
         }
         
-       
+        $scope.excluirCardapio = function excluirCardapio(id) {
+//            var cardapio = {}
+//                cardapio.codcardapio = id;
+            
+            console.log("excluindo");
+            //PASSAR O ID DO BAR
+            cardapioService.deleteCardapio(id)
+                .success(function (data) {
+                if(data){
+                toaster.pop('success', "Sucesso", "Cadapio excluido com sucesso");
+                    
+                    getCardapios();
+                    
+                }else{
+                    toaster.pop('error', "Erro", "Cadapio não excluido");
+                }
+            })
+                .error(function (error) {
+                toaster.pop('error', "Erro", "Cadapio não excluido");
+                console.log(error.message);
+            });
+        }
         
 
         $scope.analisaSemanas = function () {
@@ -118,9 +139,12 @@ angular.module('myApp.cardapios', ['ngRoute'])
             var res = $http.put(nomeBanco.getLink() + 'cardapios', cardapio);
             res.success(function (data, status, headers, config) {
 
-                $scope.limparForm();
-
-                toaster.pop('success', "Sucesso", "Cardápio adicionado com sucesso");
+                if(data){
+                    toaster.pop('success', "Sucesso", "Cardápio adicionado com sucesso");
+                    $scope.limparForm();
+                }else{
+                    toaster.pop('error', "Erro", "Já existe cardápio cadastrado para esse dia.");
+                }
 
                 var message = data;
 
@@ -187,6 +211,11 @@ angular.module('myApp.cardapios', ['ngRoute'])
 
         this.getCardapios = function (id) {
             return $http.get(nomeBanco.getLink() + 'bares/cardapios/' + id);
+        }
+        
+        this.deleteCardapio = function (id) {
+            console.log(id);
+            return $http.delete(nomeBanco.getLink() + 'cardapios/' + id);
         }
 
         this.getDadosUser = function (id) {
