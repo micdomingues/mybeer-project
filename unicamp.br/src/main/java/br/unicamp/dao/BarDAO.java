@@ -70,6 +70,49 @@ public class BarDAO extends ConnectionFactory
 		return bar;
 	}
 	
+	public Bar atualizar(Bar bar)
+	{
+		if(bar != null)
+		{
+			int res;
+			Connection conexao = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			String comando = null;
+			
+			conexao = criarConexao();			
+			try
+			{				
+				comando = "UPDATE BAR SET NOMEFANTASIA = ?, ENDERECO = ?, DESCRICAO = ?, OBSERVACAO = ? WHERE CODBAR = ?";	
+				pstmt = conexao.prepareStatement(comando);
+				
+				pstmt.setString(1, bar.getNomefantasia());
+				pstmt.setString(2, bar.getEndereco());
+				pstmt.setString(3, bar.getDescricao());
+				pstmt.setString(4, bar.getObservacao());
+				pstmt.setInt(5, bar.getCodbar());
+				
+				res = pstmt.executeUpdate();	            
+	        
+				
+				if(res <= 0)
+	            {
+	                bar = null;
+	            }
+			}
+			catch (Exception e) 
+			{
+				System.out.println("Erro ao atualizar Bar: " + e);
+				e.printStackTrace();
+			}
+    		finally
+		 	{
+ 				fecharConexao(conexao, pstmt, rs);
+	 		}
+		}
+		return bar;
+	}
+	
 	public Bar carregar(int codbar)
 	{
 		Bar bar = null;
@@ -423,6 +466,51 @@ public class BarDAO extends ConnectionFactory
 			fecharConexao(conexao, pstmt, rs);
 		}
 		return promocoes;
+	}
+	
+	public ArrayList<Bar> search(String nomefantasia)
+	{
+		Connection conexao = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		Bar bar = null;
+		ArrayList<Bar> bares = null;
+		
+		conexao = criarConexao();
+		bares = new ArrayList<Bar>();		
+		try
+		{
+			pstmt = conexao.prepareStatement("SELECT * FROM BAR WHERE NOMEFANTASIA LIKE CONCAT('%', ?, '%')");
+			
+			pstmt.setString(1, nomefantasia);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next())
+			{
+				bar = new Bar();
+				
+				bar.setCodbar(rs.getInt("CODBAR"));
+				bar.setCnpj(rs.getString("CNPJ"));
+				bar.setNome(rs.getString("NOME"));
+				bar.setNomefantasia(rs.getString("NOMEFANTASIA"));
+				bar.setEndereco(rs.getString("ENDERECO"));
+				bar.setDescricao(rs.getString("DESCRICAO"));
+				bar.setObservacao(rs.getString("OBSERVACAO"));
+				
+				bares.add(bar);
+			}
+			
+		}
+		catch (Exception e) 
+		{
+			System.out.println("Erro ao listar todos os bares: " + e);
+			e.printStackTrace();
+		}
+		finally
+		{
+			fecharConexao(conexao, pstmt, rs);
+		}
+		return bares;
 	}
 	
 	public ArrayList<Bar> listarTodos()

@@ -16,9 +16,19 @@ public class BarController
 		return BarDAO.getInstance().listarTodos();
 	}
 	
+	public ArrayList<Bar> search(String nomefantasia)
+	{
+		return BarDAO.getInstance().search(nomefantasia);
+	}
+	
 	public Bar adicionar(Bar bar)
 	{
 		return BarDAO.getInstance().adicionar(bar);
+	}
+	
+	public Bar atualizar(Bar bar)
+	{
+		return BarDAO.getInstance().atualizar(bar);
 	}
 	
 	public Bar carregar(int codbar)

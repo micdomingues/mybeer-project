@@ -105,36 +105,33 @@ public class CardapioDAO extends ConnectionFactory
 		return cardapio;
 	}
 	
-	public Cardapio excluir(Cardapio cardapio)
+	public int excluir(int codcardapio)
     {
-		if(cardapio != null)
-		{
-			int res;
-			Connection conexao = null;
-			PreparedStatement pstmt = null;
-			
-			conexao = criarConexao();
-	        try
-	        {
-	            pstmt = conexao.prepareStatement("DELETE FROM CARDAPIO WHERE CODCARDAPIO = ?");
-	            pstmt.setInt(1, cardapio.getCodcardapio());
+		int res;
+		Connection conexao = null;
+		PreparedStatement pstmt = null;
+		
+		conexao = criarConexao();
+        try
+        {
+            pstmt = conexao.prepareStatement("DELETE FROM CARDAPIO WHERE CODCARDAPIO = ?");
+            pstmt.setInt(1, codcardapio);
 
-	            res = pstmt.executeUpdate();
-	            
-	            if(res <= 0)
-	                cardapio = null;
-	        }
-	        catch (Exception e) 
-			{
-				System.out.println("Erro ao Excluir Cardapio: " + e);
-				e.printStackTrace();
-			}
-			finally
-			{
-				fecharConexao(conexao, pstmt, null);
-			}			
-		}		
-		return cardapio;
+            res = pstmt.executeUpdate();
+            
+            if(res <= 0)
+                codcardapio = 0;
+        }
+        catch (Exception e) 
+		{
+			System.out.println("Erro ao Excluir Cardapio: " + e);
+			e.printStackTrace();
+		}
+		finally
+		{
+			fecharConexao(conexao, pstmt, null);
+		}				
+		return codcardapio;
     }
 	
 	public boolean colsultaDisponibilidade(Cardapio cardapio)
