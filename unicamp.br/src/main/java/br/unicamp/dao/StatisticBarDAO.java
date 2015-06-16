@@ -29,7 +29,7 @@ public class StatisticBarDAO extends ConnectionFactory
 		
 		try
 		{
-			pstmt = conexao.prepareStatement("SELECT BAR.CODBAR, BAR.CNPJ, BAR.NOME, BAR.NOMEFANTASIA, AVG(PRECO) AS MPRECO, "
+			pstmt = conexao.prepareStatement("SELECT BAR.CODBAR, BAR.CNPJ, BAR.NOME, BAR.NOMEFANTASIA, BAR.ENDERECO, BAR.DESCRICAO, BAR.OBSERVACAO, AVG(PRECO) AS MPRECO, "
 					+ "AVG(QUALIDADE) MQUALIDADE, (SELECT COUNT(*) FROM AVALIACAO AV2 WHERE FAVORITO = 1 AND AV2.CODBAR = AV1.CODBAR) AS FAVORITOS "
 					+ "FROM AVALIACAO AV1 INNER JOIN BAR ON (AV1.CODBAR = BAR.CODBAR) WHERE AV1.CODBAR = ?");
 			
@@ -45,6 +45,9 @@ public class StatisticBarDAO extends ConnectionFactory
 				statsbar.setCnpj(rs.getString("CNPJ"));
 				statsbar.setNome(rs.getString("NOME"));
 				statsbar.setNomefantasia(rs.getString("NOMEFANTASIA"));
+				statsbar.setEndereco(rs.getString("ENDERECO"));
+				statsbar.setDescricao(rs.getString("DESCRICAO"));
+				statsbar.setObservacao(rs.getString("OBSERVACAO"));
 				
 				statsbar.setMediapreco(rs.getFloat("MPRECO"));
 				statsbar.setMediaqualidade(rs.getFloat("MQUALIDADE"));

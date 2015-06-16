@@ -38,8 +38,7 @@ public class StatisticBar extends Bar
 	}
 
 	@Override
-	public int hashCode()
-	{
+	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
 		result = prime * result + favoritos;
@@ -49,8 +48,7 @@ public class StatisticBar extends Bar
 	}
 
 	@Override
-	public boolean equals(Object obj)
-	{
+	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
 		if (!super.equals(obj))
@@ -70,11 +68,12 @@ public class StatisticBar extends Bar
 	}
 
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		return "StatisticBar [mediapreco=" + mediapreco + ", mediaqualidade="
 				+ mediaqualidade + ", favoritos=" + favoritos + ", codbar="
 				+ codbar + ", cnpj=" + cnpj + ", nome=" + nome
-				+ ", nomefantasia=" + nomefantasia + "]";
+				+ ", nomefantasia=" + nomefantasia + ", endereco=" + endereco
+				+ ", descricao=" + descricao + ", observacao=" + observacao
+				+ "]";
 	}
 }

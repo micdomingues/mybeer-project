@@ -2,19 +2,26 @@ package br.unicamp.resource;
 
 import java.io.StringWriter;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import org.codehaus.jettison.json.JSONObject;
 import org.json.JSONArray;
 
 import br.unicamp.controller.BarController;
 import br.unicamp.controller.LancamentoController;
 import br.unicamp.controller.StatisticBarController;
+import br.unicamp.model.Bar;
 import br.unicamp.model.Cardapio;
 import br.unicamp.model.StatisticBar;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 @Path("/bares")
 public class BarResource
@@ -28,6 +35,39 @@ public class BarResource
 		list.write(out);
 				
 		return out.toString();
+	}
+	
+	@GET
+	@Path("/search/{nomefantasia}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public String listarTodos(@PathParam("nomefantasia") String nomefantasia)
+	{
+		StringWriter out = new StringWriter();
+		JSONArray list = new JSONArray(new BarController().search(nomefantasia).toArray());
+		list.write(out);
+				
+		return out.toString();
+	}
+	
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Bar atualizaBar(JSONObject json)
+	{
+		Gson gson = new GsonBuilder().create();
+	    
+		Bar bar = null;
+		
+		//TESTAR INTEGRIDADE DO JSON
+    	if(json != null)
+    	{
+    		bar =  gson.fromJson(json.toString(), Bar.class);
+    		
+		    //Adiciona o Cardápio no BD a partir do Controller
+		    bar = new BarController().atualizar(bar);
+	    }
+	    System.out.println(bar);
+	    return bar;		
 	}
 	
 	@GET

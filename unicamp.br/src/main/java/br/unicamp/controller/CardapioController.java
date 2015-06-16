@@ -15,6 +15,11 @@ public class CardapioController
 			return null;
 	}
 	
+	public int excluir(int codcardapio)
+	{
+		return CardapioDAO.getInstance().excluir(codcardapio);
+	}
+	
 	public ArrayList<Cardapio> listarTodos()
 	{
 		return CardapioDAO.getInstance().listarTodos();
