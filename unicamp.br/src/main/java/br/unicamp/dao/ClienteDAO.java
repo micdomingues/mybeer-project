@@ -306,7 +306,7 @@ public class ClienteDAO extends ConnectionFactory
 		
 		try
 		{
-			pstmt = conexao.prepareStatement("SELECT BAR.CODBAR, BAR.CNPJ, BAR.NOME, BAR.NOMEFANTASIA, "
+			pstmt = conexao.prepareStatement("SELECT BAR.CODBAR, BAR.CNPJ, BAR.NOME, BAR.NOMEFANTASIA, BAR.DESCRICAO, BAR.ENDERECO, BAR.OBSERVACAO,"
 					+ "(SELECT AVG(PRECO) FROM AVALIACAO AV3 WHERE AV3.CODBAR = AV1.CODBAR) AS MPRECO, "
 					+ "(SELECT AVG(QUALIDADE) FROM AVALIACAO AV4 WHERE AV4.CODBAR = AV1.CODBAR) AS MQUALIDADE, "
 					+ "(SELECT COUNT(*) FROM AVALIACAO AV2 WHERE FAVORITO = 1 AND AV2.CODBAR = AV1.CODBAR) AS FAVORITOS "
@@ -324,11 +324,13 @@ public class ClienteDAO extends ConnectionFactory
 				statbar.setCnpj(rs.getString("CNPJ"));
 				statbar.setNome(rs.getString("NOME"));
 				statbar.setNomefantasia(rs.getString("NOMEFANTASIA"));
+				statbar.setEndereco(rs.getString("ENDERECO"));
+				statbar.setDescricao(rs.getString("DESCRICAO"));
+				statbar.setObservacao(rs.getString("OBSERVACAO"));
 				
 				statbar.setMediapreco(rs.getFloat("MPRECO"));
 				statbar.setMediaqualidade(rs.getFloat("MQUALIDADE"));
-				statbar.setFavoritos(rs.getInt("FAVORITOS"));
-						
+				statbar.setFavoritos(rs.getInt("FAVORITOS"));		
 				
 				statsbares.add(statbar);
 			}			
