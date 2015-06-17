@@ -16,7 +16,7 @@
                         <div class="panel-title">
                             <big>{{bar.nomefantasia}}</big>
                         </div>
-                        <div class="panel-title" align="right">
+                        <div class="panel-title" align="center">
                             <button class="btn btn-danger" ng-show="isReadOnly" ng-click="rate = 0" style="padding:3px 8px;border-radius:50px" ng-disabled="isReadonly"><span class="glyphicon glyphicon-remove"></span>
                             </button>
                             <rating ng-model="rate" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating>
