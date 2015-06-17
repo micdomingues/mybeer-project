@@ -11,6 +11,9 @@ angular.module('myApp.promocoes', ['ngRoute'])
 
     .controller('PromocoesCtrl', ['$scope','$http','toaster','nomeBanco','promocaoClienteService','loginService', function ($scope,$http, toaster,nomeBanco,promocaoClienteService,loginService) {
 
+        $scope.page = '/promocoes';
+        
+        
         function getPromocoesBar(id) {
             promocaoClienteService.getPromocoesBar(id)
                 .success(function (data) {

@@ -9,13 +9,13 @@ angular.module('myApp.bares', ['ngRoute'])
     });
     }])
 
-    .controller('BarCtrl', ['$scope','$http','$q', 'loginService','baresService','$routeParams',function ($scope, $http , $q,  loginService, baresService,$routeParams) {
+    .controller('BarCtrl', ['$scope','$http','$q', 'loginService','baresServicePage','$routeParams',function ($scope, $http , $q,  loginService, baresServicePage,$routeParams) {
         
         console.log($routeParams.id);
         
   
         function getBar() {
-            baresService.getBar($routeParams.id)
+            baresServicePage.getBar($routeParams.id)
                 .success(function (data) {
                 $scope.bar = data;
                 $scope.bar.mediaqualidade = Math.abs($scope.bar.mediaqualidade);
@@ -29,7 +29,7 @@ angular.module('myApp.bares', ['ngRoute'])
         getBar();
         
         function getPromocoes() {
-            baresService.getPromocoes($routeParams.id)
+            baresServicePage.getPromocoes($routeParams.id)
                 .success(function (data) {
                 $scope.promocoes = data;
                 console.log($scope.promocoes);
@@ -42,7 +42,7 @@ angular.module('myApp.bares', ['ngRoute'])
         getPromocoes();
         
         function getEventos() {
-            baresService.getEventos($routeParams.id)
+            baresServicePage.getEventos($routeParams.id)
                 .success(function (data) {
                 $scope.eventos = data;
                 console.log($scope.eventos);
@@ -55,7 +55,7 @@ angular.module('myApp.bares', ['ngRoute'])
         getEventos();
         
         function getAvaliacoes() {
-            baresService.getAvaliacoes($routeParams.id)
+            baresServicePage.getAvaliacoes($routeParams.id)
                 .success(function (data) {
                 $scope.avaliacoes = data;
                 console.log($scope.avaliacoes);
@@ -67,8 +67,20 @@ angular.module('myApp.bares', ['ngRoute'])
 
         getAvaliacoes();
         
+        function getCardapioDia() {
+            baresServicePage.getCardapioDia($routeParams.id)
+                .success(function (data) {
+                $scope.cardapio = data;
+                console.log($scope.cardapio);
+            })
+                .error(function (error) {
+                console.log(error.message);
+            });
+        }
+
+        getCardapioDia();
         
-    }]).service("baresService", function ($http, $q,nomeBanco) {
+    }]).service("baresServicePage", function ($http, $q,nomeBanco) {
     
     this.getBar = function (id) {
         return $http.get(nomeBanco.getLink() + 'bares/' + id);
@@ -87,6 +99,11 @@ angular.module('myApp.bares', ['ngRoute'])
     
     this.getAvaliacoes = function (id) {
         return $http.get(nomeBanco.getLink() + 'bares/avaliacoes/' + id);
+
+    }
+    
+    this.getCardapioDia = function (id) {
+        return $http.get(nomeBanco.getLink() + 'bares/cardapiododia/' + id);
 
     }
     

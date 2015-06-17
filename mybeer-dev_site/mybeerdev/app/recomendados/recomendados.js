@@ -11,6 +11,8 @@ angular.module('myApp.recomendados', ['ngRoute'])
 
     .controller('RecomendadosCtrl', ['$scope', '$http', '$q', 'loginService', 'recomendadosService', function ($scope, $http, $q, loginService, favoritosService) {
 
+        
+        $scope.page = '/recomendados';
   
     function getRecomendados() {
         favoritosService.getRecomendados(loginService.getId())

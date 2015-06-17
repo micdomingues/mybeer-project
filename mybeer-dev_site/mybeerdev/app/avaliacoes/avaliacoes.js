@@ -11,6 +11,8 @@ angular.module('myApp.avaliacoes', ['ngRoute'])
 
     .controller('AvaliacoesCtrl', ['$scope','$http','avaliacoesService','toaster','loginService','nomeBanco', function ($scope,$http,avaliacoesService, toaster,loginService, nomeBanco) {
 
+        $scope.page = '/avaliacoes';
+        
         function getAvaliacoes() {
             avaliacoesService.getAvaliacoes(loginService.getId())
                 .success(function (data) {

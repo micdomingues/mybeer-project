@@ -15,6 +15,7 @@ angular.module('myApp.funcionarios', ['ngRoute'])
         $scope.funcionarios = [];
         $scope.funcionario = {};
     $scope.alerts = [];
+        $scope.page = '/funcionarios';
         
         //hora
         $scope.mytime = new Date();

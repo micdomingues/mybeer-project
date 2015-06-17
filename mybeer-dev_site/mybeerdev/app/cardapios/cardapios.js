@@ -15,7 +15,7 @@ angular.module('myApp.cardapios', ['ngRoute'])
         }
 
 
-
+        $scope.page = '/cardapios';
         $scope.cardapio = {};
         $scope.alerts = [];
         $scope.cardapio.datainicio;
@@ -116,14 +116,15 @@ angular.module('myApp.cardapios', ['ngRoute'])
                 } else if ($scope.tipoDataCardapio.name == "dataSemanalEspecifica" && !$scope.analisaSemanas()) {
                     $scope.errorSemana = true;
                 } else {
-                    $scope.cardapio.datainicio = $scope.conversorDate($scope.cardapio.datainicio);
-                    $scope.cardapio.datafim = $scope.conversorDate($scope.cardapio.datafim);
-
-
-                    $scope.cardapio.idfuncionario = loginService.getId();
-                    console.log($scope.cardapio);
-
+                    
                     var cardapio = angular.copy($scope.cardapio);
+                    cardapio.datainicio = $scope.conversorDate(cardapio.datainicio);
+                    cardapio.datafim = $scope.conversorDate(cardapio.datafim);
+
+
+                    cardapio.idfuncionario = loginService.getId();
+                    console.log(cardapio);
+
 
 
                     $scope.sendCardapio(cardapio);
@@ -147,6 +148,7 @@ angular.module('myApp.cardapios', ['ngRoute'])
                 }
 
                 var message = data;
+                getCardapios();
 
             });
             res.error(function (data, status, headers, config) {
@@ -165,7 +167,7 @@ angular.module('myApp.cardapios', ['ngRoute'])
         $scope.conversorDate = function (data) {
             if (data != null) {
                 var d = angular.copy(data);
-                var dMon = d.getMonth();
+                var dMon = d.getMonth() + 1 ;
                 var dDay = d.getDate();
                 var dYear = d.getFullYear();
                 var date = dDay + "/" + dMon + "/" + dYear;

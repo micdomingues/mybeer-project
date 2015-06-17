@@ -56,11 +56,11 @@
             
             <div class="col-lg-5 col-lg-offset-2">
                 <div class="input-group custom-search-form">
-                    <input type="text" class="form-control" placeholder="Buscar bares">
+                    <input name="search" id="search" type="text" class="form-control" placeholder="Buscar bares" ng-model="search">
                     <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">
+                        <a ng-href="#/search/{{search}}" type="button" class="btn btn-default" type="button">
                             <span class="glyphicon glyphicon-search"></span>
-                        </button>
+                        </a>
                     </span>
                 </div><!-- /input-group -->
                 <h1 class="page-header">
@@ -114,6 +114,7 @@
     <script src="editar_bar/editar_bar.js"></script>
     <script src="cadastrar_funcionario/cadastrar_funcionario.js"></script>
     <script src="bares/bares.js"></script>
+    <script src="search/search.js"></script>
     <script src="components/version/version.js"></script>
     <script src="components/version/version-directive.js"></script>
     <script src="components/version/interpolate-filter.js"></script>
@@ -126,7 +127,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.2.15/angular-locale_pt-br.js"></script>
 
    
+<script>
+    
 
+
+    $("#search").keyup(function (e) {
+        if (e.keyCode == 13) {
+            location.href= "#/search/" + document.getElementById("search").value 
+        }
+    });
+
+
+    </script>
     
     
 </body>

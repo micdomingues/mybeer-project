@@ -11,6 +11,8 @@ angular.module('myApp.mensagens', ['ngRoute'])
 
     .controller('MensagensCtrl', ['$scope', '$http', '$q', 'loginService', 'mensagensService', function ($scope, $http, $q, loginService, mensagensService) {
 
+        
+        $scope.page = '/mensagens';
   
     function getMensagens() {
         mensagensService.getMensagens(loginService.getId())

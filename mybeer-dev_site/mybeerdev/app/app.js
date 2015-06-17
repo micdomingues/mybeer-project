@@ -17,6 +17,7 @@ var PageApp = angular.module('myApp', [
   'myApp.mensagens',
   'myApp.enviar_mensagem',
   'myApp.bares',
+  'myApp.search',
   'myApp.editar_bar',
   'myApp.cadastrar_funcionario',
   'myApp.recomendados',
@@ -30,24 +31,31 @@ config(['$routeProvider', function ($routeProvider) {
     });
 }]);
 
-PageApp.controller('PageController', function ($scope, $q, $http, loginService,nomeBanco) {
-    $scope.page = 0;
+PageApp.controller('PageController', function ($location,$scope, $q, $http, loginService,nomeBanco) {
+    $scope.search = null;
     //    $scope.isCliente = null;
     $scope.usuario = {};
     //    var promise = {};
     $scope.idUser = loginService.getId();
-
+    
+    
     $scope.setPage = function (newValue) {
         $scope.page = newValue;
     }
 
+    $scope.searchBar = function(bar){
+        location.href= "#/search/" + bar;
+    }
+    
     $scope.isSet = function (value) {
-        if (value === $scope.page) {
+        if (value === $location.path()) {
             return true;
         }
 
         return false;
     }
+    
+    $scope.setPage($location.path());
 
     $scope.rate = 3;
     $scope.max = 5;
@@ -166,6 +174,6 @@ PageApp.run(function ($rootScope, $location, loginService) {
     });
 }).service('nomeBanco',function(){
     this.getLink = function(){
-        return "http://default-environment-fnmmqcmuin.elasticbeanstalk.com/rest/";
+        return "http://frkey.noip.me:3636/br.unicamp/rest/";
     }
 });

@@ -12,7 +12,7 @@ angular.module('myApp.enviar_mensagem', ['ngRoute'])
     .controller('EnviarMensagemCtrl', ['$scope', '$http', '$q', 'loginService', 'mensagemService', function ($scope, $http, $q, loginService, mensagemService) {
 
   
-        
+        $scope.page = '/enviar_mensagem';
     
 
     }]).service("mensagemService", function ($http, $q, nomeBanco) {

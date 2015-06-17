@@ -157,7 +157,7 @@
                         <div class="panel-body">
                             <div class="list-group">
                                 <div ng-repeat="promocao in promocoesCliente | limitTo:6">
-                                    <a href="#/bar/{{promocao.codbar}}" class="list-group-item"><span class="badge" >{{promocao.datainicio}} <div> {{promocao.datafim}}</div></span><b>{{promocao.nome}}</b> - {{promocao.descricao}} </a>
+                                    <a ng-href="#/bar/{{promocao.codbar}}" class="list-group-item"><span class="badge" >{{promocao.datainicio}} <div> {{promocao.datafim}}</div></span><b>{{promocao.nome}}</b> - {{promocao.descricao}} </a>
                                 </div>
 
                             </div>
@@ -178,7 +178,7 @@
                         <div class="panel-body">
                             <div class="list-group">
                                 <div ng-repeat="evento in eventos">
-                                    <a href="#/bar/{{evento.codbar}}" class="list-group-item"><span class="badge" >{{evento.data}}</span>{{evento.nome}} </a>
+                                    <a ng-href="#/bar/{{evento.codbar}}" class="list-group-item"><span class="badge" >{{evento.data}}</span>{{evento.nome}} </a>
                                 </div>
 
                             </div>

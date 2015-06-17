@@ -4,12 +4,12 @@
         <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
         <div class="menu-list">
             <ul id="menu-content" class="menu-content collapse out">
-                <li ng-class="{'active' : isSet(0)}" ng-click="setPage(0)">
+                <li ng-class="{'active' : isSet('/dashboard')}">
                     <a href="#/dashboard">
                         <i class="fa fa-dashboard fa-lg"></i> Dashboard
                     </a>
                 </li>
-                <li ng-show="isCliente === false" ng-class="{'active' : isSet(1)}" ng-click="setPage(1)">
+                <li ng-show="isCliente === false" ng-class="{'active' : isSet('/cardapios')}">
                     <a href="#/cardapios">
                         <i class="fa fa-book fa-lg"></i> Cardápio
                     </a>
@@ -28,47 +28,47 @@
                     </a>
                 </li>
 -->
-                  <li  ng-class="{'active' : isSet(4)}" ng-click="setPage(4)">
+                <li  ng-class="{'active' : isSet('/eventos')}">
                     <a href="#/eventos">
                         <i class="fa fa-fw fa-calendar fa-lg"></i> Eventos
                     </a>
                 </li>
-                 <li  ng-class="{'active' : isSet(5)}" ng-click="setPage(5)">
+                 <li  ng-class="{'active' : isSet('/promocoes')}">
                     <a href="#/promocoes">
                         <i class="fa fa-bullhorn fa-lg"></i> Promoções
                     </a>
                 </li>
-                <li  ng-class="{'active' : isSet(6)}" ng-click="setPage(6)">
+                <li  ng-class="{'active' : isSet('/lancamentos')}">
                     <a href="#/lancamentos">
                         <i class="fa fa-barcode fa-lg"></i> Lançamentos
                     </a>
                 </li>
-                <li ng-show="isCliente === false" ng-class="{'active' : isSet(7)}" ng-click="setPage(7)">
+                <li ng-show="isCliente === false" ng-class="{'active' : isSet('/funcionarios')}">
                     <a href="#/funcionarios">
                         <i class="fa fa-users fa-lg"></i> Funcionários
                     </a>
                 </li>
-                <li ng-show="isCliente" ng-class="{'active' : isSet(8)}" ng-click="setPage(8)">
+                <li ng-show="isCliente" ng-class="{'active' : isSet('/avaliacoes')}">
                     <a href="#/avaliacoes">
                         <i class="fa fa-users fa-lg"></i> Avaliações
                     </a>
                 </li>
-                <li ng-show="isCliente" ng-class="{'active' : isSet(9)}" ng-click="setPage(9)">
+                <li ng-show="isCliente" ng-class="{'active' : isSet('/favoritos')}">
                     <a href="#/favoritos">
                         <i class="fa fa-check fa-lg"></i> Favoritos
                     </a>
                 </li>
-                <li ng-show="isCliente" ng-class="{'active' : isSet(10)}" ng-click="setPage(10)">
+                <li ng-show="isCliente" ng-class="{'active' : isSet('/recomendados')}">
                     <a href="#/recomendados">
                         <i class="fa fa-beer fa-lg"></i> Bares recomendados
                     </a>
                 </li>
-                <li ng-show="isCliente" ng-class="{'active' : isSet(11)}" ng-click="setPage(11)">
+                <li ng-show="isCliente" ng-class="{'active' : isSet('/mensagens')}">
                     <a href="#/mensagens">
                         <i class="fa fa-envelope fa-lg"></i> Mensagens
                     </a>
                 </li>
-                <li ng-show="isCliente === false" ng-class="{'active' : isSet(12)}" ng-click="setPage(12)">
+                <li ng-show="isCliente === false" ng-class="{'active' : isSet('/enviar_mensagem')}">
                     <a href="#/enviar_mensagem">
                         <i class="fa fa-envelope fa-lg"></i> Enviar Mensagens
                     </a>
@@ -80,7 +80,7 @@
                     </a>
                 </li>
 -->
-                <li ng-show="isCliente === false" ng-class="{'active' : isSet(14)}" ng-click="setPage(14)">
+                <li ng-show="isCliente === false" ng-class="{'active' : isSet('/editar_bar')}">
                     <a href="#/editar_bar">
                         <i class="fa fa-beer fa-lg"></i> Editar Bar
                     </a>

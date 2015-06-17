@@ -11,8 +11,7 @@ angular.module('myApp.dashboard', ['ngRoute'])
 
 .controller('DashboardCtrl', ['$scope', '$http', '$q', 'loginService', 'dashboardService', function ($scope, $http, $q, loginService, dashboardService) {
 
-    console.log("ueh foi");
-
+    $scope.page = '/dashboard';
     $scope.rate = 3;
     $scope.x = 2;
     $scope.max = 5;
@@ -115,6 +114,17 @@ angular.module('myApp.dashboard', ['ngRoute'])
             });
     }
 
+    function getCardapioDia() {
+        dashboardService.getCardapioDia($scope.usuario.codbar)
+            .success(function (data) {
+            $scope.cardapio = data;
+            console.log($scope.cardapio);
+        })
+            .error(function (error) {
+            console.log(error.message);
+        });
+    }
+    
     function getUser() {
         dashboardService.getDadosUser(loginService.getId())
             .success(function (data) {
@@ -137,17 +147,6 @@ angular.module('myApp.dashboard', ['ngRoute'])
 
 
                 getBar();
-
-                function getCardapioDia() {
-                    dashboardService.getCardapioDia($scope.usuario.codbar)
-                        .success(function (data) {
-                            $scope.cardapio = data;
-                            console.log($scope.cardapio);
-                        })
-                        .error(function (error) {
-                            console.log(error.message);
-                        });
-                }
 
                 getCardapioDia();
 

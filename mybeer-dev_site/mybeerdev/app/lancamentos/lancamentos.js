@@ -15,6 +15,7 @@ angular.module('myApp.lancamentos', ['ngRoute'])
         $scope.lancamentos = [];
         $scope.lancamento = {};
     $scope.alerts = [];
+        $scope.page = '/lancamentos';
         
         //hora
         $scope.mytime = new Date();

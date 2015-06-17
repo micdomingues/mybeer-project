@@ -24,6 +24,7 @@
                 <div class="col-xs-12">
                     <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
                 </div>
+                <form role="form" ng-submit="criarPromocoes()">
                 <div class="col-xs-12" style="padding:10px">
                     <div class="col-md-6">
                         <label>Título da Promoção: *</label>
@@ -48,25 +49,23 @@
                     </div>
                     <div class="col-md-6">
                         <label>Tipo da Promoção: </label>
-
-                            <form name="myForm">
-                              <label>
-                                <input type="radio" ng-model="promocao.tipo" value="todos">
-                                Para Todos
-                              </label><br/>
-                              <label>
-                                <input type="radio" ng-model="promocao.tipo" value="favoritados">
-                                Para Favoritados
-                              </label><br/>
-                             </form>
-                             <br/>
+                    <br/>
+                          <label>
+                            <input type="radio" id="radio" name="radio" ng-model="promocao.tipo" value="todos" required>
+                            Para Todos
+                          </label><br/>
+                          <label>
+                              <input type="radio" id="radio" name="radio" ng-model="promocao.tipo" value="favoritados">
+                            Para Favoritados
+                          </label><br/>
+                         <br/>
                     </div>
                 </div>
                 <div class="form-group pull-right">
 
-                    <button type="button" class="btn btn-warning" ng-click="criarPromocoes()"> <span>Salvar Promoção</span> </button>
+                    <button type="submit" class="btn btn-warning"> <span>Salvar Promoção</span> </button>
                 </div>
-
+                </form>
                 <div class="clearfix"></div>
             </div>
             <div class="panel panel-default" style="padding:5px">
@@ -78,7 +77,8 @@
                     <table style="width:100%"  class="table table-hover">
                         <thead>
                             <tr>
-                                <th><h4>Data de Criação</h4></th>
+                                <th ng-show="isCliente === false"><h4>Data de Criação</h4></th>
+                                <th ng-show="isCliente"><h4>Nome do Bar</h4></th>
                                 <th><h4>Descrição</h4></th>
                                 <th><h4>Data Início</h4></th>
                                 <th><h4>Data Fim</h4></th>
@@ -86,7 +86,8 @@
                         </thead>
                         <tbody>
                             <tr ng-repeat="promocao in promocoes" >
-                                <td>{{promocao.dataabertura}}</td>
+                                <td ng-show="isCliente === false">{{promocao.dataabertura}}</td>
+                                <td ng-show="isCliente"><a ng-href="#/bar/{{promocao.codbar}}">{{promocao.nomebar}}</a></td>
                                 <td>{{promocao.descricao}}</td>
                                 <td>{{promocao.datainicio}}</td>
                                 <td>{{promocao.datafim}}</td>
@@ -102,19 +103,7 @@
                 </div>
                 <div class="clearfix"></div>
             </div>
-            <!--
-            <form action="rest/files/upload" method="post" enctype="multipart/form-data">
-
-                <p>
-                    Select a file : <input type="file" name="file" size="50" />
-                </p>
-
-                <input type="submit" value="Upload It" />
-            </form>
--->
-
-            <!-- /.container-fluid -->
-
+           
         </div>
         <!-- /#page-wrapper -->
 

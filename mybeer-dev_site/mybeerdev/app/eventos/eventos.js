@@ -15,7 +15,7 @@ angular.module('myApp.eventos', ['ngRoute'])
     $scope.eventos = [];
     $scope.evento = {};
     $scope.alerts = [];
-
+    $scope.page = '/eventos';
     //hora
     $scope.mytime = new Date();
     $scope.ismeridian = false;

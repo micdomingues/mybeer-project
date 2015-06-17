@@ -14,7 +14,8 @@ angular.module('myApp.favoritos', ['ngRoute'])
     $scope.favoritos = [];
     $scope.cardapio = [];
 
-
+    $scope.page = '/favoritos';
+    
     function getCardapioDia(id) {
         favoritosService.getCardapioDia($scope.favoritos[id].codbar)
             .success(function (data) {
