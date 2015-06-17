@@ -8,6 +8,7 @@ import br.unicamp.model.Bar;
 import br.unicamp.model.Cardapio;
 import br.unicamp.model.Evento;
 import br.unicamp.model.Promocao;
+import br.unicamp.model.StatisticBar;
 
 public class BarController
 {
@@ -16,7 +17,7 @@ public class BarController
 		return BarDAO.getInstance().listarTodos();
 	}
 	
-	public ArrayList<Bar> search(String nomefantasia)
+	public ArrayList<StatisticBar> search(String nomefantasia)
 	{
 		return BarDAO.getInstance().search(nomefantasia);
 	}

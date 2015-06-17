@@ -13,6 +13,7 @@ import br.unicamp.model.Cardapio;
 import br.unicamp.model.Evento;
 import br.unicamp.model.Promocao;
 import br.unicamp.model.Semana;
+import br.unicamp.model.StatisticBar;
 
 public class BarDAO extends ConnectionFactory
 {
@@ -203,10 +204,10 @@ public class BarDAO extends ConnectionFactory
 					+ "CAR.SEG, CAR.TER, CAR.QUA, CAR.QUI, CAR.SEX, CAR.SAB, CAR.DOM FROM CARDAPIO CAR INNER JOIN "
 					+ "(FUNCIONARIO FUN INNER JOIN BAR ON (FUN.CODBAR = BAR.CODBAR)) ON (CAR.IDFUNCIONARIO = FUN.ID) "
 					+ "WHERE BAR.CODBAR = ? AND ((NOW() BETWEEN CAR.DATAINICIO AND CAR.DATAFIM) OR "
-					+ "(IF(DATE_FORMAT(NOW(), '%W') = 0 AND CAR.DOM = 1, TRUE, IF(DATE_FORMAT(NOW(), '%W') = 1 AND "
-					+ "CAR.SEG = 1, TRUE, IF(DATE_FORMAT(NOW(), '%W') = 2 AND CAR.TER = 1, TRUE, IF(DATE_FORMAT(NOW(), '%W') = 3 "
-					+ "AND CAR.QUA = 1, TRUE, IF(DATE_FORMAT(NOW(), '%W') = 4 AND CAR.QUI = 1, TRUE, IF(DATE_FORMAT(NOW(), '%W') = 5 "
-					+ "AND CAR.SEX = 1, TRUE, IF(DATE_FORMAT(NOW(), '%W') = 6 AND CAR.SAB = 1, TRUE, FALSE)))))))))");
+					+ "(IF(DATE_FORMAT(NOW(), '%w') = 0 AND CAR.DOM = 1, TRUE, IF(DATE_FORMAT(NOW(), '%w') = 1 AND "
+					+ "CAR.SEG = 1, TRUE, IF(DATE_FORMAT(NOW(), '%w') = 2 AND CAR.TER = 1, TRUE, IF(DATE_FORMAT(NOW(), '%w') = 3 "
+					+ "AND CAR.QUA = 1, TRUE, IF(DATE_FORMAT(NOW(), '%w') = 4 AND CAR.QUI = 1, TRUE, IF(DATE_FORMAT(NOW(), '%w') = 5 "
+					+ "AND CAR.SEX = 1, TRUE, IF(DATE_FORMAT(NOW(), '%w') = 6 AND CAR.SAB = 1, TRUE, FALSE))))))))) ORDER BY CAR.DATAINICIO DESC");
 			
 			pstmt.setInt(1, codbar);
 			rs = pstmt.executeQuery();
@@ -468,49 +469,56 @@ public class BarDAO extends ConnectionFactory
 		return promocoes;
 	}
 	
-	public ArrayList<Bar> search(String nomefantasia)
+	public ArrayList<StatisticBar> search(String nomefantasia)
 	{
 		Connection conexao = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		Bar bar = null;
-		ArrayList<Bar> bares = null;
+		StatisticBar statbar = null;
+		ArrayList<StatisticBar> statsbares = null;
 		
 		conexao = criarConexao();
-		bares = new ArrayList<Bar>();		
+		statsbares = new ArrayList<StatisticBar>();		
 		try
 		{
-			pstmt = conexao.prepareStatement("SELECT * FROM BAR WHERE NOMEFANTASIA LIKE CONCAT('%', ?, '%')");
+			pstmt = conexao.prepareStatement("SELECT BAR.CODBAR, BAR.CNPJ, BAR.NOME, BAR.NOMEFANTASIA, BAR.DESCRICAO, BAR.ENDERECO, BAR.OBSERVACAO,"
+					+ "(SELECT AVG(PRECO) FROM AVALIACAO AV3 WHERE AV3.CODBAR = BAR.CODBAR) AS MPRECO, "
+					+ "(SELECT AVG(QUALIDADE) FROM AVALIACAO AV4 WHERE AV4.CODBAR = BAR.CODBAR) AS MQUALIDADE, "
+					+ "(SELECT COUNT(*) FROM AVALIACAO AV2 WHERE FAVORITO = 1 AND AV2.CODBAR = BAR.CODBAR) AS FAVORITOS FROM BAR WHERE NOMEFANTASIA LIKE CONCAT('%', ?, '%')");
 			
 			pstmt.setString(1, nomefantasia);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next())
 			{
-				bar = new Bar();
+				statbar = new StatisticBar();
 				
-				bar.setCodbar(rs.getInt("CODBAR"));
-				bar.setCnpj(rs.getString("CNPJ"));
-				bar.setNome(rs.getString("NOME"));
-				bar.setNomefantasia(rs.getString("NOMEFANTASIA"));
-				bar.setEndereco(rs.getString("ENDERECO"));
-				bar.setDescricao(rs.getString("DESCRICAO"));
-				bar.setObservacao(rs.getString("OBSERVACAO"));
+				statbar.setCodbar(rs.getInt("CODBAR"));
+				statbar.setCnpj(rs.getString("CNPJ"));
+				statbar.setNome(rs.getString("NOME"));
+				statbar.setNomefantasia(rs.getString("NOMEFANTASIA"));
+				statbar.setEndereco(rs.getString("ENDERECO"));
+				statbar.setDescricao(rs.getString("DESCRICAO"));
+				statbar.setObservacao(rs.getString("OBSERVACAO"));
 				
-				bares.add(bar);
+				statbar.setMediapreco(rs.getFloat("MPRECO"));
+				statbar.setMediaqualidade(rs.getFloat("MQUALIDADE"));
+				statbar.setFavoritos(rs.getInt("FAVORITOS"));
+				
+				statsbares.add(statbar);
 			}
 			
 		}
 		catch (Exception e) 
 		{
-			System.out.println("Erro ao listar todos os bares: " + e);
+			System.out.println("Erro ao pesquisar por bares: " + e);
 			e.printStackTrace();
 		}
 		finally
 		{
 			fecharConexao(conexao, pstmt, rs);
 		}
-		return bares;
+		return statsbares;
 	}
 	
 	public ArrayList<Bar> listarTodos()
