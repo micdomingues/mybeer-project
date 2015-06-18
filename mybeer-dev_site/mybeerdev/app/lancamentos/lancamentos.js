@@ -9,17 +9,17 @@ angular.module('myApp.lancamentos', ['ngRoute'])
     });
     }])
 
-    .controller('lancamentoController', ['$scope','$http','lancamentoService','toaster','nomeBanco','loginService', function ($scope,$http,lancamentoService, toaster,nomeBanco,loginService) {
+.controller('lancamentoController', ['$scope', '$http', 'lancamentoService', 'toaster', 'nomeBanco', 'loginService', function ($scope, $http, lancamentoService, toaster, nomeBanco, loginService) {
 
 
-        $scope.lancamentos = [];
-        $scope.lancamento = {};
+    $scope.lancamentos = [];
+    $scope.lancamento = {};
     $scope.alerts = [];
-        $scope.page = '/lancamentos';
-        
-        //hora
-        $scope.mytime = new Date();
-        $scope.ismeridian = false;
+    $scope.page = '/lancamentos';
+
+    //hora
+    $scope.mytime = new Date();
+    $scope.ismeridian = false;
 
     $scope.conversorDate = function (data) {
 
@@ -30,7 +30,7 @@ angular.module('myApp.lancamentos', ['ngRoute'])
             var dYear = d.getFullYear();
             var dHour = $scope.mytime.getHours();
             var dMinute = $scope.mytime.getMinutes();
-            var date = dDay + "/" + dMon + "/" + dYear + " " + dHour +":"+ dMinute;
+            var date = dDay + "/" + dMon + "/" + dYear + " " + dHour + ":" + dMinute;
 
             return date;
         }
@@ -40,48 +40,55 @@ angular.module('myApp.lancamentos', ['ngRoute'])
     $scope.limparForm = function () {
         $scope.lancamento = {};
     }
-    
+
     $scope.sendlancamento = function (lancamento) {
 
         var res = $http.put(nomeBanco.getLink() + 'lancamentos', lancamento);
         res.success(function (data, status, headers, config) {
 
-            $scope.limparForm();
-            
-            toaster.pop('success', "Sucesso", "Lançamento adicionado com sucesso");
+            if (data) {
+                $scope.limparForm();
+
+                toaster.pop('success', "Sucesso", "Lançamento adicionado com sucesso");
+                $scope.getLancamentos();
+            } else {
+                toaster.pop('error', "Erro", "CPF não encontrado!");
+            }
+
 
             var message = data;
         });
         res.error(function (data, status, headers, config) {
 
-            
-            toaster.pop('error', "Erro Interno", JSON.stringify({data:data}));
+
+            toaster.pop('error', "Erro Interno", JSON.stringify({
+                data: data
+            }));
 
         });
-        
-        $scope.getLancamentos();
+
     }
 
-    $scope.criarlancamentos = function(){
-        
+    $scope.criarlancamentos = function () {
+
         $scope.lancamento.data = $scope.conversorDate($scope.lancamento.data);
         var lancamento = angular.copy($scope.lancamento);
         //PEGAR CODIGO DO BAR
         lancamento.idfuncionario = loginService.getId();
         $scope.sendlancamento(lancamento);
     }
-    
-    
-        $scope.getLancamentos = function(){
-            var promise = lancamentoService.getLancamentos(loginService.getId());
-            promise.then(function (data) {
-                $scope.lancamentos = data.data;  
-              
-            })
-        }
- 
 
-        $scope.getLancamentos();
+
+    $scope.getLancamentos = function () {
+        var promise = lancamentoService.getLancamentos(loginService.getId());
+        promise.then(function (data) {
+            $scope.lancamentos = data.data;
+
+        })
+    }
+
+
+    $scope.getLancamentos();
 
     }]).service("lancamentoService", function ($http, $q, nomeBanco) {
 

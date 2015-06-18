@@ -32,6 +32,5 @@ angular.module('myApp.mensagens', ['ngRoute'])
 
     this.getMensagens = function (id) {
         return $http.get(nomeBanco.getLink() + 'clientes/mensagens/' + id);
-
     }
 });

@@ -23,6 +23,7 @@ var PageApp = angular.module('myApp', [
   'myApp.recomendados',
   'myApp.version',
   'toaster',
+  'fxpicklist',
   'ui.bootstrap'
 ]).
 config(['$routeProvider', function ($routeProvider) {

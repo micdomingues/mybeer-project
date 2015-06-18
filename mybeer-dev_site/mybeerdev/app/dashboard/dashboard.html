@@ -20,9 +20,9 @@
                         <div class="panel-title col-xs-2" align="center">
                             <button class="btn btn-danger" ng-show="isReadOnly" ng-click="rate = 0" style="padding:3px 8px;border-radius:50px" ng-disabled="isReadonly"><span class="glyphicon glyphicon-remove"></span>
                             </button>
-                            <rating ng-model="rate" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating>
+                            <rating ng-model="bar.mediaqualidade" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating>
                             <div class="clearfix"></div>
-                            <rating ng-model="x" readonly="isReadonly" max="3" state-on="'glyphicon-usd'" state-off="'fa fa-strikethrough'"></rating>
+                            <rating ng-model="bar.mediapreco" readonly="isReadonly" max="3" state-on="'glyphicon-usd'" state-off="'fa fa-strikethrough'"></rating>
                         </div>
                         <div style="text-align:center">
                         <div> {{bar.descricao}}</div>
@@ -133,17 +133,16 @@
 
         <div ng-show="isCliente" ng-cloak>
             <div class="col-lg-12 col-md-12" ng-controller="RatingCtrl">
-              <!--  <div class="panel panel-danger">
+                <div class="panel panel-danger">
                     <div class="panel-heading">
                         <div class="panel-title">
                             <big>Pontuação: {{usuario.saldopts}}</big> 
-                            <big class="pull-right">Código Desconto: {{usuario.saldopts}}</big> 
                         </div>
                         <div class="panel-title" align="center">
 
                         </div>
                     </div>
-                </div>-->
+                </div>
 
             </div>
 
@@ -153,13 +152,13 @@
                         <div class="panel-heading">
                             <div class="panel-title">
                                 <i class="fa fa-fw fa-calendar"></i>
-                                <span><big>Promocoes</big></span>
+                                <span><big>Promoções</big></span>
                             </div>
                         </div>
                         <div class="panel-body">
                             <div class="list-group">
                                 <div ng-repeat="promocao in promocoesCliente | limitTo:6">
-                                    <a ng-href="#/bar/{{promocao.codbar}}" class="list-group-item"><span class="badge" >{{promocao.datainicio}} <div> {{promocao.datafim}}</div></span><b>{{promocao.nome}}</b> - {{promocao.descricao}} </a>
+                                    <a ng-click="openModal(promocao,'promocao.html')" class="list-group-item"><span class="badge" >{{promocao.datainicio}} <div> {{promocao.datafim}}</div></span><b>{{promocao.nome}}</b> - {{promocao.descricao}} </a>
                                 </div>
 
                             </div>
@@ -181,7 +180,7 @@
                         <div class="panel-body">
                             <div class="list-group">
                                 <div ng-repeat="evento in eventos">
-                                    <a ng-href="#/bar/{{evento.codbar}}" class="list-group-item"><span class="badge" >{{evento.data}}</span>{{evento.nome}} </a>
+                                    <a ng-click="openModal(evento,'evento.html')" class="list-group-item"><span class="badge" >{{evento.data}}</span>{{evento.nome}} </a>
                                 </div>
 
                             </div>
@@ -257,7 +256,8 @@
         <div class="col-xs-offset-10">
             <h4 class="badge"><b><span style="font-size: 150%;">{{data.data}}</span></b></h4> 
             <br/>
-            <a target="_blank" ng-href="{{evento.linkevento}}"><span class="fa fa fa-facebook-square fa-lg pull-right"></span></a>
+            <a target="_blank" ng-href="{{data.linkevento}}"><span class="fa fa fa-facebook-square fa-lg pull-right"></span></a>
+            <br/>
             <a ng-href="#/bar/{{data.codbar}}" ng-click="ok()"><span class="fa fa fa-beer fa-lg pull-right"></span></a>
         </div>
         <div class="clearfix"></div>

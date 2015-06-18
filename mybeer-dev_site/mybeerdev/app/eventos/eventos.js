@@ -49,6 +49,8 @@ angular.module('myApp.eventos', ['ngRoute'])
                 $scope.limparForm();
 
                 toaster.pop('success', "Sucesso", "Evento adicionado com sucesso");
+               
+                getEventosFuncionario();
             }else{
                 toaster.pop('error', "Erro", "Evento não adicionado!!");
             }
@@ -66,7 +68,6 @@ angular.module('myApp.eventos', ['ngRoute'])
 
         });
 
-        $scope.getEventos();
     }
 
     $scope.criarEventos = function () {
@@ -92,7 +93,9 @@ angular.module('myApp.eventos', ['ngRoute'])
                     value.mes = value.data.substring(3, 5);
                     value.mesString = mesesString[Number(value.mes) - 1];
                     value.ano = value.data.substring(6, 10);
+                    value.horario = value.data.substring(11);
                 });
+            console.log($scope.eventos);
             })
             .error(function (error) {
                 console.log(error.message);
@@ -110,6 +113,7 @@ angular.module('myApp.eventos', ['ngRoute'])
                 value.mes = value.data.substring(3, 5);
                 value.mesString = mesesString[Number(value.mes) - 1];
                 value.ano = value.data.substring(6, 10);
+                value.horario = value.data.substring(11);
             });
         })
             .error(function (error) {

@@ -78,13 +78,14 @@
                                     <span class="time">ALL DAY</span>
                                 </time>
                                 <div class="info">
-                                    <h2 class="title">{{evento.nome}}</h2>
+                                    <h2 class="title">{{evento.nome}} | <span class="fa fa-clock-o fa-sm">  </span>{{evento.horario}}</h2>
                                     <p class="desc">{{evento.descricao}}</p>
-                                    <p class="desc"><a href="#/bar/{{evento.codbar}}">{{evento.nomebar}}</a></p>
                                 </div>
                                 <div class="social">
                                     <ul>
                                         <li class="facebook" style="width:33%;"><a ng-href="{{evento.linkevento}}" target="_blank"><span class="fa fa-facebook" ></span></a>
+                                        </li>
+                                        <li class="google-plus" style="width:33%;"><a ng-href="#/bar/{{evento.codbar}}" ><span class="fa fa-beer" ></span></a>
                                         </li>
                                     </ul>
                                 </div>

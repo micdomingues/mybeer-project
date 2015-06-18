@@ -9,17 +9,32 @@ angular.module('myApp.funcionarios', ['ngRoute'])
     });
     }])
 
-    .controller('funcionarioController', ['$scope','$http','funcionarioService', function ($scope,$http,funcionarioService) {
+.controller('funcionarioController', ['$scope', '$http', 'funcionarioService', 'loginService', 'nomeBanco', 'toaster', function ($scope, $http, funcionarioService, loginService, nomeBanco, toaster) {
 
 
-        $scope.funcionarios = [];
-        $scope.funcionario = {};
+    $scope.funcionarios = [];
+    $scope.funcionario = {};
     $scope.alerts = [];
-        $scope.page = '/funcionarios';
-        
-        //hora
-        $scope.mytime = new Date();
-        $scope.ismeridian = false;
+    $scope.page = '/funcionarios';
+
+    //hora
+    $scope.mytime = new Date();
+    $scope.ismeridian = false;
+
+    function getUser() {
+        funcionarioService.getDadosUser(loginService.getId())
+            .success(function (data) {
+                $scope.usuarioLogado = data;
+                console.log($scope.usuarioLogado);
+                getFuncionarios();
+            })
+            .error(function (error) {
+                console.log(error.message);
+            });
+    }
+
+    getUser();
+
 
     $scope.conversorDate = function (data) {
 
@@ -30,7 +45,7 @@ angular.module('myApp.funcionarios', ['ngRoute'])
             var dYear = d.getFullYear();
             var dHour = $scope.mytime.getHours();
             var dMinute = $scope.mytime.getMinutes();
-            var date = dDay + "/" + dMon + "/" + dYear + " " + dHour +":"+ dMinute;
+            var date = dDay + "/" + dMon + "/" + dYear + " " + dHour + ":" + dMinute;
 
             return date;
         }
@@ -40,73 +55,78 @@ angular.module('myApp.funcionarios', ['ngRoute'])
     $scope.limparForm = function () {
         $scope.funcionario = {};
     }
-    
+
     $scope.sendfuncionario = function (funcionario) {
 
-        var res = $http.post('http://default-environment-fnmmqcmuin.elasticbeanstalk.com/rest/funcionario/inserefuncionario', funcionario);
+        var res = $http.put(nomeBanco.getLink() + 'funcionarios', funcionario);
         res.success(function (data, status, headers, config) {
 
-            $scope.limparForm();
-            
-            $scope.alerts.push({
-                type: 'success',
-                msg: 'funcionario adicionado com sucesso'
-            });
+            if (data) {
+                toaster.pop('success', "Sucesso", "Funcionário adicionado com sucesso");
+                $scope.limparForm();
+            } else {
+                toaster.pop('error', "Erro", "O funcionário não pode ser cadastrado");
+            }
 
             var message = data;
+
+
         });
         res.error(function (data, status, headers, config) {
 
-            console.log("ERRO");
-            
-            $scope.alerts.push({
-                type: 'danger',
-                msg: 'Erro:' + JSON.stringify({
-                    data: data
-                })
-            });
-
+            toaster.pop('error', "Erro", "O funcionário não pode ser cadastrado");
         });
-        
-        $scope.getfuncionarios();
+
     }
 
-    $scope.criarfuncionarios = function(){
-        
-        $scope.funcionario.data = $scope.conversorDate($scope.funcionario.data);
+    $scope.criarFuncionario = function () {
+
         var funcionario = angular.copy($scope.funcionario);
-        //PEGAR CODIGO DO BAR
-        funcionario.codbar = 1;
+        funcionario.codbar = $scope.usuarioLogado.codbar;
         $scope.sendfuncionario(funcionario);
     }
-    
-    var mesesString = ["JAN","FEV","MAR","ABR","MAI","JUN","JUL","AGO","SET","OUT","NOV","DEZ"];
-    
-        $scope.getfuncionarios = function(){
-            var promise = funcionarioService.getfuncionarios();
-            promise.then(function (data) {
-                $scope.funcionarios = data.data.funcionario;  
-                angular.forEach($scope.funcionarios, function(value, key) {
-                    value.dia = value.data.substring(0,2);
-                    value.mes = value.data.substring(3,5);
-                    value.mesString = mesesString[Number(value.mes)-1];
-                    value.ano = value.data.substring(6,10);
-                });
+
+    function getFuncionarios() {
+        funcionarioService.getFuncionarios($scope.usuarioLogado.codbar)
+            .success(function (data) {
+                $scope.funcionarios = data;
+                console.log($scope.funcionarios);
+
             })
-        }
- 
-
-        $scope.getfuncionarios();
-
-    }]).service("funcionarioService", function ($http, $q) {
-    var deferred = $q.defer();
-    $http.get('http://default-environment-fnmmqcmuin.elasticbeanstalk.com/rest/funcionario').then(function (data) {
-        deferred.resolve(data);
-    });
-
-    this.getfuncionarios = function () {
-        return deferred.promise;
+            .error(function (error) {
+                console.log(error.message);
+            });
     }
 
 
+
+
+
+
+
+    }]).service("funcionarioService", function ($http, $q, nomeBanco) {
+
+    this.getDadosUser = function (id) {
+        return $http.get(nomeBanco.getLink() + 'pessoas/' + id);
+
+    }
+
+
+    this.getFuncionarios = function (id) {
+        return $http.get(nomeBanco.getLink() + 'bares/funcionarios/' + id);
+
+    }
+
+
+
+}).filter('convertTipo', function () {
+    return function (tipo){
+        var nome;
+        if (tipo == "G") {
+        nome = "Gerente";
+        } else {
+            nome = "Funcionário";
+        }
+    return nome;
+    }
 });

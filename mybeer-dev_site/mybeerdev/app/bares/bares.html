@@ -9,6 +9,8 @@
         </div>
 
 
+        <div ng-show="bar != null">
+            <div style="text-align:center" ng-show="bar == null"> <h2>Esse bar não existe</h2></div>
         <div ng-show="isCliente && avaliaBar" class="col-lg-12 col-md-12">
             <div class="panel panel-default" style="padding:5px">
                 <div class="panel-heading">
@@ -91,25 +93,23 @@
             <div class="col-lg-12 col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <div class="panel-title">
-                            <big>{{bar.nomefantasia}}</big>
-                            <button type="button" class="btn btn-warning pull-right" ng-click="avaliaBar = true"> <span>Avaliar Bar</span> </button>
-                        </div>
-                        <p>
-                            <div class="panel-title" align="right">
-                                <button class="btn btn-danger" ng-show="isReadOnly" ng-click="rate = 0" style="padding:3px 8px;border-radius:50px" ng-disabled="isReadonly"><span class="glyphicon glyphicon-remove"></span>
-                                </button>
-                                <rating ng-model="bar.mediaqualidade" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating>
-                                <div class="clearfix"></div>
-                                <rating ng-model="bar.mediapreco" readonly="isReadonly" max="3" state-on="'glyphicon-usd'" state-off="'fa fa-strikethrough'"></rating>
-                            </div>
-                        </p>
-                        <div align="center">
-                            <div> {{bar.descricao}}</div>
-                            <div> {{bar.endereco}}</div>
-                            <div> {{bar.observacao}}</div>
-                        </div>
+                    <div class="panel-title col-xs-2" align="center">
+                        <span class="fa fa fa-beer fa-lg"> </span><big>{{bar.nomefantasia}}</big>
                     </div>
+                    <div class="col-xs-8"></div>
+                    <div class="panel-title col-xs-2" align="center">
+                        <button class="btn btn-danger" ng-show="isReadOnly" ng-click="rate = 0" style="padding:3px 8px;border-radius:50px" ng-disabled="isReadonly"><span class="glyphicon glyphicon-remove"></span>
+                        </button>
+                        <rating ng-model="bar.mediaqualidade" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating>
+                        <div class="clearfix"></div>
+                        <rating ng-model="bar.mediapreco" readonly="isReadonly" max="3" state-on="'glyphicon-usd'" state-off="'fa fa-strikethrough'"></rating>
+                    </div>
+                    <div style="text-align:center">
+                        <div> {{bar.descricao}}</div>
+                        <div> {{bar.endereco}}</div>
+                        <div> {{bar.observacao}}</div>
+                    </div>
+                </div>
                 </div>
 
             </div>
@@ -133,6 +133,7 @@
                                 </div>
 
                             </div>
+                            <div style="text-align:center" ng-show="eventos.length == 0"> <h5 >Nenhum evento para exibir!</h5></div>
                         </div>
 
                     </div>
@@ -155,12 +156,13 @@
                                 </div>
 
                             </div>
+                            <div style="text-align:center" ng-show="promocoes.length == 0"> <h5 >Nenhuma promoção para exibir!</h5></div>
                         </div>
 
                     </div>
 
                 </div>
-                
+
                 <div class="col-lg-4 col-md-4">
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -171,6 +173,7 @@
                         </div>
                         <div style="padding:10px;white-space: pre-line;margin-left:2%">
                             <b> {{cardapio.descricao}}</b>
+                            <div style="text-align:center" ng-show="cardapio.length == 0"> <h5 >Nenhum cardápio para exibir!</h5></div>
                             <div class="clearfix">
                             </div>
                         </div>
@@ -201,6 +204,7 @@
                                 </div>
 
                             </div>
+                            <div style="text-align:center" ng-show="avaliacoes.length == 0"> <h5 >Nenhuma avaliação para exibir!</h5></div>
                         </div>
 
                     </div>
@@ -210,6 +214,7 @@
             </div>
         </div>
 
+        </div>
     </div>
     <!-- /.container-fluid -->
 </div>
@@ -223,10 +228,15 @@
             <span><h4><b>{{data.descricao}}</b></h4> </span>
         </div>
         <div class="col-xs-offset-10">
-            <h4 class="badge"><b><span style="font-size: 150%;">{{data.data}}</span></b></h4> 
+            <h4 class="badge"><b><span style="font-size: 150%;">{{data.data}}</span></b></h4>
             <br/>
-            <a target="_blank" ng-href="{{evento.linkevento}}"><span class="fa fa fa-facebook-square fa-lg pull-right"></span></a>
-            <a ng-href="#/bar/{{data.codbar}}" ng-click="ok()"><span class="fa fa fa-beer fa-lg pull-right"></span></a>
+            <div>
+                <a ng-href="{{data.linkevento}}" target="_blank" ><span class="fa fa fa-facebook-square fa-lg pull-right"></span></a>
+                <br/>
+            </div>
+            <div>
+                <a ng-href="#/bar/{{data.codbar}}" ng-click="ok()"><span class="fa fa fa-beer fa-lg pull-right"></span></a>
+            </div>
         </div>
         <div class="clearfix"></div>
     </div>
@@ -244,7 +254,7 @@
             <span><h4><b>{{data.descricao}}</b></h4> </span>
         </div>
         <div class="col-xs-offset-10">
-            <h4 class="badge"><b><span style="font-size: 150%;">{{data.datainicio}} <br/> {{data.datafim}}</span></b></h4> 
+            <h4 class="badge"><b><span style="font-size: 150%;">{{data.datainicio}} <br/> {{data.datafim}}</span></b></h4>
             <br/>
             <a ng-href="#/bar/{{data.codbar}}" ng-click="ok()"><span class="fa fa fa-beer fa-lg pull-right"></span></a>
         </div>

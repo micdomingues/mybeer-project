@@ -3,7 +3,7 @@
         <div class="col-lg-12">
             <ol class="breadcrumb">
                 <li class="active">
-                    <i class="fa fa-fw fa-calendar"></i> <strong>Funcionários<strong/>
+                    <i class="fa fa-fw fa-users"></i> <strong>Funcionários<strong/>
                     </li>
             </ol>
         </div>
@@ -19,23 +19,41 @@
                 <div class="col-xs-12">
                     <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
                 </div>
-                <form class="form-horizontal" role="form" ng-submit="criarlancamentos()">
+                <form class="form-horizontal" role="form" ng-submit="criarFuncionario()">
                     <div class="col-xs-12" style="padding:10px">
                         <div class="col-md-6">
-                            <label>CPF do Cliente: *</label>
-                            <input id="cpf" name="cpf" type="text" class="form-control form-group" placeholder="CPF do Cliente" ng-model="lancamento.cpf" required>
+                            <label>Usuario do Cliente: *</label>
+                            <input id="usuario" name="usuario" type="text" class="form-control form-group" placeholder="Login de Usuario" ng-model="funcionario.usuario" required>
                         </div>
-                        <div class="form-group col-md-6">
-                            <label>Valor do lançamento: *</label>
-                            <input id="money" name="money" type="text" class="form-control form-group" placeholder="Valor do lancamento" ng-model="lancamento.valor" required>
+                        <div class="col-md-6">
+                            <label>Senha: *</label>
+                            <input id="senha" name="senha" type="password" class="form-control form-group" placeholder="Senha do usuario" ng-model="funcionario.senha" required>
                         </div>
 
+                        <div class="col-md-6">
+                            <label>Email: *</label>
+                            <input id="email" name="email" type="text" class="form-control form-group" placeholder="Email" ng-model="funcionario.email" required>
+                        </div>
+                        
+                        <div class=" col-md-6">
+                            <label>Nome: *</label>
+                            <input id="nome" name="nome" type="text" class="form-control form-group" placeholder="Nome" ng-model="funcionario.nome" required>
+                        </div>
+                        <div class=" col-md-6">
+                            <label>Sobrenome: *</label>
+                            <input id="sobrenome" name="sobrenome" type="text" class="form-control form-group" placeholder="Sobrenome" ng-model="funcionario.sobrenome" required>
+                        </div>
+                        <div class="form-group col-md-6"></div>
+
+                        <div class="clearfix"></div>
                         <div class="form-group pull-right">
 
                             <button type="submit" class="btn btn-warning" style="margin-right:10%"> <span>Salvar lançamento</span> </button>
                         </div>
                         <div class="clearfix"></div>
                     </div>
+                    
+                    
                 </form>
                 <div class="clearfix"></div>
 
@@ -54,22 +72,21 @@
                             <table style="width:100%"  class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th><h4>Nome Funcionário</h4></th>
-                                        <th><h4>Nome Cliente</h4></th>
-                                        <th><h4>Valor</h4></th>
-                                        <th><h4>Data</h4></th>
+                                        <th><h4>Nome</h4></th>
+                                        <th><h4>Sobrenome</h4></th>
+                                        <th><h4>Classe</h4></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr ng-repeat="lancamento in lancamentos" c>
-                                        <td>{{lancamento.nomefuncionario}}</td>
-                                        <td>{{lancamento.nomecliente}}</td>
-                                        <td>{{lancamento.valor}}</td>
-                                        <td>{{lancamento.data}}</td>
+                                    <tr ng-repeat="funcionario in funcionarios" c>
+                                        <td>{{funcionario.nome}}</td>
+                                        <td>{{funcionario.sobrenome}}</td>
+                                        <td>{{funcionario.classe | convertTipo}}</td>
                                     </tr>
                                 </tbody>
 
                             </table> 
+                            <div style="text-align:center" ng-show="funcionarios.length == 0"> <h2>Nenhum funcionário para exibir!</h2></div>
                             </div>
 
 
