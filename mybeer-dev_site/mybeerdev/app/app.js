@@ -167,7 +167,7 @@ PageApp.factory('loginService', function ($http, $location, sessionService) {
 });
 
 PageApp.run(function ($rootScope, $location, loginService) {
-    var routespermission = ['/dashboard', '/perfil', '/cardapios', '/estatisticas', '/eventos', '/avaliacoes'];
+    var routespermission = ['/dashboard', '/perfil', '/cardapios', '/estatisticas', '/eventos', '/avaliacoes','/bar','/mensagemns','/promocoes','/search'];
     $rootScope.$on('$routeChangeStart', function () {
         if (routespermission.indexOf($location.path()) != -1 && !loginService.islooged()) {
             $location.path('/login');
@@ -177,6 +177,6 @@ PageApp.run(function ($rootScope, $location, loginService) {
     this.getLink = function(){
         //http://default-environment-fnmmqcmuin.elasticbeanstalk.com/rest/
 //        "http://frkey.noip.me:3636/br.unicamp/rest/";
-        return "http://frkey.noip.me:3636/br.unicamp/rest/";
+        return "http://default-environment-fnmmqcmuin.elasticbeanstalk.com/rest/";
     }
 });

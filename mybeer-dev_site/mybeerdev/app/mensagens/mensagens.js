@@ -14,11 +14,26 @@ angular.module('myApp.mensagens', ['ngRoute'])
         
         $scope.page = '/mensagens';
   
-    function getMensagens() {
-        mensagensService.getMensagens(loginService.getId())
+        
+
+        function getMensagens() {
+            mensagensService.getMensagens(loginService.getId())
+                .success(function (data) {
+                $scope.mensagens = data;
+                console.log($scope.mensagens = data);
+                readMensagens();
+            })
+                .error(function (error) {
+                console.log(error.message);
+            });
+        }
+        
+        function readMensagens() {
+            mensagensService.readMensagens({id : loginService.getId()})
             .success(function (data) {
-            $scope.mensagens = data;
-            console.log($scope.mensagens = data);
+            if(data){
+                console.log("sucesso");
+            }
         })
             .error(function (error) {
             console.log(error.message);
@@ -32,5 +47,8 @@ angular.module('myApp.mensagens', ['ngRoute'])
 
     this.getMensagens = function (id) {
         return $http.get(nomeBanco.getLink() + 'clientes/mensagens/' + id);
+    }
+    this.readMensagens = function (id) {
+        return $http.post(nomeBanco.getLink() + 'clientes/mensagens/lidas' , id);
     }
 });

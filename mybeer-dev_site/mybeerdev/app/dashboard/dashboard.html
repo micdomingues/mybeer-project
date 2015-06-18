@@ -202,7 +202,7 @@
                         <div class="panel-body">
                             <div class="list-group">
                                 <div ng-repeat="mensagem in mensagens">
-                                    <a class="list-group-item">{{mensagem.assunto}} <span ng-class="{'label label-success pull-right' : !mensagem.label , 'glyphicon glyphicon-ok pull-right' : mensagem.label}" > {{mensagem.lida | novo}} </span></a>
+                                    <a class="list-group-item">{{mensagem.assunto}} <span ng-class="{'label label-success pull-right' : !mensagem.lida , 'glyphicon glyphicon-ok pull-right' : mensagem.lida}" > {{mensagem.lida | novo}} </span></a>
 
                                 </div>
                                 <div style="text-align:center" ng-show="mensagens.length == 0"> <h5 >Nenhuma mensagem para exibir!</h5></div>

@@ -58,11 +58,24 @@
                 </div>
                 <div class="col-xs-12 col-md-12" style="padding:10px">
 
-                    <div ng-repeat="mensagem in mensagens">
-                        <div class="col-lg-12 col-md-12">
+                    <table style="width:100%"  class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th><h4>Assunto</h4></th>
+                                <th><h4>Conteúdo</h4></th>
+                                <th><h4>Data</h4></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="mensagem in mensagens" >
+                                <td>{{mensagem.assunto}}</td>
+                                <td>{{mensagem.conteudo}}</td>
+                                <td>{{mensagem.data}}</td>
+                            </tr>
+                        </tbody>
 
-                        </div>
-                    </div>
+                    </table> 
+                    <div style="text-align:center" ng-show="mensagens.length == 0"> <h2 >Nenhuma mensagem foi encontrada!</h2></div>
 
 
                     <div class="clearfix"></div>

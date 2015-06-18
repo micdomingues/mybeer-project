@@ -21,6 +21,7 @@ angular.module('myApp.enviar_mensagem', ['ngRoute'])
                 $scope.usuario = data;
                 console.log($scope.usuario);
                 getUsuarios($scope.usuario.codbar)
+                getMensagens($scope.usuario.codbar);
                
             })
                 .error(function (error) {
@@ -63,14 +64,26 @@ angular.module('myApp.enviar_mensagem', ['ngRoute'])
             });
         }
         
-
-
+        
+        function getMensagens(id){
+     
+            mensagemService.getMensagens(id)
+                .success(function (data) {
+                if(data){
+                    $scope.mensagens = data;
+                    console.log($scope.mensagens);
+                }
+            })
+                .error(function (error) {
+                toaster.pop('error', "error", "Erro interno");
+            });
+        }
 
         
     }]).service("mensagemService", function ($http, $q, nomeBanco) {
 
-    this.getenviar_mensagem = function (id) {
-        return $http.get(nomeBanco.getLink() + 'clientes/enviar_mensagem/' + id);
+    this.getMensagens = function (id) {
+        return $http.get(nomeBanco.getLink() + 'bares/mensagens/' + id);
 
     }
     this.listarClientesFavoritos = function (id) {
