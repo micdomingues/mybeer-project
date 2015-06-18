@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 import br.unicamp.factory.ConnectionFactory;
 import br.unicamp.model.Funcionario;
-import br.unicamp.model.Mensagem;
 
 public class FuncionarioDAO extends ConnectionFactory
 {
@@ -38,7 +37,7 @@ public class FuncionarioDAO extends ConnectionFactory
 				
 				pstmt.setInt(1, funcionario.getId());
 				pstmt.setInt(2, funcionario.getCodbar());
-				pstmt.setString(3, "" + funcionario.getClasse());
+				pstmt.setString(3, funcionario.getClasse());
 				
 				res = pstmt.executeUpdate();	            
 	     
@@ -47,6 +46,7 @@ public class FuncionarioDAO extends ConnectionFactory
 			}
 			catch (Exception e) 
 			{
+				funcionario = null;
 				System.out.println("Erro ao adicionar Aluno: " + e);
 				e.printStackTrace();
 			}
@@ -97,6 +97,51 @@ public class FuncionarioDAO extends ConnectionFactory
 		}
 		return funcionario;		
 	}
+	
+	public ArrayList<Funcionario> listarTodos(int codbar)
+	{
+		Connection conexao = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<Funcionario> funcionarios = null;
+	
+		conexao = criarConexao();
+		funcionarios = new ArrayList<Funcionario>();		
+		try
+		{
+			pstmt = conexao.prepareStatement("SELECT PES.ID, PES.NOME, PES.SOBRENOME, PES.TIPO, FUN.CODBAR, "
+					+ "FUN.CLASSE FROM PESSOA PES INNER JOIN FUNCIONARIO FUN ON (PES.ID = FUN.ID) WHERE FUN.CODBAR = ?");
+			
+			pstmt.setInt(1, codbar);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next())
+			{
+				Funcionario funcionario = new Funcionario();
+				
+				funcionario.setId(rs.getInt("ID"));
+				funcionario.setNome(rs.getString("NOME"));
+				funcionario.setSobrenome(rs.getString("SOBRENOME"));
+				funcionario.setTipo(rs.getString("TIPO"));
+				funcionario.setCodbar(rs.getInt("CODBAR"));
+				funcionario.setClasse(rs.getString("CLASSE"));
+				
+				funcionarios.add(funcionario);
+			}
+			
+		}
+		catch (Exception e) 
+		{
+			System.out.println("Erro ao listar os funcionarios do bar: " + e);
+			e.printStackTrace();
+		}
+		finally
+		{
+			fecharConexao(conexao, pstmt, rs);
+		}
+		return funcionarios;
+	}
+	
 	/*
 	public ArrayList<Mensagem> todasMensagens(int idcliente)
 	{

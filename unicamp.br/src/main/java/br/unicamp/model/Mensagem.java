@@ -1,5 +1,7 @@
 package br.unicamp.model;
 
+import java.util.ArrayList;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
@@ -8,7 +10,16 @@ public class Mensagem
 	private int codmensagem, idfuncionario;
 	private String assunto, nomebar, conteudo, data;
 	private boolean lida;
+	private ArrayList<Integer> ids;
 	
+	public ArrayList<Integer> getIds() {
+		return ids;
+	}
+
+	public void setIds(ArrayList<Integer> ids) {
+		this.ids = ids;
+	}
+
 	public int getCodmensagem()
 	{
 		return codmensagem;
@@ -84,7 +95,7 @@ public class Mensagem
 		return "Mensagem [codmensagem=" + codmensagem + ", idfuncionario="
 				+ idfuncionario + ", assunto=" + assunto + ", nomebar="
 				+ nomebar + ", conteudo=" + conteudo + ", data=" + data
-				+ ", lida=" + lida + "]";
+				+ ", lida=" + lida + ", ids=" + ids + "]";
 	}
 	
 	@Override
@@ -97,6 +108,7 @@ public class Mensagem
 				+ ((conteudo == null) ? 0 : conteudo.hashCode());
 		result = prime * result + ((data == null) ? 0 : data.hashCode());
 		result = prime * result + idfuncionario;
+		result = prime * result + ((ids == null) ? 0 : ids.hashCode());
 		result = prime * result + (lida ? 1231 : 1237);
 		result = prime * result + ((nomebar == null) ? 0 : nomebar.hashCode());
 		return result;
@@ -129,6 +141,11 @@ public class Mensagem
 		} else if (!data.equals(other.data))
 			return false;
 		if (idfuncionario != other.idfuncionario)
+			return false;
+		if (ids == null) {
+			if (other.ids != null)
+				return false;
+		} else if (!ids.equals(other.ids))
 			return false;
 		if (lida != other.lida)
 			return false;

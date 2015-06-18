@@ -101,6 +101,49 @@ public class ClienteDAO extends ConnectionFactory
 		return cliente;		
 	}
 	
+	public ArrayList<Cliente> todosFavoritos(int codbar)
+	{
+		Connection conexao = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<Cliente> clientes = null;
+	
+		conexao = criarConexao();
+		clientes = new ArrayList<Cliente>();		
+		try
+		{
+			pstmt = conexao.prepareStatement("SELECT DISTINCT CLI.ID, PES.NOME, PES.SOBRENOME FROM "
+					+ "(CLIENTE CLI INNER JOIN AVALIACAO AV ON (CLI.ID = AV.IDCLIENTE)) INNER JOIN "
+					+ "PESSOA PES ON (CLI.ID = PES.ID) WHERE AV.CODBAR = ? AND AV.FAVORITO = 1");
+			
+			pstmt.setInt(1, codbar);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next())
+			{
+				Cliente cliente = new Cliente();
+				
+				cliente.setId(rs.getInt("ID"));
+				cliente.setNome(rs.getString("NOME"));
+				cliente.setSobrenome(rs.getString("SOBRENOME"));
+				
+				clientes.add(cliente);
+			}
+			
+		}
+		catch (Exception e) 
+		{
+			clientes = null;
+			System.out.println("Erro ao listar os clientes favoritos do bar: " + e);
+			e.printStackTrace();
+		}
+		finally
+		{
+			fecharConexao(conexao, pstmt, rs);
+		}
+		return clientes;
+	}
+	
 	public Cliente consultaCPF(Cliente cliente)
 	{
 		Connection conexao = null;
@@ -207,7 +250,7 @@ public class ClienteDAO extends ConnectionFactory
 					+ "MEN.CONTEUDO, DATE_FORMAT(DATA,'%d/%m/%Y') AS `DATA`, CLIMEN.LIDA FROM "
 					+ "(MENSAGEM MEN INNER JOIN (FUNCIONARIO FUN INNER JOIN BAR ON (FUN.CODBAR = BAR.CODBAR)) ON "
 					+ "(MEN.IDFUNCIONARIO = FUN.ID)) INNER JOIN CLIENTE_MENSAGEM CLIMEN ON (MEN.CODMENSAGEM = CLIMEN.CODMENSAGEM) "
-					+ "WHERE CLIMEN.IDCLIENTE = ?");
+					+ "WHERE CLIMEN.IDCLIENTE = ? ORDER BY `DATA` DESC");
 			
 			pstmt.setInt(1, idcliente);
 			rs = pstmt.executeQuery();

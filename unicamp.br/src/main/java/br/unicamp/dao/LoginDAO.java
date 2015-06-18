@@ -7,7 +7,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import br.unicamp.factory.ConnectionFactory;
-import br.unicamp.model.Cliente;
 import br.unicamp.model.Login;
 
 /***
@@ -113,6 +112,7 @@ public class LoginDAO extends ConnectionFactory
 			}
 			catch (Exception e) 
 			{
+				login = null;
 				System.out.println("Erro ao adicionar Login: " + e);
 				e.printStackTrace();
 			}

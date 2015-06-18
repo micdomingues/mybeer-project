@@ -50,5 +50,10 @@ public class ClienteController
 	public ArrayList<Avaliacao> listarAvaliacoes(int idcliente)
 	{
 		return ClienteDAO.getInstance().listarAvaliacoes(idcliente);
-	}	
+	}
+	
+	public ArrayList<Cliente> todosFavoritos(int codbar)
+	{
+		return ClienteDAO.getInstance().todosFavoritos(codbar);
+	}
 }
