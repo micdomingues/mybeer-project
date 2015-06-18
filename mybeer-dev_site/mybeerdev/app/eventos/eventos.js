@@ -24,7 +24,7 @@ angular.module('myApp.eventos', ['ngRoute'])
 
         if (data != null) {
             var d = angular.copy(data);
-            var dMon = d.getMonth();
+            var dMon = d.getMonth() + 1;
             var dDay = d.getDate();
             var dYear = d.getFullYear();
             var dHour = $scope.mytime.getHours();
@@ -45,9 +45,14 @@ angular.module('myApp.eventos', ['ngRoute'])
         var res = $http.put(nomeBanco.getLink() + 'eventos', evento);
         res.success(function (data, status, headers, config) {
 
-            $scope.limparForm();
+            if(data){
+                $scope.limparForm();
 
-            toaster.pop('success', "Sucesso", "Evento adicionado com sucesso");
+                toaster.pop('success', "Sucesso", "Evento adicionado com sucesso");
+            }else{
+                toaster.pop('error', "Erro", "Evento não adicionado!!");
+            }
+            
 
             var message = data;
         });
@@ -66,29 +71,18 @@ angular.module('myApp.eventos', ['ngRoute'])
 
     $scope.criarEventos = function () {
 
-        $scope.evento.data = $scope.conversorDate($scope.evento.data);
         var evento = angular.copy($scope.evento);
+        evento.data = $scope.conversorDate(evento.data);
+        
         //PEGAR CODIGO DO BAR
-        evento.codbar = 1;
+        evento.codbar = $scope.usuario.codbar;
         $scope.sendEvento(evento);
     }
 
     var mesesString = ["JAN", "FEV", "MAR", "ABR", "MAI", "JUN", "JUL", "AGO", "SET", "OUT", "NOV", "DEZ"];
 
    
-    function getUser() {
-        eventoService.getDadosUser(loginService.getId())
-            .success(function (data) {
-            $scope.usuario = data;
-            console.log(data);
-        })
-            .error(function (error) {
-            console.log(error.message);
-        });
-    }
-
-    getUser();
-
+ 
     function getEventosCliente() {
         eventoService.getEventos(loginService.getId())
             .success(function (data) {
@@ -105,6 +99,7 @@ angular.module('myApp.eventos', ['ngRoute'])
             });
     }
     
+   
 
     function getEventosFuncionario() {
         eventoService.getEventos(loginService.getId())
@@ -122,11 +117,26 @@ angular.module('myApp.eventos', ['ngRoute'])
         });
     }
 
-    if($scope.usuario.codbar != null){
-        getEventosCliente();
-    }else{
-        getEventosFuncionario();
+    function getUser() {
+        eventoService.getDadosUser(loginService.getId())
+            .success(function (data) {
+            $scope.usuario = data;
+            console.log(data);
+
+            if($scope.usuario.codbar == null){
+                getEventosCliente();
+            }else{
+                getEventosFuncionario();
+            }
+
+        })
+            .error(function (error) {
+            console.log(error.message);
+        });
     }
+
+    getUser();
+
     
 
     }]).service("eventoService", function ($http, $q, nomeBanco) {
@@ -138,6 +148,12 @@ angular.module('myApp.eventos', ['ngRoute'])
     
     this.getDadosUser = function (id) {
         return $http.get(nomeBanco.getLink() + 'pessoas/' + id);
+
+    }
+    
+    this.getEventos = function (id) {
+        console.log(id);
+        return $http.get(nomeBanco.getLink() + 'bares/eventos/' + id);
 
     }
 

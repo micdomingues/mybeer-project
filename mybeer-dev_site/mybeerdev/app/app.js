@@ -176,6 +176,6 @@ PageApp.run(function ($rootScope, $location, loginService) {
     this.getLink = function(){
         //http://default-environment-fnmmqcmuin.elasticbeanstalk.com/rest/
 //        "http://frkey.noip.me:3636/br.unicamp/rest/";
-        return "http://default-environment-fnmmqcmuin.elasticbeanstalk.com/rest/";
+        return "http://frkey.noip.me:3636/br.unicamp/rest/";
     }
 });

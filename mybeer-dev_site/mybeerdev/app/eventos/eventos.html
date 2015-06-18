@@ -36,7 +36,7 @@
                         <div>
                             <label>Data do evento</label>
                             <p class="input-group">
-                                <input type="text" id="date" class="form-control" datepicker-popup="{{format}}" is-open="opened" ng-model="evento.data" placeholder="99/99/9999" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" min-date="minDate" ng-required="true" close-text="Fechar" />
+                                <input type="text" id="date" name="date" class="form-control" datepicker-popup="{{format}}" is-open="opened" ng-model="evento.data" placeholder="99/99/9999" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" min-date="minDate" ng-required="true" close-text="Fechar" />
                                 <span class="input-group-btn">
                                     <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
                                 </span>

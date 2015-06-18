@@ -28,16 +28,16 @@
                 <div class="col-xs-12" style="padding:10px">
                     <div class="col-md-6">
                         <label>Título da Promoção: *</label>
-                        <input type="text" class="form-control form-group" placeholder="Título da Promoção" ng-model="evento.nome">
+                        <input type="text" class="form-control form-group" placeholder="Título da Promoção" ng-model="evento.nome" required>
                     </div>
 
                     <div class="form-group col-md-6">
                         <label>Descrição da promoção: *</label>
-                        <textarea class="form-control" rows="6" ng-model="evento.descricao"></textarea>
+                        <textarea class="form-control" rows="6" ng-model="evento.descricao" required></textarea>
                     </div>
 
                     <div ng-controller="DatepickerDemoCtrl" class="col-xs-12 col-md-6 form-group">
-                        <label>Inicio da promoção</label>
+                        <label>Inicio da promoção: *</label>
                         <div>
                             <p class="input-group">
                                 <input type="text" id="date" class="form-control" datepicker-popup="{{format}}" is-open="opened" ng-model="evento.data" placeholder="99/99/9999" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" min-date="minDate" ng-required="true" close-text="Fechar" />
