@@ -14,6 +14,8 @@ import org.codehaus.jettison.json.JSONObject;
 import org.json.JSONArray;
 
 import br.unicamp.controller.BarController;
+import br.unicamp.controller.ClienteController;
+import br.unicamp.controller.FuncionarioController;
 import br.unicamp.controller.LancamentoController;
 import br.unicamp.controller.StatisticBarController;
 import br.unicamp.model.Bar;
@@ -109,6 +111,18 @@ public class BarResource
 	}
 	
 	@GET
+	@Path("/funcionarios/{codbar}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public String listarFuncionarios(@PathParam("codbar") String codbar)
+	{
+		StringWriter out = new StringWriter();
+		JSONArray list = new JSONArray(new FuncionarioController().listarTodos(Integer.parseInt(codbar)).toArray());
+		list.write(out);
+				
+		return out.toString();		
+	}
+	
+	@GET
 	@Path("/promocoes/gerais/{codbar}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public String listarPromocoesGerais(@PathParam("codbar") String codbar)
@@ -133,6 +147,18 @@ public class BarResource
 	}
 	
 	@GET
+	@Path("/clientes/favoritos/{codbar}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public String listarClientesFavoritos(@PathParam("codbar") String codbar)
+	{
+		StringWriter out = new StringWriter();
+		JSONArray list = new JSONArray(new ClienteController().todosFavoritos(Integer.parseInt(codbar)).toArray());
+		list.write(out);
+		
+		return out.toString(); 
+	}
+	
+	@GET
 	@Path("/avaliacoes/{codbar}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public String listarAvaliacoes(@PathParam("codbar") String codbar)
@@ -151,6 +177,18 @@ public class BarResource
 	{
 		StringWriter out = new StringWriter();
 		JSONArray list = new JSONArray(new BarController().listarCardapios(Integer.parseInt(codbar)).toArray());
+		list.write(out);
+		
+		return out.toString();
+	}
+	
+	@GET
+	@Path("/mensagens/{codbar}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public String listarMensagens(@PathParam("codbar") String codbar)
+	{
+		StringWriter out = new StringWriter();
+		JSONArray list = new JSONArray(new BarController().listarMensagens(Integer.parseInt(codbar)).toArray());
 		list.write(out);
 		
 		return out.toString();

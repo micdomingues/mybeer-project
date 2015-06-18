@@ -153,7 +153,6 @@ public class LoginResource
 	    	
 	    	if(cliente == null)
 	    	{
-	    		cliente = new Cliente();
 	    		//Adiciona no BD via Controller
 			    login = new LoginController().adicionar(login);
 			    if(login.getId() == 0)

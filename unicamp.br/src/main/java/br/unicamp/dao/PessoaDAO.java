@@ -3,13 +3,11 @@ package br.unicamp.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
 
 import br.unicamp.factory.ConnectionFactory;
 import br.unicamp.model.Cliente;
 import br.unicamp.model.Funcionario;
 import br.unicamp.model.Pessoa;
-import br.unicamp.model.Mensagem;
 
 public class PessoaDAO extends ConnectionFactory
 {

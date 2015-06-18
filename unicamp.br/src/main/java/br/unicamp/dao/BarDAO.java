@@ -11,6 +11,7 @@ import br.unicamp.model.Avaliacao;
 import br.unicamp.model.Bar;
 import br.unicamp.model.Cardapio;
 import br.unicamp.model.Evento;
+import br.unicamp.model.Mensagem;
 import br.unicamp.model.Promocao;
 import br.unicamp.model.Semana;
 import br.unicamp.model.StatisticBar;
@@ -308,6 +309,49 @@ public class BarDAO extends ConnectionFactory
 		}
 		return cardapios;
 	}
+	
+	public ArrayList<Mensagem> listarMensagens(int codbar)
+	{
+		Connection conexao = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<Mensagem> mensagens = null;
+		
+		conexao = criarConexao();
+		mensagens = new ArrayList<Mensagem>();		
+		try
+		{
+			pstmt = conexao.prepareStatement("SELECT MEN.CODMENSAGEM, MEN.IDFUNCIONARIO, MEN.ASSUNTO, MEN.CONTEUDO, "
+					+ "DATE_FORMAT(MEN.`DATA`,'%d/%m/%Y %H:%i') AS `DATA` FROM MENSAGEM MEN INNER JOIN "
+					+ "(FUNCIONARIO FUN INNER JOIN BAR ON (FUN.CODBAR = BAR.CODBAR)) ON (MEN.IDFUNCIONARIO = FUN.ID) WHERE BAR.CODBAR = ? ORDER BY MEN.`DATA` DESC");
+			
+			pstmt.setInt(1, codbar);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next())
+			{
+				Mensagem mensagem = new Mensagem();
+				
+				mensagem.setCodmensagem(rs.getInt("CODMENSAGEM"));
+				mensagem.setIdfuncionario(rs.getInt("IDFUNCIONARIO"));
+				mensagem.setAssunto(rs.getString("ASSUNTO"));
+				mensagem.setConteudo(rs.getString("CONTEUDO"));
+				mensagem.setData(rs.getString("DATA"));				
+				
+				mensagens.add(mensagem);
+			}			
+		}
+		catch (Exception e) 
+		{
+			System.out.println("Erro ao listar mensagens enviadas pelo bar: " + e);
+			e.printStackTrace();
+		}
+		finally
+		{
+			fecharConexao(conexao, pstmt, rs);
+		}
+		return mensagens;
+	}
 
 	public ArrayList<Avaliacao> listarAvaliacoes(int codbar)
 	{
@@ -420,14 +464,14 @@ public class BarDAO extends ConnectionFactory
 			if(tipo == null)
 			{
 				comando = "SELECT CODPROMOCAO, CODBAR, IDFUNCIONARIO, DATE_FORMAT(DATAABERTURA,'%d/%m/%Y %H:%i') AS DATAABERTURA,"
-							+ " DATE_FORMAT(DATAINICIO,'%d/%m/%Y %H:%i') AS DATAINICIO, DATE_FORMAT(DATAFIM,'%d/%m/%Y %H:%i') AS DATAFIM, "
+							+ " DATE_FORMAT(DATAINICIO,'%d/%m/%Y') AS DATAINICIO, DATE_FORMAT(DATAFIM,'%d/%m/%Y') AS DATAFIM, "
 							+ "NOME, TIPO, DESCRICAO FROM PROMOCAO WHERE (NOW() < DATAFIM) AND CODBAR = ?";
 				
 			}
 			else
 			{
-				comando = "SELECT CODPROMOCAO, CODBAR, IDFUNCIONARIO, DATE_FORMAT(DATAABERTURA,'%d/%m/%Y %H:%i') AS DATAABERTURA,"
-						+ " DATE_FORMAT(DATAINICIO,'%d/%m/%Y %H:%i') AS DATAINICIO, DATE_FORMAT(DATAFIM,'%d/%m/%Y %H:%i') AS DATAFIM, "
+				comando = "SELECT CODPROMOCAO, CODBAR, IDFUNCIONARIO, DATE_FORMAT(DATAABERTURA,'%d/%m/%Y') AS DATAABERTURA,"
+						+ " DATE_FORMAT(DATAINICIO,'%d/%m/%Y') AS DATAINICIO, DATE_FORMAT(DATAFIM,'%d/%m/%Y') AS DATAFIM, "
 						+ "NOME, TIPO, DESCRICAO FROM PROMOCAO WHERE (NOW() < DATAFIM) AND CODBAR = ? AND TIPO = ?";
 			}
 			
