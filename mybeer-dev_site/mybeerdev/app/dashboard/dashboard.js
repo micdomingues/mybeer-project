@@ -9,7 +9,7 @@ angular.module('myApp.dashboard', ['ngRoute'])
     });
     }])
 
-.controller('DashboardCtrl', ['$scope', '$http', '$q', 'loginService', 'dashboardService', function ($scope, $http, $q, loginService, dashboardService) {
+.controller('DashboardCtrl', ['$scope', '$http', '$q', 'loginService', 'dashboardService','$modal', function ($scope, $http, $q, loginService, dashboardService,$modal) {
 
     $scope.page = '/dashboard';
     $scope.rate = 3;
@@ -161,8 +161,21 @@ angular.module('myApp.dashboard', ['ngRoute'])
     }
 
     getUser();
-
-
+    
+    $scope.openModal = function (evento,id) {
+        var modalInstance = $modal.open({
+            animation: true,
+            templateUrl: id,
+            controller: 'ModalInstanceCtrl',
+            size: 'lg',
+            resolve: {
+                items: function () {
+                    return evento;
+                }
+            }
+        });
+    }
+   
     }]).service("dashboardService", function ($http, $q, nomeBanco) {
 
     this.getPromocoes = function (id) {
@@ -223,5 +236,16 @@ angular.module('myApp.dashboard', ['ngRoute'])
             stringNovo = "novo"
         }
         return stringNovo;
+    };
+}).controller('ModalInstanceCtrl', function ($scope, $modalInstance,items) {
+
+    $scope.data = items;
+    console.log(items);
+    $scope.ok = function () {
+        $modalInstance.close();
+    };
+
+    $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
     };
 });

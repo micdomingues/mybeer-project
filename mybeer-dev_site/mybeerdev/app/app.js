@@ -174,6 +174,8 @@ PageApp.run(function ($rootScope, $location, loginService) {
     });
 }).service('nomeBanco',function(){
     this.getLink = function(){
-        return "http://frkey.noip.me:3636/br.unicamp/rest/";
+        //http://default-environment-fnmmqcmuin.elasticbeanstalk.com/rest/
+//        "http://frkey.noip.me:3636/br.unicamp/rest/";
+        return "http://default-environment-fnmmqcmuin.elasticbeanstalk.com/rest/";
     }
 });

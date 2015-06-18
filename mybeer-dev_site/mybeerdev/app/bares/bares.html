@@ -129,7 +129,7 @@
                         <div class="panel-body">
                             <div class="list-group">
                                 <div ng-repeat="evento in eventos">
-                                    <a href="#" class="list-group-item"><span class="badge" >{{evento.data}}</span>{{evento.nome}} </a>
+                                    <a ng-click="openModal(evento,'evento.html')" class="list-group-item"><span class="badge" >{{evento.data}}</span>{{evento.nome}} </a>
                                 </div>
 
                             </div>
@@ -151,7 +151,7 @@
                         <div class="panel-body">
                             <div class="list-group">
                                 <div ng-repeat="promocao in promocoes">
-                                    <a href="#" class="list-group-item"><span class="badge" >{{promocao.datainicio}} <div> {{promocao.datafim}}</div></span>{{promocao.nome}} </a>
+                                    <a ng-click="openModal(promocao,'promocao.html')" class="list-group-item"><span class="badge" >{{promocao.datainicio}} <div> {{promocao.datafim}}</div></span>{{promocao.nome}} </a>
                                 </div>
 
                             </div>
@@ -194,7 +194,7 @@
                         <div class="panel-body">
                             <div class="list-group">
                                 <div ng-repeat="avaliacao in avaliacoes">
-                                    <a href="#" class="list-group-item"><span class="badge" >{{avaliacao.data}}  |  <rating ng-model="avaliacao.qualidade" max="max" readonly="isReadonly"></rating> |  <rating ng-model="avaliacao.preco" readonly="isReadonly" max="3" state-on="'glyphicon-usd'" state-off="'fa fa-strikethrough'"></rating></span><b>{{avaliacao.nomecliente}}</b> - {{avaliacao.comentario}} 
+                                    <a class="list-group-item"><span class="badge" >{{avaliacao.data}}  |  <rating ng-model="avaliacao.qualidade" max="max" readonly="isReadonly"></rating> |  <rating ng-model="avaliacao.preco" readonly="isReadonly" max="3" state-on="'glyphicon-usd'" state-off="'fa fa-strikethrough'"></rating></span><b>{{avaliacao.nomecliente}}</b> - {{avaliacao.comentario}} 
                                      
                                         
                                     </a>
@@ -213,3 +213,44 @@
     </div>
     <!-- /.container-fluid -->
 </div>
+<!-- MODAL EVENTOS-->
+<script type="text/ng-template" id="evento.html">
+    <div class="modal-header">
+        <h3 class="modal-title">Nome: {{data.nome}}</h3>
+    </div>
+    <div class="modal-body">
+        <div class="col-xs-8">
+            <span><h4><b>{{data.descricao}}</b></h4> </span>
+        </div>
+        <div class="col-xs-offset-10">
+            <h4 class="badge"><b><span style="font-size: 150%;">{{data.data}}</span></b></h4> 
+            <br/>
+            <a target="_blank" ng-href="{{evento.linkevento}}"><span class="fa fa fa-facebook-square fa-lg pull-right"></span></a>
+            <a ng-href="#/bar/{{data.codbar}}" ng-click="ok()"><span class="fa fa fa-beer fa-lg pull-right"></span></a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="ok()">Fechar</button>
+    </div>
+</script>
+<!-- MODAL PROMOCAO-->
+<script type="text/ng-template" id="promocao.html">
+    <div class="modal-header">
+        <h3 class="modal-title">Nome: {{data.nome}}</h3>
+    </div>
+    <div class="modal-body">
+        <div class="col-xs-8">
+            <span><h4><b>{{data.descricao}}</b></h4> </span>
+        </div>
+        <div class="col-xs-offset-10">
+            <h4 class="badge"><b><span style="font-size: 150%;">{{data.datainicio}} <br/> {{data.datafim}}</span></b></h4> 
+            <br/>
+            <a ng-href="#/bar/{{data.codbar}}" ng-click="ok()"><span class="fa fa fa-beer fa-lg pull-right"></span></a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="ok()">Fechar</button>
+    </div>
+</script>

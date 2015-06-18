@@ -33,7 +33,6 @@
 
             </div>
 
-            <!-- end of eventos -->
 
             <div class="col-xs-12">
             <div class="col-lg-4 col-md-4">
@@ -46,6 +45,7 @@
                     </div>
                     <div style="padding:10px;white-space: pre-line;margin-left:2%">
                         <b> {{cardapio.descricao}}</b>
+                        <div style="text-align:center" ng-show="cardapio.length == 0"> <h5 >Nenhum cardápio para exibir!</h5></div>
                         <div class="clearfix">
                         </div>
                     </div>
@@ -66,10 +66,10 @@
                         <div class="panel-body">
                             <div class="list-group">
                                 <div ng-repeat="promocao in promocoes">
-                                    <a class="list-group-item"><span class="badge" >{{promocao.datainicio}} <div> {{promocao.datafim}}</div></span>{{promocao.nome}} </a>
+                                    <a ng-click="openModal(promocao,'promocao.html')" class="list-group-item"><span class="badge" >{{promocao.datainicio}} <div> {{promocao.datafim}}</div></span>{{promocao.nome}} </a>
                                 </div>
-
                             </div>
+                            <div style="text-align:center" ng-show="promocoes.length == 0"> <h5 >Nenhuma promoção para exibir!</h5></div>
                         </div>
 
                     </div>
@@ -88,10 +88,10 @@
                     <div class="panel-body">
                         <div class="list-group">
                             <div ng-repeat="evento in eventos">
-                                <a class="list-group-item"><span class="badge" >{{evento.data}}</span>{{evento.nome}} </a>
+                                <a ng-click="openModal(evento,'evento.html')" class="list-group-item"><span class="badge" >{{evento.data}}</span>{{evento.nome}} </a>
                             </div>
-
                         </div>
+                        <div style="text-align:center" ng-show="eventos.length == 0"> <h5 >Nenhum evento para exibir!</h5></div>
                     </div>
 
                 </div>
@@ -117,6 +117,7 @@
                                 <i class="fa fa-fw fa-barcode"></i> {{lancamento.nomefuncionario}} - {{lancamento.nomecliente}} : {{lancamento.valor}}
                             </a>
                             </div>
+                            <div style="text-align:center" ng-show="lancamentos.length == 0"> <h5 >Nenhum lançamento para exibir!</h5></div>
                         </div>
                     </div>
                 </div>
@@ -161,6 +162,7 @@
                                 </div>
 
                             </div>
+                            <div style="text-align:center" ng-show="promocoesCliente.length == 0"> <h5 >Nenhuma promoção para exibir!</h5></div>
                         </div>
 
                     </div>
@@ -182,6 +184,7 @@
                                 </div>
 
                             </div>
+                            <div style="text-align:center" ng-show="eventos.length == 0"> <h5 >Nenhum evento para exibir!</h5></div>
                         </div>
 
                     </div>
@@ -202,6 +205,7 @@
                                     <a class="list-group-item">{{mensagem.assunto}} <span ng-class="{'label label-success pull-right' : !mensagem.label , 'glyphicon glyphicon-ok pull-right' : mensagem.label}" > {{mensagem.lida | novo}} </span></a>
 
                                 </div>
+                                <div style="text-align:center" ng-show="mensagens.length == 0"> <h5 >Nenhuma mensagem para exibir!</h5></div>
                             </div>
                         </div>
 
@@ -227,6 +231,7 @@
                                 </div>
 
                             </div>
+                            <div style="text-align:center" ng-show="favoritos.length == 0"> <h5 >Nenhum bar para exibir!</h5></div>
                         </div>
 
                     </div>
@@ -239,3 +244,44 @@
     </div>
     <!-- /.container-fluid -->
 </div>
+<!-- MODAL EVENTOS-->
+<script type="text/ng-template" id="evento.html">
+    <div class="modal-header">
+        <h3 class="modal-title">Nome: {{data.nome}}</h3>
+    </div>
+    <div class="modal-body">
+        <div class="col-xs-8">
+            <span><h4><b>{{data.descricao}}</b></h4> </span>
+        </div>
+        <div class="col-xs-offset-10">
+            <h4 class="badge"><b><span style="font-size: 150%;">{{data.data}}</span></b></h4> 
+            <br/>
+            <a target="_blank" ng-href="{{evento.linkevento}}"><span class="fa fa fa-facebook-square fa-lg pull-right"></span></a>
+            <a ng-href="#/bar/{{data.codbar}}" ng-click="ok()"><span class="fa fa fa-beer fa-lg pull-right"></span></a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="ok()">Fechar</button>
+    </div>
+</script>
+<!-- MODAL PROMOCAO-->
+<script type="text/ng-template" id="promocao.html">
+    <div class="modal-header">
+        <h3 class="modal-title">Nome: {{data.nome}}</h3>
+    </div>
+    <div class="modal-body">
+        <div class="col-xs-8">
+            <span><h4><b>{{data.descricao}}</b></h4> </span>
+        </div>
+        <div class="col-xs-offset-10">
+            <h4 class="badge"><b><span style="font-size: 150%;">{{data.datainicio}} <br/> {{data.datafim}}</span></b></h4> 
+            <br/>
+            <a ng-href="#/bar/{{data.codbar}}" ng-click="ok()"><span class="fa fa fa-beer fa-lg pull-right"></span></a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="ok()">Fechar</button>
+    </div>
+</script>

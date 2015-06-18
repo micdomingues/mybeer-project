@@ -12,6 +12,8 @@
         <div ng-show="isCliente" ng-cloak>
             <!-- end of eventos -->
 
+            <div style="text-align:center" ng-show="mensagens.length == 0"> <h2 >Nenhuma mensagem foi encontrada!</h2></div>
+            
             <div ng-repeat="mensagem in mensagens">
             <div class="col-lg-4 col-md-4">
                 <div class="panel panel-default">

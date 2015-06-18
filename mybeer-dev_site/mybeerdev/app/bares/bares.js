@@ -9,7 +9,7 @@ angular.module('myApp.bares', ['ngRoute'])
     });
     }])
 
-    .controller('BarCtrl', ['$scope','$http','$q', 'loginService','baresServicePage','$routeParams',function ($scope, $http , $q,  loginService, baresServicePage,$routeParams) {
+    .controller('BarCtrl', ['$scope','$http','$q', 'loginService','baresServicePage','$routeParams','$modal',function ($scope, $http , $q,  loginService, baresServicePage,$routeParams,$modal) {
         
         console.log($routeParams.id);
         
@@ -80,6 +80,20 @@ angular.module('myApp.bares', ['ngRoute'])
 
         getCardapioDia();
         
+        $scope.openModal = function (evento,id) {
+            var modalInstance = $modal.open({
+                animation: true,
+                templateUrl: id,
+                controller: 'ModalInstanceCtrl',
+                size: 'lg',
+                resolve: {
+                    items: function () {
+                        return evento;
+                    }
+                }
+            });
+        }
+        
     }]).service("baresServicePage", function ($http, $q,nomeBanco) {
     
     this.getBar = function (id) {
@@ -107,4 +121,15 @@ angular.module('myApp.bares', ['ngRoute'])
 
     }
     
+}).controller('ModalInstanceCtrl', function ($scope, $modalInstance,items) {
+
+    $scope.data = items;
+    console.log(items);
+    $scope.ok = function () {
+        $modalInstance.close();
+    };
+
+    $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+    };
 });
